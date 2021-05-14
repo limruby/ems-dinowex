@@ -31,6 +31,9 @@
   padding-right: 0;
 >>>>>>> 2dbc05f (sponsor sign up updated)
 }
+.login-form-container span{
+ color: red;
+}
 
 .form-input{
   padding: 8px 24px;

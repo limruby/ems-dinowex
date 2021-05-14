@@ -47,7 +47,6 @@ const register = (req, res, next)=>{
     
 =======
     
-
     const newAccount = new Account({
       role, 
       email,

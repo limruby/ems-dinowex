@@ -123,8 +123,8 @@ function UserDashboard() {
       gender: 'male',
       password: 'Oldpassword',
       confirmPassword: '',
-      // role:"Sponsor",
-      role:"Competitor",
+       role:"Sponsor",
+      //role:"Competitor",
 
 
       
