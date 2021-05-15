@@ -5,6 +5,7 @@ export class Success extends Component {
     render() {
         return (
             <div>
+			<h3><strong>Account Created Successfully!</strong></h3>
                 <br></br>
 <<<<<<< HEAD
 =======
