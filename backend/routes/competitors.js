@@ -6,6 +6,6 @@ const authenticate = require('../middleware/authenticate');
 router.post('/create', CompetitorController.create);
 router.get('/read', CompetitorController.read);
 router.post('/update',authenticate, CompetitorController.update);
-router.post('/pay', CompetitorController.pay);
+router.get('/pay', CompetitorController.pay);
 
 module.exports = router;
