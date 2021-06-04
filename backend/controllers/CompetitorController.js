@@ -5,6 +5,7 @@ var ObjectId = require('mongodb').ObjectId;
 const create = (req, res, next)=>{
   const account_id = req.body.account_id;
   const category = req.body.category;
+  const phone_no = req.body.phone_no;
   const name = req.body.name;
   const affiliation = req.body.affiliation;
   const nric_passport_selection = req.body.nric_passport_selection;
@@ -21,7 +22,8 @@ const create = (req, res, next)=>{
       nric_passport_selection,
       nric_passport_no,
       address,
-      gender
+      gender,
+      phone_no
     });
 
     newCompetitor.save()
@@ -67,6 +69,9 @@ const update = (req, res, next)=>{
  
   if(req.body.gender){
     updateCompetitor['gender'] = req.body.gender;
+  }
+  if(req.body.phone_no){
+    updateCompetitor['phone_no'] = req.body.phone_no;
   }
  
   if(req.body.address){
@@ -125,8 +130,19 @@ const readAll = (req, res, next)=>{
     }).catch(err => console.log(err))
  };
 
+ const pay = (req, res, next) => {
+//   Competitor.findByIdAndUpdate(req.body._id, pay, (err, competitors) => {
+//     if (err) {
+//         return res.status(400).json({ success: false, error: err, data:req.body })
+//     }
+//     if(competitors){
+//     return res.status(200).json({ success: true, data: req.body })
+//   }
+// }).catch(err => console.log(err))
+ }
 
 
 
 
-module.exports = {create, read, update, readAll}
+
+module.exports = {create, read, update, readAll, pay}
