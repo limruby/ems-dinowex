@@ -4,6 +4,9 @@ var ObjectId = require('mongodb').ObjectId;
 const qs = require('querystring');
 const CryptoJS = require('crypto-js');
 
+var LocalStorage = require('node-localstorage').LocalStorage,
+  localStorage = new LocalStorage('./scratch');
+
 const create = (req, res, next)=>{
   const account_id = req.body.account_id;
   const category = req.body.category;
@@ -29,7 +32,7 @@ const create = (req, res, next)=>{
     });
 
     newCompetitor.save()
-      .then(() => res.json('Competitor Created!'))
+      .then(() => res.json(newCompetitor))
       .catch(err => res.status(400).json('Error: ' + err));
 };
 
@@ -130,7 +133,29 @@ const readAll = (req, res, next)=>{
         return res.status(200).json({ success: true, data: competitors })
     }).catch(err => console.log(err))
  };
+ const updatePayment = (req, res, next) => {
+  console.log(req.body.competitor_id)
+  var competitor_id = req.body.competitor_id
+  var updateCompetitor = {}
+  updateCompetitor['bill_id'] = localStorage.getItem('bill_id')
+  updateCompetitor['bill_paid_at'] = localStorage.getItem('bill_paid_at')
+  updateCompetitor['bill_status'] = localStorage.getItem('bill_status')
+  
+  console.log(competitor_id)
 
+Competitor.findByIdAndUpdate(req.body.competitor_id, updateCompetitor, (err, competitors) => {
+  
+
+if (err) {
+    return res.status(400).json({ success: false, error: err, data:req.body })
+}
+if(competitors){
+return res.status(200).json({ success: true, data: req.body })
+}
+}).catch(err => console.log(err))
+
+}
+ 
  const pay = (req, res, next) => {
    // extract POST data from billplz
    var url = req.protocol + '://' + req.get('host') + req.originalUrl;
@@ -142,16 +167,24 @@ const readAll = (req, res, next)=>{
 // do a validation
 const billplzId = "billplzid" + params['billplz[id]'];
    const billplzPaidAt = "billplzpaid_at" + params['billplz[paid_at]'];
-   const billplzpPaid = "billplzpaid" + params['billplz[paid]'];
-
-   const combineString = billplzId +  "|" + billplzPaidAt +  "|" + billplzpPaid;
-
-   console.log(combineString)
+   const billplzPaid = "billplzpaid" + params['billplz[paid]'];
+   const combineString = billplzId +  "|" + billplzPaidAt +  "|" + billplzPaid;
    var hash = CryptoJS.HmacSHA256(combineString, "S-B3mEu_juz3G2q2IlEfYmmw").toString();
-
-   console.log(hash);
+  //  console.log(billplzPaid)
+  //  console.log(params['billplz[paid]'])
+  //  console.log(params['billplz[x_signature]'] == hash)
+  //  console.log(params['billplz[x_signature]'])
+  //  console.log(hash);
+//isPaid?
+if(params['billplz[paid]'] === "true" && params['billplz[x_signature]'] === hash){
+  localStorage.setItem('bill_id',params['billplz[id]'])
+  localStorage.setItem('bill_paid_at',params['billplz[paid_at]'])
+  localStorage.setItem('bill_status', params['billplz[paid]'])
+  res.redirect('http://localhost:3000/payment_success');
  }
+ else{
+  res.redirect('http://localhost:3000/payment_fail')
+ }
+}
 
-
-
-module.exports = {create, read, update, readAll, pay}
+module.exports = {create, read, update, readAll, pay, updatePayment}

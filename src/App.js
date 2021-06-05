@@ -7,6 +7,7 @@ import Landing from './components/site/landingPage';
 import SignIn from './components/site/login/login';
 import SignUp from './components/site/signUp'
 import Payment_Success from './components/site/payment_success.js'
+import Payment_Fail from './components/site/payment_fail'
 import UserDashboard from './components/site/userDashboard';
 import EditUserDetails from './components/site/userDashboard/edit';
 import eventLobby from './components/site/eventLobby/eventLobby';
@@ -70,6 +71,8 @@ function App() {
         <Route exact path='/competition_hall'  component={competition_hall}/>
 
         <Route exact path='/page_not_found' component={PageNotFound} />
+        <Route exact path='/payment_success'  component={Payment_Success}/>
+        <Route exact path='/payment_fail'  component={Payment_Fail}/>
       </Switch>
 	  <Footer/>
       

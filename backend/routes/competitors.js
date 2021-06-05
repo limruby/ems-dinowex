@@ -7,5 +7,6 @@ router.post('/create', CompetitorController.create);
 router.get('/read', CompetitorController.read);
 router.post('/update',authenticate, CompetitorController.update);
 router.get('/pay', CompetitorController.pay);
+router.post('/updatePayment', CompetitorController.updatePayment);
 
 module.exports = router;
