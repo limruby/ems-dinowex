@@ -1,4 +1,4 @@
 rm -r ./vexs.tar
-docker build -t vexs/backend . 
-docker save vexs/backend > vexs.tar
-docker rmi vexs/backend
+docker build -t vexsdev/backend . 
+docker save vexsdev/backend > vexs.tar
+docker rmi vexsdev/backend
