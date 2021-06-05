@@ -4,7 +4,6 @@ import Category from './Category';
 import Profiles from './Profiles';
 import TeamProfiles from './TeamProfiles';
 import Confirm from './Confirm';
-import Success from './Success';
 
 export class CompetitorForm extends Component {
     state = {
@@ -122,10 +121,8 @@ export class CompetitorForm extends Component {
                         values={values}
                     />
                 );
-            case 5:
-                return (
-                    <Success />
-                );
+                default:
+                    
         }
     }
 }

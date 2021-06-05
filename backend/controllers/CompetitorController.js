@@ -1,6 +1,8 @@
 const Competitor = require('../models/competitor');
 const mongoose = require('mongoose');
 var ObjectId = require('mongodb').ObjectId;
+const qs = require('querystring');
+const CryptoJS = require('crypto-js');
 
 const create = (req, res, next)=>{
   const account_id = req.body.account_id;
@@ -105,7 +107,6 @@ const update = (req, res, next)=>{
   }
    
 
-
     Competitor.findByIdAndUpdate(req.body._id, updateCompetitor, (err, competitors) => {
         if (err) {
             return res.status(400).json({ success: false, error: err, data:req.body })
@@ -131,17 +132,25 @@ const readAll = (req, res, next)=>{
  };
 
  const pay = (req, res, next) => {
-//   Competitor.findByIdAndUpdate(req.body._id, pay, (err, competitors) => {
-//     if (err) {
-//         return res.status(400).json({ success: false, error: err, data:req.body })
-//     }
-//     if(competitors){
-//     return res.status(200).json({ success: true, data: req.body })
-//   }
-// }).catch(err => console.log(err))
+   // extract POST data from billplz
+   var url = req.protocol + '://' + req.get('host') + req.originalUrl;
+   var res_string = url.split('?');
+   var queryString=res_string[1];
+   const params = qs.parse(queryString)
+   console.log(params)
+  
+// do a validation
+const billplzId = "billplzid" + params['billplz[id]'];
+   const billplzPaidAt = "billplzpaid_at" + params['billplz[paid_at]'];
+   const billplzpPaid = "billplzpaid" + params['billplz[paid]'];
+
+   const combineString = billplzId +  "|" + billplzPaidAt +  "|" + billplzpPaid;
+
+   console.log(combineString)
+   var hash = CryptoJS.HmacSHA256(combineString, "S-B3mEu_juz3G2q2IlEfYmmw").toString();
+
+   console.log(hash);
  }
-
-
 
 
 

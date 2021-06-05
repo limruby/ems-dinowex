@@ -37,8 +37,12 @@ export class Confirm extends Component {
 
                 axiosInstance.post('/api/competitors/create', data)
                 .then(res=>{
+                    //save user_ID to localstorage
+                    localStorage.clear();
+                    localStorage.setItem('account_id', JSON.stringify(this.account_id));
+                    console.log(res.data);  
                     window.open("https://www.billplz-sandbox.com/nbnrslu82","_self")
-                    this.props.nextStep();
+                    this.props.nextStep();             
                 });
              }
              else{

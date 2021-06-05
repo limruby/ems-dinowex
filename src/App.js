@@ -6,6 +6,7 @@ import {isAuth, isAdmin} from './utils/isAuth'
 import Landing from './components/site/landingPage';
 import SignIn from './components/site/login/login';
 import SignUp from './components/site/signUp'
+import Payment_Success from './components/site/payment_success.js'
 import UserDashboard from './components/site/userDashboard';
 import EditUserDetails from './components/site/userDashboard/edit';
 import eventLobby from './components/site/eventLobby/eventLobby';

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 
-export class Success extends Component {
+export class Payment_Success extends Component {
     render() {
         return (
             <div>
@@ -15,4 +15,4 @@ export class Success extends Component {
     }
 }
 
-export default Success
+export default Payment_Success
