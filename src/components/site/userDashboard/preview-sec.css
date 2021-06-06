@@ -80,7 +80,13 @@
 =======
         margin-left: auto;
         margin-right: auto;
+<<<<<<< HEAD
         break-inside: avoid;
+=======
+        page-break-before: auto; 
+        page-break-after: auto; 
+        page-break-inside: avoid;
+>>>>>>> ea61e0e (26/5/ pdf)
     }
 
     .preview-section #author p {
@@ -141,6 +147,7 @@
 <<<<<<< HEAD
         font-size: 11px;
         text-align: justify;
+<<<<<<< HEAD
         break-inside: avoid;
         list-style-type:none;
 <<<<<<< HEAD
@@ -156,3 +163,7 @@
 =======
     }
 >>>>>>> b231f77 (https done but CORS issue for payment)
+=======
+        list-style-type:none;
+    }
+>>>>>>> ea61e0e (26/5/ pdf)
