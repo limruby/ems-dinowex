@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form';
 <<<<<<< HEAD
 <<<<<<< HEAD
 import { FaTrashAlt } from 'react-icons/fa';
+<<<<<<< HEAD
 import Editor from './editor';
 <<<<<<< HEAD
 =======
@@ -13,6 +14,10 @@ import { FaTrashAlt } from 'react-icons/fa';
 >>>>>>> 70358d5 (update kale's progress 17th May 2021)
 =======
 >>>>>>> 172511b (ckeditor)
+=======
+import Editor from "./editor.js";
+
+>>>>>>> 962c9ed (merge from before)
 
 import axiosInstance from '../../../../utils/axiosConfig.js';
 
@@ -20,7 +25,7 @@ function EditBookChapter({data, setData}) {
 
 
     const inputChange = input => e => {
-	    if(input=='introduction'){
+        if(input=='introduction'){
 			if(!data.bookChapter[0]){
 				data.bookChapter.push({'introduction': e.target.value})			}
 			else{
@@ -85,11 +90,16 @@ function EditBookChapter({data, setData}) {
                     <input type="text" className="form-control" name="reference" id="reference"
                     placeholder='reference'                    
                     onChange={tempInput('reference')} value={tempState.reference}/>
+<<<<<<< HEAD
                 	<button className="btn btn-primary" type="button" onClick={addReference()}> Add</button>
 
 					<br/>
                 	
 
+=======
+					<br/>
+                	<button className="addBtn btn-primary btn" type="button" onClick={addReference()}> Add</button>
+>>>>>>> 962c9ed (merge from before)
                 </div>
 
                 <hr/>
@@ -215,6 +225,7 @@ function EditBookChapter({data, setData}) {
 	                    <label htmlFor="content">Content </label>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 						<Editor id = {data._id} bookChapter_data = {data.bookChapter}/>
 =======
 	                    <textarea className="form-control" id="content" cols="30" rows="10"
@@ -223,6 +234,13 @@ function EditBookChapter({data, setData}) {
 =======
 	                    <Editor/>
 >>>>>>> 172511b (ckeditor)
+=======
+						<br/>
+						<Link to="/user_dashboard/edit_chapter_content">
+	                        <button className="btn btn-primary">Edit Content</button>
+	                    </Link>
+ 
+>>>>>>> 962c9ed (merge from before)
 	                </div>
 					
 					 <div className="form-group">

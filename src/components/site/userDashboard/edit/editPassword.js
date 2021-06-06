@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form';
 import axiosInstance from '../../../../utils/axiosConfig.js';
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
  
 function EditAccount({data, setData}) {
  
@@ -17,13 +18,18 @@ function EditAccount({data, setData}) {
 function EditAccount({data, setData}) {
  
 >>>>>>> 3c5d2dd (resolved issues)
+=======
+
+function EditAccount({data, setData}) {
+
+>>>>>>> 962c9ed (merge from before)
 /////////////////////get login user (REPLACE THIS) ////////////////
 const [user, setState] = useState({
       _id: '',
       newPassword: '',
       confirmPassword:''
- 
 });
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
    
@@ -47,10 +53,18 @@ const [user, setState] = useState({
             ...user,
                         _id:data._id,
 >>>>>>> 3c5d2dd (resolved issues)
+=======
+    
+
+    const inputChange = input => e => {
+        setState({
+            ...user,
+			_id:data._id,
+>>>>>>> 962c9ed (merge from before)
             [input]: e.target.value
         });
     };
- 
+
     const handleForm=(e)=>{
         e.preventDefault();
     // perform all neccassary validations
@@ -63,8 +77,8 @@ const [user, setState] = useState({
             alert("Form not fill");
         }
         else{
-           
-             console.log(data);  
+            
+             console.log(data);   
             ///////update to db /////////////
              axiosInstance.post("/api/accounts/update", user)
             .then(function(response) {
@@ -93,8 +107,9 @@ const [user, setState] = useState({
             })
         }
     }
- 
+
 /////////////////////////////////////////////////////////////
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
  
@@ -104,6 +119,9 @@ const [user, setState] = useState({
 =======
  
 >>>>>>> 3c5d2dd (resolved issues)
+=======
+
+>>>>>>> 962c9ed (merge from before)
     return(
         <>
             <form onSubmit={handleForm}>
@@ -119,6 +137,7 @@ const [user, setState] = useState({
                 </div>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
  
 =======
 
@@ -126,12 +145,16 @@ const [user, setState] = useState({
 =======
  
 >>>>>>> 3c5d2dd (resolved issues)
+=======
+
+>>>>>>> 962c9ed (merge from before)
                 <div className="form-group">
                     <label htmlFor="confirmPassword">Confirm New Password </label>
                     <input className="form-control" type='password'name='confirmPassword' id="confirmPassword"
                     placeholder='password' required
                     minLength="8"
                     onChange={inputChange('confirmPassword')} value={user.confirmPassword} />
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
                    
@@ -150,8 +173,14 @@ const [user, setState] = useState({
        
  
 >>>>>>> 3c5d2dd (resolved issues)
+=======
+                    
+                </div>
+        
+
+>>>>>>> 962c9ed (merge from before)
                 <br />
- 
+
                 <div className="col-4 btn-group">
                     <Link to="/user_dashboard">
                         <button className="btn btn-danger back-btn">Back</button>
@@ -161,6 +190,7 @@ const [user, setState] = useState({
             </div>
             </form>
          </>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
  
@@ -176,6 +206,11 @@ const [user, setState] = useState({
         )
  
 >>>>>>> 3c5d2dd (resolved issues)
+=======
+
+        )
+
+>>>>>>> 962c9ed (merge from before)
 }
- 
+
 export default EditAccount;

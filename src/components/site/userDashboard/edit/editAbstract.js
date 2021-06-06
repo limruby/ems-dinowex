@@ -1,12 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
- 
+
 import axiosInstance from '../../../../utils/axiosConfig.js';
- 
+
 function EditAbstract({data, setData}) {
- 
+
     console.log(data.abstract)
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     const inputChange = input => e => {
@@ -155,6 +156,8 @@ function EditAbstract({data, setData}) {
             
             axiosInstance.post("/api/competitors/update", postData)
 =======
+=======
+>>>>>>> 962c9ed (merge from before)
 	const inputChange = input => e => {
 
 		if(input=='title'){
@@ -202,21 +205,53 @@ function EditAbstract({data, setData}) {
 	function displayKeywordsForm(){
 	    var section = [];
 
+<<<<<<< HEAD
 	    if(data.abstract.keywords!==null||data.abstract.keywords.length<5){
+	        section.push(
+=======
+	    if(data.abstract!==undefined){
+			if(data.abstract==null||data.abstract[0]==undefined||data.abstract[0].keywords==null){
+			section.push(
+>>>>>>> 962c9ed (merge from before)
+	            <div>
+	                <div className="form-group">
+	                    <input type="text" className="form-control" name="keyword" id="keyword"
+	                    placeholder='keyword'                    
+	                    onChange={tempInput('keyword')} value={tempState.keyword}/>
+<<<<<<< HEAD
+	                	<button className="addBtn" type="button" onClick={addKeyword()}> Add</button>
+=======
+						<p/>
+	                	<button className="addBtn btn btn-primary" type="button" onClick={addKeyword()}> Add</button>
+>>>>>>> 962c9ed (merge from before)
+	                </div>
+
+	                <hr/>
+	            </div>
+	        );
+<<<<<<< HEAD
+	    }
+
+=======
+			}
+				else if(data.abstract[0].keywords.length<5){
 	        section.push(
 	            <div>
 	                <div className="form-group">
 	                    <input type="text" className="form-control" name="keyword" id="keyword"
 	                    placeholder='keyword'                    
 	                    onChange={tempInput('keyword')} value={tempState.keyword}/>
-	                	<button className="addBtn" type="button" onClick={addKeyword()}> Add</button>
+						<p/>
+	                	<button className="addBtn btn btn-primary" type="button" onClick={addKeyword()}> Add</button>
 	                </div>
 
 	                <hr/>
 	            </div>
 	        );
-	    }
-
+				
+			}
+		}
+>>>>>>> 962c9ed (merge from before)
 	    return section;
 	}
 
@@ -279,6 +314,7 @@ function EditAbstract({data, setData}) {
 	   
 	    	
 	    	axiosInstance.post("/competitors/update", data)
+<<<<<<< HEAD
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
 =======
         const inputChange = input => e => {
@@ -424,11 +460,14 @@ function EditAbstract({data, setData}) {
                
                 axiosInstance.post("/competitors/update", data)
 >>>>>>> 3c5d2dd (resolved issues)
+=======
+>>>>>>> 962c9ed (merge from before)
             .then(function(response) {
               window.location.href = '/user_dashboard';
             }).catch(function(error) {
               console.log(error);
             })
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
         
@@ -440,6 +479,8 @@ function EditAbstract({data, setData}) {
 
         
 =======
+=======
+>>>>>>> 962c9ed (merge from before)
 	    
 	}
 
@@ -448,6 +489,7 @@ function EditAbstract({data, setData}) {
 	/////////////////////////////////////////////////////////////
 
 		
+<<<<<<< HEAD
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
 =======
            
@@ -459,6 +501,8 @@ function EditAbstract({data, setData}) {
  
                
 >>>>>>> 3c5d2dd (resolved issues)
+=======
+>>>>>>> 962c9ed (merge from before)
 //load data to input field value
 function checkExist(element, index){
     var value="";
@@ -466,6 +510,7 @@ function checkExist(element, index){
         return ' ';
     }
     else if(data.abstract[0].title && element==="title"){
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
         return data.abstract[0].title;
@@ -484,11 +529,18 @@ function checkExist(element, index){
     else if(data.abstract[0].content && element==="content"){
         return data.abstract[0].content;
 >>>>>>> 3c5d2dd (resolved issues)
+=======
+    	return data.abstract[0].title;
+    }
+    else if(data.abstract[0].content && element==="content"){
+    	return data.abstract[0].content;
+>>>>>>> 962c9ed (merge from before)
     }    
    
- 
+
     console.log(data.abstract)
 }
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 
@@ -538,6 +590,11 @@ function checkExist(element, index){
 
     }
 =======
+=======
+
+
+
+>>>>>>> 962c9ed (merge from before)
 		return(
 			<>
 	            <form onSubmit={handleForm}>
@@ -581,6 +638,7 @@ function checkExist(element, index){
 			)
 
 	}
+<<<<<<< HEAD
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
 
 =======
@@ -632,4 +690,7 @@ function checkExist(element, index){
         }
  
 >>>>>>> 3c5d2dd (resolved issues)
+=======
+
+>>>>>>> 962c9ed (merge from before)
 export default EditAbstract;

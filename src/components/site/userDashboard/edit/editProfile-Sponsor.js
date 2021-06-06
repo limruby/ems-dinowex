@@ -346,6 +346,10 @@ export default EditProfile;
         )
 }
  
+<<<<<<< HEAD
 export default EditProfile;
  
 >>>>>>> 082b413 (upload and display company logo)
+=======
+export default EditProfile;
+>>>>>>> 962c9ed (merge from before)
