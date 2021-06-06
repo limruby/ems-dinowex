@@ -6,6 +6,7 @@ import axiosInstance from '../../../../utils/axiosConfig.js';
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
  
 function EditAccount({data, setData}) {
  
@@ -29,6 +30,11 @@ function EditAccount({data, setData}) {
 function EditAccount({data, setData}) {
  
 >>>>>>> 8654e33 (edit folder)
+=======
+ 
+function EditAccount({data, setData}) {
+ 
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 /////////////////////get login user (REPLACE THIS) ////////////////
 const [user, setState] = useState({
       _id: '',
@@ -40,12 +46,16 @@ const [user, setState] = useState({
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
    
  
     const inputChange = input => e => {
         setState({
             ...user,
                         _id:data._id,
+<<<<<<< HEAD
 =======
     
 
@@ -77,6 +87,8 @@ const [user, setState] = useState({
             ...user,
                         _id:data._id,
 >>>>>>> 8654e33 (edit folder)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
             [input]: e.target.value
         });
     };
@@ -89,6 +101,9 @@ const [user, setState] = useState({
         }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
         else if (user.newPassword==="" || user.confirmPassword===""){
             alert("Form not fill");
         }
@@ -97,6 +112,7 @@ const [user, setState] = useState({
              console.log(data);  
             ///////update to db /////////////
              axiosInstance.post("/api/accounts/update", user)
+<<<<<<< HEAD
 <<<<<<< HEAD
             .then(function(response) {
                window.location.href = '/user_dashboard';
@@ -121,6 +137,10 @@ const [user, setState] = useState({
 =======
                window.location.href = '/user_dashboard';
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+=======
+            .then(function(response) {
+               window.location.href = '/user_dashboard';
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
             }).catch(function(error) {
               console.log(error);
             })
@@ -128,6 +148,7 @@ const [user, setState] = useState({
     }
  
 /////////////////////////////////////////////////////////////
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -145,6 +166,9 @@ const [user, setState] = useState({
 =======
  
 >>>>>>> 8654e33 (edit folder)
+=======
+ 
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
     return(
         <>
             <form onSubmit={handleForm}>
@@ -162,6 +186,7 @@ const [user, setState] = useState({
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
  
 =======
 
@@ -175,6 +200,9 @@ const [user, setState] = useState({
 =======
  
 >>>>>>> 8654e33 (edit folder)
+=======
+ 
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
                 <div className="form-group">
                     <label htmlFor="confirmPassword">Confirm New Password </label>
                     <input className="form-control" type='password'name='confirmPassword' id="confirmPassword"
@@ -185,6 +213,7 @@ const [user, setState] = useState({
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                    
                 </div>
        
@@ -196,10 +225,13 @@ const [user, setState] = useState({
 
 >>>>>>> 7c0a793 (merged with alexia's branch)
 =======
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
                    
                 </div>
        
  
+<<<<<<< HEAD
 >>>>>>> 3c5d2dd (resolved issues)
 =======
                     
@@ -213,6 +245,8 @@ const [user, setState] = useState({
        
  
 >>>>>>> 8654e33 (edit folder)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
                 <br />
  
                 <div className="col-4 btn-group">
@@ -228,6 +262,7 @@ const [user, setState] = useState({
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
  
         )
  
@@ -251,6 +286,11 @@ const [user, setState] = useState({
         )
  
 >>>>>>> 8654e33 (edit folder)
+=======
+ 
+        )
+ 
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 }
  
 export default EditAccount;

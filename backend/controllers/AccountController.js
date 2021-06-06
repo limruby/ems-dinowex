@@ -18,6 +18,9 @@ const register = (req, res, next)=>{
     const password = hashedPassword;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 
      Account.findOne({ email:req.body.email}, function(err, result) {
     if(err) throw err;
@@ -38,6 +41,7 @@ const register = (req, res, next)=>{
     }
 
       
+<<<<<<< HEAD
 =======
     
 
@@ -68,6 +72,8 @@ const register = (req, res, next)=>{
 
       
 >>>>>>> 1848300 (validation test complete)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
     });
 
   });
@@ -155,6 +161,7 @@ const update = (req, res, next)=>{
         }
     }).catch(err => console.log(err)) 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
   }
@@ -163,6 +170,9 @@ const update = (req, res, next)=>{
 >>>>>>> 7c0a793 (merged with alexia's branch)
 
 <<<<<<< HEAD
+=======
+
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
   }
 }
 
@@ -182,6 +192,7 @@ const readAdmin = (req, res, next)=>{
   }).catch(err => console.log(err))
 };
 
+<<<<<<< HEAD
 const readAll = (req, res, next)=>{
   
   Account.find({}, (err, accounts) => {
@@ -215,3 +226,6 @@ const readAdmin = (req, res, next)=>{
 
 module.exports = {register, login, read, update, readAdmin}
 >>>>>>> b014062 (admindashboard_incomplete)
+=======
+module.exports = {register, login, read, update, readAdmin}
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed

@@ -42,12 +42,16 @@ const hideDropdown = e => {
 }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
  
 const logout=()=>{
         localStorage.clear();
         window.location.href = '/';
 };
  
+<<<<<<< HEAD
 =======
 
 =======
@@ -63,6 +67,8 @@ const logout=()=>{
 =======
  
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 window.addEventListener('resize', showButton);
  
  
@@ -138,6 +144,7 @@ window.addEventListener('resize', showButton);
           <li className="nav-item">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             <Nav.Link href="/sign_up">Registration</Nav.Link>
           </li>
           <li className="nav-item">
@@ -149,11 +156,16 @@ window.addEventListener('resize', showButton);
             <Nav.Link onClick={logout}>Log Out</Nav.Link>
 >>>>>>> bad270e (with logout function)
 =======
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
             <Nav.Link href="/sign_up">Registration</Nav.Link>
           </li>
           <li className="nav-item">
             <Nav.Link href="/sign_in">Sign In</Nav.Link>
+<<<<<<< HEAD
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
           </li>
         </ul>
      

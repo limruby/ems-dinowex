@@ -8,6 +8,7 @@ const app = express();
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 const port = process.env.PORT || 5000;
 
 <<<<<<< HEAD
@@ -47,6 +48,12 @@ app.use(cors({origin: '*'}));
 >>>>>>> 4bb0d2d (merge admin login)
 app.use(express.json({limit:'50mb'}));
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+=======
+const port = process.env.PORT || 5000;
+
+app.use(cors({origin: '*'}));
+app.use(express.json({limit:'50mb'}));
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 
 const uri =process.env.ATLAS_URI;
 mongoose.connect(uri, {useFindAndModify: false, useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true  });
@@ -55,6 +62,7 @@ const connection = mongoose.connection;
 connection.once('open', ()=>{
 	console.log("MongoDB database connection established")
 })
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -95,6 +103,8 @@ app.get('/api/hello', function(req, res) {
 >>>>>>> 4bb0d2d (merge admin login)
 =======
 >>>>>>> f9183b2 (update changes)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 //add routes
 const accountsRouter = require('./routes/accounts');
 app.use('/api/accounts', accountsRouter)
@@ -106,6 +116,7 @@ const competitorsRouter = require('./routes/competitors');
 app.use('/api/competitors', competitorsRouter)
 
 const sponsorsRouter = require('./routes/sponsors');
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -172,3 +183,11 @@ app.post('/uploadfile', upload.single('upload_file'), (req, res, next) => {
 >>>>>>> 86840ba (upload file function)
 =======
 >>>>>>> 082b413 (upload and display company logo)
+=======
+app.use('/api/sponsors', sponsorsRouter)
+
+app.listen(port, () => {
+	console.log('Now starting at http://localhost:5000/api/hello');
+});
+
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed

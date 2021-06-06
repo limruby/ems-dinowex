@@ -2,6 +2,7 @@ const Competitor = require('../models/competitor');
 const mongoose = require('mongoose');
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 var ObjectId = require('mongodb').ObjectId;
 const qs = require('querystring');
 const CryptoJS = require('crypto-js');
@@ -11,14 +12,20 @@ var LocalStorage = require('node-localstorage').LocalStorage,
 =======
 var ObjectId = require('mongodb').ObjectId;
 >>>>>>> 3e5a50c (remove unnecessary files)
+=======
+var ObjectId = require('mongodb').ObjectId;
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 
 const create = (req, res, next)=>{
   const account_id = req.body.account_id;
   const category = req.body.category;
 <<<<<<< HEAD
+<<<<<<< HEAD
   const phone_no = req.body.phone_no;
 =======
 >>>>>>> 3e5a50c (remove unnecessary files)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
   const name = req.body.name;
   const affiliation = req.body.affiliation;
   const nric_passport_selection = req.body.nric_passport_selection;
@@ -36,6 +43,7 @@ const create = (req, res, next)=>{
       nric_passport_no,
       address,
 <<<<<<< HEAD
+<<<<<<< HEAD
       gender,
       phone_no
     });
@@ -43,12 +51,17 @@ const create = (req, res, next)=>{
     newCompetitor.save()
       .then(() => res.json(newCompetitor))
 =======
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
       gender
     });
 
     newCompetitor.save()
       .then(() => res.json('Competitor Created!'))
+<<<<<<< HEAD
 >>>>>>> 3e5a50c (remove unnecessary files)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
       .catch(err => res.status(400).json('Error: ' + err));
 };
 
@@ -70,6 +83,7 @@ const read = (req, res, next)=>{
 
 const update = (req, res, next)=>{
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 
@@ -221,6 +235,9 @@ const subSchema = new Schema({
 =======
 
 >>>>>>> bdfdade (Admin login)
+=======
+
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
   var updateCompetitor = {};
   if(req.body.name){
     updateCompetitor['name'] = req.body.name;
@@ -248,7 +265,10 @@ const subSchema = new Schema({
 
   if(req.body.members){
     updateCompetitor['members'] = req.body.members;
+<<<<<<< HEAD
 >>>>>>> 3e5a50c (remove unnecessary files)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
   }
   if(req.body.poster){
     updateCompetitor['poster'] = req.body.poster;
@@ -304,6 +324,7 @@ const readAll = (req, res, next)=>{
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 module.exports = Competitor;
@@ -314,3 +335,6 @@ module.exports = {create, read, update}
 =======
 module.exports = {create, read, update, readAll}
 >>>>>>> b014062 (admindashboard_incomplete)
+=======
+module.exports = {create, read, update, readAll}
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed

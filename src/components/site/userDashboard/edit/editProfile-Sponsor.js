@@ -5,13 +5,17 @@ import axiosInstance from '../../../../utils/axiosConfig.js';
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 70358d5 (update kale's progress 17th May 2021)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 import { FaTrashAlt } from 'react-icons/fa';
  
  
 function EditProfile({data, setData}) {
  
+<<<<<<< HEAD
 =======
 
 
@@ -24,6 +28,8 @@ function EditProfile({data, setData}) {
 function EditProfile({data, setData}) {
  
 >>>>>>> 082b413 (upload and display company logo)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 /////////////////////get login user (REPLACE THIS) ////////////////
 const inputChange = input => e => {
     setData({
@@ -33,6 +39,7 @@ const inputChange = input => e => {
 };
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
  
 =======
 
@@ -40,10 +47,14 @@ const inputChange = input => e => {
 =======
  
 >>>>>>> 082b413 (upload and display company logo)
+=======
+ 
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
     const handleForm=(e)=>{
         e.preventDefault();
     // perform all neccassary validations
           if (data.company_name === ""||data.company_pic_name ===""||data.company_contact ===""||data.company_address===""
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
             ||data.company_website===""|| data.company_logo==="" || data.company_pic_ic===""){
@@ -88,6 +99,13 @@ const inputChange = input => e => {
              axiosInstance.post("/sponsors/update", data)
 >>>>>>> d526164 (upload sponsor company logo)
 =======
+=======
+            ||data.company_website===""|| data.company_logo==="" || data.company_pic_ic===""){
+            alert("Form not fill");
+        }
+        else{
+             ///////update to db /////////////
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
               var postData = {
                 _id : data._id,
                 company_name : data.company_name,
@@ -100,11 +118,15 @@ const inputChange = input => e => {
             }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
              axiosInstance.post("/sponsors/update", postData)
 >>>>>>> 8654e33 (edit folder)
 =======
              axiosInstance.post("/api/sponsors/update", postData)
 >>>>>>> 248fc10 (added /api/ to axios GET POST)
+=======
+             axiosInstance.post("/api/sponsors/update", postData)
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
              .then(function(response) {
                window.location.href = '/user_dashboard';
              }).catch(function(error) {
@@ -112,6 +134,7 @@ const inputChange = input => e => {
              })
         }
     }
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -123,6 +146,9 @@ const inputChange = input => e => {
 >>>>>>> 082b413 (upload and display company logo)
 =======
 >>>>>>> 70358d5 (update kale's progress 17th May 2021)
+=======
+    const uploadLogoHandler = (element, index) => e => {
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
         if(element == 'company_logo'){
           let selectedFile = e.target.files;
             let file = null;
@@ -153,8 +179,11 @@ const inputChange = input => e => {
     }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 70358d5 (update kale's progress 17th May 2021)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 	
 
 var obj =[];
@@ -164,12 +193,15 @@ var obj =[];
       obj.splice(index,1);
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 /////////////////////////////////////////////////////////////
 <<<<<<< HEAD
 >>>>>>> d6169f2 (sponsor edit profile can fetch data)
 =======
 >>>>>>> 70358d5 (update kale's progress 17th May 2021)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 
       setData({
           ...data,
@@ -205,6 +237,7 @@ function displayLogo(){
     return section;
   }
 <<<<<<< HEAD
+<<<<<<< HEAD
 /////////////////////////////////////////////////////////////
     return(
         <>
@@ -236,12 +269,17 @@ const uploadFileHandler = (e) => {
 =======
 =======
 >>>>>>> 70358d5 (update kale's progress 17th May 2021)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 /////////////////////////////////////////////////////////////
     return(
         <>
         <form onSubmit={handleForm} action="/uploadfile" enctype="multipart/form-data" method="POST">
         <div className="form-container">
+<<<<<<< HEAD
 >>>>>>> 082b413 (upload and display company logo)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
                 <h1 className="mb-5">Edit Profile Info</h1>
  
               
@@ -261,12 +299,16 @@ const uploadFileHandler = (e) => {
                 <div className="form-group">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 66ccca2 (sponsor uitmpay done)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
                     <label htmlFor="company_pic_ic"><span>*</span>IC of Person In Charge (PIC)</label>
                     <input className="form-control" type='text' name='company_pic_ic' id="company_pic_ic"
                     placeholder='Full Name of PIC' required
                     onChange={inputChange('company_pic_ic')} value={data.company_pic_ic} 
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
                     <label htmlFor="company_contact"><span>*</span>Contact Number</label>
@@ -281,6 +323,10 @@ const uploadFileHandler = (e) => {
                     />
                 </div>
 >>>>>>> 66ccca2 (sponsor uitmpay done)
+=======
+                    />
+                </div>
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
                 <div className="form-group">
                     <label htmlFor="company_contact"><span>*</span>Contact Number</label>
                     <input className="form-control" type='text' name='company_contact' id="company_contact"
@@ -288,8 +334,11 @@ const uploadFileHandler = (e) => {
                     onChange={inputChange('company_contact')} value={data.company_contact} 
                     />
                 </div>
+<<<<<<< HEAD
 =======
 >>>>>>> 082b413 (upload and display company logo)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
  
                 <div className="form-group">
                     <label htmlFor="company_address"><span>*</span>Company Address</label>
@@ -307,6 +356,7 @@ const uploadFileHandler = (e) => {
                 </div>
  
                 <div className="form-group">
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
                     <label htmlFor="company_logo"><span>*</span>Company Logo With Transparent Background</label><br />
@@ -348,6 +398,12 @@ const uploadFileHandler = (e) => {
                 </div>
 
 >>>>>>> 70358d5 (update kale's progress 17th May 2021)
+=======
+                    <label htmlFor="company_logo"><span>*</span>Company Logo With Transparent Background</label><br />
+                    {displayLogo()}
+                </div>
+
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
                 <br />
                <div className="col-4 btn-group">
                     <Link to="/user_dashboard">
@@ -358,6 +414,7 @@ const uploadFileHandler = (e) => {
             </div>
             </form>
          </>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
         )
@@ -389,3 +446,10 @@ export default EditProfile;
 export default EditProfile;
  
 >>>>>>> 8654e33 (edit folder)
+=======
+        )
+}
+ 
+export default EditProfile;
+ 
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed

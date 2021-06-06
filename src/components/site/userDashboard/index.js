@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import axiosInstance from '../../../utils/axiosConfig.js';
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
  
 <<<<<<< HEAD
 =======
@@ -13,6 +14,9 @@ import Footer from './../footer';
 >>>>>>> 7c0a793 (merged with alexia's branch)
 =======
 >>>>>>> 70358d5 (update kale's progress 17th May 2021)
+=======
+ 
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 import {Link} from 'react-router-dom';
 import './userDashboard.css';
  
@@ -26,17 +30,22 @@ import ResearchTeam from './research-team-sec';
 import PdfAbstract from './pdf-abstract-bookChapter';
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import Preview from './preview-sec';
 =======
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
 =======
 import Preview from './preview-sec';
 >>>>>>> f475b73 (html2canvas print PDF preview)
+=======
+import Preview from './preview-sec';
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
  
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Tab, Nav, Row, Col,Card} from "react-bootstrap";
 import {FaEdit,FaCertificate,FaBook,FaRegBookmark} from 'react-icons/fa';
 import {BsPeopleCircle,BsFiles,BsBookHalf} from "react-icons/bs";
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
  
@@ -46,12 +55,16 @@ import {BsPeopleCircle,BsFiles,BsBookHalf} from "react-icons/bs";
 =======
  
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+=======
+ 
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 function UserDashboard() {
  
 ////////////////////get login user info (REPLACE THIS)  /////////////////////
   const [user, setUser]=useState([]);
   const [account, setAccount]=useState([]);
   const account_id = localStorage.getItem('user_id');
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
  
@@ -75,11 +88,18 @@ function UserDashboard() {
 =======
       axiosInstance.get("/api/competitors/read", {params:{account_id:account_id}})
 >>>>>>> 248fc10 (added /api/ to axios GET POST)
+=======
+ 
+ 
+  useEffect(() => {
+      axiosInstance.get("/api/competitors/read", {params:{account_id:account_id}})
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
         .then(function(response) {
           setUser(response.data.data);
         }).catch(function(error) {
           console.log(error);
         });
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -95,12 +115,17 @@ function UserDashboard() {
 >>>>>>> d6169f2 (sponsor edit profile can fetch data)
 =======
 >>>>>>> 248fc10 (added /api/ to axios GET POST)
+=======
+     
+      axiosInstance.get("/api/sponsors/read", {params:{account_id:account_id}})
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
         .then(function(response) {
           setUser(response.data.data);
         }).catch(function(error) {
           console.log(error);
         });
  
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
       axiosInstance.get("/api/accounts/read", {params:{account_id:account_id}})
@@ -117,11 +142,15 @@ function UserDashboard() {
 =======
       axiosInstance.get("/api/accounts/read", {params:{account_id:account_id}})
 >>>>>>> 248fc10 (added /api/ to axios GET POST)
+=======
+      axiosInstance.get("/api/accounts/read", {params:{account_id:account_id}})
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
         .then(function(response) {
           setAccount(response.data.data);
         }).catch(function(error) {
           console.log(error);
         })
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     }, [account_id]);
@@ -176,6 +205,15 @@ function welcome(role){
         switch(role){
                 case 'Sponsor':
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+=======
+    }, [account_id]);
+ 
+       
+//////////////////////////////////////////////////////////////////////////////////
+ function welcome(role){
+        switch(role){
+                case 'Sponsor':
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
         return (
                         <div className="row-username">
                                 <p>Welcome {user.company_name}</p>
@@ -194,11 +232,15 @@ function welcome(role){
         }
  }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 >>>>>>> 85998ee (welcome back xxx)
 =======
  
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+=======
+ 
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
   function TabTitles(role){
     switch(role){
       case 'Sponsor':
@@ -246,6 +288,7 @@ function welcome(role){
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
  
     {welcome(account.role)}
  
@@ -262,12 +305,18 @@ function welcome(role){
     {welcome(account.role)}
  
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+=======
+ 
+    {welcome(account.role)}
+ 
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
    <div className="wrapper">
        <Tab.Container id="left-tabs-example" defaultActiveKey="Account-Profiles">
           <Row>
             <Col sm={3} className="sidebar-wrapper">
                
                {TabTitles(account.role)}
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
            
@@ -277,6 +326,9 @@ function welcome(role){
 =======
            
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+=======
+           
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
             </Col>
  
  
@@ -307,6 +359,7 @@ function welcome(role){
         </Card>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
  
 =======
 
@@ -314,6 +367,9 @@ function welcome(role){
 =======
  
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+=======
+ 
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
                   <p/>
  
                   <Card>
@@ -323,6 +379,7 @@ function welcome(role){
                       <a className="edit" href="/user_dashboard/edit_profile"><FaEdit/> Edit</a>
                     </Link>
                     <h2> Profile </h2>  
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
                      <Profile user={user} role={account.role}/>    
@@ -347,6 +404,8 @@ function welcome(role){
 
 >>>>>>> 7c0a793 (merged with alexia's branch)
 =======
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
                      <Profile user={user} role={account.role}/>    
                   </div>
           </Card.Body>
@@ -356,16 +415,22 @@ function welcome(role){
  
                 <Tab.Pane eventKey="Promo-Content">
 <<<<<<< HEAD
+<<<<<<< HEAD
  
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
 =======
 		<Card>
 			<Card.Body>
 >>>>>>> 70358d5 (update kale's progress 17th May 2021)
+=======
+		<Card>
+			<Card.Body>
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
                   <div className="sec-container">
                     <Link to='/user_dashboard/edit_content'>
                       <a className="edit" href="/user_dashboard/edit_content"><FaEdit/> Edit</a>
                     </Link>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -394,6 +459,9 @@ function welcome(role){
 =======
                     <h2> Promotional Content</h2>    
 >>>>>>> 70358d5 (update kale's progress 17th May 2021)
+=======
+                    <h2> Promotional Content</h2>    
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
                     <PromoContent user={user}/>
                   </div>  
 			</Card.Body>
@@ -402,12 +470,17 @@ function welcome(role){
  
                 <Tab.Pane eventKey="Competition-Material">
 <<<<<<< HEAD
+<<<<<<< HEAD
  
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
 =======
 			<Card>
 			<Card.Body>
 >>>>>>> 70358d5 (update kale's progress 17th May 2021)
+=======
+			<Card>
+			<Card.Body>
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
                   <div className="sec-container">
                     <Link to='/user_dashboard/edit_content'>
                       <a className="edit" href=""><FaEdit/> Edit</a>
@@ -415,11 +488,15 @@ function welcome(role){
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
                     <h2> Competition Material</h2>    
                     <CompetitionMaterial user={user}/>
                   </div>  
 			</Card.Body>
         </Card>
+<<<<<<< HEAD
 =======
                     <h5> Competition Material</h5>     
                     <CompetitionMaterial user={user}/>
@@ -454,10 +531,18 @@ function welcome(role){
 		<Card>
 			<Card.Body>
 >>>>>>> 70358d5 (update kale's progress 17th May 2021)
+=======
+                </Tab.Pane>
+ 
+                <Tab.Pane eventKey="Abstract">
+		<Card>
+			<Card.Body>
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
                   <div className="sec-container">
                    <Link to='/user_dashboard/edit_abstract'>
                       <a className="edit" href=""><FaEdit/> Edit</a>
                     </Link>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -484,6 +569,8 @@ function welcome(role){
                   </div>  
 >>>>>>> 7c0a793 (merged with alexia's branch)
 =======
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
                     <h2> Abstract </h2>    
                     <Abstract user={user}/>
                   </div> 
@@ -494,11 +581,15 @@ function welcome(role){
 
 		<Card>
 			<Card.Body>
+<<<<<<< HEAD
 >>>>>>> 70358d5 (update kale's progress 17th May 2021)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
                   <div className="sec-container">
                    <Link to='/user_dashboard/edit_book_chapter'>
                       <a className="edit" href=""><FaEdit/> Edit</a>
                     </Link>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -531,6 +622,10 @@ function welcome(role){
                     <h2> BookChapter </h2>    
                     <BookChapter user={user}/>
 >>>>>>> 70358d5 (update kale's progress 17th May 2021)
+=======
+                    <h2> BookChapter </h2>    
+                    <BookChapter user={user}/>
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
                   </div>
 			</Card.Body>
         </Card>
@@ -546,16 +641,20 @@ function welcome(role){
 		<p/>
 		<PdfAbstract user = {user}/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
  
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
 =======
 >>>>>>> 70358d5 (update kale's progress 17th May 2021)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
                 </Tab.Pane>
  
                
  
                 <Tab.Pane eventKey="Research-Team">
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
  
@@ -570,10 +669,16 @@ function welcome(role){
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
 =======
 >>>>>>> 70358d5 (update kale's progress 17th May 2021)
+=======
+ 
+		<Card>
+			<Card.Body>
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
                   <div className="sec-container">
                    <Link to='/user_dashboard/edit_researchTeam'>
                       <a className="edit" href=""><FaEdit/> Edit</a>
                     </Link>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -609,6 +714,9 @@ function welcome(role){
 =======
                     <h2> Research Team</h2>    
 >>>>>>> 70358d5 (update kale's progress 17th May 2021)
+=======
+                    <h2> Research Team</h2>    
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
                     <ResearchTeam user={user}/>
                   </div>  
 			</Card.Body>
@@ -617,18 +725,24 @@ function welcome(role){
  
                 <Tab.Pane eventKey="Cert">
 <<<<<<< HEAD
+<<<<<<< HEAD
  
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
 =======
 		<Card>
 			<Card.Body>
 >>>>>>> 70358d5 (update kale's progress 17th May 2021)
+=======
+		<Card>
+			<Card.Body>
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
                   <div className="sec-container">
                     <h2> Download Certification</h2>    
                    
                     <h5>Coming Soon</h5>
                    
                   </div>  
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 
@@ -640,6 +754,10 @@ function welcome(role){
 			</Card.Body>
         </Card>
 >>>>>>> 70358d5 (update kale's progress 17th May 2021)
+=======
+			</Card.Body>
+        </Card>
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
                 </Tab.Pane>
  
               </Tab.Content>
@@ -648,6 +766,7 @@ function welcome(role){
           </Row>
         </Tab.Container>
  
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     </div>
@@ -669,6 +788,12 @@ function welcome(role){
 =======
     
 >>>>>>> 70358d5 (update kale's progress 17th May 2021)
+=======
+    </div>
+ 
+   
+    
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
    
   </>
   );

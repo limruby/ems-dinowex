@@ -6,6 +6,7 @@ import axiosInstance from '../../../../utils/axiosConfig.js';
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 =======
@@ -56,6 +57,10 @@ const submit=(e)=>{
 
 
 >>>>>>> 8654e33 (edit folder)
+=======
+
+
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 const editorConfiguration = {
     toolbar: {
         items: [
@@ -68,6 +73,7 @@ const editorConfiguration = {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             'outdent',
             'indent',
@@ -80,6 +86,8 @@ const editorConfiguration = {
 >>>>>>> 8930f2e (merge from alexia)
 =======
 >>>>>>> f475b73 (html2canvas print PDF preview)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
             'imageUpload',
             'blockQuote',
             'insertTable',
@@ -87,6 +95,7 @@ const editorConfiguration = {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             
 =======
             'undo',
@@ -99,6 +108,9 @@ const editorConfiguration = {
 =======
             
 >>>>>>> f475b73 (html2canvas print PDF preview)
+=======
+            
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
         ]
     },
     language: 'en',
@@ -109,6 +121,7 @@ const editorConfiguration = {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             'imageStyle:side'
 >>>>>>> 172511b (ckeditor)
@@ -117,6 +130,8 @@ const editorConfiguration = {
 >>>>>>> 8930f2e (merge from alexia)
 =======
 >>>>>>> f475b73 (html2canvas print PDF preview)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
         ]
     },
     table: {
@@ -132,15 +147,19 @@ const editorConfiguration = {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> ab7142a (edit-bookchapter-content-done)
 =======
 >>>>>>> f475b73 (html2canvas print PDF preview)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 
 class EditorSec extends Component {
     render() {
 
         var data;
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     	var initialData;
@@ -150,6 +169,9 @@ class EditorSec extends Component {
 =======
     	var initialData;
 >>>>>>> f475b73 (html2canvas print PDF preview)
+=======
+    	var initialData;
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 		
 		if(this.props.bookChapter_data==null||this.props.bookChapter_data[0]==undefined||this.props.bookChapter_data[0]['content']==null){
 				initialData="";
@@ -158,14 +180,20 @@ class EditorSec extends Component {
 			}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> f475b73 (html2canvas print PDF preview)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 
         const submit=(e)=>{
             e.preventDefault();
             console.log(data)
+<<<<<<< HEAD
 =======
 >>>>>>> ab7142a (edit-bookchapter-content-done)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 
             var postData = {
                 _id : this.props.id
@@ -179,6 +207,9 @@ class EditorSec extends Component {
 			}
             
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 
          // console.log(postData);
             // axiosInstance.post("/competitors/update", postData)
@@ -189,6 +220,7 @@ class EditorSec extends Component {
             //         })
         }
 
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> 8930f2e (merge from alexia)
@@ -233,6 +265,8 @@ class EditorSec extends Component {
         }
 
 >>>>>>> 8654e33 (edit folder)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
         return (
             <div className="EditorSec">                
                 <CKEditor
@@ -242,10 +276,14 @@ class EditorSec extends Component {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
                     data={initialData}
                     onReady={ editor => {
                         // You can store the "editor" and use when it is needed.
                         data = editor.getData();
+<<<<<<< HEAD
 =======
                     data="<p>Hello from CKEditor 5!</p>"
                     onReady={ editor => {
@@ -266,6 +304,8 @@ class EditorSec extends Component {
 =======
                         data = editor.getData();
 >>>>>>> 8654e33 (edit folder)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
                         console.log( 'Editor is ready to use!', editor );
                     } }
                     onChange={ ( event, editor ) => {
@@ -274,10 +314,13 @@ class EditorSec extends Component {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> ab7142a (edit-bookchapter-content-done)
 =======
 >>>>>>> f475b73 (html2canvas print PDF preview)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 						var postData = {
 						_id : this.props.id,
 						bookChapter : this.props.bookChapter_data
@@ -291,6 +334,7 @@ class EditorSec extends Component {
                     //console.log( { event, editor, data } );
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                         console.log( { event, editor, data } );
 >>>>>>> 172511b (ckeditor)
@@ -301,6 +345,8 @@ class EditorSec extends Component {
 >>>>>>> ab7142a (edit-bookchapter-content-done)
 =======
 >>>>>>> f475b73 (html2canvas print PDF preview)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
                     } }
                     // onBlur={ ( event, editor ) => {
                     //     console.log( 'Blur.', editor.getData() );
@@ -311,6 +357,7 @@ class EditorSec extends Component {
                 />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <p>Click "Set" to save the data</p>
 =======
                 <br/>
@@ -318,6 +365,9 @@ class EditorSec extends Component {
 =======
                 <p>Click "Set" to save the data</p>
 >>>>>>> 8654e33 (edit folder)
+=======
+                <p>Click "Set" to save the data</p>
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
                 <button className="btn btn-primary" onClick={submit}>Set</button>
 
             </div>

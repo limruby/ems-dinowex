@@ -5,6 +5,7 @@ import Profiles from './Profiles';
 import TeamProfiles from './TeamProfiles';
 import Confirm from './Confirm';
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import Success from './Success';
 <<<<<<< HEAD
@@ -15,6 +16,9 @@ import CompPay from './competitor_payment';
 >>>>>>> f9183b2 (update changes)
 =======
 >>>>>>> 8718204 (payment gateway-done)
+=======
+import Success from './Success';
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 
 export class CompetitorForm extends Component {
     state = {
@@ -35,6 +39,7 @@ export class CompetitorForm extends Component {
         affiliation:'',
         address: '',
         gender: '',
+<<<<<<< HEAD
         phone_no:'',
 
 <<<<<<< HEAD
@@ -55,6 +60,9 @@ export class CompetitorForm extends Component {
 
 =======
 >>>>>>> 54aefd4 (sponsor payment gateway setup halfway, amount not clear)
+=======
+
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
         
         phone_no: "123123123",
         cmpy_code : "AA04",
@@ -113,6 +121,7 @@ export class CompetitorForm extends Component {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         const { email, password, confirmPassword, role, category,  name, phone_no, ic_passport_selection, ic_passport_number, affiliation, address, gender
             , no_of_team_members,members, name_2, ic_passport_selection_2, ic_passport_number_2, name_3, ic_passport_selection_3, ic_passport_number_3, name_4, ic_passport_selection_4, ic_passport_number_4
             , name_5, ic_passport_selection_5, ic_passport_number_5} = this.state;
@@ -130,11 +139,16 @@ export class CompetitorForm extends Component {
         const values = { email, password, confirmPassword, role, category , name, ic_passport_selection, ic_passport_number, affiliation, address, gender
 >>>>>>> f9183b2 (update changes)
 =======
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
         const { email, password, confirmPassword, role, category,  name, ic_passport_selection, ic_passport_number, affiliation, address, gender
             , no_of_team_members,members, name_2, ic_passport_selection_2, ic_passport_number_2, name_3, ic_passport_selection_3, ic_passport_number_3, name_4, ic_passport_selection_4, ic_passport_number_4
             , name_5, ic_passport_selection_5, ic_passport_number_5,  amount, cmpy_code, zone, product_ID, token, phone_no} = this.state;
         const values = { email, password, confirmPassword, role, category , name, ic_passport_selection, ic_passport_number, affiliation, address, gender
+<<<<<<< HEAD
 >>>>>>> 8718204 (payment gateway-done)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
             , no_of_team_members,members, name_2, ic_passport_selection_2, ic_passport_number_2, name_3, ic_passport_selection_3, ic_passport_number_3, name_4, ic_passport_selection_4, ic_passport_number_4
             , name_5, ic_passport_selection_5, ic_passport_number_5,  amount, cmpy_code, zone, product_ID, token, phone_no};
 
@@ -189,6 +203,7 @@ export class CompetitorForm extends Component {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 default:
                     
 =======
@@ -211,6 +226,12 @@ export class CompetitorForm extends Component {
                     <Success />
                 );
 >>>>>>> b231f77 (https done but CORS issue for payment)
+=======
+            case 5:
+                return (
+                    <Success />
+                );
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
         }
     }
 }

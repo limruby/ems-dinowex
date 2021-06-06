@@ -1,6 +1,9 @@
 import React from 'react';
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 import html2pdf from "html2pdf.js";
 
 const PdfDownloader = ({rootElementId , downloadFileName}) => {
@@ -19,6 +22,9 @@ const PdfDownloader = ({rootElementId , downloadFileName}) => {
           filename:    downloadFileName,
           image:        { type: 'png', quality: 1.00 },
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
           html2canvas:  { scale: 1 },
           jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
         };
@@ -31,6 +37,7 @@ const PdfDownloader = ({rootElementId , downloadFileName}) => {
    html2pdf(element, opt);
 }
     return <button className="btn btn-primary" onClick={submitHandler}>Download PDF</button>
+<<<<<<< HEAD
 =======
 import html2canvas from "html2canvas";
 import domtoimage from 'dom-to-image';
@@ -130,6 +137,8 @@ const PdfDownloader = ({rootElementId , downloadFileName}) => {
 }
     return <button className="btn btn-primary" onClick={submitHandler}>Download PDF</button>
 >>>>>>> 858ebce (html2pdf solved)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 
 }
 

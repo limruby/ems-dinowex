@@ -37,6 +37,7 @@ const sponsorSchema = new Schema({
   }, 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   phone_no:{
 	type:String,
@@ -45,6 +46,8 @@ const sponsorSchema = new Schema({
 >>>>>>> 577544f (with payment gateway-half done)
 =======
 >>>>>>> 54aefd4 (sponsor payment gateway setup halfway, amount not clear)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
   company_name: {
     type: String,
     required: true
@@ -68,12 +71,16 @@ const sponsorSchema = new Schema({
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 66ccca2 (sponsor uitmpay done)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
   company_pic_ic:{
     type: String,
     required: true
   },
+<<<<<<< HEAD
 <<<<<<< HEAD
   bill_id:{
     type: String, 
@@ -108,6 +115,12 @@ const sponsorSchema = new Schema({
 =======
   video:[videoSchema],
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+=======
+
+  company_logo:[subSchema],
+  poster:[subSchema],
+  video:[videoSchema],
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 
 }, {
   timestamps: true,

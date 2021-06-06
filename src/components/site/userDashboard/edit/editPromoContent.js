@@ -4,18 +4,25 @@ import Form from 'react-bootstrap/Form';
 import axiosInstance from '../../../../utils/axiosConfig.js';
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { FaTrashAlt } from 'react-icons/fa';
 =======
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
 =======
 import { FaTrashAlt } from 'react-icons/fa';
 >>>>>>> 70358d5 (update kale's progress 17th May 2021)
+=======
+import { FaTrashAlt } from 'react-icons/fa';
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
  
 function EditAccount({data, setData}) {
  
 const showUpload=(e)=>{
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
   e.preventDefault();
     if(data.video.length < 5){
       if (tempData.tempVidName!=="" && tempData.tempVidPath!==""){
@@ -40,6 +47,7 @@ const showUpload=(e)=>{
         alert("Incomplete Form");
     }
       }
+<<<<<<< HEAD
 =======
 =======
   e.preventDefault();
@@ -71,6 +79,8 @@ const showUpload=(e)=>{
 =======
       }
 >>>>>>> 1848300 (validation test complete)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
        
 }
 const [tempData, setTemp] = useState({
@@ -96,10 +106,14 @@ console.log(data)
         <div>          
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
                    <p>{data.poster[0].name}
             <button className="deleteBtn" type="button" onClick={deleteFile('poster',0)}> <FaTrashAlt/></button>
            </p>
                    
+<<<<<<< HEAD
 =======
                    <p>{data.poster[0].name}</p>
                     <button className="deleteBtn" type="button" onClick={deleteFile('poster',0)}> delete</button>
@@ -110,6 +124,8 @@ console.log(data)
            </p>
                    
 >>>>>>> 70358d5 (update kale's progress 17th May 2021)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
               </div>
       )
     }
@@ -127,6 +143,7 @@ console.log(data)
                           {data.video[i].name}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                           <button className="deleteBtn" type="button" onClick={deleteFile('video',i)}> <FaTrashAlt/></button>
 =======
                           <button className="deleteBtn" type="button" onClick={deleteFile('video',i)}> delete</button>
@@ -134,6 +151,9 @@ console.log(data)
 =======
                           <button className="deleteBtn" type="button" onClick={deleteFile('video',i)}> <FaTrashAlt/></button>
 >>>>>>> 70358d5 (update kale's progress 17th May 2021)
+=======
+                          <button className="deleteBtn" type="button" onClick={deleteFile('video',i)}> <FaTrashAlt/></button>
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
                         </p>
 
                         
@@ -157,6 +177,7 @@ console.log(data)
                 </div>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <div>
                                         <button onClick={showUpload} className="btn btn-primary">Add</button>
                                 </div>
@@ -168,13 +189,18 @@ console.log(data)
           )               
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
 =======
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
                 <div>
                                         <button onClick={showUpload} className="btn btn-primary">Add</button>
                                 </div>
               </div>            
           )         
                
+<<<<<<< HEAD
 >>>>>>> 1848300 (validation test complete)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
     }
     return section;
   }
@@ -216,6 +242,7 @@ console.log(data)
               data.poster.push({'name':fileName,'source':fileReader.result})
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
               setData({
                 ...data
           })
@@ -226,6 +253,11 @@ console.log(data)
                 ...data
           })
 >>>>>>> 1848300 (validation test complete)
+=======
+              setData({
+                ...data
+          })
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
                              
         };
     // Convert data to base64
@@ -254,8 +286,11 @@ console.log(data)
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 8654e33 (edit folder)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 
       var postData = {
           _id : data._id,
@@ -263,6 +298,7 @@ console.log(data)
           video : data.video
       }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
      axiosInstance.post("/api/sponsors/update", postData)
@@ -300,6 +336,9 @@ console.log(data)
 =======
      axiosInstance.post("/api/sponsors/update", postData)
 >>>>>>> 248fc10 (added /api/ to axios GET POST)
+=======
+     axiosInstance.post("/api/sponsors/update", postData)
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
             .then(function(response) {
                window.location.href = '/user_dashboard';
             }).catch(function(error) {
@@ -308,11 +347,14 @@ console.log(data)
  
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
  
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
 =======
 >>>>>>> 1848300 (validation test complete)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
   };
  
   return(
@@ -323,6 +365,7 @@ console.log(data)
  
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <h5>Poster<i className="caution"> (*Max 1)</i></h5>    
 =======
                 <h5>Poster</h5>    
@@ -330,11 +373,15 @@ console.log(data)
 =======
                 <h5>Poster<i className="caution"> (*Max 1)</i></h5>    
 >>>>>>> 519e3a8 (with come updated css)
+=======
+                <h5>Poster<i className="caution"> (*Max 1)</i></h5>    
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
                            
                 {displayPosterForm()}
                                
                 <hr/>
  
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
                  <h5>Video<i className="caution"> (*Max 5)</i></h5>
@@ -352,6 +399,10 @@ console.log(data)
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
 =======
 >>>>>>> 1848300 (validation test complete)
+=======
+                 <h5>Video<i className="caution"> (*Max 5)</i></h5>
+                 {displayVideoForm()}
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
                
                 <br />
                

@@ -94,6 +94,7 @@ const competitorSchema = new Schema({
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   },
 =======
   }
@@ -104,6 +105,9 @@ const competitorSchema = new Schema({
 =======
   },
 >>>>>>> afc4289 (with payment gateway-half done)
+=======
+  },
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
   address: {
     type: String,
     required: true
@@ -112,6 +116,7 @@ const competitorSchema = new Schema({
     type: String,
     required: true
   },
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
   bill_id:{
@@ -129,10 +134,14 @@ const competitorSchema = new Schema({
 =======
 
 >>>>>>> 614d77e (update model)
+=======
+
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
   poster:[subSchema],
   achievements:[subSchema],
   publications:[subSchema],
   grants:[subSchema],
+<<<<<<< HEAD
 <<<<<<< HEAD
   
 <<<<<<< HEAD
@@ -146,6 +155,10 @@ const competitorSchema = new Schema({
 =======
   video:[videoSchema],
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+=======
+  
+  video:[videoSchema],
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 
   abstract:[abstractSchema],
 

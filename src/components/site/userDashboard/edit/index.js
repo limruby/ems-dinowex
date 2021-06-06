@@ -13,9 +13,12 @@ import EditCompetitionMaterial from './editCompetitionMaterial.js';
 import EditAbstract from './editAbstract.js';
 import EditBookChapter from './editBookChapter.js';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import Content from './editContent.js';
 =======
 >>>>>>> 248fc10 (added /api/ to axios GET POST)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 
 
 function FormNavigator() {
@@ -29,6 +32,7 @@ function FormNavigator() {
   useEffect(() => {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       axiosInstance.get("/api/competitors/read", {params:{account_id:account_id}})
 =======
       axiosInstance.get("/competitors/read", {params:{account_id:account_id}})
@@ -36,11 +40,15 @@ function FormNavigator() {
 =======
       axiosInstance.get("/api/competitors/read", {params:{account_id:account_id}})
 >>>>>>> 248fc10 (added /api/ to axios GET POST)
+=======
+      axiosInstance.get("/api/competitors/read", {params:{account_id:account_id}})
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
         .then(function(response) {
           setUser(response.data.data);
         }).catch(function(error) {
           console.log(error);
         });
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 	axiosInstance.get("/api/sponsors/read", {params:{account_id:account_id}})
@@ -50,12 +58,16 @@ function FormNavigator() {
 =======
 	axiosInstance.get("/api/sponsors/read", {params:{account_id:account_id}})
 >>>>>>> 248fc10 (added /api/ to axios GET POST)
+=======
+	axiosInstance.get("/api/sponsors/read", {params:{account_id:account_id}})
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
         .then(function(response) {
           setUser(response.data.data);
         }).catch(function(error) {
           console.log(error);
         });
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
       axiosInstance.get("/api/accounts/read", {params:{account_id:account_id}})
@@ -65,6 +77,9 @@ function FormNavigator() {
 =======
       axiosInstance.get("/api/accounts/read", {params:{account_id:account_id}})
 >>>>>>> 248fc10 (added /api/ to axios GET POST)
+=======
+      axiosInstance.get("/api/accounts/read", {params:{account_id:account_id}})
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
         .then(function(response) {
           setAccount(response.data.data);
         }).catch(function(error) {
@@ -77,6 +92,7 @@ const location = useLocation();
 const thePath = location.pathname;
 const lastPath = thePath.substring(thePath.lastIndexOf('/') + 1);
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 7c0a793 (merged with alexia's branch)
@@ -85,6 +101,10 @@ const lastPath = thePath.substring(thePath.lastIndexOf('/') + 1);
 
 =======
 >>>>>>> d6169f2 (sponsor edit profile can fetch data)
+=======
+
+
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 	if(lastPath === 'edit_account'){
 		return( 
 		    <div className="form-main-container">
@@ -174,6 +194,7 @@ const lastPath = thePath.substring(thePath.lastIndexOf('/') + 1);
 	}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 
@@ -187,5 +208,7 @@ const lastPath = thePath.substring(thePath.lastIndexOf('/') + 1);
 >>>>>>> 7c0a793 (merged with alexia's branch)
 =======
 >>>>>>> 3e5a50c (remove unnecessary files)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 }
 export default FormNavigator;

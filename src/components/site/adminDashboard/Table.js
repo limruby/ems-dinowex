@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { useTable, useFilters, useSortBy, useGlobalFilter } from "react-table";
 =======
 import { useTable, useFilters, useSortBy } from "react-table";
@@ -8,6 +9,9 @@ import { useTable, useFilters, useSortBy } from "react-table";
 =======
 import { useTable, useFilters, useSortBy, useGlobalFilter } from "react-table";
 >>>>>>> b014062 (admindashboard_incomplete)
+=======
+import { useTable, useFilters, useSortBy, useGlobalFilter } from "react-table";
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 
 export default function Table({ columns, data }) {
   const [filterInput, setFilterInput] = useState("");
@@ -20,6 +24,7 @@ export default function Table({ columns, data }) {
     prepareRow,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     setFilter,
     setGlobalFilter
 =======
@@ -29,6 +34,10 @@ export default function Table({ columns, data }) {
     setFilter,
     setGlobalFilter
 >>>>>>> b014062 (admindashboard_incomplete)
+=======
+    setFilter,
+    setGlobalFilter
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
   } = useTable(
     {
       columns,
@@ -37,17 +46,22 @@ export default function Table({ columns, data }) {
     useFilters,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     useGlobalFilter,
 =======
 >>>>>>> ca69ace (Admin)
 =======
     useGlobalFilter,
 >>>>>>> b014062 (admindashboard_incomplete)
+=======
+    useGlobalFilter,
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
     useSortBy
   );
 
   const handleFilterChange = e => {
     const value = e.target.value || undefined;
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     setGlobalFilter(value);
@@ -62,6 +76,11 @@ export default function Table({ columns, data }) {
     setFilterInput(value);
  
 >>>>>>> b014062 (admindashboard_incomplete)
+=======
+    setGlobalFilter(value);
+    setFilterInput(value);
+ 
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
   };
 
   // Render the UI for your table
@@ -71,10 +90,14 @@ export default function Table({ columns, data }) {
         value={filterInput}
         onChange={handleFilterChange}
 <<<<<<< HEAD
+<<<<<<< HEAD
         placeholder={"Search"}
 =======
         placeholder={"Search name"}
 >>>>>>> ca69ace (Admin)
+=======
+        placeholder={"Search name"}
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
       />
       <table {...getTableProps()}>
         <thead>

@@ -1,14 +1,18 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> d4022a0 (update Alexia's code)
 =======
 >>>>>>> d526164 (upload sponsor company logo)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import axiosInstance from '../../../../utils/axiosConfig.js';
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -23,6 +27,9 @@ import { FaTrashAlt } from 'react-icons/fa';
 =======
 import { FaTrashAlt } from 'react-icons/fa';
 >>>>>>> b799936 (resolve editCompetitionMaterial.js issue)
+=======
+import { FaTrashAlt } from 'react-icons/fa';
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
  
 function EditAccount({data, setData}) {
  
@@ -30,6 +37,9 @@ function EditAccount({data, setData}) {
 const [tempData, setTemp] = useState({
   tempPoster:[],
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
   tempVidName : "",
   tempVidPath : ""
 });
@@ -327,6 +337,7 @@ function displayAchievementForm(){
                 <h1 className="mb-5">Edit Competition Material</h1>
  
                 <h5>Poster<i className="caution"> (*Max 1)</i></h5>    
+<<<<<<< HEAD
 <<<<<<< HEAD
                            
                 {displayPosterForm()}
@@ -745,6 +756,8 @@ export default PromoContent;
                 <h5>Poster</h5>    
 =======
 >>>>>>> 519e3a8 (with come updated css)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
                            
                 {displayPosterForm()}
                                
@@ -789,6 +802,7 @@ export default PromoContent;
   )
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 export default EditAccount;
@@ -800,3 +814,7 @@ export default EditAccount;
  
 export default EditAccount;
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+=======
+ 
+export default EditAccount;
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed

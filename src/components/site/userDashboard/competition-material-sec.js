@@ -2,11 +2,17 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 import React, {useState, useEffect} from 'react';
 
 
 const CompetitionMaterial = ({user}) =>  {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 
  
 console.log(user);
@@ -47,6 +53,7 @@ function displayAchievement(){
         section.push(
             <li>
               {user.achievements[i].name}
+<<<<<<< HEAD
 =======
 import React from 'react';
 
@@ -119,6 +126,8 @@ function displayAchievement(){
 =======
               {user.achievements[i].name}
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
             </li>
         );
     }
@@ -128,6 +137,7 @@ function displayAchievement(){
 }
 
 function displayPublication(){
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
   if(user.publications){
@@ -142,23 +152,33 @@ function displayPublication(){
 =======
   if(user.publications){
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+=======
+  if(user.publications){
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
     var section = [];
 
     for (var i=0; i<user.publications.length; i++){
         section.push(
             <li>
 <<<<<<< HEAD
+<<<<<<< HEAD
                 Name: {user.publication.name}
 >>>>>>> 7c0a793 (merged with alexia's branch)
 =======
                {user.publications[i].name}
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+=======
+               {user.publications[i].name}
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
             </li>
         );
     }
     return section;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 
   }
 }
@@ -195,6 +215,7 @@ function displayVideo(){
   }
 
 }
+<<<<<<< HEAD
 >>>>>>> 7c0a793 (merged with alexia's branch)
 
   }
@@ -249,6 +270,13 @@ function displayVideo(){
     <div>
 
 >>>>>>> d526164 (upload sponsor company logo)
+=======
+
+
+  return (       
+    <div>
+
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
     <h5>Poster</h5>
     {displayPoster()}
     <hr/>
@@ -278,6 +306,7 @@ function displayVideo(){
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 export default CompetitionMaterial;
 =======
 export default PromoContent;
@@ -285,3 +314,6 @@ export default PromoContent;
 =======
 export default CompetitionMaterial;
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+=======
+export default CompetitionMaterial;
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed

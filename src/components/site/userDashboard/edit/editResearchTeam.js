@@ -4,12 +4,16 @@ import Form from 'react-bootstrap/Form';
 import axiosInstance from '../../../../utils/axiosConfig.js';
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { FaTrashAlt } from 'react-icons/fa';
 =======
 >>>>>>> c5b9c68 (complete userdashboard)
 =======
 import { FaTrashAlt } from 'react-icons/fa';
 >>>>>>> 70358d5 (update kale's progress 17th May 2021)
+=======
+import { FaTrashAlt } from 'react-icons/fa';
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 
 function EditTeam({data, setData}) {
 
@@ -22,6 +26,9 @@ const [tempData, setTemp] = useState({
 const showUpload=(e)=>{
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
     if(data.members.length < 4){
         e.preventDefault();
     if (tempData.tempName!=="" && tempData.tempAff!=="" && tempData.tempEmail!==""){
@@ -79,6 +86,7 @@ const inputChange = (element, index) => e => {
     if(element === 'email'){
         tempData.tempEmail=e.target.value;
     }
+<<<<<<< HEAD
 =======
     if(data.members.length < 5){
 =======
@@ -141,6 +149,8 @@ const inputChange = (element, index) => e => {
         tempData.tempEmail=e.target.value;
     }
 >>>>>>> c5b9c68 (complete userdashboard)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
     setTemp({
       ...tempData
     });
@@ -148,6 +158,7 @@ const inputChange = (element, index) => e => {
      console.log(data);
 };
 
+<<<<<<< HEAD
 <<<<<<< HEAD
      console.log(data);
 };
@@ -160,6 +171,10 @@ const inputChange = (element, index) => e => {
 >>>>>>> c5b9c68 (complete userdashboard)
 =======
 >>>>>>> 1848300 (validation test complete)
+=======
+	const handleForm=(e)=>{
+    {/* 
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
         if(tempData.tempName!==""){
             if(tempData.tempName===""){
               alert("Incomplete Form");
@@ -184,6 +199,9 @@ const inputChange = (element, index) => e => {
             })
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
             */}
        
        
@@ -194,6 +212,7 @@ const inputChange = (element, index) => e => {
                 _id : data._id,
                 members : data.members
               }
+<<<<<<< HEAD
 <<<<<<< HEAD
        
            axiosInstance.post("/api/competitors/update", postData)
@@ -215,6 +234,10 @@ const inputChange = (element, index) => e => {
 =======
            axiosInstance.post("/api/competitors/update", postData)
 >>>>>>> 248fc10 (added /api/ to axios GET POST)
+=======
+       
+           axiosInstance.post("/api/competitors/update", postData)
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
                   .then(function(response) {
                      window.location.href = '/user_dashboard';
                   }).catch(function(error) {
@@ -229,6 +252,7 @@ const inputChange = (element, index) => e => {
         var section = [];
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         if(data.members==null||data.members[0]==null||data.members.length<4){
 =======
         if(data.members==null||data.members[0]==null||data.members.length<5){
@@ -236,6 +260,9 @@ const inputChange = (element, index) => e => {
 =======
         if(data.members==null||data.members[0]==null||data.members.length<4){
 >>>>>>> 1848300 (validation test complete)
+=======
+        if(data.members==null||data.members[0]==null||data.members.length<4){
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
         
             section.push(
                 <div>
@@ -270,6 +297,7 @@ const inputChange = (element, index) => e => {
                        <p>{data.members[i].email}</p>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                         <button className="deleteBtn" type="button" onClick={deleteFile('members',i)}> <FaTrashAlt/></button>
 =======
                         <button className="deleteBtn" type="button" onClick={deleteFile('members',i)}> delete</button>
@@ -277,6 +305,9 @@ const inputChange = (element, index) => e => {
 =======
                         <button className="deleteBtn" type="button" onClick={deleteFile('members',i)}> <FaTrashAlt/></button>
 >>>>>>> 70358d5 (update kale's progress 17th May 2021)
+=======
+                        <button className="deleteBtn" type="button" onClick={deleteFile('members',i)}> <FaTrashAlt/></button>
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
                   </div>
           )
         }

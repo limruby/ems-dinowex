@@ -60,11 +60,14 @@ if(user.company_logo){
           <li>
             <p> Person In Charge's Full Name: {user.company_pic_name} </p>
 <<<<<<< HEAD
+<<<<<<< HEAD
           </li>
           <li>
             <p> Person In Charge's IC: {user.company_pic_ic} </p>
 =======
 >>>>>>> d6169f2 (sponsor edit profile can fetch data)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
           </li>
           <li>
             <p> Contact Number: {user.company_contact}</p>
@@ -76,6 +79,7 @@ if(user.company_logo){
             <p> Company Logo: </p>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
               {display()}
 =======
               <img src={user.company_logo } alt="" />
@@ -83,6 +87,9 @@ if(user.company_logo){
 =======
               {display()}
 >>>>>>> 082b413 (upload and display company logo)
+=======
+              {display()}
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
           </li>
           <li>
             <p> Company Website URL: <a href={user.company_website}>{user.company_website}</a></p>

@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { FaTrashAlt } from 'react-icons/fa';
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -29,6 +30,11 @@ import Editor from './editor';
 
 =======
 >>>>>>> 8654e33 (edit folder)
+=======
+import { FaTrashAlt } from 'react-icons/fa';
+import Editor from './editor';
+
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 import axiosInstance from '../../../../utils/axiosConfig.js';
 
 function EditBookChapter({data, setData}) {
@@ -74,6 +80,7 @@ function EditBookChapter({data, setData}) {
 	                      {reference}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	                      <button className="deleteBtn" type="button" onClick={deleteReference(index)}> <FaTrashAlt/></button>
 =======
 	                      <button className="deleteBtn" type="button" onClick={deleteReference(index)}> delete</button>
@@ -81,6 +88,9 @@ function EditBookChapter({data, setData}) {
 =======
 	                      <button className="deleteBtn" type="button" onClick={deleteReference(index)}> <FaTrashAlt/></button>
 >>>>>>> 70358d5 (update kale's progress 17th May 2021)
+=======
+	                      <button className="deleteBtn" type="button" onClick={deleteReference(index)}> <FaTrashAlt/></button>
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 	                    </li>
 	                    ))}
 	                </ul>
@@ -104,11 +114,15 @@ function EditBookChapter({data, setData}) {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
                 	<button className="btn btn-primary" type="button" onClick={addReference()}> Add</button>
 
 					<br/>
                 	
 
+<<<<<<< HEAD
 =======
 					<br/>
                 	<button className="addBtn btn-primary btn" type="button" onClick={addReference()}> Add</button>
@@ -123,6 +137,8 @@ function EditBookChapter({data, setData}) {
 					<br/>
                 	<button className="addBtn btn btn-primary" type="button" onClick={addReference()}> Add</button>
 >>>>>>> ab7142a (edit-bookchapter-content-done)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
                 </div>
 
                 <hr/>
@@ -154,6 +170,7 @@ function EditBookChapter({data, setData}) {
 		}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 		else if(data.bookChapter[0]&&!data.bookChapter[0]['references']){
 			data.bookChapter[0]['references']=[];
 		}
@@ -164,6 +181,11 @@ function EditBookChapter({data, setData}) {
 			data.bookChapter[0]['references']=[];
 		}
 >>>>>>> c5b9c68 (complete userdashboard)
+=======
+		else if(data.bookChapter[0]&&!data.bookChapter[0]['references']){
+			data.bookChapter[0]['references']=[];
+		}
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 			data.bookChapter[0]['references'].push(tempState.reference);
 		
 	    setData({
@@ -193,14 +215,18 @@ function EditBookChapter({data, setData}) {
 	// perform all neccassary validations
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 8654e33 (edit folder)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 		var postData = {
                 _id : data._id,                
                 bookChapter : data.bookChapter
             }
 
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 	   axiosInstance.post("/api/competitors/update", postData)
@@ -213,6 +239,9 @@ function EditBookChapter({data, setData}) {
 =======
 	   axiosInstance.post("/api/competitors/update", postData)
 >>>>>>> 248fc10 (added /api/ to axios GET POST)
+=======
+	   axiosInstance.post("/api/competitors/update", postData)
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
             .then(function(response) {
               window.location.href = '/user_dashboard';
             }).catch(function(error) {
@@ -263,6 +292,7 @@ function EditBookChapter({data, setData}) {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 						<Editor id = {data._id} bookChapter_data = {data.bookChapter}/>
 =======
 	                    <textarea className="form-control" id="content" cols="30" rows="10"
@@ -287,6 +317,9 @@ function EditBookChapter({data, setData}) {
 =======
 						<Editor id = {data._id} bookChapter_data = {data.bookChapter}/>
 >>>>>>> f475b73 (html2canvas print PDF preview)
+=======
+						<Editor id = {data._id} bookChapter_data = {data.bookChapter}/>
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 	                </div>
 					
 					 <div className="form-group">

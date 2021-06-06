@@ -10,6 +10,7 @@ export class Confirm extends Component {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> b81d761 (with payment gateway-half done)
         const { 
@@ -85,6 +86,8 @@ export class Confirm extends Component {
 =======
 =======
 >>>>>>> 8718204 (payment gateway-done)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
         // const { 
         //     values: {email, password, confirmPassword, role, category , name, ic_passport_selection, ic_passport_number, affiliation, address, gender
         //         , no_of_team_members,members, phone_no}
@@ -114,6 +117,7 @@ export class Confirm extends Component {
         // else if (category === "Junior Innovator"){
         //     amount = 190.00;
         // }
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> f9183b2 (update changes)
 =======
@@ -145,6 +149,8 @@ export class Confirm extends Component {
 >>>>>>> b81d761 (with payment gateway-half done)
 =======
 >>>>>>> 8718204 (payment gateway-done)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
     };
 
     back = e => {
@@ -153,6 +159,7 @@ export class Confirm extends Component {
     };
 
     render() {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
         const { 
@@ -193,12 +200,16 @@ export class Confirm extends Component {
 =======
         const { values, inputChange } = this.props;
 >>>>>>> 8718204 (payment gateway-done)
+=======
+        const { values, inputChange } = this.props;
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 
         // const { 
         //     values: {email, password, confirmPassword, role, category , name, ic_passport_selection, ic_passport_number, phone_no, affiliation, address, gender
         //     , no_of_team_members,members, amount, cmpy_code, zone, product_ID, token}
         // } = this.props;
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 
@@ -208,6 +219,8 @@ export class Confirm extends Component {
 =======
 =======
 >>>>>>> 54aefd4 (sponsor payment gateway setup halfway, amount not clear)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
                 var  amount;
 
                 if(values.category === "Professional Innovator"){                     
@@ -220,13 +233,17 @@ export class Confirm extends Component {
                       amount= 190.00.toFixed(2);
                 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 54aefd4 (sponsor payment gateway setup halfway, amount not clear)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 
 
 
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 =======
@@ -242,10 +259,18 @@ export class Confirm extends Component {
 >>>>>>> 2fe0043 (payment gateway css updated)
 =======
 >>>>>>> 54aefd4 (sponsor payment gateway setup halfway, amount not clear)
+=======
+
+
+            var sha1 = require('sha1');
+            var hash_value = sha1(values.token + values.cmpy_code + values.zone + values.product_ID + amount);  
+            
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
         return (
             <div>
                 <h1>Confirmation</h1>
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -319,6 +344,8 @@ export class Confirm extends Component {
 =======
 =======
 >>>>>>> 54aefd4 (sponsor payment gateway setup halfway, amount not clear)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
                 
                   
                 <ul class="list-group">
@@ -332,9 +359,12 @@ export class Confirm extends Component {
                     <li class="list-group-item">Selected Category: {values.category}</li>
                 </ul> 
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 2fe0043 (payment gateway css updated)
 =======
 >>>>>>> 54aefd4 (sponsor payment gateway setup halfway, amount not clear)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 
                 <br /><br />
                 <form className="list-group" action="https://uitmpay.uitm.edu.my/otherservices/products/AA04/02/149" method="POST">

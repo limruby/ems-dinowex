@@ -11,6 +11,7 @@ function Competitor(){
      
  
 <<<<<<< HEAD
+<<<<<<< HEAD
       axiosInstance.get("/api/competitors/readAll")
         .then(function(response) {
           setData(response.data.data);
@@ -18,6 +19,8 @@ function Competitor(){
           console.log(error);
         })
 =======
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
       // axiosInstance.get("/api/competitors/readAll")
       //   .then(function(response) {
       //     setData(response.data.data);
@@ -31,13 +34,17 @@ function Competitor(){
         // }).catch(function(error) {
         //   console.log(error);
         // })
+<<<<<<< HEAD
 >>>>>>> b014062 (admindashboard_incomplete)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
     }, []);
  
 
 const columns = React.useMemo(
     () => [
       {
+<<<<<<< HEAD
 <<<<<<< HEAD
         Header: 'Profile',
         columns: [
@@ -61,6 +68,8 @@ const columns = React.useMemo(
           {
             Header: 'Edit',
 =======
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
         Header: 'Account',
         columns: [
           {
@@ -70,7 +79,10 @@ const columns = React.useMemo(
           {
             Header: 'Password',
             accessor: 'password',
+<<<<<<< HEAD
 >>>>>>> b014062 (admindashboard_incomplete)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
             Cell: cell => (
               <button className="btn btn-danger" >
                 Edit
@@ -78,12 +90,18 @@ const columns = React.useMemo(
             )
           },
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
           {
             Header: 'Role',
             accessor: 'role'
           }
+<<<<<<< HEAD
 >>>>>>> b014062 (admindashboard_incomplete)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
         ],
       },
 

@@ -2,8 +2,11 @@ import React, {useState, useEffect} from 'react';
 import axiosInstance from '../../../utils/axiosConfig.js';
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> b014062 (admindashboard_incomplete)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 import {Tab, Nav, Row, Col,Card} from "react-bootstrap";
 import {FaEdit,FaCertificate,FaBook,FaRegBookmark} from 'react-icons/fa';
 import {BsPeopleCircle,BsFiles,BsBookHalf} from "react-icons/bs";
@@ -13,6 +16,7 @@ import Admin from './admin-sec';
 import Competitor from './competitor-sec';
 import Sponsor from './sponsor-sec';
 import './table.css'
+<<<<<<< HEAD
 <<<<<<< HEAD
  
 function AdminDashboard() {
@@ -104,6 +108,8 @@ function TabTitles(){
  
 =======
 >>>>>>> b014062 (admindashboard_incomplete)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
  
 function AdminDashboard() {
  
@@ -191,6 +197,7 @@ function TabTitles(){
 </div>  
  
 <<<<<<< HEAD
+<<<<<<< HEAD
    
     
    
@@ -198,6 +205,8 @@ function TabTitles(){
 >>>>>>> ca69ace (Admin)
 =======
 >>>>>>> b014062 (admindashboard_incomplete)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
   );
  
 }

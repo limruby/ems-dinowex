@@ -2,11 +2,15 @@
     font-family: "Times New Roman", Times, serif;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
     /*margin: 74px;*/
 }
 
     .preview-section #abstract_title h1 {
         font-size: 12px;
+<<<<<<< HEAD
 =======
     margin: 74px;
 }
@@ -21,10 +25,13 @@
     .preview-section #abstract_title h1 {
         font-size: 12px;
 >>>>>>> 858ebce (html2pdf solved)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
         text-align: center;
     }
 
     .preview-section #body_content #subtitle {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
         font-size: 12px;
@@ -34,11 +41,15 @@
 =======
         font-size: 12px;
 >>>>>>> 858ebce (html2pdf solved)
+=======
+        font-size: 12px;
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
         text-align: center !important;
         font-weight: bold;
     }
 
     .preview-section #body_content p {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
         font-size: 11px;
@@ -54,6 +65,11 @@
 >>>>>>> f475b73 (html2canvas print PDF preview)
 =======
 >>>>>>> b231f77 (https done but CORS issue for payment)
+=======
+        font-size: 11px;
+        text-align: justify;
+        break-inside: avoid;
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
     }
 
     .preview-section #body_content img,figcaption {
@@ -62,6 +78,9 @@
         display: block;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
         margin-left: auto;
         margin-right: auto;
         break-inside: avoid;
@@ -69,6 +88,7 @@
 
     .preview-section #author p {
         font-size: 11px;
+<<<<<<< HEAD
 =======
         margin-left: 300px;
         margin-right: 300px;
@@ -96,6 +116,8 @@
 =======
         font-size: 11px;
 >>>>>>> b231f77 (https done but CORS issue for payment)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
         text-align: center;
     }
 
@@ -103,20 +125,27 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> b231f77 (https done but CORS issue for payment)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
         font-size: 11px;
         text-align: left;
     }
     .preview-section #aff span {
         font-size: 11px;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
         text-align: left;
         font-style: italic;
     }
 
     .preview-section #keywords p {
         font-size: 11px;
+<<<<<<< HEAD
 =======
         font-size: 20px;
 =======
@@ -139,16 +168,22 @@
 =======
         font-size: 11px;
 >>>>>>> b231f77 (https done but CORS issue for payment)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
         font-style: italic;
         text-align: left;
     }
     .preview-section #body_content li {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
         font-size: 11px;
         text-align: justify;
         break-inside: avoid;
         list-style-type:none;
+<<<<<<< HEAD
 <<<<<<< HEAD
     }
 =======
@@ -169,3 +204,6 @@
 >>>>>>> ea61e0e (26/5/ pdf)
 =======
 >>>>>>> f9183b2 (update changes)
+=======
+    }
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed

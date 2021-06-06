@@ -16,6 +16,7 @@ function displayVideo(){
   }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
  
   return (      
@@ -65,6 +66,8 @@ export default PromoContent;
   export default PromoContent;
 >>>>>>> 70358d5 (update kale's progress 17th May 2021)
 =======
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 }
 function displayPoster(){
   if(user.poster){
@@ -102,5 +105,9 @@ function displayPoster(){
  
  
  
+<<<<<<< HEAD
 export default PromoContent;
 >>>>>>> 962c9ed (merge from before)
+=======
+export default PromoContent;
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed

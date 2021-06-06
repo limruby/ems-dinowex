@@ -3,9 +3,12 @@
   "version": "0.1.0",
   "private": true,
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   "proxy": "https://localhost:3000/",
 >>>>>>> b014062 (admindashboard_incomplete)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "^27.1.0",
     "@ckeditor/ckeditor5-react": "^3.0.2",
@@ -20,9 +23,12 @@
     "ckeditor5-custom-build": "file:./ckeditor5",
     "cors": "^2.8.5",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "crypto-js": "^3.3.0",
 =======
 >>>>>>> f475b73 (html2canvas print PDF preview)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
     "dom-to-image": "^2.6.0",
     "dotenv": "^8.2.0",
     "embla-carousel": "^4.5.1",
@@ -38,9 +44,12 @@
     "multer": "^1.4.2",
     "multer-gridfs-storage": "^4.2.0",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "node-localstorage": "^2.2.1",
 =======
 >>>>>>> 7c0a793 (merged with alexia's branch)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
     "pdfmake": "^0.1.71",
     "react": "^17.0.1",
     "react-bootstrap": "^1.5.2",
@@ -54,6 +63,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "react-table": "^7.7.0",
     "sha1": "^1.1.1",
 =======
@@ -64,6 +74,9 @@
 =======
     "sha1": "^1.1.1",
 >>>>>>> b014062 (admindashboard_incomplete)
+=======
+    "sha1": "^1.1.1",
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
     "slate": "^0.63.0",
     "slate-react": "^0.63.0",
     "typescript": "^4.2.3",

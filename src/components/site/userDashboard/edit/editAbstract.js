@@ -11,8 +11,11 @@ function EditAbstract({data, setData}) {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 8654e33 (edit folder)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
     const inputChange = input => e => {
 
         if(input=='title'){
@@ -157,6 +160,7 @@ function EditAbstract({data, setData}) {
                 abstract : data.abstract
             }
             
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
             axiosInstance.post("/api/competitors/update", postData)
@@ -473,6 +477,9 @@ function EditAbstract({data, setData}) {
 =======
             axiosInstance.post("/api/competitors/update", postData)
 >>>>>>> 248fc10 (added /api/ to axios GET POST)
+=======
+            axiosInstance.post("/api/competitors/update", postData)
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
             .then(function(response) {
               window.location.href = '/user_dashboard';
             }).catch(function(error) {
@@ -482,6 +489,9 @@ function EditAbstract({data, setData}) {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
         
     }
 
@@ -490,6 +500,7 @@ function EditAbstract({data, setData}) {
     /////////////////////////////////////////////////////////////
 
         
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> 962c9ed (merge from before)
@@ -523,6 +534,8 @@ function EditAbstract({data, setData}) {
 =======
         
 >>>>>>> 8654e33 (edit folder)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 //load data to input field value
 function checkExist(element, index){
     var value="";
@@ -534,10 +547,14 @@ function checkExist(element, index){
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
         return data.abstract[0].title;
     }
     else if(data.abstract[0].content && element==="content"){
         return data.abstract[0].content;
+<<<<<<< HEAD
 =======
     	return data.abstract[0].title;
     }
@@ -562,6 +579,8 @@ function checkExist(element, index){
     else if(data.abstract[0].content && element==="content"){
         return data.abstract[0].content;
 >>>>>>> 8654e33 (edit folder)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
     }    
    
 
@@ -569,10 +588,16 @@ function checkExist(element, index){
 }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 
 <<<<<<< HEAD
+=======
+
+
+
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
         return(
             <>
                 <form onSubmit={handleForm}>
@@ -594,6 +619,9 @@ function checkExist(element, index){
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
                     <h5>Keywords</h5>
 
                     {displayKeywords()}
@@ -617,6 +645,7 @@ function checkExist(element, index){
             )
 
     }
+<<<<<<< HEAD
 =======
 =======
 
@@ -733,4 +762,7 @@ function checkExist(element, index){
     }
 
 >>>>>>> 8654e33 (edit folder)
+=======
+
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 export default EditAbstract;

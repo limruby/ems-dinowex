@@ -18,14 +18,20 @@ function Account(){
         })
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
         // axiosInstance.get("/api/accounts/readAll")  //filter
         // .then(function(response) {
         //   setData(response.data.data);
         // }).catch(function(error) {
         //   console.log(error);
         // })
+<<<<<<< HEAD
 >>>>>>> b014062 (admindashboard_incomplete)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
     }, []);
  
 

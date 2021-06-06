@@ -5,6 +5,7 @@ const axiosInstance = axios.create({
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   baseURL: `${process.env.REACT_APP_BASEURL}`,
 =======
   baseURL: 'https://localhost:5000' ,
@@ -23,6 +24,9 @@ const axiosInstance = axios.create({
   baseURL: `${process.env.REACT_APP_BASEURL}`,
 >>>>>>> faff4f9 (payment gateway updated)
   
+=======
+  baseURL: `${process.env.REACT_APP_BASEURL}`,
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 });
 
 axiosInstance.defaults.headers.common['Authorization'] = 'Bearer '+localStorage.getItem('token');

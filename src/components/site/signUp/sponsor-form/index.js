@@ -3,6 +3,10 @@ import AccountSetup from './AccountSetup';
 import Category from './Category';
 import Profiles from './Profiles';
 import Confirm from './Confirm';
+<<<<<<< HEAD
+=======
+import Success from './Success';
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 
 export class SponsorForm extends Component {
     state = {
@@ -136,6 +140,13 @@ export class SponsorForm extends Component {
                         values={values}
                     />
                 );
+<<<<<<< HEAD
+=======
+            case 5:
+                return (
+                    <Success />
+                );
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
         }
     }
 }

@@ -72,6 +72,7 @@ const Content = ({user, account}) =>  {
     else if(user.bookChapter[0].content===undefined){return ''}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     else {return parse(user.bookChapter[0].content)}
 =======
     else {return user.bookChapter[0].content}
@@ -79,6 +80,9 @@ const Content = ({user, account}) =>  {
 =======
     else {return parse(user.bookChapter[0].content)}
 >>>>>>> 248fc10 (added /api/ to axios GET POST)
+=======
+    else {return parse(user.bookChapter[0].content)}
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
   }
 
   function appendConclusion(){
@@ -189,6 +193,7 @@ const Content = ({user, account}) =>  {
     <div>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           {/* 
         <button className="edit-button" onClick={generatePDF} type="primary">Download PDF</button> */} 
 =======
@@ -199,6 +204,10 @@ const Content = ({user, account}) =>  {
           {/* 
         <button className="edit-button" onClick={generatePDF} type="primary">Download PDF</button> */} 
 >>>>>>> f475b73 (html2canvas print PDF preview)
+=======
+          {/* 
+        <button className="edit-button" onClick={generatePDF} type="primary">Download PDF</button> */} 
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 
     </div>
   );

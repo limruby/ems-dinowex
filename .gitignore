@@ -3,6 +3,7 @@
 /build
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 node_modules
 =======
 /node_modules
@@ -10,6 +11,9 @@ node_modules
 =======
 node_modules
 >>>>>>> 1759568 (optimize deploy)
+=======
+node_modules
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 
 # Logs
 logs
@@ -46,6 +50,7 @@ lerna-debug.log*
 .eslintcache
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 deploy-staging.sh
 <<<<<<< HEAD
@@ -66,13 +71,21 @@ deploy-staging.sh
 *.tar
 >>>>>>> 1759568 (optimize deploy)
 =======
+=======
+
+deploy-staging.sh
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 *.tar
 .vs/event_management_system/v16/.suo
 .vs/slnx.sqlite
 backend/env
 package-lock.json
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> ed4044d (test)
 =======
 *.sqlite
 >>>>>>> 254a571 (gitignore)
+=======
+*.sqlite
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
