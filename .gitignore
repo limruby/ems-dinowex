@@ -60,7 +60,15 @@ package-lock.json
 =======
 
 deploy-staging.sh
+<<<<<<< HEAD
 >>>>>>> bc7bab1 (staging ignore)
 =======
 *.tar
 >>>>>>> 1759568 (optimize deploy)
+=======
+*.tar
+.vs/event_management_system/v16/.suo
+.vs/slnx.sqlite
+backend/env
+package-lock.json
+>>>>>>> ed4044d (test)
