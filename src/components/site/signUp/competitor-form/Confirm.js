@@ -8,10 +8,14 @@ export class Confirm extends Component {
         e.preventDefault();
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b81d761 (with payment gateway-half done)
         const { 
             values: {email, password, confirmPassword, role, category , name, ic_passport_selection, ic_passport_number, affiliation, address, gender
                 , no_of_team_members,members, phone_no}
         } = this.props;
+<<<<<<< HEAD
 
         var data = {
             role:"Competitor",
@@ -108,6 +112,33 @@ export class Confirm extends Component {
         //     amount = 190.00;
         // }
 >>>>>>> f9183b2 (update changes)
+=======
+        this.props.nextStep();
+        var amount="";
+        var cmpy_code = "AA04";
+        var zone ="02";
+        var product_ID ="149";
+        var token ="Yb0V3AJkfDqVsJX1K7Hvuj7vPnDFyp8ZFZytBAN6sgGTtas7Fq";
+        //var pusat_kos ="231000";
+
+        var hash_value = token + cmpy_code + zone + product_ID + amount;
+
+        if(category === "Professional Innovator"){
+            this.setState = ({
+                hash_value,
+                amount: 390,
+              })
+        }
+        else if (category === "Young Innovator"){
+            this.setState = ({
+                hash_value,
+                amount: 390,
+              })
+        }
+        else if (category === "Junior Innovator"){
+            amount = 190.00;
+        }
+>>>>>>> b81d761 (with payment gateway-half done)
     };
 
     back = e => {
@@ -162,6 +193,7 @@ export class Confirm extends Component {
             <div>
                 <h1>Confirmation</h1>
 
+<<<<<<< HEAD
                 <form className="list-group" action="https://uitmpay.uitm.edu.my/otherservices/products/AA04/02/149" method="post">
                     <input type="text" name="userid" value={values.ic_passport_number} hidden/>
                     <input type="text" name="ord_mercref" value="001" hidden/>
@@ -174,6 +206,20 @@ export class Confirm extends Component {
 
                     <input type="text" name="hash_value" value={hash_value} hidden/>
                     <input type="text" name="amount" value={values.amount} hidden/>
+=======
+                <form class="list-group" action="https://uitmpay.uitm.edu.my/otherservices/products/AA04/02/149" method="POST">
+                    <input type="text" name="userid" value={ic_passport_number} disabled/>
+                    <input type="text" name="ord_mercref" value="001" disabled/>
+                    <input type="text" name="name" value={name} disabled/>
+                    <input type="text" name="ic" value={ic_passport_number} disabled/>
+                    <input type="text" name="email" value={email} disabled/>
+                    <input type="text" name="phone" value={phone_no} disabled/>
+                    <input type="text" name="designation" value={affiliation} disabled/>
+                    <input type="text" name="address" value={address} disabled/>
+
+                    <input type="text" name="hash_value" value="" disabled/>
+                    <input type="text" name="amount" value="" disabled/>
+>>>>>>> b81d761 (with payment gateway-half done)
                     <input type="submit" name="submit" value="Pay" />
     
 
@@ -186,7 +232,11 @@ export class Confirm extends Component {
                     <li class="list-group-item">Contact Number: {phone_no}</li>
                     <li class="list-group-item">Affiliation: {affiliation}</li>
                     <li class="list-group-item">NRIC/Passport Number: {ic_passport_number}</li>   
+<<<<<<< HEAD
                     <li class="list-group-item">Phone Number: {phone_no}</li> 
+=======
+    				<li class="list-group-item">Phone Number: {phone_no}</li> 
+>>>>>>> b81d761 (with payment gateway-half done)
                     <li class="list-group-item">Address: {address}</li>
                     <li class="list-group-item">Gender: {gender}</li>
                     <li class="list-group-item">Selected Category: {category}</li>
