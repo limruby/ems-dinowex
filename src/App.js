@@ -1,10 +1,14 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import React,{useState, useEffect} from 'react';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import {isAuth, isAdmin} from './utils/isAuth'
 =======
 import React from 'react';
+=======
+import React,{useState, useEffect} from 'react';
+>>>>>>> 6ac8c9a (merge with kale's branch 14th May 9.15pm)
 import './App.css';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import {isAuth} from './utils/isAuth'
@@ -25,10 +29,14 @@ import eventLobby from './components/site/eventLobby/eventLobby';
 import sponsor_hall from './components/site/eventLobby/sponsor_hall/sponsor_hall';
 import competition_hall from './components/site/eventLobby/competition_hall/competition_hall';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import Navbar from './components/site/navbar';
 import Footer from './components/site/footer';
 import AdminDashboard from './components/site/adminDashboard';
 =======
+=======
+import Navbar from './components/site/navbar';
+>>>>>>> 6ac8c9a (merge with kale's branch 14th May 9.15pm)
 // import AdminDashboard from './components/site/adminDashboard';
 >>>>>>> 2dbc05f (sponsor sign up updated)
 import PageNotFound from './components/PageNotFound.js';
@@ -78,10 +86,11 @@ function App() {
 =======
 
 function App() {
+  const [loggedIn, setLoggedIn] = useState(localStorage.getItem("token"));
   return (
     <QueryClientProvider client={queryClient}>
     <Router>
-      
+    <Navbar isAuth={loggedIn} />
       <Switch>
         <Route exact path='/' component={Landing}/>
         <Route exact path='/sign_in'  component={SignIn}/>

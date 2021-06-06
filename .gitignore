@@ -1,7 +1,11 @@
 # compiled output
 /dist
 /build
+<<<<<<< HEAD
 node_modules
+=======
+/node_modules
+>>>>>>> 6ac8c9a (merge with kale's branch 14th May 9.15pm)
 
 # Logs
 logs
@@ -36,6 +40,7 @@ lerna-debug.log*
 
 .env
 .eslintcache
+<<<<<<< HEAD
 
 deploy-staging.sh
 *.tar
@@ -44,3 +49,5 @@ deploy-staging.sh
 backend/env
 package-lock.json
 *.sqlite
+=======
+>>>>>>> 6ac8c9a (merge with kale's branch 14th May 9.15pm)

@@ -2,8 +2,11 @@ import React from "react";
 import { Link } from 'react-router-dom';
 import "../../../assets/css/agency.min.css";
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import NavBar from './../navbar';
+=======
+>>>>>>> 6ac8c9a (merge with kale's branch 14th May 9.15pm)
 import Footer from './../footer';
 >>>>>>> 2dbc05f (sponsor sign up updated)
 
@@ -12,10 +15,13 @@ function LandingPage() {
   return (
     <div className="LandingPage">
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
       <NavBar/>
 >>>>>>> 2dbc05f (sponsor sign up updated)
 
+=======
+>>>>>>> 6ac8c9a (merge with kale's branch 14th May 9.15pm)
       <header className="masthead">
         <div className="container">
           <div className="intro-text">

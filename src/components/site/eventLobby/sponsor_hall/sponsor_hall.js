@@ -2,9 +2,12 @@ import React from "react";
 import { Link } from 'react-router-dom';
 import "./../../../../assets/css/agency.min.css";
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import NavBar from './../../navbar';
 >>>>>>> 2dbc05f (sponsor sign up updated)
+=======
+>>>>>>> 6ac8c9a (merge with kale's branch 14th May 9.15pm)
 import Footer from './../../footer';
 import {Image} from 'react-bootstrap';
 import sponsor_hall from "./../../../../assets/img/sponsor_hall.jpg";
@@ -21,9 +24,12 @@ function Sponsor_hall() {
   return (
     <div className="sponsor_hall">
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
       <NavBar/>
 >>>>>>> 2dbc05f (sponsor sign up updated)
+=======
+>>>>>>> 6ac8c9a (merge with kale's branch 14th May 9.15pm)
   
 		<div className="sponsorhall-main-container row justify-content-center">
             <div className="sponsorhall-container col-lg-8">
