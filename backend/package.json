@@ -27,7 +27,11 @@
     "web-vitals": "^1.1.0"
   },
   "scripts": {
+<<<<<<< HEAD
     "start": "nodemon server.js"
+=======
+    "start": "node server.js"
+>>>>>>> 0085d45 (init server npm repo)
   },
   "eslintConfig": {
     "extends": [
