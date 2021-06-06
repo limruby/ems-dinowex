@@ -93,6 +93,7 @@ const competitorSchema = new Schema({
 	required:true
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   },
 =======
   }
@@ -100,6 +101,9 @@ const competitorSchema = new Schema({
 =======
   },
 >>>>>>> f9183b2 (update changes)
+=======
+  },
+>>>>>>> afc4289 (with payment gateway-half done)
   address: {
     type: String,
     required: true
