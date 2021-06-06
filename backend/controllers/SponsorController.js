@@ -5,6 +5,7 @@ const qs = require('querystring');
 const CryptoJS = require('crypto-js');
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 var LocalStorage = require('node-localstorage').LocalStorage,
   localStorage = new LocalStorage('./scratch');
   
@@ -21,6 +22,8 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage })
 
 >>>>>>> 86840ba (upload file function)
+=======
+>>>>>>> 67436a0 (delete code)
 const create = (req, res, next)=>{
 
   const account_id = req.body.account_id;
