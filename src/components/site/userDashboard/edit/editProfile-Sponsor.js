@@ -45,6 +45,7 @@ const inputChange = input => e => {
     // perform all neccassary validations
           if (data.company_name === ""||data.company_pic_name ===""||data.company_contact ===""||data.company_address===""
 <<<<<<< HEAD
+<<<<<<< HEAD
             ||data.company_website===""|| data.company_logo==="" || data.company_pic_ic===""){
             alert("Form not fill");
         }
@@ -64,6 +65,9 @@ const inputChange = input => e => {
              axiosInstance.post("/api/sponsors/update", postData)
 =======
             ||data.company_website===""|| data.company_logo===""){
+=======
+            ||data.company_website===""|| data.company_logo==="" || data.company_pic_ic===""){
+>>>>>>> 66ccca2 (sponsor uitmpay done)
             alert("Form not fill");
         }
         else{
@@ -88,6 +92,7 @@ const inputChange = input => e => {
                 _id : data._id,
                 company_name : data.company_name,
                 company_pic_name : data.company_pic_name,
+                company_pic_ic: data.company_pic_ic,
                 company_contact : data.company_contact,
                 company_address : data.company_address,
                 company_website : data.company_website,
@@ -255,10 +260,14 @@ const uploadFileHandler = (e) => {
                 </div>
                 <div className="form-group">
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 66ccca2 (sponsor uitmpay done)
                     <label htmlFor="company_pic_ic"><span>*</span>IC of Person In Charge (PIC)</label>
                     <input className="form-control" type='text' name='company_pic_ic' id="company_pic_ic"
                     placeholder='Full Name of PIC' required
                     onChange={inputChange('company_pic_ic')} value={data.company_pic_ic} 
+<<<<<<< HEAD
 =======
                     <label htmlFor="company_contact"><span>*</span>Contact Number</label>
                     <input className="form-control" type='text' name='company_contact' id="company_contact"
@@ -268,6 +277,10 @@ const uploadFileHandler = (e) => {
                     />
                 </div>
 <<<<<<< HEAD
+=======
+                    />
+                </div>
+>>>>>>> 66ccca2 (sponsor uitmpay done)
                 <div className="form-group">
                     <label htmlFor="company_contact"><span>*</span>Contact Number</label>
                     <input className="form-control" type='text' name='company_contact' id="company_contact"

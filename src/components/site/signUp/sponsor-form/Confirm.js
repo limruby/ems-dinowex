@@ -96,6 +96,9 @@ export class Confirm extends Component {
     render() {
         const { values, inputChange } = this.props;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 66ccca2 (sponsor uitmpay done)
         const { 
             values: {email, 
                 password,
@@ -109,6 +112,7 @@ export class Confirm extends Component {
                 amount
             }
         } = this.props;
+<<<<<<< HEAD
 
 =======
         // const { 
@@ -133,15 +137,19 @@ export class Confirm extends Component {
               amount= 190.00.toFixed(2);;
         }
 
+=======
+        
+>>>>>>> 66ccca2 (sponsor uitmpay done)
     var sha1 = require('sha1');
-    var hash_value = sha1(values.token + values.cmpy_code + values.zone + values.product_ID + amount);  
-    
+    var hash_value = sha1(values.token + values.cmpy_code + values.zone + values.product_ID + amount + ".00");  
+    console.log(company_contact)
 
 >>>>>>> 54aefd4 (sponsor payment gateway setup halfway, amount not clear)
         return (
             <div>
                 <h1>Confirmation</h1>
                 <ul className="list-group">
+<<<<<<< HEAD
 <<<<<<< HEAD
                     <li className="list-group-item">Company Name: {values.company_name}</li>
                     <li className="list-group-item">PIC Name: {values.company_pic_name}</li>
@@ -150,16 +158,25 @@ export class Confirm extends Component {
                     <li className="list-group-item">Company Name: {values.Componentcompany_name}</li>
                     <li className="list-group-item">PIC Name: {values.company_pic_name}</li>
 >>>>>>> 54aefd4 (sponsor payment gateway setup halfway, amount not clear)
+=======
+                    <li className="list-group-item">Company Name: {values.company_name}</li>
+                    <li className="list-group-item">PIC Name: {values.company_pic_name}</li>
+                    <li className="list-group-item">IC: {values.company_pic_ic}</li>
+>>>>>>> 66ccca2 (sponsor uitmpay done)
                     <li className="list-group-item">Email: {values.email}</li>
                     <li className="list-group-item">Phone Number: {values.company_contact}</li>
                     <li className="list-group-item">Company Address: {values.company_address}</li>
                     <li className="list-group-item">Company Website: {values.company_website}</li>
                     <li className="list-group-item">Selected Category: {values.category}</li>
 <<<<<<< HEAD
+<<<<<<< HEAD
                 </ul>
 
                 <br /><br />
 =======
+=======
+                    <li className="list-group-item">Sponsor Amount: RM {values.amount}.00</li>
+>>>>>>> 66ccca2 (sponsor uitmpay done)
 
                 </ul>
 
@@ -168,21 +185,27 @@ export class Confirm extends Component {
                     <input type="text" name="userid" value={values.company_pic_name} hidden/>
                     <input type="text" name="ord_mercref" value= {"iidentex"+values.company_pic_name} hidden/>
                     <input type="text" name="name" value={values.company_pic_name} hidden/>
-                    <input type="text" name="ic" value={values.ic_passport_number} hidden/>
-                    <input type="text" name="email" value={values.email} hidden />
+                    <input type="text" name="ic" value={values.company_pic_ic} hidden/>
+                    <input type="text" name="email" value={values.email}  hidden/>
                     <input type="text" name="phone" value={values.company_contact}  hidden/>
-                    <input type="text" name="designation" value={values.company_pic_name}hidden />
+                    <input type="text" name="designation" value={values.company_pic_name} hidden/>
                     <input type="text" name="address" value={values.company_address}  hidden/>
 
+<<<<<<< HEAD
                     <input type="text" name="hash_value" value={hash_value}hidden/>
                     <input type="number" name="amount" value={amount} hidden />
 >>>>>>> 54aefd4 (sponsor payment gateway setup halfway, amount not clear)
+=======
+                    <input type="text" name="hash_value" value={hash_value} hidden/>
+                    <input type="number" name="amount" value={parseFloat(amount).toFixed(2)}  hidden/>
+                    
+>>>>>>> 66ccca2 (sponsor uitmpay done)
                 <div className="row">
                     <div className="col-6">
                         <button className="btn btn-danger" onClick={this.back}>Back</button>
                     </div>
                     <div className="col-6 text-right">
-                        <button className="btn btn-primary" onClick={this.continue}>Confirm</button>
+                    <input type="submit" className="btn btn-primary"name="submit" value="Make payment" />
                     </div>
                 </div>
                 </form>

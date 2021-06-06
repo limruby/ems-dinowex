@@ -67,10 +67,14 @@ const sponsorSchema = new Schema({
   }, 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 66ccca2 (sponsor uitmpay done)
   company_pic_ic:{
     type: String,
     required: true
   },
+<<<<<<< HEAD
   bill_id:{
     type: String, 
   },
@@ -93,6 +97,8 @@ const sponsorSchema = new Schema({
   }, 
 =======
 >>>>>>> 082b413 (upload and display company logo)
+=======
+>>>>>>> 66ccca2 (sponsor uitmpay done)
 
   company_logo:[subSchema],
   poster:[subSchema],
