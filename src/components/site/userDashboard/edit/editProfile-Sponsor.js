@@ -233,6 +233,7 @@ const uploadFileHandler = (e) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
                     <label htmlFor="company_logo"><span>*</span>Company Logo With Transparent Background</label><br />
+<<<<<<< HEAD
                     {displayLogo()}
 =======
                     <label htmlFor="company_website"><span>*</span>Company Logo</label><br />
@@ -250,10 +251,16 @@ const uploadFileHandler = (e) => {
                     <input type="file" onChange={inputChange('company_logo')} name="upload_file"/>
 >>>>>>> d526164 (upload sponsor company logo)
 =======
+=======
+                    <img src={data.company_logo} alt="" />
+>>>>>>> 3979fae (upload sponsor logo)
                     <input type="file" onChange={inputChange('company_logo')} name="upload_file"/>
 >>>>>>> 86840ba (upload file function)
                 </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3979fae (upload sponsor logo)
                 <br />
                <div className="col-4 btn-group">
                     <Link to="/user_dashboard">
@@ -264,7 +271,11 @@ const uploadFileHandler = (e) => {
             </div>
             </form>
          </>
+<<<<<<< HEAD
         )
+=======
+		)
+>>>>>>> 3979fae (upload sponsor logo)
 }
 <<<<<<< HEAD
  
