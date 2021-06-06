@@ -1,5 +1,9 @@
 import React, { useState } from "react";
+<<<<<<< HEAD
 import { useTable, useFilters, useSortBy, useGlobalFilter } from "react-table";
+=======
+import { useTable, useFilters, useSortBy } from "react-table";
+>>>>>>> ca69ace (Admin)
 
 export default function Table({ columns, data }) {
   const [filterInput, setFilterInput] = useState("");
@@ -10,23 +14,35 @@ export default function Table({ columns, data }) {
     headerGroups,
     rows,
     prepareRow,
+<<<<<<< HEAD
     setFilter,
     setGlobalFilter
+=======
+    setFilter
+>>>>>>> ca69ace (Admin)
   } = useTable(
     {
       columns,
       data
     },
     useFilters,
+<<<<<<< HEAD
     useGlobalFilter,
+=======
+>>>>>>> ca69ace (Admin)
     useSortBy
   );
 
   const handleFilterChange = e => {
     const value = e.target.value || undefined;
+<<<<<<< HEAD
     setGlobalFilter(value);
     setFilterInput(value);
  
+=======
+    setFilter("show.name", value);
+    setFilterInput(value);
+>>>>>>> ca69ace (Admin)
   };
 
   // Render the UI for your table
@@ -35,7 +51,11 @@ export default function Table({ columns, data }) {
       <input
         value={filterInput}
         onChange={handleFilterChange}
+<<<<<<< HEAD
         placeholder={"Search"}
+=======
+        placeholder={"Search name"}
+>>>>>>> ca69ace (Admin)
       />
       <table {...getTableProps()}>
         <thead>

@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axiosInstance from '../../../utils/axiosConfig.js';
+<<<<<<< HEAD
 import {Tab, Nav, Row, Col,Card} from "react-bootstrap";
 import {FaEdit,FaCertificate,FaBook,FaRegBookmark} from 'react-icons/fa';
 import {BsPeopleCircle,BsFiles,BsBookHalf} from "react-icons/bs";
@@ -95,6 +96,31 @@ function TabTitles(){
 
 </div>  
  
+=======
+ 
+ 
+function AdminDashboard() {
+ 
+////////////////////get login user info (REPLACE THIS)  /////////////////////
+
+ 
+ 
+  return (
+   <>
+     
+    <div>
+      
+      <p>uuboiiasojoa</p>
+
+    </div>  
+ 
+    
+ 
+   
+    
+   
+  </>
+>>>>>>> ca69ace (Admin)
   );
  
 }
