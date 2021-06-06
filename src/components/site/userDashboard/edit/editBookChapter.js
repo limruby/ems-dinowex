@@ -6,6 +6,7 @@ import Form from 'react-bootstrap/Form';
 import { FaTrashAlt } from 'react-icons/fa';
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import Editor from './editor';
 <<<<<<< HEAD
 =======
@@ -19,6 +20,9 @@ import { FaTrashAlt } from 'react-icons/fa';
 import Editor from "./editor.js";
 =======
 >>>>>>> 09b1a14 (merge from before)
+=======
+import Editor from './editor';
+>>>>>>> 8930f2e (merge from alexia)
 
 >>>>>>> 962c9ed (merge from before)
 
@@ -229,6 +233,7 @@ function EditBookChapter({data, setData}) {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 						<Editor id = {data._id} bookChapter_data = {data.bookChapter}/>
 =======
 	                    <textarea className="form-control" id="content" cols="30" rows="10"
@@ -244,6 +249,9 @@ function EditBookChapter({data, setData}) {
 	                    </Link>
  
 >>>>>>> 962c9ed (merge from before)
+=======
+	                    <Editor/>
+>>>>>>> 8930f2e (merge from alexia)
 	                </div>
 					
 					 <div className="form-group">

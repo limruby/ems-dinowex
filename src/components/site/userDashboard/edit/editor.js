@@ -4,16 +4,23 @@ import { CKEditor } from '@ckeditor/ckeditor5-react'
 
 import axiosInstance from '../../../../utils/axiosConfig.js';
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 =======
+=======
+>>>>>>> 8930f2e (merge from alexia)
 var data;
 
 
 const submit=(e)=>{
     e.preventDefault();
     console.log(data)
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> 8930f2e (merge from alexia)
 //     var postData = {
 
 //         bookChapter : {
@@ -24,6 +31,7 @@ const submit=(e)=>{
 
 //     }
 //  console.log(postData);
+<<<<<<< HEAD
 //     axiosInstance.post("/competitors/update", postData)
 //             .then(function(response) {
 //               // window.location.href = '/user_dashboard';
@@ -33,6 +41,16 @@ const submit=(e)=>{
 }
 
 >>>>>>> 172511b (ckeditor)
+=======
+     axiosInstance.post("/competitors/update", data)
+             .then(function(response) {
+               // window.location.href = '/user_dashboard';
+             }).catch(function(error) {
+               console.log(error);
+             })
+}
+
+>>>>>>> 8930f2e (merge from alexia)
 const editorConfiguration = {
     toolbar: {
         items: [
@@ -43,21 +61,32 @@ const editorConfiguration = {
             'numberedList',
             '|',
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             'outdent',
             'indent',
             '|',
 >>>>>>> 172511b (ckeditor)
+=======
+            'outdent',
+            'indent',
+            '|',
+>>>>>>> 8930f2e (merge from alexia)
             'imageUpload',
             'blockQuote',
             'insertTable',
             'mediaEmbed',
+<<<<<<< HEAD
 <<<<<<< HEAD
             
 =======
             'undo',
             'redo'
 >>>>>>> 172511b (ckeditor)
+=======
+            'undo',
+            'redo'
+>>>>>>> 8930f2e (merge from alexia)
         ]
     },
     language: 'en',
@@ -66,9 +95,13 @@ const editorConfiguration = {
             'imageTextAlternative',
             'imageStyle:full',
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             'imageStyle:side'
 >>>>>>> 172511b (ckeditor)
+=======
+            'imageStyle:side'
+>>>>>>> 8930f2e (merge from alexia)
         ]
     },
     table: {
@@ -80,6 +113,7 @@ const editorConfiguration = {
     }
 };
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 class EditorSec extends Component {
@@ -120,17 +154,23 @@ class EditorSec extends Component {
         }
 
 =======
+=======
+>>>>>>> 8930f2e (merge from alexia)
 class EditorSec extends Component {
 
 
 
     render() {
+<<<<<<< HEAD
 >>>>>>> 172511b (ckeditor)
+=======
+>>>>>>> 8930f2e (merge from alexia)
         return (
             <div className="EditorSec">                
                 <CKEditor
                     editor={ Editor }
                     config={ editorConfiguration }
+<<<<<<< HEAD
 <<<<<<< HEAD
                     data={initialData}
                     onReady={ editor => {
@@ -141,10 +181,16 @@ class EditorSec extends Component {
                     onReady={ editor => {
                         // You can store the "editor" and use when it is needed.
 >>>>>>> 172511b (ckeditor)
+=======
+                    data="<p>Hello from CKEditor 5!</p>"
+                    onReady={ editor => {
+                        // You can store the "editor" and use when it is needed.
+>>>>>>> 8930f2e (merge from alexia)
                         console.log( 'Editor is ready to use!', editor );
                     } }
                     onChange={ ( event, editor ) => {
                         data = editor.getData();
+<<<<<<< HEAD
 <<<<<<< HEAD
 						var postData = {
 						_id : this.props.id,
@@ -160,6 +206,9 @@ class EditorSec extends Component {
 =======
                         console.log( { event, editor, data } );
 >>>>>>> 172511b (ckeditor)
+=======
+                        console.log( { event, editor, data } );
+>>>>>>> 8930f2e (merge from alexia)
                     } }
                     // onBlur={ ( event, editor ) => {
                     //     console.log( 'Blur.', editor.getData() );
@@ -168,7 +217,11 @@ class EditorSec extends Component {
                     //     console.log( 'Focus.',  editor.getData() );
                     // } }
                 />
+<<<<<<< HEAD
                 <p>Click "Set" to save the data</p>
+=======
+                <br/>
+>>>>>>> 8930f2e (merge from alexia)
                 <button className="btn btn-primary" onClick={submit}>Set</button>
 
             </div>
