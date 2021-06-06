@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 const { Binary } = require('mongodb');
-=======
->>>>>>> 2dbc05f (sponsor sign up updated)
 const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
@@ -58,7 +55,6 @@ const sponsorSchema = new Schema({
     type: String,
     required: true
   }, 
-<<<<<<< HEAD
   company_pic_ic:{
     type: String,
     required: true
@@ -78,14 +74,6 @@ const sponsorSchema = new Schema({
   company_logo:[subSchema],
   poster:[subSchema],
   video:[videoSchema],
-=======
-
-  poster:{
-    type: Buffer,
-    default: null
-  },
-  video:[subSchema],
->>>>>>> 2dbc05f (sponsor sign up updated)
 
 }, {
   timestamps: true,

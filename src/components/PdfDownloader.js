@@ -1,5 +1,4 @@
 import React from 'react';
-<<<<<<< HEAD
 import html2pdf from "html2pdf.js";
 
 const PdfDownloader = ({rootElementId , downloadFileName}) => {
@@ -29,25 +28,6 @@ const PdfDownloader = ({rootElementId , downloadFileName}) => {
    html2pdf(element, opt);
 }
     return <button className="btn btn-primary" onClick={submitHandler}>Download PDF</button>
-=======
-import html2canvas from "html2canvas";
-import { jsPDF } from "jspdf";
-
-const PdfDownloader = ({rootElementId , downloadFileName}) => {
-
-    const downloadPdfDocument = () => {
-        const input = document.getElementById(rootElementId);
-        html2canvas(input)
-            .then((canvas) => {
-                const imgData = canvas.toDataURL('image/png');
-                const pdf = new jsPDF();
-                pdf.addImage(imgData, 'JPEG', 0, 0);
-                pdf.save(`${downloadFileName}.pdf`);
-            })
-    }
-
-    return <button onClick={downloadPdfDocument}>Download Pdf</button>
->>>>>>> 2dbc05f (sponsor sign up updated)
 
 }
 

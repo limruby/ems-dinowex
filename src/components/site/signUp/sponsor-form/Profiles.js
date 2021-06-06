@@ -21,17 +21,11 @@ export class Profiles extends Component {
             if (
                 values.company_name ==""||
                 values.company_pic_name==""||
-<<<<<<< HEAD
                 values.company_pic_ic==""||
                 values.company_contact==""||
                 values.company_address==""||
                 values.company_website==""|| 
                 values.company_pic_ic ==""||
-=======
-                values.company_contact==""||
-                values.company_address==""||
-                values.company_website==""|| 
->>>>>>> 2dbc05f (sponsor sign up updated)
                 values.company_logo){
                 alert("Form not fill");
             }
@@ -54,7 +48,6 @@ export class Profiles extends Component {
                     <label htmlFor="company_pic_name"><span>*</span>Company Person In Charge (PIC)</label>
                     <input className="form-control" type='text' name='company_pic_name' id="company_pic_name"
                     placeholder='Full Name of PIC' required
-<<<<<<< HEAD
                     onChange={inputChange('company_pic_name')} value={values.company_pic_name} 
                     />
                 </div>
@@ -63,9 +56,6 @@ export class Profiles extends Component {
                     <input className="form-control" type='text' name='company_pic_ic' id="company_pic_ic"
                     placeholder='IC Number' required
                     onChange={inputChange('company_pic_ic')} value={values.company_pic_ic} 
-=======
-                    onChange={inputChange('company_pic_name')} value={values.company_company_pic_name} 
->>>>>>> 2dbc05f (sponsor sign up updated)
                     />
                 </div>
                 <div className="form-group">
@@ -91,14 +81,6 @@ export class Profiles extends Component {
                     />
                 </div>
 
-<<<<<<< HEAD
-=======
-                <div className="form-group">
-                    <p>Please upload company logo with transparent background.</p>
-                    <input type="file" onChange={inputChange('company_logo')} />
-                </div>
-
->>>>>>> 2dbc05f (sponsor sign up updated)
                 <br />
 
                 <div className="row">

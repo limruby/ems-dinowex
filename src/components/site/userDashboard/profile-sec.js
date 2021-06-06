@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const Profiles = ({user,role}) =>  {
 
 function display(){
@@ -23,15 +22,6 @@ if(user.company_logo){
   }
    
   if(role === 'Competitor'){
-=======
-import React from 'react';
-
-
-const Profiles = ({user,role}) =>  {
-
-   
-  if(role=='Competitor'){
->>>>>>> 2dbc05f (sponsor sign up updated)
     return ( 
           
       <div>
@@ -55,11 +45,7 @@ const Profiles = ({user,role}) =>  {
       </div>
      );
    }
-<<<<<<< HEAD
   else if(role === 'Sponsor'){
-=======
-  else if(role=='Sponsor'){
->>>>>>> 2dbc05f (sponsor sign up updated)
 
 
     return (       
@@ -72,7 +58,6 @@ const Profiles = ({user,role}) =>  {
             <p> Company Name: {user.company_name} </p>
           </li>
           <li>
-<<<<<<< HEAD
             <p> Person In Charge's Full Name: {user.company_pic_name} </p>
           </li>
           <li>
@@ -80,30 +65,16 @@ const Profiles = ({user,role}) =>  {
           </li>
           <li>
             <p> Contact Number: {user.company_contact}</p>
-=======
-            <p> Company PIC Fulle Name: {user.PIC_name} </p>
-          </li>
-          <li>
-            <p> Phone No: {user.phone}</p>
->>>>>>> 2dbc05f (sponsor sign up updated)
           </li>
           <li>
             <p> Company Address: {user.company_address}</p>
           </li>
           <li>
-<<<<<<< HEAD
             <p> Company Logo: </p>
               {display()}
           </li>
           <li>
             <p> Company Website URL: <a href={user.company_website}>{user.company_website}</a></p>
-=======
-            <p> Compamy Logo: </p>
-              <img src={user.company_logo } alt="" />
-          </li>
-          <li>
-            <p> Company URL: <a href={user.company_website}>{user.company_website}</a></p>
->>>>>>> 2dbc05f (sponsor sign up updated)
           </li>
         </ul>
       </div>
@@ -118,16 +89,6 @@ const Profiles = ({user,role}) =>  {
       );
     }
  
-<<<<<<< HEAD
 }
 
-=======
-
-
-}
-
-
-
-
->>>>>>> 2dbc05f (sponsor sign up updated)
 export default Profiles;

@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-<<<<<<< HEAD
 import parse from 'html-react-parser';
 
 const Content = ({user}) =>  {
@@ -66,55 +65,20 @@ function displayReference(){
                   {user.bookChapter[0]['references'].map((reference)=>(
                     <li>
                      {reference}
-=======
-import axiosInstance from '../../../utils/axiosConfig.js';
-
-
-const Content = () =>  {
-
-  const [result, setResult]=useState([]);
-
-   const account_id = localStorage.getItem('user_id');
-
-   
-
-
-  function displayResult(){
-    var section = [];
-    if(result.keywords){
-        section.push(
-            <div>
-                <ul>
-                  {result.keywords.map((keyword)=>(
-                    <li>
-                     {keyword}
->>>>>>> 2dbc05f (sponsor sign up updated)
                     </li>
                     ))}
                 </ul>
             </div>
         );
     }
-<<<<<<< HEAD
   }
  }
-=======
->>>>>>> 2dbc05f (sponsor sign up updated)
     return section;
   }
 
   return (       
     <div>
       <div>
-<<<<<<< HEAD
-
-=======
-        <p>{result.inroduction}</p>
-        <p>{result.content}</p>
-        <p>{result.conclusion}</p>
-
-        {displayResult()}
->>>>>>> 2dbc05f (sponsor sign up updated)
       </div>  
       
     </div>
@@ -123,9 +87,4 @@ const Content = () =>  {
 }
 
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 2dbc05f (sponsor sign up updated)
 export default Content;

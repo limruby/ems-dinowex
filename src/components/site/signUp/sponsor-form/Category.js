@@ -60,8 +60,4 @@ export class Profiles extends Component {
     }
 }
 
-<<<<<<< HEAD
 export default Profiles
-=======
-export default Profiles
->>>>>>> 2dbc05f (sponsor sign up updated)

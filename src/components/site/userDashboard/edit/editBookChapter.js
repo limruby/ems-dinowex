@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
-<<<<<<< HEAD
 import { FaTrashAlt } from 'react-icons/fa';
 import Editor from './editor';
 
@@ -58,29 +57,6 @@ function EditBookChapter({data, setData}) {
 
 	    return section;
 	}
-=======
-
-function EditBookChapter() {
-
-	/////////////////////get login user (REPLACE THIS) ////////////////
-	const [result, setState] = useState({
-	    introduction : "intro for bookChapter",
-	    content: "paragraph for bookChapter",
-	    conclusion: "conclusion for bookChapter",
-	    references: [
-	      "REF sample 1",
-	      "REF sample 2"
-	    ]
-	})
-
-	const inputChange = input => e => {
-	    setState({
-	    	...result,
-	        [input]: e.target.value
-	    });
-	};
-
->>>>>>> 2dbc05f (sponsor sign up updated)
 	//display empty Reference field
 	function displayReferencesForm(){
 	    var section = [];
@@ -89,7 +65,6 @@ function EditBookChapter() {
             <div>
                 <div className="form-group">
                     <input type="text" className="form-control" name="reference" id="reference"
-<<<<<<< HEAD
                     placeholder='reference'                    
                     onChange={tempInput('reference')} value={tempState.reference}/>
                 	<button className="btn btn-primary" type="button" onClick={addReference()}> Add</button>
@@ -97,11 +72,6 @@ function EditBookChapter() {
 					<br/>
                 	
 
-=======
-                    placeholder='reference' required                    
-                    onChange={tempInput('reference')} value={tempState.reference}/>
-                	<button className="addBtn" type="button" onClick={addReference()}> Add</button>
->>>>>>> 2dbc05f (sponsor sign up updated)
                 </div>
 
                 <hr/>
@@ -127,7 +97,6 @@ function EditBookChapter() {
 
 	//////// add reference ////////////
 	const addReference = () => e => {
-<<<<<<< HEAD
 		if(!data.bookChapter[0]){
 			data.abstract.push({'references': []})
 			
@@ -142,20 +111,11 @@ function EditBookChapter() {
 	        
 	    });
 	    console.log(data.bookChapter);
-=======
-	    result.references.push(tempState.reference);
-	    setState({
-	        ...result,
-	        
-	    });
-	    console.log(result);
->>>>>>> 2dbc05f (sponsor sign up updated)
 	    //clear tempStateReference
 	    setTempt({
 	    	...tempState,
 	    	reference: ""
 	    });
-<<<<<<< HEAD
 	}
 
 	//////// remove reference ////////////
@@ -166,26 +126,11 @@ function EditBookChapter() {
 	        
 	    });
 	    console.log(data.bookChapter);
-=======
-
-	}
-
-
-	//////// remove reference ////////////
-	const deleteReference = (index) => e => {
-	    result.references.splice(index,1);
-	    setState({
-	        ...result,
-	        
-	    });
-	    console.log(result);
->>>>>>> 2dbc05f (sponsor sign up updated)
 	}
 
 	const handleForm=(e)=>{
 	e.preventDefault();
 	// perform all neccassary validations
-<<<<<<< HEAD
 		var postData = {
                 _id : data._id,                
                 bookChapter : data.bookChapter
@@ -221,17 +166,6 @@ function EditBookChapter() {
 	}
 
 
-=======
-	   if (result.bookChapter ==""){
-	        alert("Form not fill");
-	    }
-	    else{
-	    	///////update to db /////////////
-	    	console.log(result);
-	    }
-	}
-
->>>>>>> 2dbc05f (sponsor sign up updated)
 	/////////////////////////////////////////////////////////////
 
 		return(
@@ -243,47 +177,22 @@ function EditBookChapter() {
 	                <div className="form-group">
 	                    <label htmlFor="introduction">Introduction</label>
 	                    <textarea className="form-control" id="introduction" cols="30" rows="10"
-<<<<<<< HEAD
                     	onChange={inputChange('introduction')} value={checkExist('introduction', 0)} />
-=======
-                    	onChange={inputChange('introduction')} value={result.introduction} />
->>>>>>> 2dbc05f (sponsor sign up updated)
 	                </div>
 
 	                <div className="form-group">
 	                    <label htmlFor="content">Content </label>
-<<<<<<< HEAD
 						<Editor id = {data._id} bookChapter_data = {data.bookChapter}/>
-=======
-	                    <textarea className="form-control" id="content" cols="30" rows="10"
-                    	onChange={inputChange('content')} value={result.content} />
->>>>>>> 2dbc05f (sponsor sign up updated)
 	                </div>
 					
 					 <div className="form-group">
 	                    <label htmlFor="conclusion">Conclusion </label>
 	                    <textarea className="form-control" id="conclusion" cols="30" rows="10"
-<<<<<<< HEAD
                     	onChange={inputChange('conclusion')} value={checkExist('conclusion', 0)} />
 	                </div>
 
                    	<h5>References</h5>
 	                {displayReferences()}
-=======
-                    	onChange={inputChange('conclusion')} value={result.conclusion} />
-	                </div>
-
-                   	<h5>References</h5>
-	                <ul>
-	                    {result.references.map((reference, index)=>(
-
-	                    <li>
-	                      {reference}
-	                      <button className="deleteBtn" type="button" onClick={deleteReference('reference',index)}> delete</button>
-	                    </li>
-	                    ))}
-	                </ul>
->>>>>>> 2dbc05f (sponsor sign up updated)
 	                {displayReferencesForm()}
 
 	                <br />

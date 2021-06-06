@@ -63,11 +63,7 @@
   
   .sec-container{
 	  display: block;
-<<<<<<< HEAD
 	  max-height: 100%;
-=======
-	  max-height: 550px;
->>>>>>> 2dbc05f (sponsor sign up updated)
   }
 
   .btn-group a{

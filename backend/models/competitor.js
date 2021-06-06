@@ -88,13 +88,10 @@ const competitorSchema = new Schema({
     type: String,
     required: true
   }, 
-<<<<<<< HEAD
   phone_no:{
 	type:String,
 	required:true
   },
-=======
->>>>>>> 2dbc05f (sponsor sign up updated)
   address: {
     type: String,
     required: true
@@ -103,7 +100,6 @@ const competitorSchema = new Schema({
     type: String,
     required: true
   },
-<<<<<<< HEAD
   bill_id:{
     type: String, 
   },
@@ -119,17 +115,6 @@ const competitorSchema = new Schema({
   grants:[subSchema],
   
   video:[videoSchema],
-=======
-
-  poster:{
-    type: Buffer,
-    default: null
-  },
-  achievement:[subSchema],
-  publication:[subSchema],
-  grant:[subSchema],
-  video:[subSchema],
->>>>>>> 2dbc05f (sponsor sign up updated)
 
   abstract:[abstractSchema],
 

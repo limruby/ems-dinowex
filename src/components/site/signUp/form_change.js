@@ -43,11 +43,6 @@ const SectionChange = () =>  {
         
         );
     }
-<<<<<<< HEAD
-=======
- 
-
->>>>>>> 2dbc05f (sponsor sign up updated)
 
 }
 

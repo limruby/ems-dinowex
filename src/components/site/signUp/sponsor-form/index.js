@@ -3,10 +3,6 @@ import AccountSetup from './AccountSetup';
 import Category from './Category';
 import Profiles from './Profiles';
 import Confirm from './Confirm';
-<<<<<<< HEAD
-=======
-import Success from './Success';
->>>>>>> 2dbc05f (sponsor sign up updated)
 
 export class SponsorForm extends Component {
     state = {
@@ -17,10 +13,7 @@ export class SponsorForm extends Component {
         confirmPassword: '',
         company_name: '',
         company_pic_name: '',
-<<<<<<< HEAD
         company_pic_ic:'',
-=======
->>>>>>> 2dbc05f (sponsor sign up updated)
         company_contact: '',
         company_address: '',
         company_website:'',
@@ -53,10 +46,7 @@ export class SponsorForm extends Component {
         confirmPassword,
         company_name,
         company_pic_name,
-<<<<<<< HEAD
         company_pic_ic,
-=======
->>>>>>> 2dbc05f (sponsor sign up updated)
         company_contact,
         company_address,
         company_website,
@@ -69,10 +59,7 @@ export class SponsorForm extends Component {
         confirmPassword,
         company_name,
         company_pic_name,
-<<<<<<< HEAD
         company_pic_ic,
-=======
->>>>>>> 2dbc05f (sponsor sign up updated)
         company_contact,
         company_address,
         company_website,
@@ -116,19 +103,8 @@ export class SponsorForm extends Component {
                         values={values}
                     />
                 );
-<<<<<<< HEAD
-=======
-            case 5:
-                return (
-                    <Success />
-                );
->>>>>>> 2dbc05f (sponsor sign up updated)
         }
     }
 }
 
-<<<<<<< HEAD
 export default SponsorForm;
-=======
-export default SponsorForm;
->>>>>>> 2dbc05f (sponsor sign up updated)

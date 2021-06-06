@@ -1,5 +1,4 @@
 const Sponsor = require('../models/sponsor');
-<<<<<<< HEAD
 // const mongoose = require('mongoose');
 var ObjectId = require('mongodb').ObjectId;
 const qs = require('querystring');
@@ -8,35 +7,23 @@ const CryptoJS = require('crypto-js');
 var LocalStorage = require('node-localstorage').LocalStorage,
   localStorage = new LocalStorage('./scratch');
   
-=======
-const mongoose = require('mongoose');
-var ObjectId = require('mongodb').ObjectId;
-
->>>>>>> 2dbc05f (sponsor sign up updated)
 const create = (req, res, next)=>{
 
   const account_id = req.body.account_id;
   const category = req.body.category;
   const company_name = req.body.company_name;
   const company_pic_name = req.body.company_pic_name;
-<<<<<<< HEAD
   const company_pic_ic = req.body.company_pic_ic;
   const company_contact = req.body.company_contact;
   const company_address = req.body.company_address;
   const company_website = req.body.company_website;
   const company_logo = req.body.company_logo;
-=======
-  const company_contact = req.body.company_contact;
-  const company_address = req.body.company_address;
-  const company_website = req.body.company_website;
->>>>>>> 2dbc05f (sponsor sign up updated)
 
     const newSponsor = new Sponsor({
     account_id, 
     category,
     company_name, 
     company_pic_name, 
-<<<<<<< HEAD
     company_pic_ic,
     company_contact, 
     company_address, 
@@ -46,15 +33,6 @@ const create = (req, res, next)=>{
 
     newSponsor.save()
       .then(() => res.json(newSponsor))
-=======
-    company_contact, 
-    company_address, 
-    company_website, 
-    });
-
-    newSponsor.save()
-      .then(() => res.json('New Sponsor Created!'))
->>>>>>> 2dbc05f (sponsor sign up updated)
       .catch(err => res.status(400).json('Error: ' + err));
 };
 
@@ -74,7 +52,6 @@ const read = (req, res, next)=>{
     }).catch(err => console.log(err))
  };
 
-<<<<<<< HEAD
  const readAll = (req, res, next)=>{ 
   Sponsor.find({}, (err, sponsors) => {
       if (err) {
@@ -88,14 +65,10 @@ const read = (req, res, next)=>{
       return res.status(200).json({ success: true, data: sponsors })
   }).catch(err => console.log(err))
 };
-=======
-
->>>>>>> 2dbc05f (sponsor sign up updated)
 
 
 const update = (req, res, next)=>{
 
-<<<<<<< HEAD
       var updateSponsor = {};
 
       if(req.body.company_name){
@@ -192,42 +165,3 @@ const updatePayment = (req, res, next) => {
 
 module.exports = {create, read, readAll, update, updatePayment, pay}
 
-=======
-    const account_id = req.body.account_id;
-    const category = req.body.category;
-    const company_name = req.body.company_name;
-    const company_pic_name = req.body.company_pic_name;
-    const company_contact = req.body.company_contact;
-    const company_address = req.body.company_address;
-    const company_website = req.body.company_website;
-    const poster = req.body.poster;
-    const video = req.body.video;
-
-  const newSponsor = new Sponsor({
-    account_id, 
-    category,
-    company_name, 
-    company_pic_name, 
-    company_contact, 
-    company_address, 
-    company_website, 
-    poster,
-    video,
-    });
-
-    newSponsor.save()
-      .then(() => res.json('Sponsor Created!'))
-      .catch(err => res.status(400).json('Error: ' + err));
-
-
-    Sponsor.findByIdAndUpdate(req.body._id, newSponsor, (err, sponsors) => {
-        if (err) {
-            return res.status(400).json({ success: false, error: err })
-        }
-        
-        return res.status(200).json({ success: true, data: sponsors })
-    }).catch(err => console.log(err))
- };
-
-module.exports = {create, read, update}
->>>>>>> 2dbc05f (sponsor sign up updated)
