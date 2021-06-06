@@ -1,13 +1,12 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const multer  = require('multer');
-const path = require ('path');
 
 require('dotenv').config();
 
 const app = express();
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 const port = process.env.PORT || 5000;
 
@@ -37,6 +36,8 @@ app.use(function(req, res, next) {
 	next();
   });
 
+=======
+>>>>>>> f9183b2 (update changes)
 const port = process.env.PORT || 5000;
 
 app.use(cors({origin: '*'}));
@@ -54,6 +55,7 @@ const connection = mongoose.connection;
 connection.once('open', ()=>{
 	console.log("MongoDB database connection established")
 })
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -91,17 +93,20 @@ app.get('/api/hello', function(req, res) {
 >>>>>>> bdfdade (Admin login)
 =======
 >>>>>>> 4bb0d2d (merge admin login)
+=======
+>>>>>>> f9183b2 (update changes)
 //add routes
 const accountsRouter = require('./routes/accounts');
-app.use('/accounts', accountsRouter)
+app.use('/api/accounts', accountsRouter)
 
 const rolesRouter = require('./routes/roles');
-app.use('/roles', rolesRouter)
+app.use('/api/roles', rolesRouter)
 
 const competitorsRouter = require('./routes/competitors');
-app.use('/competitors', competitorsRouter)
+app.use('/api/competitors', competitorsRouter)
 
 const sponsorsRouter = require('./routes/sponsors');
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -122,6 +127,9 @@ app.use('/upload', uploadRouter)
 
 
 >>>>>>> 7c0a793 (merged with alexia's branch)
+=======
+app.use('/api/sponsors', sponsorsRouter)
+>>>>>>> f9183b2 (update changes)
 
 =======
 >>>>>>> 3e5a50c (remove unnecessary files)

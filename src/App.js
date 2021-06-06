@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 <<<<<<< HEAD
 import {isAuth, isAdmin} from './utils/isAuth'
 
+<<<<<<< HEAD
 =======
 import {isAuth} from './utils/isAuth'
 =======
@@ -13,6 +14,8 @@ import {isAuth, isAdmin} from './utils/isAuth'
 
 //
 >>>>>>> a678ac2 (test)
+=======
+>>>>>>> f9183b2 (update changes)
 import Landing from './components/site/landingPage';
 import SignIn from './components/site/login/login';
 import SignUp from './components/site/signUp'
@@ -27,6 +30,7 @@ import Navbar from './components/site/navbar';
 import Footer from './components/site/footer';
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import AdminDashboard from './components/site/adminDashboard';
 =======
 // import AdminDashboard from './components/site/adminDashboard';
@@ -34,6 +38,9 @@ import AdminDashboard from './components/site/adminDashboard';
 =======
 import AdminDashboard from './components/site/adminDashboard';
 >>>>>>> bdfdade (Admin login)
+=======
+//import AdminDashboard from './components/site/adminDashboard';
+>>>>>>> f9183b2 (update changes)
 import PageNotFound from './components/PageNotFound.js';
 
 
@@ -92,7 +99,7 @@ function App() {
         <PrivateRoute exact path='/user_dashboard/edit_abstract' component={EditUserDetails}/>
         <PrivateRoute exact path='/user_dashboard/edit_book_chapter' component={EditUserDetails}/>
 
-        <AdminRoute exact path='/admin_dashboard'  component={AdminDashboard}/>
+        {/*<AdminRoute exact path='/admin_dashboard'  component={AdminDashboard}/>*/}
 
 		    <Route exact path='/eventLobby'  component={eventLobby}/>  
         <Route exact path='/sponsor_hall'  component={sponsor_hall}/> 

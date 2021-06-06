@@ -92,10 +92,14 @@ const competitorSchema = new Schema({
 	type:String,
 	required:true
 <<<<<<< HEAD
+<<<<<<< HEAD
   },
 =======
   }
 >>>>>>> 4ea11f3 (with phone number)
+=======
+  },
+>>>>>>> f9183b2 (update changes)
   address: {
     type: String,
     required: true
