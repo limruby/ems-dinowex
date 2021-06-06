@@ -96,6 +96,7 @@ function UserDashboard() {
 >>>>>>> d6169f2 (sponsor edit profile can fetch data)
 //////////////////////////////////////////////////////////////////////////////////
  function welcome(role){
+<<<<<<< HEAD
         switch(role){
                 case 'Sponsor':
         return (
@@ -116,6 +117,28 @@ function UserDashboard() {
         }
  }
  
+=======
+	switch(role){
+		case 'Sponsor':
+        return (
+			<div className="row-username">
+				<p>Welcome {user.company_name}</p>
+			</div>);
+
+		case 'Competitor':
+		return (
+			<div className="row-username">
+				<p>Welcome {user.name}</p>
+			</div>);
+		default:
+        return (
+			<div className="row-username">
+				<p>Welcome back</p>
+			</div>);
+	}
+ }
+
+>>>>>>> 85998ee (welcome back xxx)
   function TabTitles(role){
     switch(role){
       case 'Sponsor':
@@ -170,10 +193,7 @@ function UserDashboard() {
 =======
 >>>>>>> d6169f2 (sponsor edit profile can fetch data)
 
-   <div className="row-username">
-       <p>Welcome {user.name}</p>
-
-   </div>  
+   {welcome(account.role)} 
 
 >>>>>>> 7c0a793 (merged with alexia's branch)
    <div className="wrapper">
