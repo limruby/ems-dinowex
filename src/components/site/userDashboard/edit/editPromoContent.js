@@ -322,20 +322,28 @@ console.log(data)
                 <h1 className="mb-5">Edit Promotional content</h1>
  
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <h5>Poster<i className="caution"> (*Max 1)</i></h5>    
 =======
                 <h5>Poster</h5>    
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+=======
+                <h5>Poster<i className="caution"> (*Max 1)</i></h5>    
+>>>>>>> 519e3a8 (with come updated css)
                            
                 {displayPosterForm()}
                                
                 <hr/>
  
 <<<<<<< HEAD
+<<<<<<< HEAD
                  <h5>Video<i className="caution"> (*Max 5)</i></h5>
                  {displayVideoForm()}
 =======
                  <h5>Video</h5>
+=======
+                 <h5>Video<i className="caution"> (*Max 5)</i></h5>
+>>>>>>> 519e3a8 (with come updated css)
                  {displayVideoForm()}
 <<<<<<< HEAD
                                 <div>

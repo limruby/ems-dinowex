@@ -327,6 +327,7 @@ function displayAchievementForm(){
                 <h1 className="mb-5">Edit Competition Material</h1>
  
                 <h5>Poster<i className="caution"> (*Max 1)</i></h5>    
+<<<<<<< HEAD
                            
                 {displayPosterForm()}
                                
@@ -742,12 +743,14 @@ export default PromoContent;
                 <h1 className="mb-5">Edit Competition Material</h1>
  
                 <h5>Poster</h5>    
+=======
+>>>>>>> 519e3a8 (with come updated css)
                            
                 {displayPosterForm()}
                                
                 <hr/>
  
-                <h5>Achievements</h5>
+                <h5>Achievements<i className="caution"> (*Max 3)</i></h5>
                
               <div className="form-group">
                    {displayAchievementForm()}
@@ -755,19 +758,19 @@ export default PromoContent;
                        
                  <hr/>
  
-                <h5>Publications</h5>
+                <h5>Publications<i className="caution"> (*Max 3)</i></h5>
                
               <div className="form-group">
                    {displayPublicationForm()}
                  </div>
-                               
-                 <h5>Grants</h5>
+                     <hr/>          
+                 <h5>Grants<i className="caution"> (*Max 3)</i></h5>
                
               <div className="form-group">
                    {displayGrantForm()}
                  </div>
-                               
-                 <h5>Video</h5>
+                       <hr/>        
+                 <h5>Video<i className="caution"> (*Max 1)</i></h5>
                  {displayVideoForm()}
                                
            
