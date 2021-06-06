@@ -53,8 +53,12 @@ const inputChange = input => e => {
         }
         else{
         	 ///////update to db /////////////
+<<<<<<< HEAD
              axiosInstance.post("/competitors/update", data)
 >>>>>>> d6169f2 (sponsor edit profile can fetch data)
+=======
+             axiosInstance.post("/sponsors/update", data)
+>>>>>>> e43c0d3 (edit sponsor profile line 26)
              .then(function(response) {
                window.location.href = '/user_dashboard';
              }).catch(function(error) {
