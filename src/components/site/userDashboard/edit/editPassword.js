@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import axiosInstance from '../../../../utils/axiosConfig.js';
 <<<<<<< HEAD
+<<<<<<< HEAD
  
 function EditAccount({data, setData}) {
  
@@ -11,6 +12,11 @@ function EditAccount({data, setData}) {
 function EditAccount({data, setData}) {
 
 >>>>>>> 7c0a793 (merged with alexia's branch)
+=======
+ 
+function EditAccount({data, setData}) {
+ 
+>>>>>>> 3c5d2dd (resolved issues)
 /////////////////////get login user (REPLACE THIS) ////////////////
 const [user, setState] = useState({
       _id: '',
@@ -18,6 +24,7 @@ const [user, setState] = useState({
       confirmPassword:''
  
 });
+<<<<<<< HEAD
 <<<<<<< HEAD
    
  
@@ -32,6 +39,14 @@ const [user, setState] = useState({
         setState({
             ...user,
 >>>>>>> 7c0a793 (merged with alexia's branch)
+=======
+   
+ 
+    const inputChange = input => e => {
+        setState({
+            ...user,
+                        _id:data._id,
+>>>>>>> 3c5d2dd (resolved issues)
             [input]: e.target.value
         });
     };
@@ -62,11 +77,8 @@ const [user, setState] = useState({
             alert("Form not fill");
         }
         else{
-            setState({
-                ...user,
-                '_id': data._id
-            });
-             console.log(user);   
+           
+             console.log(data);  
             ///////update to db /////////////
              axiosInstance.post("/accounts/update", user)
             .then(function(response) {
@@ -84,10 +96,14 @@ const [user, setState] = useState({
  
 /////////////////////////////////////////////////////////////
 <<<<<<< HEAD
+<<<<<<< HEAD
  
 =======
 
 >>>>>>> 7c0a793 (merged with alexia's branch)
+=======
+ 
+>>>>>>> 3c5d2dd (resolved issues)
     return(
         <>
             <form onSubmit={handleForm}>
@@ -102,16 +118,21 @@ const [user, setState] = useState({
                     onChange={inputChange('newPassword')} value={user.newPassword} />
                 </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
  
 =======
 
 >>>>>>> 7c0a793 (merged with alexia's branch)
+=======
+ 
+>>>>>>> 3c5d2dd (resolved issues)
                 <div className="form-group">
                     <label htmlFor="confirmPassword">Confirm New Password </label>
                     <input className="form-control" type='password'name='confirmPassword' id="confirmPassword"
                     placeholder='password' required
                     minLength="8"
                     onChange={inputChange('confirmPassword')} value={user.confirmPassword} />
+<<<<<<< HEAD
 <<<<<<< HEAD
                    
                 </div>
@@ -123,6 +144,12 @@ const [user, setState] = useState({
         
 
 >>>>>>> 7c0a793 (merged with alexia's branch)
+=======
+                   
+                </div>
+       
+ 
+>>>>>>> 3c5d2dd (resolved issues)
                 <br />
  
                 <div className="col-4 btn-group">
@@ -135,6 +162,7 @@ const [user, setState] = useState({
             </form>
          </>
 <<<<<<< HEAD
+<<<<<<< HEAD
  
         )
  
@@ -143,6 +171,11 @@ const [user, setState] = useState({
         )
 
 >>>>>>> 7c0a793 (merged with alexia's branch)
+=======
+ 
+        )
+ 
+>>>>>>> 3c5d2dd (resolved issues)
 }
  
 export default EditAccount;
