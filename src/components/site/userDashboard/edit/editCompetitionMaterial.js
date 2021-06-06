@@ -14,17 +14,22 @@ import axiosInstance from '../../../../utils/axiosConfig.js';
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 70358d5 (update kale's progress 17th May 2021)
 import { FaTrashAlt } from 'react-icons/fa';
 =======
 >>>>>>> 3c5d2dd (resolved issues)
+=======
+import { FaTrashAlt } from 'react-icons/fa';
+>>>>>>> b799936 (resolve editCompetitionMaterial.js issue)
  
 function EditAccount({data, setData}) {
  
  
 const [tempData, setTemp] = useState({
   tempPoster:[],
+<<<<<<< HEAD
   tempVidName : "",
   tempVidPath : ""
 });
@@ -381,6 +386,8 @@ function EditAccount({data, setData}) {
  
  
 const [tempData, setTemp] = useState({
+=======
+>>>>>>> b799936 (resolve editCompetitionMaterial.js issue)
   tempVidName : "",
   tempVidPath : ""
 });
@@ -405,6 +412,7 @@ console.log(data)
 //   }
 // }
  
+ 
 ///////display forms//////
 //poster form
   function displayPosterForm(){
@@ -418,14 +426,13 @@ console.log(data)
     }
     else{
      
-      const imageBuffer = Buffer.from(data.poster[0].source.data);
-      console.log(imageBuffer)
+     
       section.push(
         <div>
-          <img src={imageBuffer} alt=""/>
-                     
-                   <p>{data.poster[0].name}</p>
-                    <button className="deleteBtn" type="button" onClick={deleteFile('poster',0)}> delete</button>
+                   <p>{data.poster[0].name}
+                                   <button className="deleteBtn" type="button" onClick={deleteFile('poster',0)}> <FaTrashAlt/></button>
+                                   </p>
+                   
               </div>
       )
     }
@@ -439,8 +446,8 @@ function displayAchievementForm(){
     for(var i=0; i<data.achievements.length; i++){  
       section.push(
         <p>
-                    Name: {data.achievements[i].name}
-                    <button className="deleteBtn" type="button" onClick={deleteFile('achievement',i)}> delete</button>
+                    FileName: {data.achievements[i].name}
+                    <button className="deleteBtn" type="button" onClick={deleteFile('achievement',i)}> <FaTrashAlt/></button>
                   </p>
           );
       }      
@@ -461,8 +468,8 @@ function displayAchievementForm(){
       for(var i=0; i<data.publications.length; i++){  
         section.push(
           <p>
-                      Name: {data.publications[i].name}
-                      <button className="deleteBtn" type="button" onClick={deleteFile('publication',i)}> delete</button>
+                      FileName: {data.publications[i].name}
+                      <button className="deleteBtn" type="button" onClick={deleteFile('publication',i)}> <FaTrashAlt/></button>
                     </p>
             );
       }
@@ -484,8 +491,8 @@ function displayAchievementForm(){
       for(var i=0; i<data.grants.length; i++){  
         section.push(
           <p>
-                      Name: {data.grants[i].name}
-                      <button className="deleteBtn" type="button" onClick={deleteFile('grant',i)}> delete</button>
+                      FileName: {data.grants[i].name}
+                      <button className="deleteBtn" type="button" onClick={deleteFile('grant',i)}> <FaTrashAlt/></button>
                     </p>
             );
       }
@@ -521,8 +528,10 @@ function displayAchievementForm(){
     else{
       section.push(
         <div className="form-group">
-                  <p>{data.video[0].name}</p>
-                    <button className="deleteBtn" type="button" onClick={deleteFile('video',0)}> delete</button>
+                  <p>{data.video[0].name}
+                                  <button className="deleteBtn" type="button" onClick={deleteFile('video',0)}> <FaTrashAlt/></button>
+                                  </p>
+                   
               </div>
       )
     }
@@ -580,6 +589,7 @@ function displayAchievementForm(){
            if(element === 'poster'){
               data.poster.push({'name':fileName,'source':fileReader.result})
 <<<<<<< HEAD
+<<<<<<< HEAD
             };
         // Convert data to base64
 <<<<<<< HEAD
@@ -603,15 +613,29 @@ function displayAchievementForm(){
     else if(element == 'vidName'){
         tempData.tempVidName=e.target.value;
 =======
+=======
+                          setData({
+                                ...data
+                          })
+>>>>>>> b799936 (resolve editCompetitionMaterial.js issue)
             }
             else if(element === 'achievement'){
                         data.achievements.push({'name':fileName,'source':fileReader.result});
+                                                setData({
+                                ...data
+                          })
                     }
             else if(element==='publication'){
                       data.publications.push({'name':fileName,'source':fileReader.result});
+                                          setData({
+                                ...data
+                          })
                     }
             else if(element==='grant'){
                       data.grants.push({'name':fileName,'source':fileReader.result});
+                                          setData({
+                                ...data
+                          })
                     }
                    
         };
@@ -631,6 +655,9 @@ function displayAchievementForm(){
       ...tempData
     });
     setData({
+        ...data,
+      })
+        setData({
         ...data,
       })
      console.log(data);
@@ -688,7 +715,7 @@ export default PromoContent;
  
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
   };
-
+ 
   return(
     <>
             <form onSubmit={handleForm}>
@@ -698,7 +725,7 @@ export default PromoContent;
                 <h5>Poster</h5>    
                            
                 {displayPosterForm()}
- 
+                               
                 <hr/>
  
                 <h5>Achievements</h5>
@@ -706,7 +733,7 @@ export default PromoContent;
               <div className="form-group">
                    {displayAchievementForm()}
                  </div>
-           
+                       
                  <hr/>
  
                 <h5>Publications</h5>
@@ -714,16 +741,16 @@ export default PromoContent;
               <div className="form-group">
                    {displayPublicationForm()}
                  </div>
- 
+                               
                  <h5>Grants</h5>
                
               <div className="form-group">
                    {displayGrantForm()}
                  </div>
- 
+                               
                  <h5>Video</h5>
                  {displayVideoForm()}
- 
+                               
            
                
                 <br />
