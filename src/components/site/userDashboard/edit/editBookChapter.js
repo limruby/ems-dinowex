@@ -5,6 +5,7 @@ import Form from 'react-bootstrap/Form';
 <<<<<<< HEAD
 import { FaTrashAlt } from 'react-icons/fa';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import Editor from './editor';
 <<<<<<< HEAD
 =======
@@ -16,6 +17,8 @@ import { FaTrashAlt } from 'react-icons/fa';
 >>>>>>> 172511b (ckeditor)
 =======
 import Editor from "./editor.js";
+=======
+>>>>>>> 09b1a14 (merge from before)
 
 >>>>>>> 962c9ed (merge from before)
 
