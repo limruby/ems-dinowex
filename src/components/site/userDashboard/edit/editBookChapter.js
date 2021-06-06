@@ -5,11 +5,14 @@ import Form from 'react-bootstrap/Form';
 <<<<<<< HEAD
 import { FaTrashAlt } from 'react-icons/fa';
 import Editor from './editor';
+<<<<<<< HEAD
 =======
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
 =======
 import { FaTrashAlt } from 'react-icons/fa';
 >>>>>>> 70358d5 (update kale's progress 17th May 2021)
+=======
+>>>>>>> 172511b (ckeditor)
 
 import axiosInstance from '../../../../utils/axiosConfig.js';
 
@@ -211,11 +214,15 @@ function EditBookChapter({data, setData}) {
 	                <div className="form-group">
 	                    <label htmlFor="content">Content </label>
 <<<<<<< HEAD
+<<<<<<< HEAD
 						<Editor id = {data._id} bookChapter_data = {data.bookChapter}/>
 =======
 	                    <textarea className="form-control" id="content" cols="30" rows="10"
                     	onChange={inputChange('content')} value={checkExist('content', 0)} />
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+=======
+	                    <Editor/>
+>>>>>>> 172511b (ckeditor)
 	                </div>
 					
 					 <div className="form-group">
