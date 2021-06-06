@@ -106,6 +106,7 @@ var obj =[];
     }
 =======
 /////////////////////////////////////////////////////////////
+<<<<<<< HEAD
 >>>>>>> d6169f2 (sponsor edit profile can fetch data)
 
       setData({
@@ -146,6 +147,27 @@ function displayLogo(){
         <>
         <form onSubmit={handleForm} action="/uploadfile" enctype="multipart/form-data" method="POST">
         <div className="form-container">
+=======
+const uploadFileHandler = (e) => {
+    const file = e.target.files[0];
+    const bodyFormData = new FormData();
+    bodyFormData.append('image', file);
+    try {
+    axiosInstance.post("/uploads", bodyFormData, {
+        headers: { 'Content-Type': 'multipart/form-data'}
+    })
+
+    }catch(error){
+        console.log(error);
+    }
+}
+
+/////////////////////////////////////////////////////////////
+	return(
+		<>
+		<form onSubmit={handleForm}>
+		<div className="form-container">
+>>>>>>> 335f562 (testing with uploadfilehandler)
                 <h1 className="mb-5">Edit Profile Info</h1>
  
               
@@ -201,6 +223,7 @@ function displayLogo(){
  
                 <div className="form-group">
 <<<<<<< HEAD
+<<<<<<< HEAD
                     <label htmlFor="company_logo"><span>*</span>Company Logo With Transparent Background</label><br />
                     {displayLogo()}
 =======
@@ -208,6 +231,11 @@ function displayLogo(){
                     <img src={data.company_logo } alt="" />
                     <input type="file" onChange={inputChange('company_logo')} />
 >>>>>>> d6169f2 (sponsor edit profile can fetch data)
+=======
+                    <label htmlFor="company_logo"><span>*</span>Company Logo With Transparent Background</label><br />
+                    <img src={data.company_logo } alt="" />
+                    <input type="file" name={data.company_name +" logo"} onChange={uploadFileHandler} />
+>>>>>>> 335f562 (testing with uploadfilehandler)
                 </div>
 
                 <br />

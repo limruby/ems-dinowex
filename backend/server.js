@@ -18,6 +18,13 @@ const connection = mongoose.connection;
 connection.once('open', ()=>{
 	console.log("MongoDB database connection established")
 })
+<<<<<<< HEAD
+=======
+//get image
+const uploadRouter = require('./routes/upload');
+app.use('/uploads', uploadRouter)
+
+>>>>>>> 335f562 (testing with uploadfilehandler)
 //add routes
 const accountsRouter = require('./routes/accounts');
 app.use('/api/accounts', accountsRouter)

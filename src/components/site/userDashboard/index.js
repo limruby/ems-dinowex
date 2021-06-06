@@ -95,6 +95,7 @@ function UserDashboard() {
     }, [account_id]);
 >>>>>>> d6169f2 (sponsor edit profile can fetch data)
 //////////////////////////////////////////////////////////////////////////////////
+<<<<<<< HEAD
  function welcome(role){
 <<<<<<< HEAD
         switch(role){
@@ -118,6 +119,9 @@ function UserDashboard() {
  }
  
 =======
+=======
+function welcome(role){
+>>>>>>> 335f562 (testing with uploadfilehandler)
 	switch(role){
 		case 'Sponsor':
         return (
