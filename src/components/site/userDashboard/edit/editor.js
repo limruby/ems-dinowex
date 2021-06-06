@@ -120,22 +120,32 @@ const editorConfiguration = {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> ab7142a (edit-bookchapter-content-done)
 
 class EditorSec extends Component {
     render() {
 
         var data;
+<<<<<<< HEAD
     	var initialData;
+=======
+		var initialData;
+>>>>>>> ab7142a (edit-bookchapter-content-done)
 		
 		if(this.props.bookChapter_data==null||this.props.bookChapter_data[0]==undefined||this.props.bookChapter_data[0]['content']==null){
 				initialData="";
 			}else{
 				initialData = this.props.bookChapter_data[0]['content'];
 			}
+<<<<<<< HEAD
 
         const submit=(e)=>{
             e.preventDefault();
             console.log(data)
+=======
+>>>>>>> ab7142a (edit-bookchapter-content-done)
 
             var postData = {
                 _id : this.props.id
@@ -183,8 +193,12 @@ class EditorSec extends Component {
                 ,
                 bookChapter : this.props.bookChapter_data
             }
-
-            postData.bookChapter[0]['content'] = data
+			if(postData.bookChapter==null||postData.bookChapter[0]==undefined||postData.bookChapter[0]['content']==null){
+				postData.bookChapter.push({'content':data})
+			}else{
+				postData.bookChapter[0]['content'] = data;
+			}
+            
 
          // console.log(postData);
             // axiosInstance.post("/competitors/update", postData)
@@ -203,6 +217,7 @@ class EditorSec extends Component {
                     config={ editorConfiguration }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                     data={initialData}
                     onReady={ editor => {
                         // You can store the "editor" and use when it is needed.
@@ -214,6 +229,9 @@ class EditorSec extends Component {
 >>>>>>> 172511b (ckeditor)
 =======
                     data="<p>Hello from CKEditor 5!</p>"
+=======
+                    data={initialData}
+>>>>>>> ab7142a (edit-bookchapter-content-done)
                     onReady={ editor => {
                         // You can store the "editor" and use when it is needed.
 <<<<<<< HEAD
@@ -227,6 +245,9 @@ class EditorSec extends Component {
                         data = editor.getData();
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> ab7142a (edit-bookchapter-content-done)
 						var postData = {
 						_id : this.props.id,
 						bookChapter : this.props.bookChapter_data
@@ -238,12 +259,15 @@ class EditorSec extends Component {
 						postData.bookChapter[0]['content'] = data;
 					}
                     //console.log( { event, editor, data } );
+<<<<<<< HEAD
 =======
                         console.log( { event, editor, data } );
 >>>>>>> 172511b (ckeditor)
 =======
                         console.log( { event, editor, data } );
 >>>>>>> 8930f2e (merge from alexia)
+=======
+>>>>>>> ab7142a (edit-bookchapter-content-done)
                     } }
                     // onBlur={ ( event, editor ) => {
                     //     console.log( 'Blur.', editor.getData() );

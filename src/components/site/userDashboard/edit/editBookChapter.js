@@ -103,6 +103,7 @@ function EditBookChapter({data, setData}) {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 	<button className="btn btn-primary" type="button" onClick={addReference()}> Add</button>
 
 					<br/>
@@ -118,6 +119,10 @@ function EditBookChapter({data, setData}) {
 =======
                 	<button className="btn btn-primary" type="button" onClick={addReference()}> Add</button>
 >>>>>>> 248fc10 (added /api/ to axios GET POST)
+=======
+					<br/>
+                	<button className="addBtn btn btn-primary" type="button" onClick={addReference()}> Add</button>
+>>>>>>> ab7142a (edit-bookchapter-content-done)
                 </div>
 
                 <hr/>
