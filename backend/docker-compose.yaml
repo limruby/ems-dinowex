@@ -25,10 +25,16 @@ services:
 #     container_name: mongodb
   
   backend:
+<<<<<<< HEAD
     # build: .
     # depends_on:
     #   - mongodb
     image: vexs/backend
+=======
+    build: .
+    # depends_on:
+    #   - mongodb
+>>>>>>> 38f483b (update docker)
     restart: always
     environment:
         ATLAS_URI: mongodb://sudo:sudo@cluster0-shard-00-00.konox.mongodb.net:27017,cluster0-shard-00-01.konox.mongodb.net:27017,cluster0-shard-00-02.konox.mongodb.net:27017/db?ssl=true&replicaSet=atlas-irsy7d-shard-0&authSource=admin&retryWrites=true&w=majority
@@ -37,6 +43,7 @@ services:
       - server
     ports:
       - 5000:5000
+<<<<<<< HEAD
     labels:
       - traefik.enable=true
       - traefik.docker.network=server
@@ -46,8 +53,14 @@ services:
       - traefik.http.routers.vexs_backend.rule=Host(`vexsdev.getitqec.com`) && PathPrefix(`/api/`)
       - traefik.http.routers.vexs_backend.entrypoints=https
       - traefik.http.routers.vexs_backend.tls.certresolver=mytlschallenge
+=======
+>>>>>>> 38f483b (update docker)
     container_name: backend
 
 networks:
   server:
+<<<<<<< HEAD
     external: true
+=======
+    external: true
+>>>>>>> 38f483b (update docker)
