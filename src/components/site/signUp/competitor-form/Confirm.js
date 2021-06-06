@@ -9,6 +9,7 @@ export class Confirm extends Component {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> b81d761 (with payment gateway-half done)
         const { 
@@ -82,6 +83,8 @@ export class Confirm extends Component {
         this.props.nextStep();
 >>>>>>> b231f77 (https done but CORS issue for payment)
 =======
+=======
+>>>>>>> 8718204 (payment gateway-done)
         // const { 
         //     values: {email, password, confirmPassword, role, category , name, ic_passport_selection, ic_passport_number, affiliation, address, gender
         //         , no_of_team_members,members, phone_no}
@@ -111,6 +114,7 @@ export class Confirm extends Component {
         // else if (category === "Junior Innovator"){
         //     amount = 190.00;
         // }
+<<<<<<< HEAD
 >>>>>>> f9183b2 (update changes)
 =======
         this.props.nextStep();
@@ -139,6 +143,8 @@ export class Confirm extends Component {
             amount = 190.00;
         }
 >>>>>>> b81d761 (with payment gateway-half done)
+=======
+>>>>>>> 8718204 (payment gateway-done)
     };
 
     back = e => {
@@ -147,6 +153,7 @@ export class Confirm extends Component {
     };
 
     render() {
+<<<<<<< HEAD
 <<<<<<< HEAD
         const { 
 <<<<<<< HEAD
@@ -182,17 +189,51 @@ export class Confirm extends Component {
              //    var phone ="123123"
 
 >>>>>>> f9183b2 (update changes)
+=======
+        const { values, inputChange } = this.props;
+>>>>>>> 8718204 (payment gateway-done)
 
+        // const { 
+        //     values: {email, password, confirmPassword, role, category , name, ic_passport_selection, ic_passport_number, phone_no, affiliation, address, gender
+        //     , no_of_team_members,members, amount, cmpy_code, zone, product_ID, token}
+        // } = this.props;
 
+<<<<<<< HEAD
 
 
 
             var hash_value = values.token + values.cmpy_code + values.zone + values.product_ID + values.amount;  
 
+=======
+                var  amount;
+
+                if(values.category === "Professional Innovator"){
+                                          
+                      amount= 390.00.toFixed(2);;
+                      
+                }
+                else if (values.category === "Young Innovator"){
+                      amount= 222.00.toFixed(2);;
+                }
+                else if (values.category === "Junior Innovator"){
+                      amount= 231.00.toFixed(2);;
+                }
+
+             //    var phone ="123123"
+
+
+
+
+
+
+            var hash_value = values.token + values.cmpy_code + values.zone + values.product_ID + amount;  
+            var sha1 = require('sha1');
+>>>>>>> 8718204 (payment gateway-done)
         return (
             <div>
                 <h1>Confirmation</h1>
 
+<<<<<<< HEAD
 <<<<<<< HEAD
                 <form className="list-group" action="https://uitmpay.uitm.edu.my/otherservices/products/AA04/02/149" method="post">
                     <input type="text" name="userid" value={values.ic_passport_number} hidden/>
@@ -220,6 +261,20 @@ export class Confirm extends Component {
                     <input type="text" name="hash_value" value="" disabled/>
                     <input type="text" name="amount" value="" disabled/>
 >>>>>>> b81d761 (with payment gateway-half done)
+=======
+                <form className="list-group" action="https://uitmpay.uitm.edu.my/otherservices/products/AA04/02/149" method="POST">
+                    <input type="text" name="userid" value={values.ic_passport_number} />
+                    <input type="text" name="ord_mercref" value= {"iidentex"+values.ic_passport_number} />
+                    <input type="text" name="name" value={values.name} />
+                    <input type="text" name="ic" value={values.ic_passport_number} />
+                    <input type="text" name="email" value={values.email} />
+                    <input type="text" name="phone" value={values.phone_no} />
+                    <input type="text" name="designation" value={values.affiliation} />
+                    <input type="text" name="address" value={values.address} />
+
+                    <input type="text" name="hash_value" value={sha1(hash_value)} />
+                    <input type="number" name="amount" value={amount} />
+>>>>>>> 8718204 (payment gateway-done)
                     <input type="submit" name="submit" value="Pay" />
     
 
@@ -233,10 +288,14 @@ export class Confirm extends Component {
                     <li class="list-group-item">Affiliation: {affiliation}</li>
                     <li class="list-group-item">NRIC/Passport Number: {ic_passport_number}</li>   
 <<<<<<< HEAD
+<<<<<<< HEAD
                     <li class="list-group-item">Phone Number: {phone_no}</li> 
 =======
     				<li class="list-group-item">Phone Number: {phone_no}</li> 
 >>>>>>> b81d761 (with payment gateway-half done)
+=======
+                    <li class="list-group-item">Phone Number: {phone_no}</li> 
+>>>>>>> 8718204 (payment gateway-done)
                     <li class="list-group-item">Address: {address}</li>
                     <li class="list-group-item">Gender: {gender}</li>
                     <li class="list-group-item">Selected Category: {category}</li>
