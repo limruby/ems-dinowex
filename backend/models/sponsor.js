@@ -35,6 +35,13 @@ const sponsorSchema = new Schema({
     type: String,
     required: true
   }, 
+<<<<<<< HEAD
+=======
+  phone_no:{
+	type:String,
+	required:true
+  },
+>>>>>>> 577544f (with payment gateway-half done)
   company_name: {
     type: String,
     required: true
