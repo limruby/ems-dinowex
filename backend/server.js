@@ -34,6 +34,7 @@ app.use('/api/sponsors', sponsorsRouter)
 =======
 app.use('/sponsors', sponsorsRouter)
 
+<<<<<<< HEAD
 const uploadRouter = require('./routes/upload');
 app.use('/upload', uploadRouter)
 
@@ -41,6 +42,8 @@ app.use('/upload', uploadRouter)
 
 >>>>>>> 7c0a793 (merged with alexia's branch)
 
+=======
+>>>>>>> 3e5a50c (remove unnecessary files)
 app.listen(port, () => {
 	console.log('Now starting at http://localhost:5000/api/hello');
 });

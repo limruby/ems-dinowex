@@ -142,6 +142,7 @@ const lastPath = thePath.substring(thePath.lastIndexOf('/') + 1);
 		)
 	}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 
@@ -153,5 +154,7 @@ const lastPath = thePath.substring(thePath.lastIndexOf('/') + 1);
 
 
 >>>>>>> 7c0a793 (merged with alexia's branch)
+=======
+>>>>>>> 3e5a50c (remove unnecessary files)
 }
 export default FormNavigator;

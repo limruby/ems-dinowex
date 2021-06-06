@@ -1,4 +1,6 @@
+const Competitor = require('../models/competitor');
 const mongoose = require('mongoose');
+<<<<<<< HEAD
 <<<<<<< HEAD
 var ObjectId = require('mongodb').ObjectId;
 const qs = require('querystring');
@@ -6,11 +8,17 @@ const CryptoJS = require('crypto-js');
 
 var LocalStorage = require('node-localstorage').LocalStorage,
   localStorage = new LocalStorage('./scratch');
+=======
+var ObjectId = require('mongodb').ObjectId;
+>>>>>>> 3e5a50c (remove unnecessary files)
 
 const create = (req, res, next)=>{
   const account_id = req.body.account_id;
   const category = req.body.category;
+<<<<<<< HEAD
   const phone_no = req.body.phone_no;
+=======
+>>>>>>> 3e5a50c (remove unnecessary files)
   const name = req.body.name;
   const affiliation = req.body.affiliation;
   const nric_passport_selection = req.body.nric_passport_selection;
@@ -27,12 +35,20 @@ const create = (req, res, next)=>{
       nric_passport_selection,
       nric_passport_no,
       address,
+<<<<<<< HEAD
       gender,
       phone_no
     });
 
     newCompetitor.save()
       .then(() => res.json(newCompetitor))
+=======
+      gender
+    });
+
+    newCompetitor.save()
+      .then(() => res.json('Competitor Created!'))
+>>>>>>> 3e5a50c (remove unnecessary files)
       .catch(err => res.status(400).json('Error: ' + err));
 };
 
@@ -54,6 +70,7 @@ const read = (req, res, next)=>{
 
 const update = (req, res, next)=>{
 
+<<<<<<< HEAD
 
   var updateCompetitor = {};
   if(req.body.name){
@@ -199,117 +216,57 @@ const subSchema = new Schema({
   source: {
     type: Buffer,
     required: false
-  }
-});
+=======
+  var updateCompetitor = {};
 
-const videoSchema = new Schema({
-  name: {
-    type: String,
-    required: false
-  },
-  source: {
-    type: String,
-    required: false
+  if(req.body.members){
+    updateCompetitor['members'] = req.body.members;
+>>>>>>> 3e5a50c (remove unnecessary files)
+  }
+  if(req.body.poster){
+    updateCompetitor['poster'] = req.body.poster;
   }
 
-})
-
-const abstractSchema = new Schema({
-  title: {type: String, required: false},
-  content: {type: String, required: false},
-  keywords:[{type:String, required: false}]
-});
-
-const bookChapterSchema = new Schema({
-  introduction: {
-    type: String,
-    required: false
-  },
-  content: {
-    type: String,
-    required: false
-  },
-  conclusion: {
-    type: String,
-    required: false
-  },
-  references:[{type:String, required: false}]
-});
-
-
-const memberSchema = new Schema({
-  name: {
-    type: String,
-    required: false
-  }, 
-  affiliation: {
-    type: String,
-    required: false
-  }, 
-  email: {
-    type: String,
-    required: false
+  if(req.body.achievement){
+    updateCompetitor['achievement'] = req.body.achievement;
   }
-})
-
-const competitorSchema = new Schema({
-  account_id:{
-    type: [{ type: Schema.Types.ObjectId, ref: 'Account'}],
-    required: true
-  },
-  category: {
-    type: String,
-    required: true
-  }, 
-  name: {
-    type: String,
-    required: true
-  }, 
-  affiliation: {
-    type: String,
-    required: true
-  }, 
-  nric_passport_selection: {
-    type: String,
-    required: true
-  }, 
-  nric_passport_no: {
-    type: String,
-    required: true
-  }, 
-  address: {
-    type: String,
-    required: true
-  }, 
-  gender: {
-    type: String,
-    required: true
-  },
-
-  poster:[subSchema],
-  achievements:[subSchema],
-  publications:[subSchema],
-  grants:[subSchema],
-  video:[subSchema],
-
-  abstract:[abstractSchema],
-
-  bookChapter: [bookChapterSchema],
-
-  members:[memberSchema]
+  if(req.body.publication){
+    updateCompetitor['publication'] = req.body.publication
+  }  
+  if(req.body.grant){
+    updateCompetitor['grant'] = req.body.grant;
+  }
+  if(req.body.video){
+    updateCompetitor['video'] = req.body.video;
+  }
+  if(req.body.abstract){
+    updateCompetitor['abstract'] = req.body.abstract;
+  }
+  if(req.body.bookChapter){
+    updateCompetitor['bookChapter'] = req.body.bookChapter;
+  }
+   
 
 
-
-}, {
-  timestamps: true,
-});
+    Competitor.findByIdAndUpdate(req.body._id, updateCompetitor, (err, competitors) => {
+        if (err) {
+            return res.status(400).json({ success: false, error: err, data:req.body })
+        }
+        if(competitors){
+        return res.status(200).json({ success: true, data: req.body })
+      }
+    }).catch(err => console.log(err))
+ };
 
 
 
 
 
 
-const Competitor = mongoose.model('Competitor', competitorSchema);
 
+<<<<<<< HEAD
 module.exports = Competitor;
 >>>>>>> 7c0a793 (merged with alexia's branch)
+=======
+module.exports = {create, read, update}
+>>>>>>> 3e5a50c (remove unnecessary files)
