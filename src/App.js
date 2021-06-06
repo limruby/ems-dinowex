@@ -71,6 +71,7 @@ function App() {
         <PrivateRoute exact path='/user_dashboard/edit_researchTeam' component={EditUserDetails}/>
         <PrivateRoute exact path='/user_dashboard/edit_abstract' component={EditUserDetails}/>
         <PrivateRoute exact path='/user_dashboard/edit_book_chapter' component={EditUserDetails}/>
+        <PrivateRoute exact path='/user_dashboard/edit_book_chapter_content' component={EditUserDetails}/>
 
         <AdminRoute exact path='/admin_dashboard'  component={AdminDashboard}/>
 
