@@ -26,6 +26,7 @@ services:
   
   backend:
 <<<<<<< HEAD
+<<<<<<< HEAD
     # build: .
     # depends_on:
     #   - mongodb
@@ -35,6 +36,12 @@ services:
     # depends_on:
     #   - mongodb
 >>>>>>> 38f483b (update docker)
+=======
+    # build: .
+    # depends_on:
+    #   - mongodb
+    image: vexs/backend
+>>>>>>> 6ce095b (docker-compose no build)
     restart: always
     environment:
         ATLAS_URI: mongodb://sudo:sudo@cluster0-shard-00-00.konox.mongodb.net:27017,cluster0-shard-00-01.konox.mongodb.net:27017,cluster0-shard-00-02.konox.mongodb.net:27017/db?ssl=true&replicaSet=atlas-irsy7d-shard-0&authSource=admin&retryWrites=true&w=majority
