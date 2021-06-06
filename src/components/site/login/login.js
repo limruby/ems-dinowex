@@ -31,7 +31,7 @@ function Login()
                     window.location.href = '/admin_dashboard';
                 }
                 else if(res.data.result.role==="Competitor"){
-                    console.log(res.data.result._id)
+                    // console.log(res.data.result._id)
                     var account_id = JSON.stringify(res.data.result._id)
                    
                     axiosInstance.get("/api/competitors/read", {params:{account_id:account_id}})
@@ -62,8 +62,9 @@ function Login()
                           console.log(error);
                         });                    
                 }
-                else if(res.data.result.role==="Sponsor"){                    
-                    axiosInstance.get("/api/sponsors/read", {params:{account_id:res.data.result._id}})
+                else if(res.data.result.role==="Sponsor"){      
+                    var sponsor_id = JSON.stringify(res.data.result._id)              
+                    axiosInstance.get("/api/sponsors/read", {params:{account_id:sponsor_id}})
                         .then(function(response) {
                           if(response.data.data.bill_status === "true"){
                                localStorage.setItem('token', res.data.token); 
@@ -71,7 +72,19 @@ function Login()
                                redirect();
                           }
                           else{
-                              //redirect
+                            localStorage.setItem("sponsor_id", JSON.stringify(response.data.data._id))
+                            console.log(localStorage.getItem("sponsor_id"))
+                            var sponsor_url=""
+                            if (response.data.data.category === "Bronze Package"){
+                              sponsor_url = "https://www.billplz-sandbox.com/ip52udve6"
+                         }
+                         else if(response.data.data.category === "Silver Package"){
+                          sponsor_url = "https://www.billplz-sandbox.com/urnlfccd7"
+                         }
+                         else if(response.data.data.category === "Gold Package"){
+                          sponsor_url = "https://www.billplz-sandbox.com/nnoul8ls0"
+                         }
+                         window.open(sponsor_url,"_self")
                           }
 
                         }).catch(function(error) {

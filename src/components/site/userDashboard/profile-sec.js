@@ -61,6 +61,9 @@ if(user.company_logo){
             <p> Person In Charge's Full Name: {user.company_pic_name} </p>
           </li>
           <li>
+            <p> Person In Charge's IC: {user.company_pic_ic} </p>
+          </li>
+          <li>
             <p> Contact Number: {user.company_contact}</p>
           </li>
           <li>

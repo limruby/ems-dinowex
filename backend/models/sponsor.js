@@ -59,7 +59,18 @@ const sponsorSchema = new Schema({
     type: String,
     required: true
   },
-
+  bill_id:{
+    type: String, 
+  },
+  bill_paid_at:{
+    type: String,  
+  },
+  bill_status: {
+    type:String,
+  },
+  payment_verify: {
+    type:String,
+  },
   company_logo:[subSchema],
   poster:[subSchema],
   video:[videoSchema],

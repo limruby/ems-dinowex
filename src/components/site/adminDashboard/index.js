@@ -16,7 +16,7 @@ function TabTitles(){
 	return(   
 	  <Nav variant="pills" className="flex-column">
 	    <Nav.Item>
-	      <Nav.Link eventKey="Admin"><BsPeopleCircle size={20}/> Admin </Nav.Link>
+	      <Nav.Link eventKey="Account"><BsPeopleCircle size={20}/> Account </Nav.Link>
 	    </Nav.Item>
 	    <Nav.Item>
 	      <Nav.Link eventKey="Competitor"><BsFiles size={20}/> Competitor</Nav.Link>
@@ -49,12 +49,12 @@ function TabTitles(){
               <Tab.Content>
  
             
-                <Tab.Pane eventKey="Admin">
+                <Tab.Pane eventKey="Account">
 					<Card>
 						<Card.Body>
 			                  <div className="sec-container">			                   
-			                    <h2> Admin </h2>    
-			                    <Admin />
+			                    <h2> Account </h2>    
+			                    <Account />
 			                  </div> 
 						</Card.Body>
 			        </Card>					
@@ -64,8 +64,8 @@ function TabTitles(){
 					<Card>
 						<Card.Body>
 			                  <div className="sec-container">			                   
-			                    <h2> Competitor </h2>    
-			                  
+			                    <h2> Competitor Profile </h2>    
+								<Competitor />
 			                  </div> 
 						</Card.Body>
 			        </Card>					
@@ -75,8 +75,8 @@ function TabTitles(){
 					<Card>
 						<Card.Body>
 			                  <div className="sec-container">			                   
-			                    <h2> Sponsor </h2>    
-			                    
+			                    <h2> Sponsor Profile</h2>    
+			                    <Sponsor/>
 			                  </div> 
 						</Card.Body>
 			        </Card>					

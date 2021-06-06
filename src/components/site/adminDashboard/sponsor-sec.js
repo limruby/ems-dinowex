@@ -10,44 +10,49 @@ function Sponsor(){
   useEffect(() => {
      
  
-      // axiosInstance.get("/api/accounts/readAll")
-      //   .then(function(response) {
-      //     setData(response.data.data);
-      //   }).catch(function(error) {
-      //     console.log(error);
-      //   })
+      axiosInstance.get("/api/sponsors/readAll")
+        .then(function(response) {
+          setData(response.data.data);
+        }).catch(function(error) {
+          console.log(error);
+        })
 
-        // axiosInstance.get("/api/accounts/readAll")  //filter
-        // .then(function(response) {
-        //   setData(response.data.data);
-        // }).catch(function(error) {
-        //   console.log(error);
-        // })
     }, []);
  
 
 const columns = React.useMemo(
     () => [
       {
-        Header: 'Admin',
+        Header: 'Profile',
         columns: [
           {
-            Header: 'Email',
-            accessor: 'email',
+            Header: 'Package',
+            accessor: 'category',
           },
           {
-            Header: 'Password',
-            accessor: 'password',
+            Header: 'Company',
+            accessor: 'company_name',
+          },
+          {
+            Header: 'Company PIC',
+            accessor: 'company_pic_name',
+          },
+          {
+            Header: 'Payment Status',
+            accessor: 'bill_status',
+          },
+          {
+            Header: 'Bill Id',
+            accessor: 'bill_id',
+          },
+          {
+            Header: 'Edit',
             Cell: cell => (
               <button className="btn btn-danger" >
                 Edit
               </button>
             )
           },
-          {
-            Header: 'Role',
-            accessor: 'role'
-          }
         ],
       },
 

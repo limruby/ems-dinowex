@@ -8,14 +8,23 @@ const Success = () => {
     if (localStorage.getItem('competitor_id')) {
         
         const string = localStorage.getItem('competitor_id').substring(1, localStorage.getItem('competitor_id').length-1);
-        console.log("payment_success PAGE "+string)
         const competitor_id = {competitor_id:string};
-        console.log("Payment success"+ competitor_id)
         axiosInstance.post('/api/competitors/updatePayment', competitor_id)
         .then(
-            res => {"POST SUCCESS"}
+            res => {"COMPETITOR POST SUCCESS"}
         ).catch(err => {console.log(err)})
         }
+    else if (localStorage.getItem('sponsor_id')) {
+        
+            const string = localStorage.getItem('sponsor_id').substring(1, localStorage.getItem('sponsor_id').length-1);
+            console.log("SPONSOR payment_success PAGE "+string)
+            const sponsor_id = {sponsor_id:string};
+            console.log("Payment success"+ sponsor_id)
+            axiosInstance.post('/api/sponsors/updatePayment', sponsor_id)
+            .then(
+                res => {"SPONSOR POST SUCCESS"}
+            ).catch(err => {console.log(err)})
+            }
         
     
   return (

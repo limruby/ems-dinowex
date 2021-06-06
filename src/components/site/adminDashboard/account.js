@@ -17,12 +17,6 @@ function Account(){
           console.log(error);
         })
 
-        // axiosInstance.get("/api/accounts/readAll")  //filter
-        // .then(function(response) {
-        //   setData(response.data.data);
-        // }).catch(function(error) {
-        //   console.log(error);
-        // })
     }, []);
  
 

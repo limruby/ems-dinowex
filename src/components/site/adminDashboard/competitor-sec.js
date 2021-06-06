@@ -10,44 +10,45 @@ function Competitor(){
   useEffect(() => {
      
  
-      // axiosInstance.get("/api/competitors/readAll")
-      //   .then(function(response) {
-      //     setData(response.data.data);
-      //   }).catch(function(error) {
-      //     console.log(error);
-      //   })
-
-        // axiosInstance.get("/api/accounts/readAll")  //filter
-        // .then(function(response) {
-        //   setData(response.data.data);
-        // }).catch(function(error) {
-        //   console.log(error);
-        // })
+      axiosInstance.get("/api/competitors/readAll")
+        .then(function(response) {
+          setData(response.data.data);
+        }).catch(function(error) {
+          console.log(error);
+        })
     }, []);
  
 
 const columns = React.useMemo(
     () => [
       {
-        Header: 'Account',
+        Header: 'Profile',
         columns: [
+         
           {
-            Header: 'Email',
-            accessor: 'email',
+            Header: 'Category',
+            accessor: 'category',
           },
           {
-            Header: 'Password',
-            accessor: 'password',
+            Header: 'Name',
+            accessor: 'name',
+          },
+          {
+            Header: 'Payment Status',
+            accessor: 'bill_status'
+          },
+          {
+            Header: 'Bill ID',
+            accessor: 'bill_id'
+          },
+          {
+            Header: 'Edit',
             Cell: cell => (
               <button className="btn btn-danger" >
                 Edit
               </button>
             )
           },
-          {
-            Header: 'Role',
-            accessor: 'role'
-          }
         ],
       },
 
