@@ -6,6 +6,7 @@ require('dotenv').config();
 
 const app = express();
 
+<<<<<<< HEAD
 const port = process.env.PORT || 5000;
 
 <<<<<<< HEAD
@@ -22,6 +23,17 @@ app.use(cors());
 app.use(express.json());
 >>>>>>> d526164 (upload sponsor company logo)
 =======
+=======
+app.use(function(req, res, next) {
+	res.header("Access-Control-Allow-Origin", "*");
+	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+	next();
+  });
+
+const port = process.env.PORT || 5000;
+
+app.use(cors({origin: '*'}));
+>>>>>>> b231f77 (https done but CORS issue for payment)
 app.use(express.json({limit:'50mb'}));
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
 
@@ -35,6 +47,7 @@ connection.once('open', ()=>{
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 //get image
 const uploadRouter = require('./routes/upload');
@@ -45,6 +58,10 @@ app.use('/uploads', uploadRouter)
 >>>>>>> 335f562 (testing with uploadfilehandler)
 =======
 app.get('/api/hello', (req, res) => {
+=======
+app.get('/api/hello', function(req, res) {
+	res.header("Access-Control-Allow-Origin", "*");
+>>>>>>> b231f77 (https done but CORS issue for payment)
 	res.send({ express: 'Hello From Express' });
   });
   app.post('/api/world', (req, res) => {

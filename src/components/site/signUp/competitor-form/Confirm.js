@@ -6,6 +6,7 @@ export class Confirm extends Component {
 
     continue = async (e) => {
         e.preventDefault();
+<<<<<<< HEAD
         const { 
             values: {email, password, confirmPassword, role, category , name, ic_passport_selection, ic_passport_number, affiliation, address, gender
                 , no_of_team_members,members, phone_no}
@@ -72,6 +73,9 @@ export class Confirm extends Component {
         });
                                    
        
+=======
+        this.props.nextStep();
+>>>>>>> b231f77 (https done but CORS issue for payment)
     };
 
     back = e => {

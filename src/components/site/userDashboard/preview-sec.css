@@ -44,6 +44,7 @@
         font-size: 11px;
         text-align: justify;
         break-inside: avoid;
+<<<<<<< HEAD
 =======
         font-size: 19px;
 =======
@@ -51,6 +52,8 @@
 >>>>>>> 858ebce (html2pdf solved)
         text-align: justify;
 >>>>>>> f475b73 (html2canvas print PDF preview)
+=======
+>>>>>>> b231f77 (https done but CORS issue for payment)
     }
 
     .preview-section #body_content img,figcaption {
@@ -77,22 +80,31 @@
 =======
         margin-left: auto;
         margin-right: auto;
+        break-inside: avoid;
     }
 
     .preview-section #author p {
+<<<<<<< HEAD
         font-size: 12px;
 >>>>>>> 858ebce (html2pdf solved)
+=======
+        font-size: 11px;
+>>>>>>> b231f77 (https done but CORS issue for payment)
         text-align: center;
     }
 
     .preview-section #aff p {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b231f77 (https done but CORS issue for payment)
         font-size: 11px;
         text-align: left;
     }
     .preview-section #aff span {
         font-size: 11px;
+<<<<<<< HEAD
         text-align: left;
         font-style: italic;
     }
@@ -104,16 +116,23 @@
 =======
         font-size: 12px;
 >>>>>>> 858ebce (html2pdf solved)
+=======
+>>>>>>> b231f77 (https done but CORS issue for payment)
         text-align: left;
+        font-style: italic;
     }
 
     .preview-section #keywords p {
+<<<<<<< HEAD
 <<<<<<< HEAD
         font-size: 20px;
 >>>>>>> f475b73 (html2canvas print PDF preview)
 =======
         font-size: 12px;
 >>>>>>> 858ebce (html2pdf solved)
+=======
+        font-size: 11px;
+>>>>>>> b231f77 (https done but CORS issue for payment)
         font-style: italic;
         text-align: left;
     }
@@ -124,6 +143,7 @@
         text-align: justify;
         break-inside: avoid;
         list-style-type:none;
+<<<<<<< HEAD
     }
 =======
         font-size: 19px;
@@ -133,3 +153,6 @@
         text-align: justify;
     }
 >>>>>>> f475b73 (html2canvas print PDF preview)
+=======
+    }
+>>>>>>> b231f77 (https done but CORS issue for payment)

@@ -18,6 +18,7 @@ const PdfDownloader = ({rootElementId , downloadFileName}) => {
           margin:       1,
           filename:    downloadFileName,
           image:        { type: 'png', quality: 1.00 },
+<<<<<<< HEAD
           html2canvas:  { scale: 1 },
           jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
         };
@@ -114,6 +115,8 @@ const PdfDownloader = ({rootElementId , downloadFileName}) => {
           margin:       1,
           filename:    downloadFileName,
           image:        { type: 'png', quality: 0.98 },
+=======
+>>>>>>> b231f77 (https done but CORS issue for payment)
           html2canvas:  { scale: 1 },
           jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
         };

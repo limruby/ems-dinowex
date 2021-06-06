@@ -4,6 +4,11 @@ import Category from './Category';
 import Profiles from './Profiles';
 import TeamProfiles from './TeamProfiles';
 import Confirm from './Confirm';
+<<<<<<< HEAD
+=======
+import Success from './Success';
+import CompPay from './competitor_payment';
+>>>>>>> b231f77 (https done but CORS issue for payment)
 
 export class CompetitorForm extends Component {
     state = {
@@ -121,8 +126,23 @@ export class CompetitorForm extends Component {
                         values={values}
                     />
                 );
+<<<<<<< HEAD
                 default:
                     
+=======
+                case 5:
+                return (
+                    <CompPay 
+                    nextStep={this.nextStep}
+                    prevStep={this.prevStep}
+                    values={values}
+                    />
+                );
+            case 6:
+                return (
+                    <Success />
+                );
+>>>>>>> b231f77 (https done but CORS issue for payment)
         }
     }
 }
