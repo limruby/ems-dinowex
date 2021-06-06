@@ -29,7 +29,17 @@ const competitorsRouter = require('./routes/competitors');
 app.use('/api/competitors', competitorsRouter)
 
 const sponsorsRouter = require('./routes/sponsors');
+<<<<<<< HEAD
 app.use('/api/sponsors', sponsorsRouter)
+=======
+app.use('/sponsors', sponsorsRouter)
+
+const uploadRouter = require('./routes/upload');
+app.use('/upload', uploadRouter)
+
+
+
+>>>>>>> 7c0a793 (merged with alexia's branch)
 
 app.listen(port, () => {
 	console.log('Now starting at http://localhost:5000/api/hello');

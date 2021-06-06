@@ -16,6 +16,7 @@ const register = (req, res, next)=>{
     const role = req.body.role;
     const email = req.body.email;
     const password = hashedPassword;
+<<<<<<< HEAD
 
      Account.findOne({ email:req.body.email}, function(err, result) {
     if(err) throw err;
@@ -36,6 +37,14 @@ const register = (req, res, next)=>{
     }
 
       
+=======
+    
+
+    const newAccount = new Account({
+      role, 
+      email,
+      password
+>>>>>>> 7c0a793 (merged with alexia's branch)
     });
 
   });
@@ -122,6 +131,12 @@ const update = (req, res, next)=>{
           return res.status(200).json({ success: true, data: updateAccount })
         }
     }).catch(err => console.log(err)) 
+<<<<<<< HEAD
+=======
+
+  }
+
+>>>>>>> 7c0a793 (merged with alexia's branch)
 
   }
 }

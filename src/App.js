@@ -20,6 +20,7 @@ import PageNotFound from './components/PageNotFound.js';
 
 
 import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
+import uploadImage from './components/site/testUploadImage';
 
 const queryClient = new QueryClient()
 
@@ -51,6 +52,10 @@ function App() {
         <Route exact path='/' component={Landing}/>
         <Route exact path='/sign_in'  component={SignIn}/>
         <Route exact path='/sign_up'  component={SignUp}/>  
+<<<<<<< HEAD
+=======
+        <Route exact path='/upload'  component={uploadImage}/>  
+>>>>>>> 7c0a793 (merged with alexia's branch)
 
         <PrivateRoute exact path='/user_dashboard'  component={UserDashboard}/>  
         <PrivateRoute exact path='/user_dashboard/edit_account' component={EditUserDetails}/>

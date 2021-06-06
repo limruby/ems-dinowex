@@ -2,9 +2,15 @@ import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import axiosInstance from '../../../../utils/axiosConfig.js';
+<<<<<<< HEAD
  
 function EditAccount({data, setData}) {
  
+=======
+
+function EditAccount({data, setData}) {
+
+>>>>>>> 7c0a793 (merged with alexia's branch)
 /////////////////////get login user (REPLACE THIS) ////////////////
 const [user, setState] = useState({
       _id: '',
@@ -12,12 +18,20 @@ const [user, setState] = useState({
       confirmPassword:''
  
 });
+<<<<<<< HEAD
    
  
     const inputChange = input => e => {
         setState({
             ...user,
                         _id:data._id,
+=======
+    
+
+    const inputChange = input => e => {
+        setState({
+            ...user,
+>>>>>>> 7c0a793 (merged with alexia's branch)
             [input]: e.target.value
         });
     };
@@ -28,6 +42,7 @@ const [user, setState] = useState({
         if (user.newPassword !== user.confirmPassword) {
             alert("Password don't match");  
         }
+<<<<<<< HEAD
         else if (user.newPassword==="" || user.confirmPassword===""){
             alert("Form not fill");
         }
@@ -38,6 +53,21 @@ const [user, setState] = useState({
              axiosInstance.post("/api/accounts/update", user)
             .then(function(response) {
                window.location.href = '/user_dashboard';
+=======
+        else if (user.newPassword=="" || user.confirmPassword==""){
+            alert("Form not fill");
+        }
+        else{
+            setState({
+                ...user,
+                '_id': data._id
+            });
+             console.log(user);   
+            ///////update to db /////////////
+             axiosInstance.post("/accounts/update", user)
+            .then(function(response) {
+              // window.location.href = '/user_dashboard';
+>>>>>>> 7c0a793 (merged with alexia's branch)
             }).catch(function(error) {
               console.log(error);
             })
@@ -45,7 +75,11 @@ const [user, setState] = useState({
     }
  
 /////////////////////////////////////////////////////////////
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> 7c0a793 (merged with alexia's branch)
     return(
         <>
             <form onSubmit={handleForm}>
@@ -59,17 +93,28 @@ const [user, setState] = useState({
                     minLength="8"
                     onChange={inputChange('newPassword')} value={user.newPassword} />
                 </div>
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> 7c0a793 (merged with alexia's branch)
                 <div className="form-group">
                     <label htmlFor="confirmPassword">Confirm New Password </label>
                     <input className="form-control" type='password'name='confirmPassword' id="confirmPassword"
                     placeholder='password' required
                     minLength="8"
                     onChange={inputChange('confirmPassword')} value={user.confirmPassword} />
+<<<<<<< HEAD
                    
                 </div>
        
  
+=======
+                    
+                </div>
+        
+
+>>>>>>> 7c0a793 (merged with alexia's branch)
                 <br />
  
                 <div className="col-4 btn-group">
@@ -81,9 +126,15 @@ const [user, setState] = useState({
             </div>
             </form>
          </>
+<<<<<<< HEAD
  
         )
  
+=======
+
+        )
+
+>>>>>>> 7c0a793 (merged with alexia's branch)
 }
  
 export default EditAccount;

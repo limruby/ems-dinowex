@@ -69,6 +69,7 @@ const read = (req, res, next)=>{
 
 const update = (req, res, next)=>{
 
+<<<<<<< HEAD
       var updateSponsor = {};
 
       if(req.body.company_name){
@@ -128,6 +129,43 @@ const updatePayment = (req, res, next) => {
     if(sponsors){
     return res.status(200).json({ success: true, data: req.body })
     }
+=======
+    const account_id = req.body.account_id;
+    const category = req.body.category;
+    const company_name = req.body.company_name;
+    const company_pic_name = req.body.company_pic_name;
+    const company_contact = req.body.company_contact;
+    const company_address = req.body.company_address;
+    const company_website = req.body.company_website;
+    const company_logo = req.body.company_logo;
+    const poster = req.body.poster;
+    const video = req.body.video;
+
+  const newSponsor = new Sponsor({
+    account_id, 
+    category,
+    company_name, 
+    company_pic_name, 
+    company_contact, 
+    company_address, 
+    company_website, 
+    company_logo,
+    poster,
+    video,
+    });
+
+    newSponsor.save()
+      .then(() => res.json('Sponsor Created!'))
+      .catch(err => res.status(400).json('Error: ' + err));
+
+
+    Sponsor.findByIdAndUpdate(req.body._id, newSponsor, (err, sponsors) => {
+        if (err) {
+            return res.status(400).json({ success: false, error: err })
+        }
+        
+        return res.status(200).json({ success: true, data: sponsors })
+>>>>>>> 7c0a793 (merged with alexia's branch)
     }).catch(err => console.log(err))
     
     }

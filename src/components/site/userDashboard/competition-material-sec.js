@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, {useState, useEffect} from 'react';
 
 
@@ -42,6 +43,28 @@ function displayAchievement(){
         section.push(
             <li>
               {user.achievements[i].name}
+=======
+import React from 'react';
+
+
+const PromoContent = ({user}) =>  {
+
+
+function displayPoster(){
+  if(user.poster[0]){
+    return (<p>{user.poster[0].name}</p>)
+  }  
+}
+
+function displayAchievement(){
+  if(user.achievement){
+    var section = [];
+
+    for (var i=0; i<user.achievement.length; i++){
+        section.push(
+            <li>
+                Name: {user.achievement.name}
+>>>>>>> 7c0a793 (merged with alexia's branch)
             </li>
         );
     }
@@ -51,6 +74,7 @@ function displayAchievement(){
 }
 
 function displayPublication(){
+<<<<<<< HEAD
   if(user.publications){
     var section = [];
 
@@ -58,10 +82,47 @@ function displayPublication(){
         section.push(
             <li>
                {user.publications[i].name}
+=======
+  if(user.publication){
+    var section = [];
+
+    for (var i=0; i<user.publication.length; i++){
+        section.push(
+            <li>
+                Name: {user.publication.name}
+>>>>>>> 7c0a793 (merged with alexia's branch)
             </li>
         );
     }
     return section;
+<<<<<<< HEAD
+=======
+
+  }
+}
+
+function displayGrant(){
+  if(user.grant){
+    var section = [];
+
+    for (var i=0; i<user.grant.length; i++){
+        section.push(
+            <li>
+                Name: {user.grant.name}
+            </li>
+        );
+    }
+    return section;
+
+  }
+}
+
+function displayVideo(){
+  if(user.poster){
+    return (<a href="{user.video.name}">{user.video.name}</a>)
+  }  
+}
+>>>>>>> 7c0a793 (merged with alexia's branch)
 
   }
 }
@@ -102,7 +163,10 @@ function displayVideo(){
 
   return (       
     <div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7c0a793 (merged with alexia's branch)
     <h5>Poster</h5>
     {displayPoster()}
     <hr/>

@@ -16,12 +16,18 @@ function EditProfile({data, setData}) {
     const handleForm=(e)=>{
         e.preventDefault();
     // perform all neccassary validations
+<<<<<<< HEAD
         if (data.name ===""||data.affiliation===""||data.nric_passport_selection===""||data.nric_passport_no===""
             ||data.address===""||data.gender===""){
+=======
+        if (data.name ==""||data.affiliation==""||data.nric_passport_selection==""||data.nric_passport_no==""
+            ||data.address==""||data.gender==""){
+>>>>>>> 7c0a793 (merged with alexia's branch)
             alert("Form not fill");
         }
         else{
             ///////update to db /////////////
+<<<<<<< HEAD
             var postData = {
                 _id : data._id,
                 name : data.name,
@@ -34,6 +40,9 @@ function EditProfile({data, setData}) {
 
 
             axiosInstance.post("/api/competitors/update", postData)
+=======
+            axiosInstance.post("/competitors/update", data)
+>>>>>>> 7c0a793 (merged with alexia's branch)
             .then(function(response) {
               window.location.href = '/user_dashboard';
             }).catch(function(error) {
@@ -110,4 +119,8 @@ console.log(data);
 
 }
 
+<<<<<<< HEAD
 export default EditProfile;
+=======
+export default EditProfile;
+>>>>>>> 7c0a793 (merged with alexia's branch)

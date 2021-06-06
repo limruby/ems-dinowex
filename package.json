@@ -30,7 +30,10 @@
     "mongoose": "^5.12.1",
     "multer": "^1.4.2",
     "multer-gridfs-storage": "^4.2.0",
+<<<<<<< HEAD
     "node-localstorage": "^2.2.1",
+=======
+>>>>>>> 7c0a793 (merged with alexia's branch)
     "pdfmake": "^0.1.71",
     "react": "^17.0.1",
     "react-bootstrap": "^1.5.2",

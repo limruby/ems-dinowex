@@ -48,6 +48,10 @@ function FormNavigator() {
 const location = useLocation();
 const thePath = location.pathname;
 const lastPath = thePath.substring(thePath.lastIndexOf('/') + 1);
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7c0a793 (merged with alexia's branch)
 
 
 	if(lastPath === 'edit_account'){
@@ -137,5 +141,17 @@ const lastPath = thePath.substring(thePath.lastIndexOf('/') + 1);
 			<></>
 		)
 	}
+<<<<<<< HEAD
+=======
+
+
+
+
+
+
+
+
+
+>>>>>>> 7c0a793 (merged with alexia's branch)
 }
 export default FormNavigator;
