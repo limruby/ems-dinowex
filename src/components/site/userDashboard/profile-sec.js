@@ -75,10 +75,14 @@ if(user.company_logo){
           <li>
             <p> Company Logo: </p>
 <<<<<<< HEAD
+<<<<<<< HEAD
               {display()}
 =======
               <img src={user.company_logo } alt="" />
 >>>>>>> d6169f2 (sponsor edit profile can fetch data)
+=======
+              {display()}
+>>>>>>> 082b413 (upload and display company logo)
           </li>
           <li>
             <p> Company Website URL: <a href={user.company_website}>{user.company_website}</a></p>

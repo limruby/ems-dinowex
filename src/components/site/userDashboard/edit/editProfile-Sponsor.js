@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import axiosInstance from '../../../../utils/axiosConfig.js';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { FaTrashAlt } from 'react-icons/fa';
  
  
@@ -14,6 +15,12 @@ function EditProfile({data, setData}) {
 function EditProfile({data, setData}) {
 
 >>>>>>> d6169f2 (sponsor edit profile can fetch data)
+=======
+ 
+ 
+function EditProfile({data, setData}) {
+ 
+>>>>>>> 082b413 (upload and display company logo)
 /////////////////////get login user (REPLACE THIS) ////////////////
 const inputChange = input => e => {
     setData({
@@ -22,10 +29,14 @@ const inputChange = input => e => {
     });
 };
 <<<<<<< HEAD
+<<<<<<< HEAD
  
 =======
 
 >>>>>>> d6169f2 (sponsor edit profile can fetch data)
+=======
+ 
+>>>>>>> 082b413 (upload and display company logo)
     const handleForm=(e)=>{
         e.preventDefault();
     // perform all neccassary validations
@@ -53,6 +64,7 @@ const inputChange = input => e => {
             alert("Form not fill");
         }
         else{
+<<<<<<< HEAD
         	 ///////update to db /////////////
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -62,6 +74,9 @@ const inputChange = input => e => {
              axiosInstance.post("/sponsors/update", data)
 >>>>>>> e43c0d3 (edit sponsor profile line 26)
 =======
+=======
+             ///////update to db /////////////
+>>>>>>> 082b413 (upload and display company logo)
              axiosInstance.post("/sponsors/update", data)
 >>>>>>> d526164 (upload sponsor company logo)
              .then(function(response) {
@@ -73,7 +88,12 @@ const inputChange = input => e => {
     }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     const uploadLogoHandler = (element, index) => e => {
+=======
+    const uploadLogoHandler = (element, index) => e => {
+	console.log("asd");
+>>>>>>> 082b413 (upload and display company logo)
         if(element == 'company_logo'){
           let selectedFile = e.target.files;
             let file = null;
@@ -102,6 +122,7 @@ const inputChange = input => e => {
             }
         }
     }
+<<<<<<< HEAD
 	
 
 var obj =[];
@@ -176,6 +197,13 @@ const uploadFileHandler = (e) => {
 		<form onSubmit={handleForm}>
 		<div className="form-container">
 >>>>>>> 335f562 (testing with uploadfilehandler)
+=======
+/////////////////////////////////////////////////////////////
+    return(
+        <>
+        <form onSubmit={handleForm} action="/uploadfile" enctype="multipart/form-data" method="POST">
+        <div className="form-container">
+>>>>>>> 082b413 (upload and display company logo)
                 <h1 className="mb-5">Edit Profile Info</h1>
  
               
@@ -206,6 +234,7 @@ const uploadFileHandler = (e) => {
 >>>>>>> d6169f2 (sponsor edit profile can fetch data)
                     />
                 </div>
+<<<<<<< HEAD
                 <div className="form-group">
                     <label htmlFor="company_contact"><span>*</span>Contact Number</label>
                     <input className="form-control" type='text' name='company_contact' id="company_contact"
@@ -213,6 +242,8 @@ const uploadFileHandler = (e) => {
                     onChange={inputChange('company_contact')} value={data.company_contact} 
                     />
                 </div>
+=======
+>>>>>>> 082b413 (upload and display company logo)
  
                 <div className="form-group">
                     <label htmlFor="company_address"><span>*</span>Company Address</label>
@@ -233,6 +264,7 @@ const uploadFileHandler = (e) => {
 <<<<<<< HEAD
 <<<<<<< HEAD
                     <label htmlFor="company_logo"><span>*</span>Company Logo With Transparent Background</label><br />
+<<<<<<< HEAD
 <<<<<<< HEAD
                     {displayLogo()}
 =======
@@ -256,6 +288,9 @@ const uploadFileHandler = (e) => {
 >>>>>>> 3979fae (upload sponsor logo)
                     <input type="file" onChange={inputChange('company_logo')} name="upload_file"/>
 >>>>>>> 86840ba (upload file function)
+=======
+                    <input type="file" onChange={uploadLogoHandler('company_logo', 0)} />
+>>>>>>> 082b413 (upload and display company logo)
                 </div>
 <<<<<<< HEAD
 
@@ -272,6 +307,7 @@ const uploadFileHandler = (e) => {
             </form>
          </>
 <<<<<<< HEAD
+<<<<<<< HEAD
         )
 =======
 		)
@@ -285,3 +321,10 @@ export default EditProfile;
 
 export default EditProfile;
 >>>>>>> d6169f2 (sponsor edit profile can fetch data)
+=======
+        )
+}
+ 
+export default EditProfile;
+ 
+>>>>>>> 082b413 (upload and display company logo)

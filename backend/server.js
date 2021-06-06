@@ -1,7 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
-var multer  = require('multer');
+const multer  = require('multer');
+const path = require ('path');
 
 require('dotenv').config();
 
@@ -67,6 +68,7 @@ app.listen(port, () => {
 });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 var storage = multer.diskStorage({
 	destination: function (req, file, cb) {
 	  cb(null, 'uploads')
@@ -98,3 +100,5 @@ app.post('/uploadfile', upload.single('upload_file'), (req, res, next) => {
 =======
 })
 >>>>>>> 86840ba (upload file function)
+=======
+>>>>>>> 082b413 (upload and display company logo)

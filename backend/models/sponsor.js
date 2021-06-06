@@ -56,6 +56,7 @@ const sponsorSchema = new Schema({
     required: true
   }, 
 <<<<<<< HEAD
+<<<<<<< HEAD
   company_pic_ic:{
     type: String,
     required: true
@@ -80,7 +81,10 @@ const sponsorSchema = new Schema({
     type: Buffer,
     required: false
   }, 
+=======
+>>>>>>> 082b413 (upload and display company logo)
 
+  company_logo:[subSchema],
   poster:[subSchema],
   video:[subSchema],
 >>>>>>> d6169f2 (sponsor edit profile can fetch data)
