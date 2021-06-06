@@ -37,6 +37,7 @@ export class CompetitorForm extends Component {
         gender: '',
         phone_no:'',
 
+<<<<<<< HEAD
         amount: "150.00",
         phone_no: "123123123",
         cmpy_code : "AA04",
@@ -52,6 +53,8 @@ export class CompetitorForm extends Component {
 
 
 
+=======
+>>>>>>> 54aefd4 (sponsor payment gateway setup halfway, amount not clear)
         
         phone_no: "123123123",
         cmpy_code : "AA04",

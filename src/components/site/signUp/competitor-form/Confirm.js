@@ -172,6 +172,7 @@ export class Confirm extends Component {
         //     , no_of_team_members,members, amount, cmpy_code, zone, product_ID, token}
         // } = this.props;
 
+<<<<<<< HEAD
              // var  amount;
 
              //    if(values.category === "Professional Innovator"){
@@ -205,6 +206,8 @@ export class Confirm extends Component {
             var hash_value = values.token + values.cmpy_code + values.zone + values.product_ID + values.amount;  
 
 =======
+=======
+>>>>>>> 54aefd4 (sponsor payment gateway setup halfway, amount not clear)
                 var  amount;
 
                 if(values.category === "Professional Innovator"){                     
@@ -216,11 +219,18 @@ export class Confirm extends Component {
                 else if (values.category === "Junior Innovator"){
                       amount= 190.00.toFixed(2);;
                 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 54aefd4 (sponsor payment gateway setup halfway, amount not clear)
 
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 54aefd4 (sponsor payment gateway setup halfway, amount not clear)
 
             var sha1 = require('sha1');
 <<<<<<< HEAD
@@ -228,11 +238,15 @@ export class Confirm extends Component {
 =======
             var hash_value = sha1(values.token + values.cmpy_code + values.zone + values.product_ID + amount);  
             
+<<<<<<< HEAD
 >>>>>>> 2fe0043 (payment gateway css updated)
+=======
+>>>>>>> 54aefd4 (sponsor payment gateway setup halfway, amount not clear)
         return (
             <div>
                 <h1>Confirmation</h1>
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -303,6 +317,8 @@ export class Confirm extends Component {
         </ul> */}
 
 =======
+=======
+>>>>>>> 54aefd4 (sponsor payment gateway setup halfway, amount not clear)
                 
                   
                 <ul class="list-group">
@@ -315,7 +331,10 @@ export class Confirm extends Component {
                     <li class="list-group-item">Gender: {values.gender}</li>
                     <li class="list-group-item">Selected Category: {values.category}</li>
                 </ul> 
+<<<<<<< HEAD
 >>>>>>> 2fe0043 (payment gateway css updated)
+=======
+>>>>>>> 54aefd4 (sponsor payment gateway setup halfway, amount not clear)
 
                 <br /><br />
                 <form className="list-group" action="https://uitmpay.uitm.edu.my/otherservices/products/AA04/02/149" method="POST">
