@@ -213,26 +213,29 @@ export class Confirm extends Component {
                       
                 }
                 else if (values.category === "Young Innovator"){
-                      amount= 222.00.toFixed(2);;
+                      amount= 290.00.toFixed(2);;
                 }
                 else if (values.category === "Junior Innovator"){
-                      amount= 231.00.toFixed(2);;
+                      amount= 190.00.toFixed(2);;
                 }
 
-             //    var phone ="123123"
 
 
 
 
 
-
-            var hash_value = values.token + values.cmpy_code + values.zone + values.product_ID + amount;  
             var sha1 = require('sha1');
+<<<<<<< HEAD
 >>>>>>> 8718204 (payment gateway-done)
+=======
+            var hash_value = sha1(values.token + values.cmpy_code + values.zone + values.product_ID + amount);  
+            
+>>>>>>> 2fe0043 (payment gateway css updated)
         return (
             <div>
                 <h1>Confirmation</h1>
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
                 <form className="list-group" action="https://uitmpay.uitm.edu.my/otherservices/products/AA04/02/149" method="post">
@@ -301,17 +304,46 @@ export class Confirm extends Component {
                     <li class="list-group-item">Selected Category: {category}</li>
         </ul> */}
 
+=======
+                
+                  
+                <ul class="list-group">
+                    <li class="list-group-item">Name: {values.name}</li>
+                    <li class="list-group-item">Email: {values.email}</li>
+                    <li class="list-group-item">Affiliation: {values.affiliation}</li>
+                    <li class="list-group-item">NRIC/Passport Number: {values.ic_passport_number}</li>   
+                    <li class="list-group-item">Phone Number: {values.phone_no}</li> 
+                    <li class="list-group-item">Address: {values.address}</li>
+                    <li class="list-group-item">Gender: {values.gender}</li>
+                    <li class="list-group-item">Selected Category: {values.category}</li>
+                </ul> 
+>>>>>>> 2fe0043 (payment gateway css updated)
 
                 <br /><br />
+                <form className="list-group" action="https://uitmpay.uitm.edu.my/otherservices/products/AA04/02/149" method="POST">
+                    <input type="text" name="userid" value={values.ic_passport_number} hidden/>
+                    <input type="text" name="ord_mercref" value= {"iidentex"+values.ic_passport_number} hidden/>
+                    <input type="text" name="name" value={values.name} hidden/>
+                    <input type="text" name="ic" value={values.ic_passport_number} hidden/>
+                    <input type="text" name="email" value={values.email} hidden />
+                    <input type="text" name="phone" value={values.phone_no}  hidden/>
+                    <input type="text" name="designation" value={values.affiliation}hidden />
+                    <input type="text" name="address" value={values.address}  hidden/>
 
-                <div className="row">
+                    <input type="text" name="hash_value" value={hash_value}hidden/>
+                    <input type="number" name="amount" value={amount} hidden />
+                <div className="row">    
                     <div className="col-6">
-                        <button className="btn btn-danger" onClick={this.back}>Back</button>
+                    <button className="btn btn-danger" onClick={this.back}>Back</button>
                     </div>
                     <div className="col-6 text-right">
-                      {/*<button className="btn btn-primary" onClick={this.continue}>Confirm</button> */}  
+                        <input type="submit" className="btn btn-primary"name="submit" value="Make payment" />
                     </div>
                 </div>
+                  
+                  </form>
+
+                
             </div>
         )
     }
