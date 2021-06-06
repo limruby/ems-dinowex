@@ -4,6 +4,7 @@ const axiosInstance = axios.create({
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   baseURL: `${process.env.REACT_APP_BASEURL}`,
 =======
   baseURL: 'https://localhost:5000' ,
@@ -18,6 +19,9 @@ const axiosInstance = axios.create({
 =======
   baseURL: `${process.env.REACT_APP_BASEURL}`,
 >>>>>>> f9183b2 (update changes)
+=======
+  baseURL: `${process.env.REACT_APP_BASEURL}`,
+>>>>>>> faff4f9 (payment gateway updated)
   
 });
 
