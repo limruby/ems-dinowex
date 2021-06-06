@@ -71,4 +71,8 @@ deploy-staging.sh
 .vs/slnx.sqlite
 backend/env
 package-lock.json
+<<<<<<< HEAD
 >>>>>>> ed4044d (test)
+=======
+*.sqlite
+>>>>>>> 254a571 (gitignore)
