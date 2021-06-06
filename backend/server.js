@@ -40,7 +40,10 @@ app.use(function(req, res, next) {
 const port = process.env.PORT || 5000;
 
 app.use(cors({origin: '*'}));
+<<<<<<< HEAD
 >>>>>>> b231f77 (https done but CORS issue for payment)
+=======
+>>>>>>> 4bb0d2d (merge admin login)
 app.use(express.json({limit:'50mb'}));
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
 
@@ -51,6 +54,7 @@ const connection = mongoose.connection;
 connection.once('open', ()=>{
 	console.log("MongoDB database connection established")
 })
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -67,6 +71,8 @@ app.use('/uploads', uploadRouter)
 =======
 app.get('/api/hello', (req, res) => {
 =======
+=======
+>>>>>>> 4bb0d2d (merge admin login)
 app.get('/api/hello', function(req, res) {
 	res.header("Access-Control-Allow-Origin", "*");
 >>>>>>> b231f77 (https done but CORS issue for payment)
@@ -78,10 +84,13 @@ app.get('/api/hello', function(req, res) {
 	  `I received your POST request. This is what you sent me: ${req.body.post}`,
 	);
   });
+<<<<<<< HEAD
 >>>>>>> 248fc10 (added /api/ to axios GET POST)
 =======
 
 >>>>>>> bdfdade (Admin login)
+=======
+>>>>>>> 4bb0d2d (merge admin login)
 //add routes
 const accountsRouter = require('./routes/accounts');
 app.use('/accounts', accountsRouter)
