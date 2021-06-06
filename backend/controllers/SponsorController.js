@@ -70,6 +70,9 @@ const read = (req, res, next)=>{
 const update = (req, res, next)=>{
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> d6169f2 (sponsor edit profile can fetch data)
       var updateSponsor = {};
 
       if(req.body.company_name){
@@ -78,9 +81,12 @@ const update = (req, res, next)=>{
       if(req.body.company_pic_name){
         updateSponsor['company_pic_name'] = req.body.company_pic_name;
       }
+<<<<<<< HEAD
       if(req.body.company_pic_ic){
         updateSponsor['company_pic_ic'] = req.body.company_pic_ic;
       }
+=======
+>>>>>>> d6169f2 (sponsor edit profile can fetch data)
       if(req.body.company_contact){
         updateSponsor['company_contact'] = req.body.company_contact;
       }
@@ -110,6 +116,7 @@ const update = (req, res, next)=>{
           }
         }).catch(err => console.log(err))
      };
+<<<<<<< HEAD
 
 const updatePayment = (req, res, next) => {
       console.log(req.body.sponsor_id)
@@ -202,4 +209,6 @@ const updatePayment = (req, res, next) => {
     }
 
 module.exports = {create, read, readAll, update, updatePayment, pay}
+=======
+>>>>>>> d6169f2 (sponsor edit profile can fetch data)
 

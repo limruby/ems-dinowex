@@ -4,7 +4,6 @@ import axiosInstance from '../../../utils/axiosConfig.js';
  
 =======
 
-import Navbar from './../navbar';
 import Footer from './../footer';
 >>>>>>> 7c0a793 (merged with alexia's branch)
 import {Link} from 'react-router-dom';
@@ -43,16 +42,25 @@ function UserDashboard() {
 =======
 
   useEffect(() => {
+<<<<<<< HEAD
       axiosInstance .get("/competitors/read", {params:{account_id:account_id}})
 >>>>>>> 7c0a793 (merged with alexia's branch)
+=======
+      axiosInstance.get("/competitors/read", {params:{account_id:account_id}})
+>>>>>>> d6169f2 (sponsor edit profile can fetch data)
         .then(function(response) {
           setUser(response.data.data);
         }).catch(function(error) {
           console.log(error);
         });
 <<<<<<< HEAD
+<<<<<<< HEAD
      
       axiosInstance.get("/api/sponsors/read", {params:{account_id:account_id}})
+=======
+      
+      axiosInstance.get("/sponsors/read", {params:{account_id:account_id}})
+>>>>>>> d6169f2 (sponsor edit profile can fetch data)
         .then(function(response) {
           setUser(response.data.data);
         }).catch(function(error) {
@@ -62,8 +70,12 @@ function UserDashboard() {
       axiosInstance.get("/api/accounts/read", {params:{account_id:account_id}})
 =======
 
+<<<<<<< HEAD
       axiosInstance .get("/accounts/read", {params:{account_id:account_id}})
 >>>>>>> 7c0a793 (merged with alexia's branch)
+=======
+      axiosInstance.get("/accounts/read", {params:{account_id:account_id}})
+>>>>>>> d6169f2 (sponsor edit profile can fetch data)
         .then(function(response) {
           setAccount(response.data.data);
         }).catch(function(error) {
@@ -75,8 +87,13 @@ function UserDashboard() {
        
 =======
 
+<<<<<<< HEAD
     }, []);
 >>>>>>> 7c0a793 (merged with alexia's branch)
+=======
+
+    }, [account_id]);
+>>>>>>> d6169f2 (sponsor edit profile can fetch data)
 //////////////////////////////////////////////////////////////////////////////////
  function welcome(role){
         switch(role){
@@ -144,11 +161,14 @@ function UserDashboard() {
   return (
    <>
 <<<<<<< HEAD
+<<<<<<< HEAD
  
     {welcome(account.role)}
  
 =======
    <Navbar/>
+=======
+>>>>>>> d6169f2 (sponsor edit profile can fetch data)
 
    <div className="row-username">
        <p>Welcome {user.name}</p>

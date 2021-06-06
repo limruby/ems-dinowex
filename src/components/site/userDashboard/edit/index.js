@@ -23,20 +23,32 @@ function FormNavigator() {
   const account_id = localStorage.getItem('user_id');
 
   useEffect(() => {
+<<<<<<< HEAD
       axiosInstance.get("/api/competitors/read", {params:{account_id:account_id}})
+=======
+      axiosInstance.get("/competitors/read", {params:{account_id:account_id}})
+>>>>>>> d6169f2 (sponsor edit profile can fetch data)
         .then(function(response) {
           setUser(response.data.data);
         }).catch(function(error) {
           console.log(error);
         });
+<<<<<<< HEAD
 	axiosInstance.get("/api/sponsors/read", {params:{account_id:account_id}})
+=======
+	axiosInstance.get("/sponsors/read", {params:{account_id:account_id}})
+>>>>>>> d6169f2 (sponsor edit profile can fetch data)
         .then(function(response) {
           setUser(response.data.data);
         }).catch(function(error) {
           console.log(error);
         });
 
+<<<<<<< HEAD
       axiosInstance.get("/api/accounts/read", {params:{account_id:account_id}})
+=======
+      axiosInstance.get("/accounts/read", {params:{account_id:account_id}})
+>>>>>>> d6169f2 (sponsor edit profile can fetch data)
         .then(function(response) {
           setAccount(response.data.data);
         }).catch(function(error) {
@@ -53,7 +65,10 @@ const lastPath = thePath.substring(thePath.lastIndexOf('/') + 1);
 
 >>>>>>> 7c0a793 (merged with alexia's branch)
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> d6169f2 (sponsor edit profile can fetch data)
 	if(lastPath === 'edit_account'){
 		return( 
 		    <div className="form-main-container">

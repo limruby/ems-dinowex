@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import React, {useState, useEffect} from 'react';
 
 
@@ -47,15 +48,17 @@ function displayAchievement(){
 import React from 'react';
 
 
+=======
+>>>>>>> d6169f2 (sponsor edit profile can fetch data)
 const PromoContent = ({user}) =>  {
 
-
+/*
 function displayPoster(){
   if(user.poster[0]){
     return (<p>{user.poster[0].name}</p>)
   }  
 }
-
+*/
 function displayAchievement(){
   if(user.achievement){
     var section = [];
@@ -168,7 +171,7 @@ function displayVideo(){
 =======
 >>>>>>> 7c0a793 (merged with alexia's branch)
     <h5>Poster</h5>
-    {displayPoster()}
+     {/*displayPoster()*/} 
     <hr/>
     <h5>Achievements</h5>    
     <ul>

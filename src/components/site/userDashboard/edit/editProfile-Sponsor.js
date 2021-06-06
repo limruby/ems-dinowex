@@ -2,11 +2,17 @@ import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import axiosInstance from '../../../../utils/axiosConfig.js';
+<<<<<<< HEAD
 import { FaTrashAlt } from 'react-icons/fa';
  
  
 function EditProfile({data, setData}) {
  
+=======
+
+function EditProfile({data, setData}) {
+
+>>>>>>> d6169f2 (sponsor edit profile can fetch data)
 /////////////////////get login user (REPLACE THIS) ////////////////
 const inputChange = input => e => {
     setData({
@@ -14,11 +20,16 @@ const inputChange = input => e => {
         [input]: e.target.value
     });
 };
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> d6169f2 (sponsor edit profile can fetch data)
     const handleForm=(e)=>{
         e.preventDefault();
     // perform all neccassary validations
           if (data.company_name === ""||data.company_pic_name ===""||data.company_contact ===""||data.company_address===""
+<<<<<<< HEAD
             ||data.company_website===""|| data.company_logo==="" || data.company_pic_ic===""){
             alert("Form not fill");
         }
@@ -36,6 +47,14 @@ const inputChange = input => e => {
             }
 
              axiosInstance.post("/api/sponsors/update", postData)
+=======
+            ||data.company_website===""|| data.company_logo===""){
+            alert("Form not fill");
+        }
+        else{
+        	 ///////update to db /////////////
+             axiosInstance.post("/competitors/update", data)
+>>>>>>> d6169f2 (sponsor edit profile can fetch data)
              .then(function(response) {
                window.location.href = '/user_dashboard';
              }).catch(function(error) {
@@ -43,6 +62,7 @@ const inputChange = input => e => {
              })
         }
     }
+<<<<<<< HEAD
     const uploadLogoHandler = (element, index) => e => {
         if(element == 'company_logo'){
           let selectedFile = e.target.files;
@@ -80,6 +100,9 @@ var obj =[];
       let obj = data.company_logo;
       obj.splice(index,1);
     }
+=======
+/////////////////////////////////////////////////////////////
+>>>>>>> d6169f2 (sponsor edit profile can fetch data)
 
       setData({
           ...data,
@@ -136,10 +159,17 @@ function displayLogo(){
                     />
                 </div>
                 <div className="form-group">
+<<<<<<< HEAD
                     <label htmlFor="company_pic_ic"><span>*</span>IC of Person In Charge (PIC)</label>
                     <input className="form-control" type='text' name='company_pic_ic' id="company_pic_ic"
                     placeholder='Full Name of PIC' required
                     onChange={inputChange('company_pic_ic')} value={data.company_pic_ic} 
+=======
+                    <label htmlFor="company_contact"><span>*</span>Contact Number</label>
+                    <input className="form-control" type='text' name='company_contact' id="company_contact"
+                    placeholder='Contact Number' required
+                    onChange={inputChange('company_contact')} value={data.company_contact} 
+>>>>>>> d6169f2 (sponsor edit profile can fetch data)
                     />
                 </div>
                 <div className="form-group">
@@ -166,13 +196,19 @@ function displayLogo(){
                 </div>
  
                 <div className="form-group">
+<<<<<<< HEAD
                     <label htmlFor="company_logo"><span>*</span>Company Logo With Transparent Background</label><br />
                     {displayLogo()}
+=======
+                    <label htmlFor="company_website"><span>*</span>Company Logo</label><br />
+                    <img src={data.company_logo } alt="" />
+                    <input type="file" onChange={inputChange('company_logo')} />
+>>>>>>> d6169f2 (sponsor edit profile can fetch data)
                 </div>
 
                 <br />
                <div className="col-4 btn-group">
-                    <Link to="/user_dashboard">
+                    <Link to="/data_dashboard">
                         <button className="btn btn-danger back-btn">Back</button>
                     </Link>
                     <input className="btn btn-primary" type="submit" value="Update" />
@@ -182,6 +218,11 @@ function displayLogo(){
          </>
         )
 }
+<<<<<<< HEAD
  
 export default EditProfile;
  
+=======
+
+export default EditProfile;
+>>>>>>> d6169f2 (sponsor edit profile can fetch data)
