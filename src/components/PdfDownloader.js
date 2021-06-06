@@ -1,5 +1,6 @@
 import React from 'react';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import html2pdf from "html2pdf.js";
 
 const PdfDownloader = ({rootElementId , downloadFileName}) => {
@@ -33,12 +34,21 @@ const PdfDownloader = ({rootElementId , downloadFileName}) => {
 import html2canvas from "html2canvas";
 import domtoimage from 'dom-to-image';
 import { jsPDF } from "jspdf";
+=======
+import html2pdf from "html2pdf.js";
+>>>>>>> 858ebce (html2pdf solved)
 
 const PdfDownloader = ({rootElementId , downloadFileName}) => {
-
-    const downloadPdfDocument = () => {
-        const div = document.getElementById(rootElementId);
+    function addScript(url) {
+        var script = document.createElement('script');
+        script.type = 'application/javascript';
+        script.src = url;
+        document.head.appendChild(script);
+    }
+    addScript('https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js');
+    const submitHandler = (e) => {
         window.scrollTo(0, 0);
+<<<<<<< HEAD
     	
 		html2canvas(div)
       .then((canvas) => {
@@ -98,6 +108,25 @@ const PdfDownloader = ({rootElementId , downloadFileName}) => {
 
     return <button className="btn btn-primary" onClick={downloadPdfDocument}>Download Pdf</button>
 >>>>>>> f475b73 (html2canvas print PDF preview)
+=======
+        var element = document.getElementById(rootElementId);
+        var opt = {
+          margin:       1,
+          filename:    downloadFileName,
+          image:        { type: 'png', quality: 0.98 },
+          html2canvas:  { scale: 1 },
+          jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
+        };
+   
+  
+   // New Promise-based usage:
+   //html2pdf().set(opt).from(element).save();
+   
+   // Old monolithic-style usage:
+   html2pdf(element, opt);
+}
+    return <button className="btn btn-primary" onClick={submitHandler}>Download PDF</button>
+>>>>>>> 858ebce (html2pdf solved)
 
 }
 
