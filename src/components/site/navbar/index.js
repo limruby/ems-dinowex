@@ -40,12 +40,21 @@ const showDropdown = (e)=>{
 const hideDropdown = e => {
     setShow(false);
 }
+<<<<<<< HEAD
  
 const logout=()=>{
         localStorage.clear();
         window.location.href = '/';
 };
  
+=======
+
+const logout=()=>{
+	localStorage.clear();
+	window.location.href = '/';
+};
+
+>>>>>>> bad270e (with logout function)
 window.addEventListener('resize', showButton);
  
  
@@ -119,10 +128,17 @@ window.addEventListener('resize', showButton);
               </NavDropdown>
           </li>
           <li className="nav-item">
+<<<<<<< HEAD
             <Nav.Link href="/sign_up">Registration</Nav.Link>
           </li>
           <li className="nav-item">
             <Nav.Link href="/sign_in">Sign In</Nav.Link>
+=======
+            <Nav.Link href="/user_dashboard">UserDashboard</Nav.Link>
+          </li>
+          <li className="nav-item">
+            <Nav.Link onClick={logout}>Log Out</Nav.Link>
+>>>>>>> bad270e (with logout function)
           </li>
         </ul>
      
