@@ -109,11 +109,17 @@ function EditBookChapter({data, setData}) {
 			
 		}
 <<<<<<< HEAD
+<<<<<<< HEAD
 		else if(data.bookChapter[0]&&!data.bookChapter[0]['references']){
 			data.bookChapter[0]['references']=[];
 		}
 =======
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+=======
+		else if(data.bookChapter[0]&&!data.bookChapter[0]['references']){
+			data.bookChapter[0]['references']=[];
+		}
+>>>>>>> c5b9c68 (complete userdashboard)
 			data.bookChapter[0]['references'].push(tempState.reference);
 		
 	    setData({

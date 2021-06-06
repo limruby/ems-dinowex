@@ -70,7 +70,11 @@ const Content = ({user, account}) =>  {
   function appendbookChapterContent(){
     if(user.bookChapter[0]===undefined){return ''}
     else if(user.bookChapter[0].content===undefined){return ''}
+<<<<<<< HEAD
     else {return parse(user.bookChapter[0].content)}
+=======
+    else {return user.bookChapter[0].content}
+>>>>>>> c5b9c68 (complete userdashboard)
   }
 
   function appendConclusion(){

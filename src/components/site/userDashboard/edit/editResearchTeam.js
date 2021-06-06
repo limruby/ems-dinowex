@@ -2,7 +2,10 @@ import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import axiosInstance from '../../../../utils/axiosConfig.js';
+<<<<<<< HEAD
 import { FaTrashAlt } from 'react-icons/fa';
+=======
+>>>>>>> c5b9c68 (complete userdashboard)
 
 function EditTeam({data, setData}) {
 
@@ -13,6 +16,7 @@ const [tempData, setTemp] = useState({
     tempEmail: ""
 });
 const showUpload=(e)=>{
+<<<<<<< HEAD
     if(data.members.length < 4){
         e.preventDefault();
     if (tempData.tempName!=="" && tempData.tempAff!=="" && tempData.tempEmail!==""){
@@ -70,15 +74,87 @@ const inputChange = (element, index) => e => {
     if(element === 'email'){
         tempData.tempEmail=e.target.value;
     }
+=======
+    if(data.members.length < 5){
+        e.preventDefault();
+    if(tempData.tempName!==""){
+      if(tempData.tempName===""){
+        alert("Incomplete Form");
+      }
+    }
+    else if(tempData.tempAff===""){
+      if(tempData.tempAff===""){
+        alert("Incomplete Form");
+      }
+    }
+    else if(tempData.tempEmail===""){
+        if(tempData.tempEmail===""){
+          alert("Incomplete Form");
+        }
+      }
+    if (tempData.tempName!=="" && tempData.tempAff!=="" && tempData.tempEmail!==""){
+      data.members.push({'name':tempData.tempName,'affiliation':tempData.tempAff, 'email':tempData.tempEmail})
+       
+    }
+    setData({
+        ...data,
+      })
+          tempData.tempName="";
+          tempData.tempAff="";
+          tempData.tempEmail="";
+ 
+          setTemp({
+                ...tempData,
+          });
+    }
+    else {
+        window.alert("You've exceeded the limit of members!");
+    }
+       
+}
+var obj =[];
+  const deleteFile = (element,index) => e => {
+    if(element==='members'){
+      let obj = data.members;
+      obj.splice(index,1);
+    } 
+      setData({
+          ...data,
+         
+      });
+      console.log(data);
+  }
+ 
+const inputChange = (element, index) => e => {
+   
+    if(element === 'name'){
+        tempData.tempName=e.target.value;
+            }
+    if(element === 'affiliation'){
+        tempData.tempAff=e.target.value;
+    }
+    if(element === 'email'){
+        tempData.tempEmail=e.target.value;
+    }
+>>>>>>> c5b9c68 (complete userdashboard)
     setTemp({
       ...tempData
     });
+    setData({
+        ...data,
+      })
+     console.log(data);
+};
 
+<<<<<<< HEAD
      console.log(data);
 };
 
 	const handleForm=(e)=>{
     {/* 
+=======
+	const handleForm=(e)=>{
+>>>>>>> c5b9c68 (complete userdashboard)
         if(tempData.tempName!==""){
             if(tempData.tempName===""){
               alert("Incomplete Form");
@@ -101,6 +177,7 @@ const inputChange = (element, index) => e => {
           setData({
               ...data,
             })
+<<<<<<< HEAD
             */}
        
        
@@ -113,6 +190,13 @@ const inputChange = (element, index) => e => {
               }
        
            axiosInstance.post("/api/competitors/update", postData)
+=======
+       
+       
+           console.log(data);
+       
+           axiosInstance.post("/competitors/update", data)
+>>>>>>> c5b9c68 (complete userdashboard)
                   .then(function(response) {
                      window.location.href = '/user_dashboard';
                   }).catch(function(error) {
@@ -125,7 +209,11 @@ const inputChange = (element, index) => e => {
 ///////display forms//////
     function displayMembers(){
         var section = [];
+<<<<<<< HEAD
         if(data.members==null||data.members[0]==null||data.members.length<4){
+=======
+        if(data.members==null||data.members[0]==null||data.members.length<5){
+>>>>>>> c5b9c68 (complete userdashboard)
         
             section.push(
                 <div>
@@ -158,7 +246,11 @@ const inputChange = (element, index) => e => {
                        <p>{data.members[i].name}</p>
                        <p>{data.members[i].affiliation}</p>
                        <p>{data.members[i].email}</p>
+<<<<<<< HEAD
                         <button className="deleteBtn" type="button" onClick={deleteFile('members',i)}> <FaTrashAlt/></button>
+=======
+                        <button className="deleteBtn" type="button" onClick={deleteFile('members',i)}> delete</button>
+>>>>>>> c5b9c68 (complete userdashboard)
                   </div>
           )
         }

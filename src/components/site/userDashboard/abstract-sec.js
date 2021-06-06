@@ -67,7 +67,15 @@ const AbstractContent = ({user}) =>  {
   return (       
     <div>
       <div id="pdfAbstract">
+<<<<<<< HEAD
 
+=======
+       
+
+        {displayTitle()}
+        {displayContent()}
+        {displayKeywords()}
+>>>>>>> c5b9c68 (complete userdashboard)
         
       </div>  
       
@@ -79,4 +87,8 @@ const AbstractContent = ({user}) =>  {
 
 
 
+<<<<<<< HEAD
 export default AbstractContent;
+=======
+export default AbstractContent;
+>>>>>>> c5b9c68 (complete userdashboard)

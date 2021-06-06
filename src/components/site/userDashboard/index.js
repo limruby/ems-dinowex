@@ -431,8 +431,12 @@ function welcome(role){
                     <h5> Abstract </h5>     
 =======
                     <h5> Abstract </h5>    
+<<<<<<< HEAD
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
                     <Abstract/>
+=======
+                    <Abstract user={user}/>
+>>>>>>> c5b9c68 (complete userdashboard)
                   </div>  
 >>>>>>> 7c0a793 (merged with alexia's branch)
                   <div className="sec-container">
@@ -447,10 +451,15 @@ function welcome(role){
                     <h5> BookChapter </h5>     
 =======
                     <h5> BookChapter </h5>    
+<<<<<<< HEAD
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
                     <BookChapter/>
                      <PdfAbstract/>
 >>>>>>> 7c0a793 (merged with alexia's branch)
+=======
+                    <BookChapter user={user}/>
+                     <PdfAbstract user = {user}/>
+>>>>>>> c5b9c68 (complete userdashboard)
                   </div>
 <<<<<<< HEAD
 			</Card.Body>
@@ -520,7 +529,7 @@ function welcome(role){
 
 =======
                     <h5> Research Team</h5>    
-                    <ResearchTeam/>
+                    <ResearchTeam user={user}/>
                   </div>  
  
                 </Tab.Pane>
@@ -549,6 +558,7 @@ function welcome(role){
         </Tab.Container>
  
 <<<<<<< HEAD
+<<<<<<< HEAD
     </div>
  
    
@@ -557,6 +567,8 @@ function welcome(role){
  
  
  
+=======
+>>>>>>> c5b9c68 (complete userdashboard)
     </div>
  
    
