@@ -2,10 +2,14 @@
 /dist
 /build
 <<<<<<< HEAD
+<<<<<<< HEAD
 node_modules
 =======
 /node_modules
 >>>>>>> 6ac8c9a (merge with kale's branch 14th May 9.15pm)
+=======
+node_modules
+>>>>>>> 1759568 (optimize deploy)
 
 # Logs
 logs
@@ -44,6 +48,7 @@ lerna-debug.log*
 <<<<<<< HEAD
 
 deploy-staging.sh
+<<<<<<< HEAD
 *.tar
 .vs/event_management_system/v16/.suo
 .vs/slnx.sqlite
@@ -56,3 +61,6 @@ package-lock.json
 
 deploy-staging.sh
 >>>>>>> bc7bab1 (staging ignore)
+=======
+*.tar
+>>>>>>> 1759568 (optimize deploy)

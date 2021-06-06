@@ -44,17 +44,26 @@ services:
     ports:
       - 5000:5000
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1759568 (optimize deploy)
     labels:
       - traefik.enable=true
       - traefik.docker.network=server
 
       - traefik.http.services.vexs_backend.loadbalancer.server.port=5000
       - traefik.http.routers.vexs_backend.service=vexs_backend
+<<<<<<< HEAD
       - traefik.http.routers.vexs_backend.rule=Host(`vexsdev.getitqec.com`) && PathPrefix(`/api/`)
       - traefik.http.routers.vexs_backend.entrypoints=https
       - traefik.http.routers.vexs_backend.tls.certresolver=mytlschallenge
 =======
 >>>>>>> 38f483b (update docker)
+=======
+      - traefik.http.routers.vexs_backend.rule=Host(`vexsdev.getitqec.com`) # && PathPrefix(`/`)
+      - traefik.http.routers.vexs_backend.entrypoints=https
+      - traefik.http.routers.vexs_backend.tls.certresolver=mytlschallenge
+>>>>>>> 1759568 (optimize deploy)
     container_name: backend
 
 networks:
