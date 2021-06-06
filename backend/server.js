@@ -1,6 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const multer  = require('multer');
+const path = require ('path');
 
 require('dotenv').config();
 
@@ -11,6 +13,7 @@ const port = process.env.PORT || 5000;
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 app.use(cors({origin: '*'}));
 app.use(express.json({limit:'50mb'}));
 =======
@@ -18,6 +21,10 @@ app.use(express.json({limit:'50mb'}));
 
 =======
 >>>>>>> 248fc10 (added /api/ to axios GET POST)
+=======
+
+
+>>>>>>> bdfdade (Admin login)
 app.use(cors());
 <<<<<<< HEAD
 app.use(express.json());
@@ -48,6 +55,7 @@ connection.once('open', ()=>{
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 //get image
 const uploadRouter = require('./routes/upload');
@@ -71,17 +79,21 @@ app.get('/api/hello', function(req, res) {
 	);
   });
 >>>>>>> 248fc10 (added /api/ to axios GET POST)
+=======
+
+>>>>>>> bdfdade (Admin login)
 //add routes
 const accountsRouter = require('./routes/accounts');
-app.use('/api/accounts', accountsRouter)
+app.use('/accounts', accountsRouter)
 
 const rolesRouter = require('./routes/roles');
-app.use('/api/roles', rolesRouter)
+app.use('/roles', rolesRouter)
 
 const competitorsRouter = require('./routes/competitors');
-app.use('/api/competitors', competitorsRouter)
+app.use('/competitors', competitorsRouter)
 
 const sponsorsRouter = require('./routes/sponsors');
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 app.use('/api/sponsors', sponsorsRouter)
@@ -90,6 +102,9 @@ app.use('/sponsors', sponsorsRouter)
 =======
 app.use('/api/sponsors', sponsorsRouter)
 >>>>>>> 248fc10 (added /api/ to axios GET POST)
+=======
+app.use('/sponsors', sponsorsRouter)
+>>>>>>> bdfdade (Admin login)
 
 <<<<<<< HEAD
 const uploadRouter = require('./routes/upload');
@@ -102,7 +117,7 @@ app.use('/upload', uploadRouter)
 =======
 >>>>>>> 3e5a50c (remove unnecessary files)
 app.listen(port, () => {
-	console.log('Now starting at http://localhost:5000/api/hello');
+	console.log('Now starting at port: 5000');
 });
 
 <<<<<<< HEAD

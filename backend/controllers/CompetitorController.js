@@ -71,6 +71,7 @@ const read = (req, res, next)=>{
 const update = (req, res, next)=>{
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
   var updateCompetitor = {};
   if(req.body.name){
@@ -217,6 +218,9 @@ const subSchema = new Schema({
     type: Buffer,
     required: false
 =======
+=======
+
+>>>>>>> bdfdade (Admin login)
   var updateCompetitor = {};
   if(req.body.name){
     updateCompetitor['name'] = req.body.name;

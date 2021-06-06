@@ -2,10 +2,14 @@ import React,{useState, useEffect} from 'react';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import {isAuth, isAdmin} from './utils/isAuth'
 
 =======
 import {isAuth} from './utils/isAuth'
+=======
+import {isAuth, isAdmin} from './utils/isAuth'
+>>>>>>> bdfdade (Admin login)
 
 //
 >>>>>>> a678ac2 (test)
@@ -22,10 +26,14 @@ import competition_hall from './components/site/eventLobby/competition_hall/comp
 import Navbar from './components/site/navbar';
 import Footer from './components/site/footer';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import AdminDashboard from './components/site/adminDashboard';
 =======
 // import AdminDashboard from './components/site/adminDashboard';
 >>>>>>> 70358d5 (update kale's progress 17th May 2021)
+=======
+import AdminDashboard from './components/site/adminDashboard';
+>>>>>>> bdfdade (Admin login)
 import PageNotFound from './components/PageNotFound.js';
 
 
@@ -35,6 +43,12 @@ const queryClient = new QueryClient()
 
 const AdminRoute = ({ component: Component, ...rest }) => (
   <Route {...rest} render={(props) => (
+<<<<<<< HEAD
+=======
+    
+    
+    
+>>>>>>> bdfdade (Admin login)
       isAdmin()
         ?  <Component {...props} />     //true
         :  <Redirect to='/page_not_found' />
@@ -77,7 +91,6 @@ function App() {
         <PrivateRoute exact path='/user_dashboard/edit_researchTeam' component={EditUserDetails}/>
         <PrivateRoute exact path='/user_dashboard/edit_abstract' component={EditUserDetails}/>
         <PrivateRoute exact path='/user_dashboard/edit_book_chapter' component={EditUserDetails}/>
-        <PrivateRoute exact path='/user_dashboard/edit_book_chapter_content' component={EditUserDetails}/>
 
         <AdminRoute exact path='/admin_dashboard'  component={AdminDashboard}/>
 
@@ -86,8 +99,11 @@ function App() {
         <Route exact path='/competition_hall'  component={competition_hall}/>
 
         <Route exact path='/page_not_found' component={PageNotFound} />
+<<<<<<< HEAD
         <Route exact path='/payment_success'  component={Payment_Success}/>
         <Route exact path='/payment_fail'  component={Payment_Fail}/>
+=======
+>>>>>>> bdfdade (Admin login)
       </Switch>
 	  <Footer/>
       
