@@ -237,6 +237,7 @@ const uploadFileHandler = (e) => {
 =======
                     <label htmlFor="company_website"><span>*</span>Company Logo</label><br />
                     <img src={data.company_logo } alt="" />
+<<<<<<< HEAD
                     <input type="file" onChange={inputChange('company_logo')} />
 >>>>>>> d6169f2 (sponsor edit profile can fetch data)
 =======
@@ -248,6 +249,9 @@ const uploadFileHandler = (e) => {
 =======
                     <input type="file" onChange={inputChange('company_logo')} name="upload_file"/>
 >>>>>>> d526164 (upload sponsor company logo)
+=======
+                    <input type="file" onChange={inputChange('company_logo')} name="upload_file"/>
+>>>>>>> 86840ba (upload file function)
                 </div>
 
                 <br />

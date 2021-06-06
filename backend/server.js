@@ -66,6 +66,7 @@ app.listen(port, () => {
 	console.log('Now starting at http://localhost:5000/api/hello');
 });
 
+<<<<<<< HEAD
 var storage = multer.diskStorage({
 	destination: function (req, file, cb) {
 	  cb(null, 'uploads')
@@ -78,6 +79,10 @@ var storage = multer.diskStorage({
   var upload = multer({ storage: storage })
   
 app.post('/uploadfile', upload.single('company_logo'), (req, res, next) => {
+=======
+
+app.post('/uploadfile', upload.single('upload_file'), (req, res, next) => {
+>>>>>>> 86840ba (upload file function)
   const file = req.file
   if (!file) {
     const error = new Error('Please upload a file')
@@ -86,6 +91,10 @@ app.post('/uploadfile', upload.single('company_logo'), (req, res, next) => {
   }
     res.send(file)
   
+<<<<<<< HEAD
 })
 
 
+=======
+})
+>>>>>>> 86840ba (upload file function)
