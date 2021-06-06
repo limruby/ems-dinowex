@@ -1,8 +1,6 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const multer  = require('multer');
-const path = require ('path');
 
 require('dotenv').config();
 
@@ -11,11 +9,14 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 app.use(cors({origin: '*'}));
 app.use(express.json({limit:'50mb'}));
 =======
 
 
+=======
+>>>>>>> 248fc10 (added /api/ to axios GET POST)
 app.use(cors());
 <<<<<<< HEAD
 app.use(express.json());
@@ -33,6 +34,7 @@ connection.once('open', ()=>{
 })
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 //get image
 const uploadRouter = require('./routes/upload');
@@ -41,6 +43,17 @@ app.use('/uploads', uploadRouter)
 >>>>>>> d526164 (upload sponsor company logo)
 
 >>>>>>> 335f562 (testing with uploadfilehandler)
+=======
+app.get('/api/hello', (req, res) => {
+	res.send({ express: 'Hello From Express' });
+  });
+  app.post('/api/world', (req, res) => {
+	console.log(req.body);
+	res.send(
+	  `I received your POST request. This is what you sent me: ${req.body.post}`,
+	);
+  });
+>>>>>>> 248fc10 (added /api/ to axios GET POST)
 //add routes
 const accountsRouter = require('./routes/accounts');
 app.use('/api/accounts', accountsRouter)
@@ -53,9 +66,13 @@ app.use('/api/competitors', competitorsRouter)
 
 const sponsorsRouter = require('./routes/sponsors');
 <<<<<<< HEAD
+<<<<<<< HEAD
 app.use('/api/sponsors', sponsorsRouter)
 =======
 app.use('/sponsors', sponsorsRouter)
+=======
+app.use('/api/sponsors', sponsorsRouter)
+>>>>>>> 248fc10 (added /api/ to axios GET POST)
 
 <<<<<<< HEAD
 const uploadRouter = require('./routes/upload');

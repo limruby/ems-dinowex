@@ -209,8 +209,12 @@ const inputChange = (element, index) => e => {
 >>>>>>> c5b9c68 (complete userdashboard)
 =======
        
+<<<<<<< HEAD
            axiosInstance.post("/competitors/update", postData)
 >>>>>>> 8654e33 (edit folder)
+=======
+           axiosInstance.post("/api/competitors/update", postData)
+>>>>>>> 248fc10 (added /api/ to axios GET POST)
                   .then(function(response) {
                      window.location.href = '/user_dashboard';
                   }).catch(function(error) {

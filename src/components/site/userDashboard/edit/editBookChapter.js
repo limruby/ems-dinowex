@@ -102,6 +102,7 @@ function EditBookChapter({data, setData}) {
                     onChange={tempInput('reference')} value={tempState.reference}/>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 	<button className="btn btn-primary" type="button" onClick={addReference()}> Add</button>
 
 					<br/>
@@ -114,6 +115,9 @@ function EditBookChapter({data, setData}) {
 =======
                 	<button className="addBtn" type="button" onClick={addReference()}> Add</button>
 >>>>>>> 8654e33 (edit folder)
+=======
+                	<button className="btn btn-primary" type="button" onClick={addReference()}> Add</button>
+>>>>>>> 248fc10 (added /api/ to axios GET POST)
                 </div>
 
                 <hr/>
@@ -193,6 +197,7 @@ function EditBookChapter({data, setData}) {
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	   axiosInstance.post("/api/competitors/update", postData)
 =======
 	   axiosInstance.post("/competitors/update", data)
@@ -200,6 +205,9 @@ function EditBookChapter({data, setData}) {
 =======
 	   axiosInstance.post("/competitors/update", postData)
 >>>>>>> 8654e33 (edit folder)
+=======
+	   axiosInstance.post("/api/competitors/update", postData)
+>>>>>>> 248fc10 (added /api/ to axios GET POST)
             .then(function(response) {
               window.location.href = '/user_dashboard';
             }).catch(function(error) {

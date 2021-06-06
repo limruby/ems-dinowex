@@ -71,10 +71,14 @@ const Content = ({user, account}) =>  {
     if(user.bookChapter[0]===undefined){return ''}
     else if(user.bookChapter[0].content===undefined){return ''}
 <<<<<<< HEAD
+<<<<<<< HEAD
     else {return parse(user.bookChapter[0].content)}
 =======
     else {return user.bookChapter[0].content}
 >>>>>>> c5b9c68 (complete userdashboard)
+=======
+    else {return parse(user.bookChapter[0].content)}
+>>>>>>> 248fc10 (added /api/ to axios GET POST)
   }
 
   function appendConclusion(){

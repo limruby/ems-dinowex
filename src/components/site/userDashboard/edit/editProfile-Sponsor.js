@@ -94,8 +94,12 @@ const inputChange = input => e => {
                 company_logo : data.company_logo
             }
 
+<<<<<<< HEAD
              axiosInstance.post("/sponsors/update", postData)
 >>>>>>> 8654e33 (edit folder)
+=======
+             axiosInstance.post("/api/sponsors/update", postData)
+>>>>>>> 248fc10 (added /api/ to axios GET POST)
              .then(function(response) {
                window.location.href = '/user_dashboard';
              }).catch(function(error) {

@@ -62,11 +62,15 @@ function UserDashboard() {
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
   useEffect(() => {
 <<<<<<< HEAD
+<<<<<<< HEAD
       axiosInstance .get("/competitors/read", {params:{account_id:account_id}})
 >>>>>>> 7c0a793 (merged with alexia's branch)
 =======
       axiosInstance.get("/competitors/read", {params:{account_id:account_id}})
 >>>>>>> d6169f2 (sponsor edit profile can fetch data)
+=======
+      axiosInstance.get("/api/competitors/read", {params:{account_id:account_id}})
+>>>>>>> 248fc10 (added /api/ to axios GET POST)
         .then(function(response) {
           setUser(response.data.data);
         }).catch(function(error) {
@@ -77,6 +81,7 @@ function UserDashboard() {
 <<<<<<< HEAD
      
       axiosInstance.get("/api/sponsors/read", {params:{account_id:account_id}})
+<<<<<<< HEAD
 =======
       
 =======
@@ -84,12 +89,15 @@ function UserDashboard() {
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
       axiosInstance.get("/sponsors/read", {params:{account_id:account_id}})
 >>>>>>> d6169f2 (sponsor edit profile can fetch data)
+=======
+>>>>>>> 248fc10 (added /api/ to axios GET POST)
         .then(function(response) {
           setUser(response.data.data);
         }).catch(function(error) {
           console.log(error);
         });
  
+<<<<<<< HEAD
 <<<<<<< HEAD
       axiosInstance.get("/api/accounts/read", {params:{account_id:account_id}})
 =======
@@ -102,6 +110,9 @@ function UserDashboard() {
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
       axiosInstance.get("/accounts/read", {params:{account_id:account_id}})
 >>>>>>> d6169f2 (sponsor edit profile can fetch data)
+=======
+      axiosInstance.get("/api/accounts/read", {params:{account_id:account_id}})
+>>>>>>> 248fc10 (added /api/ to axios GET POST)
         .then(function(response) {
           setAccount(response.data.data);
         }).catch(function(error) {

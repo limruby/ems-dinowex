@@ -1,10 +1,14 @@
 import React, {useState, useEffect} from 'react';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import parse from 'html-react-parser';
 =======
 >>>>>>> c5b9c68 (complete userdashboard)
 
 const Content = ({user}) =>  {
+=======
+import parse from 'html-react-parser';
+>>>>>>> 248fc10 (added /api/ to axios GET POST)
 
 <<<<<<< HEAD
   function displayIntroduction(){
@@ -49,13 +53,18 @@ const Content = ({user}) =>  {
   }
   function displayContent(){
       var section = [];
+     
 
     if(user.bookChapter!=null){
       for (var i=0; i<user.bookChapter.length; i++){
         section.push(
             <p>
+<<<<<<< HEAD
                 <b>Content</b>: {user.bookChapter[0].content}
 >>>>>>> c5b9c68 (complete userdashboard)
+=======
+                <b>Content</b>: {parse(user.bookChapter[0].content)}
+>>>>>>> 248fc10 (added /api/ to axios GET POST)
             </p>
         );
     }
@@ -113,7 +122,6 @@ function displayReference(){
         {displayIntroduction()}
         {displayContent()}
         {displayConclusion()}
-
         {displayReference()}
 >>>>>>> c5b9c68 (complete userdashboard)
       </div>  

@@ -97,6 +97,7 @@ const [user, setState] = useState({
              console.log(data);  
             ///////update to db /////////////
              axiosInstance.post("/api/accounts/update", user)
+<<<<<<< HEAD
             .then(function(response) {
                window.location.href = '/user_dashboard';
 =======
@@ -111,6 +112,8 @@ const [user, setState] = useState({
              console.log(data);  
             ///////update to db /////////////
              axiosInstance.post("/accounts/update", user)
+=======
+>>>>>>> 248fc10 (added /api/ to axios GET POST)
             .then(function(response) {
 <<<<<<< HEAD
               // window.location.href = '/user_dashboard';

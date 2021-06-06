@@ -48,6 +48,7 @@ function EditProfile({data, setData}) {
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
             axiosInstance.post("/api/competitors/update", postData)
 =======
             axiosInstance.post("/competitors/update", data)
@@ -55,6 +56,9 @@ function EditProfile({data, setData}) {
 =======
             axiosInstance.post("/competitors/update", postData)
 >>>>>>> 8654e33 (edit folder)
+=======
+            axiosInstance.post("/api/competitors/update", postData)
+>>>>>>> 248fc10 (added /api/ to axios GET POST)
             .then(function(response) {
               window.location.href = '/user_dashboard';
             }).catch(function(error) {

@@ -12,7 +12,10 @@ import EditPromoContent from './editPromoContent.js';
 import EditCompetitionMaterial from './editCompetitionMaterial.js';
 import EditAbstract from './editAbstract.js';
 import EditBookChapter from './editBookChapter.js';
+<<<<<<< HEAD
 import Content from './editContent.js';
+=======
+>>>>>>> 248fc10 (added /api/ to axios GET POST)
 
 
 function FormNavigator() {
@@ -25,20 +28,28 @@ function FormNavigator() {
 
   useEffect(() => {
 <<<<<<< HEAD
+<<<<<<< HEAD
       axiosInstance.get("/api/competitors/read", {params:{account_id:account_id}})
 =======
       axiosInstance.get("/competitors/read", {params:{account_id:account_id}})
 >>>>>>> d6169f2 (sponsor edit profile can fetch data)
+=======
+      axiosInstance.get("/api/competitors/read", {params:{account_id:account_id}})
+>>>>>>> 248fc10 (added /api/ to axios GET POST)
         .then(function(response) {
           setUser(response.data.data);
         }).catch(function(error) {
           console.log(error);
         });
 <<<<<<< HEAD
+<<<<<<< HEAD
 	axiosInstance.get("/api/sponsors/read", {params:{account_id:account_id}})
 =======
 	axiosInstance.get("/sponsors/read", {params:{account_id:account_id}})
 >>>>>>> d6169f2 (sponsor edit profile can fetch data)
+=======
+	axiosInstance.get("/api/sponsors/read", {params:{account_id:account_id}})
+>>>>>>> 248fc10 (added /api/ to axios GET POST)
         .then(function(response) {
           setUser(response.data.data);
         }).catch(function(error) {
@@ -46,10 +57,14 @@ function FormNavigator() {
         });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
       axiosInstance.get("/api/accounts/read", {params:{account_id:account_id}})
 =======
       axiosInstance.get("/accounts/read", {params:{account_id:account_id}})
 >>>>>>> d6169f2 (sponsor edit profile can fetch data)
+=======
+      axiosInstance.get("/api/accounts/read", {params:{account_id:account_id}})
+>>>>>>> 248fc10 (added /api/ to axios GET POST)
         .then(function(response) {
           setAccount(response.data.data);
         }).catch(function(error) {
@@ -144,14 +159,6 @@ const lastPath = thePath.substring(thePath.lastIndexOf('/') + 1);
 				return( 
 				    <div className="form-main-container">
 						<EditBookChapter data={user} setData={setUser}/>
-					</div>
-				)
-			break;
-
-			case 'edit_book_chapter_content':
-				return( 
-				    <div className="form-main-container">
-						<Content data={user} setData={setUser}/>
 					</div>
 				)
 			break;
