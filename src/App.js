@@ -1,8 +1,14 @@
 import React,{useState, useEffect} from 'react';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+<<<<<<< HEAD
 import {isAuth, isAdmin} from './utils/isAuth'
 
+=======
+import {isAuth} from './utils/isAuth'
+
+//
+>>>>>>> a678ac2 (test)
 import Landing from './components/site/landingPage';
 import SignIn from './components/site/login/login';
 import SignUp from './components/site/signUp'
