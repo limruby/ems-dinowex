@@ -285,11 +285,25 @@ const subSchema = new Schema({
     }).catch(err => console.log(err))
  };
 
+const readAll = (req, res, next)=>{ 
+    Competitor.find({}, (err, competitors) => {
+        if (err) {
+            return res.status(400).json({ success: false, error: err })
+        }
+        if (!competitors) {
+            return res
+                .status(404)
+                .json({ success: false, error: req.query.account_id })
+        }
+        return res.status(200).json({ success: true, data: competitors })
+    }).catch(err => console.log(err))
+ };
 
 
 
 
 
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 module.exports = Competitor;
@@ -297,3 +311,6 @@ module.exports = Competitor;
 =======
 module.exports = {create, read, update}
 >>>>>>> 3e5a50c (remove unnecessary files)
+=======
+module.exports = {create, read, update, readAll}
+>>>>>>> b014062 (admindashboard_incomplete)

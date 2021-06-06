@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { useTable, useFilters, useSortBy, useGlobalFilter } from "react-table";
 =======
 import { useTable, useFilters, useSortBy } from "react-table";
 >>>>>>> ca69ace (Admin)
+=======
+import { useTable, useFilters, useSortBy, useGlobalFilter } from "react-table";
+>>>>>>> b014062 (admindashboard_incomplete)
 
 export default function Table({ columns, data }) {
   const [filterInput, setFilterInput] = useState("");
@@ -15,11 +19,16 @@ export default function Table({ columns, data }) {
     rows,
     prepareRow,
 <<<<<<< HEAD
+<<<<<<< HEAD
     setFilter,
     setGlobalFilter
 =======
     setFilter
 >>>>>>> ca69ace (Admin)
+=======
+    setFilter,
+    setGlobalFilter
+>>>>>>> b014062 (admindashboard_incomplete)
   } = useTable(
     {
       columns,
@@ -27,14 +36,19 @@ export default function Table({ columns, data }) {
     },
     useFilters,
 <<<<<<< HEAD
+<<<<<<< HEAD
     useGlobalFilter,
 =======
 >>>>>>> ca69ace (Admin)
+=======
+    useGlobalFilter,
+>>>>>>> b014062 (admindashboard_incomplete)
     useSortBy
   );
 
   const handleFilterChange = e => {
     const value = e.target.value || undefined;
+<<<<<<< HEAD
 <<<<<<< HEAD
     setGlobalFilter(value);
     setFilterInput(value);
@@ -43,6 +57,11 @@ export default function Table({ columns, data }) {
     setFilter("show.name", value);
     setFilterInput(value);
 >>>>>>> ca69ace (Admin)
+=======
+    setGlobalFilter(value);
+    setFilterInput(value);
+ 
+>>>>>>> b014062 (admindashboard_incomplete)
   };
 
   // Render the UI for your table

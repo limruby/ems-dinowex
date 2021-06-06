@@ -10,18 +10,35 @@ function Competitor(){
   useEffect(() => {
      
  
+<<<<<<< HEAD
       axiosInstance.get("/api/competitors/readAll")
         .then(function(response) {
           setData(response.data.data);
         }).catch(function(error) {
           console.log(error);
         })
+=======
+      // axiosInstance.get("/api/competitors/readAll")
+      //   .then(function(response) {
+      //     setData(response.data.data);
+      //   }).catch(function(error) {
+      //     console.log(error);
+      //   })
+
+        // axiosInstance.get("/api/accounts/readAll")  //filter
+        // .then(function(response) {
+        //   setData(response.data.data);
+        // }).catch(function(error) {
+        //   console.log(error);
+        // })
+>>>>>>> b014062 (admindashboard_incomplete)
     }, []);
  
 
 const columns = React.useMemo(
     () => [
       {
+<<<<<<< HEAD
         Header: 'Profile',
         columns: [
          
@@ -43,12 +60,30 @@ const columns = React.useMemo(
           },
           {
             Header: 'Edit',
+=======
+        Header: 'Account',
+        columns: [
+          {
+            Header: 'Email',
+            accessor: 'email',
+          },
+          {
+            Header: 'Password',
+            accessor: 'password',
+>>>>>>> b014062 (admindashboard_incomplete)
             Cell: cell => (
               <button className="btn btn-danger" >
                 Edit
               </button>
             )
           },
+<<<<<<< HEAD
+=======
+          {
+            Header: 'Role',
+            accessor: 'role'
+          }
+>>>>>>> b014062 (admindashboard_incomplete)
         ],
       },
 

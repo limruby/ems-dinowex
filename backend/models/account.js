@@ -30,6 +30,7 @@ bcrypt.hash('dinowex99admin', 10, function(err, hashedPassword){
     //   })
     // }
 
+<<<<<<< HEAD
     Account.insertMany([
         { role: 'Admin', email: 'admin@dinowex.com', password:hashedPassword},
     ],
@@ -45,6 +46,8 @@ bcrypt.hash('dinowex99admin', 10, function(err, hashedPassword){
 
 =======
 >>>>>>> 66ccca2 (sponsor uitmpay done)
+=======
+>>>>>>> b014062 (admindashboard_incomplete)
 bcrypt.hash('dinowex99admin', 10, function(err, hashedPassword){
     // if(err){
     //   res.json({
@@ -57,7 +60,6 @@ bcrypt.hash('dinowex99admin', 10, function(err, hashedPassword){
     ],
         { ordered: false}
       
-
     ).then(function(){
         console.log("Account data inserted")  // Success
     }).catch(function(error){
