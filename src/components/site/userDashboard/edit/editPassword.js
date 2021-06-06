@@ -5,6 +5,7 @@ import axiosInstance from '../../../../utils/axiosConfig.js';
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
  
 function EditAccount({data, setData}) {
  
@@ -23,12 +24,19 @@ function EditAccount({data, setData}) {
 function EditAccount({data, setData}) {
 
 >>>>>>> 962c9ed (merge from before)
+=======
+ 
+function EditAccount({data, setData}) {
+ 
+>>>>>>> 8654e33 (edit folder)
 /////////////////////get login user (REPLACE THIS) ////////////////
 const [user, setState] = useState({
       _id: '',
       newPassword: '',
       confirmPassword:''
+ 
 });
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -61,10 +69,18 @@ const [user, setState] = useState({
             ...user,
 			_id:data._id,
 >>>>>>> 962c9ed (merge from before)
+=======
+   
+ 
+    const inputChange = input => e => {
+        setState({
+            ...user,
+                        _id:data._id,
+>>>>>>> 8654e33 (edit folder)
             [input]: e.target.value
         });
     };
-
+ 
     const handleForm=(e)=>{
         e.preventDefault();
     // perform all neccassary validations
@@ -77,8 +93,8 @@ const [user, setState] = useState({
             alert("Form not fill");
         }
         else{
-            
-             console.log(data);   
+           
+             console.log(data);  
             ///////update to db /////////////
              axiosInstance.post("/api/accounts/update", user)
             .then(function(response) {
@@ -107,8 +123,9 @@ const [user, setState] = useState({
             })
         }
     }
-
+ 
 /////////////////////////////////////////////////////////////
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -122,6 +139,9 @@ const [user, setState] = useState({
 =======
 
 >>>>>>> 962c9ed (merge from before)
+=======
+ 
+>>>>>>> 8654e33 (edit folder)
     return(
         <>
             <form onSubmit={handleForm}>
@@ -138,6 +158,7 @@ const [user, setState] = useState({
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
  
 =======
 
@@ -148,6 +169,9 @@ const [user, setState] = useState({
 =======
 
 >>>>>>> 962c9ed (merge from before)
+=======
+ 
+>>>>>>> 8654e33 (edit folder)
                 <div className="form-group">
                     <label htmlFor="confirmPassword">Confirm New Password </label>
                     <input className="form-control" type='password'name='confirmPassword' id="confirmPassword"
@@ -157,6 +181,7 @@ const [user, setState] = useState({
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                    
                 </div>
        
@@ -179,8 +204,14 @@ const [user, setState] = useState({
         
 
 >>>>>>> 962c9ed (merge from before)
+=======
+                   
+                </div>
+       
+ 
+>>>>>>> 8654e33 (edit folder)
                 <br />
-
+ 
                 <div className="col-4 btn-group">
                     <Link to="/user_dashboard">
                         <button className="btn btn-danger back-btn">Back</button>
@@ -193,6 +224,7 @@ const [user, setState] = useState({
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
  
         )
  
@@ -211,6 +243,11 @@ const [user, setState] = useState({
         )
 
 >>>>>>> 962c9ed (merge from before)
+=======
+ 
+        )
+ 
+>>>>>>> 8654e33 (edit folder)
 }
-
+ 
 export default EditAccount;

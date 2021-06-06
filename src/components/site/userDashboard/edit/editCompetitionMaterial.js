@@ -411,8 +411,8 @@ console.log(data)
 //     return value;
 //   }
 // }
-
-
+ 
+ 
 ///////display forms//////
 //poster form
   function displayPosterForm(){
@@ -426,13 +426,13 @@ console.log(data)
     }
     else{
      
-      
+     
       section.push(
         <div>
                    <p>{data.poster[0].name}
-				   <button className="deleteBtn" type="button" onClick={deleteFile('poster',0)}> <FaTrashAlt/></button>
-				   </p>
-                    
+                                   <button className="deleteBtn" type="button" onClick={deleteFile('poster',0)}> <FaTrashAlt/></button>
+                                   </p>
+                   
               </div>
       )
     }
@@ -529,9 +529,9 @@ function displayAchievementForm(){
       section.push(
         <div className="form-group">
                   <p>{data.video[0].name}
-				  <button className="deleteBtn" type="button" onClick={deleteFile('video',0)}> <FaTrashAlt/></button>
-				  </p>
-                    
+                                  <button className="deleteBtn" type="button" onClick={deleteFile('video',0)}> <FaTrashAlt/></button>
+                                  </p>
+                   
               </div>
       )
     }
@@ -591,6 +591,7 @@ function displayAchievementForm(){
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             };
         // Convert data to base64
 <<<<<<< HEAD
@@ -624,24 +625,29 @@ function displayAchievementForm(){
 				...data
 			  })
 >>>>>>> 962c9ed (merge from before)
+=======
+                          setData({
+                                ...data
+                          })
+>>>>>>> 8654e33 (edit folder)
             }
             else if(element === 'achievement'){
                         data.achievements.push({'name':fileName,'source':fileReader.result});
-						setData({
-				...data
-			  })
+                                                setData({
+                                ...data
+                          })
                     }
             else if(element==='publication'){
                       data.publications.push({'name':fileName,'source':fileReader.result});
-					  setData({
-				...data
-			  })
+                                          setData({
+                                ...data
+                          })
                     }
             else if(element==='grant'){
                       data.grants.push({'name':fileName,'source':fileReader.result});
-					  setData({
-				...data
-			  })
+                                          setData({
+                                ...data
+                          })
                     }
                    
         };
@@ -663,7 +669,7 @@ function displayAchievementForm(){
     setData({
         ...data,
       })
-	setData({
+        setData({
         ...data,
       })
      console.log(data);
@@ -693,9 +699,16 @@ function displayAchievementForm(){
       })
  
  
-     console.log(data);
+    var postData = {
+      _id : data._id,
+      poster : data.poster,
+      achievements : data.achievements,
+      publication : data.publication,
+      grants : data.grants,
+      video : data.video,
+    }
  
-     axiosInstance.post("/competitors/update", data)
+     axiosInstance.post("/competitors/update", postData)
             .then(function(response) {
                window.location.href = '/user_dashboard';
             }).catch(function(error) {
@@ -721,7 +734,7 @@ export default PromoContent;
  
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
   };
-
+ 
   return(
     <>
             <form onSubmit={handleForm}>
@@ -731,7 +744,7 @@ export default PromoContent;
                 <h5>Poster</h5>    
                            
                 {displayPosterForm()}
-				
+                               
                 <hr/>
  
                 <h5>Achievements</h5>
@@ -739,7 +752,7 @@ export default PromoContent;
               <div className="form-group">
                    {displayAchievementForm()}
                  </div>
-			
+                       
                  <hr/>
  
                 <h5>Publications</h5>
@@ -747,16 +760,16 @@ export default PromoContent;
               <div className="form-group">
                    {displayPublicationForm()}
                  </div>
-				
+                               
                  <h5>Grants</h5>
                
               <div className="form-group">
                    {displayGrantForm()}
                  </div>
-				
+                               
                  <h5>Video</h5>
                  {displayVideoForm()}
-				
+                               
            
                
                 <br />

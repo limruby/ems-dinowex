@@ -253,6 +253,9 @@ console.log(data)
       e.preventDefault();
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 8654e33 (edit folder)
 
       var postData = {
           _id : data._id,
@@ -260,6 +263,7 @@ console.log(data)
           video : data.video
       }
 
+<<<<<<< HEAD
      axiosInstance.post("/api/sponsors/update", postData)
 =======
       // perform all neccassary validations
@@ -289,6 +293,9 @@ console.log(data)
 >>>>>>> 1848300 (validation test complete)
      axiosInstance.post("/sponsors/update", data)
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+=======
+     axiosInstance.post("/sponsors/update", postData)
+>>>>>>> 8654e33 (edit folder)
             .then(function(response) {
                window.location.href = '/user_dashboard';
             }).catch(function(error) {

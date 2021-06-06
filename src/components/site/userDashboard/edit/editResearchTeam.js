@@ -194,6 +194,7 @@ const inputChange = (element, index) => e => {
                 _id : data._id,
                 members : data.members
               }
+<<<<<<< HEAD
        
            axiosInstance.post("/api/competitors/update", postData)
 =======
@@ -206,6 +207,10 @@ const inputChange = (element, index) => e => {
        
            axiosInstance.post("/competitors/update", data)
 >>>>>>> c5b9c68 (complete userdashboard)
+=======
+       
+           axiosInstance.post("/competitors/update", postData)
+>>>>>>> 8654e33 (edit folder)
                   .then(function(response) {
                      window.location.href = '/user_dashboard';
                   }).catch(function(error) {

@@ -10,6 +10,9 @@ function EditAbstract({data, setData}) {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 8654e33 (edit folder)
     const inputChange = input => e => {
 
         if(input=='title'){
@@ -154,6 +157,7 @@ function EditAbstract({data, setData}) {
                 abstract : data.abstract
             }
             
+<<<<<<< HEAD
             axiosInstance.post("/api/competitors/update", postData)
 =======
 =======
@@ -462,11 +466,15 @@ function EditAbstract({data, setData}) {
 >>>>>>> 3c5d2dd (resolved issues)
 =======
 >>>>>>> 962c9ed (merge from before)
+=======
+            axiosInstance.post("/competitors/update", postData)
+>>>>>>> 8654e33 (edit folder)
             .then(function(response) {
               window.location.href = '/user_dashboard';
             }).catch(function(error) {
               console.log(error);
             })
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -483,11 +491,16 @@ function EditAbstract({data, setData}) {
 >>>>>>> 962c9ed (merge from before)
 	    
 	}
+=======
+        
+    }
+>>>>>>> 8654e33 (edit folder)
 
 
 
-	/////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////
 
+<<<<<<< HEAD
 		
 <<<<<<< HEAD
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
@@ -503,6 +516,9 @@ function EditAbstract({data, setData}) {
 >>>>>>> 3c5d2dd (resolved issues)
 =======
 >>>>>>> 962c9ed (merge from before)
+=======
+        
+>>>>>>> 8654e33 (edit folder)
 //load data to input field value
 function checkExist(element, index){
     var value="";
@@ -510,6 +526,7 @@ function checkExist(element, index){
         return ' ';
     }
     else if(data.abstract[0].title && element==="title"){
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -535,6 +552,12 @@ function checkExist(element, index){
     else if(data.abstract[0].content && element==="content"){
     	return data.abstract[0].content;
 >>>>>>> 962c9ed (merge from before)
+=======
+        return data.abstract[0].title;
+    }
+    else if(data.abstract[0].content && element==="content"){
+        return data.abstract[0].content;
+>>>>>>> 8654e33 (edit folder)
     }    
    
 
@@ -551,6 +574,63 @@ function checkExist(element, index){
                 <form onSubmit={handleForm}>
                 <div className="form-container">
                     <h1 className="mb-5">Edit Abstract</h1>
+
+                    <div className="form-group">
+                        <label htmlFor="name"><span>*</span>Project Title</label>
+                        <input type="text" className="form-control" name="title" id="title"
+                        placeholder='project title' required                    
+                        onChange={inputChange('title')} value={checkExist('title', 0)} />
+                    </div>
+
+                    <div className="form-group">
+                        <label htmlFor="abstract">Abstract </label>
+                        <textarea className="form-control" id="abstract" cols="30" rows="10"
+                        onChange={inputChange('content')} value={checkExist('content', 0)}/>
+                    </div>
+
+
+<<<<<<< HEAD
+                    <h5>Keywords</h5>
+
+                    {displayKeywords()}
+
+                    {displayKeywordsForm()}
+
+                     
+                    <br />
+
+                   
+                    <div className="col-4 btn-group">
+                        <Link to="/user_dashboard">
+                            <button className="btn btn-danger back-btn">Back</button>
+                        </Link>
+                        <input className="btn btn-primary" type="submit" value="Update" />
+                    </div>
+                </div>
+                </form>
+             </>
+
+            )
+
+    }
+=======
+=======
+
+
+
+>>>>>>> 962c9ed (merge from before)
+		return(
+			<>
+	            <form onSubmit={handleForm}>
+				<div className="form-container">
+	                <h1 className="mb-5">Edit Abstract</h1>
+=======
+        return(
+            <>
+                <form onSubmit={handleForm}>
+                <div className="form-container">
+                    <h1 className="mb-5">Edit Abstract</h1>
+>>>>>>> 8654e33 (edit folder)
 
                     <div className="form-group">
                         <label htmlFor="name"><span>*</span>Project Title</label>
@@ -588,55 +668,7 @@ function checkExist(element, index){
 
             )
 
-    }
-=======
-=======
-
-
-
->>>>>>> 962c9ed (merge from before)
-		return(
-			<>
-	            <form onSubmit={handleForm}>
-				<div className="form-container">
-	                <h1 className="mb-5">Edit Abstract</h1>
-
-	                <div className="form-group">
-	                    <label htmlFor="name"><span>*</span>Project Title</label>
-	                    <input type="text" className="form-control" name="title" id="title"
-	                    placeholder='project title' required                    
-	                    onChange={inputChange('title')} value={checkExist('title', 0)} />
-	                </div>
-
-	                <div className="form-group">
-	                    <label htmlFor="abstract">Abstract </label>
-	                    <textarea className="form-control" id="abstract" cols="30" rows="10"
-                    	onChange={inputChange('content')} value={checkExist('content', 0)}/>
-	                </div>
-
-
-	                <h5>Keywords</h5>
-
-	                {displayKeywords()}
-
-	                {displayKeywordsForm()}
-
-					 
-	                <br />
-
-	               
-	                <div className="col-4 btn-group">
-	                    <Link to="/user_dashboard">
-	                        <button className="btn btn-danger back-btn">Back</button>
-	                    </Link>
-	                    <input className="btn btn-primary" type="submit" value="Update" />
-	                </div>
-	            </div>
-	            </form>
-	         </>
-
-			)
-
+<<<<<<< HEAD
 	}
 <<<<<<< HEAD
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
@@ -693,4 +725,8 @@ function checkExist(element, index){
 =======
 
 >>>>>>> 962c9ed (merge from before)
+=======
+    }
+
+>>>>>>> 8654e33 (edit folder)
 export default EditAbstract;

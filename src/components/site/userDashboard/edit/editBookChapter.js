@@ -24,15 +24,18 @@ import Editor from "./editor.js";
 import Editor from './editor';
 >>>>>>> 8930f2e (merge from alexia)
 
+<<<<<<< HEAD
 >>>>>>> 962c9ed (merge from before)
 
+=======
+>>>>>>> 8654e33 (edit folder)
 import axiosInstance from '../../../../utils/axiosConfig.js';
 
 function EditBookChapter({data, setData}) {
 
 
     const inputChange = input => e => {
-        if(input=='introduction'){
+	    if(input=='introduction'){
 			if(!data.bookChapter[0]){
 				data.bookChapter.push({'introduction': e.target.value})			}
 			else{
@@ -98,6 +101,7 @@ function EditBookChapter({data, setData}) {
                     placeholder='reference'                    
                     onChange={tempInput('reference')} value={tempState.reference}/>
 <<<<<<< HEAD
+<<<<<<< HEAD
                 	<button className="btn btn-primary" type="button" onClick={addReference()}> Add</button>
 
 					<br/>
@@ -107,6 +111,9 @@ function EditBookChapter({data, setData}) {
 					<br/>
                 	<button className="addBtn btn-primary btn" type="button" onClick={addReference()}> Add</button>
 >>>>>>> 962c9ed (merge from before)
+=======
+                	<button className="addBtn" type="button" onClick={addReference()}> Add</button>
+>>>>>>> 8654e33 (edit folder)
                 </div>
 
                 <hr/>
@@ -176,16 +183,23 @@ function EditBookChapter({data, setData}) {
 	e.preventDefault();
 	// perform all neccassary validations
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 8654e33 (edit folder)
 		var postData = {
                 _id : data._id,                
                 bookChapter : data.bookChapter
             }
 
 
+<<<<<<< HEAD
 	   axiosInstance.post("/api/competitors/update", postData)
 =======
 	   axiosInstance.post("/competitors/update", data)
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+=======
+	   axiosInstance.post("/competitors/update", postData)
+>>>>>>> 8654e33 (edit folder)
             .then(function(response) {
               window.location.href = '/user_dashboard';
             }).catch(function(error) {
@@ -234,6 +248,7 @@ function EditBookChapter({data, setData}) {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 						<Editor id = {data._id} bookChapter_data = {data.bookChapter}/>
 =======
 	                    <textarea className="form-control" id="content" cols="30" rows="10"
@@ -252,6 +267,9 @@ function EditBookChapter({data, setData}) {
 =======
 	                    <Editor/>
 >>>>>>> 8930f2e (merge from alexia)
+=======
+	                    <Editor id = {data._id} bookChapter_data = {data.bookChapter}/>
+>>>>>>> 8654e33 (edit folder)
 	                </div>
 					
 					 <div className="form-group">

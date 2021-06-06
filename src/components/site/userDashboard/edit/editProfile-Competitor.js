@@ -33,6 +33,9 @@ function EditProfile({data, setData}) {
         else{
             ///////update to db /////////////
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 8654e33 (edit folder)
             var postData = {
                 _id : data._id,
                 name : data.name,
@@ -44,10 +47,14 @@ function EditProfile({data, setData}) {
             }
 
 
+<<<<<<< HEAD
             axiosInstance.post("/api/competitors/update", postData)
 =======
             axiosInstance.post("/competitors/update", data)
 >>>>>>> 7c0a793 (merged with alexia's branch)
+=======
+            axiosInstance.post("/competitors/update", postData)
+>>>>>>> 8654e33 (edit folder)
             .then(function(response) {
               window.location.href = '/user_dashboard';
             }).catch(function(error) {

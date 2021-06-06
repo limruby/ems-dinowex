@@ -79,9 +79,23 @@ const inputChange = input => e => {
 =======
 =======
              ///////update to db /////////////
+<<<<<<< HEAD
 >>>>>>> 082b413 (upload and display company logo)
              axiosInstance.post("/sponsors/update", data)
 >>>>>>> d526164 (upload sponsor company logo)
+=======
+              var postData = {
+                _id : data._id,
+                company_name : data.company_name,
+                company_pic_name : data.company_pic_name,
+                company_contact : data.company_contact,
+                company_address : data.company_address,
+                company_website : data.company_website,
+                company_logo : data.company_logo
+            }
+
+             axiosInstance.post("/sponsors/update", postData)
+>>>>>>> 8654e33 (edit folder)
              .then(function(response) {
                window.location.href = '/user_dashboard';
              }).catch(function(error) {
@@ -349,7 +363,12 @@ export default EditProfile;
 <<<<<<< HEAD
 export default EditProfile;
  
+<<<<<<< HEAD
 >>>>>>> 082b413 (upload and display company logo)
 =======
 export default EditProfile;
 >>>>>>> 962c9ed (merge from before)
+=======
+export default EditProfile;
+ 
+>>>>>>> 8654e33 (edit folder)
