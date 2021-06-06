@@ -41,6 +41,7 @@ const hideDropdown = e => {
     setShow(false);
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
  
 const logout=()=>{
         localStorage.clear();
@@ -49,12 +50,19 @@ const logout=()=>{
  
 =======
 
+=======
+ 
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
 const logout=()=>{
-	localStorage.clear();
-	window.location.href = '/';
+        localStorage.clear();
+        window.location.href = '/';
 };
+<<<<<<< HEAD
 
 >>>>>>> bad270e (with logout function)
+=======
+ 
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
 window.addEventListener('resize', showButton);
  
  
@@ -64,7 +72,7 @@ window.addEventListener('resize', showButton);
     <IconContext.Provider value={{color:'#000'}}>
  
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-      <Navbar.Brand href="#home"> <Link to='#' className="navbar-logo" onClick={closeMobileMenu}>
+      <Navbar.Brand href="#home"> <Link to='home_section_id' className="navbar-logo" onClick={closeMobileMenu}>
            <img src={logo} height="50px" width="200px" alt="" />
         </Link></Navbar.Brand>
       <Nav className="ml-auto">    
@@ -129,6 +137,7 @@ window.addEventListener('resize', showButton);
           </li>
           <li className="nav-item">
 <<<<<<< HEAD
+<<<<<<< HEAD
             <Nav.Link href="/sign_up">Registration</Nav.Link>
           </li>
           <li className="nav-item">
@@ -139,6 +148,12 @@ window.addEventListener('resize', showButton);
           <li className="nav-item">
             <Nav.Link onClick={logout}>Log Out</Nav.Link>
 >>>>>>> bad270e (with logout function)
+=======
+            <Nav.Link href="/sign_up">Registration</Nav.Link>
+          </li>
+          <li className="nav-item">
+            <Nav.Link href="/sign_in">Sign In</Nav.Link>
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
           </li>
         </ul>
      

@@ -38,8 +38,12 @@ function displayPoster(){
       <ul>
         {displayVideo()}
       </ul>
+<<<<<<< HEAD
 	  <hr/>
       <h4>Poster</h4>
+=======
+      <h2>Poster</h2>
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
       <ul>
         {displayPoster()}
       </ul>

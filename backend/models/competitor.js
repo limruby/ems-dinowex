@@ -124,12 +124,16 @@ const competitorSchema = new Schema({
 <<<<<<< HEAD
   
 <<<<<<< HEAD
+<<<<<<< HEAD
   video:[videoSchema],
 =======
 =======
 >>>>>>> 614d77e (update model)
   video:[subSchema],
 >>>>>>> d526164 (upload sponsor company logo)
+=======
+  video:[videoSchema],
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
 
   abstract:[abstractSchema],
 

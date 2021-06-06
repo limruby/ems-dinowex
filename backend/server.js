@@ -17,8 +17,12 @@ app.use(express.json({limit:'50mb'}));
 
 
 app.use(cors());
+<<<<<<< HEAD
 app.use(express.json());
 >>>>>>> d526164 (upload sponsor company logo)
+=======
+app.use(express.json({limit:'50mb'}));
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
 
 const uri =process.env.ATLAS_URI;
 mongoose.connect(uri, {useFindAndModify: false, useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true  });

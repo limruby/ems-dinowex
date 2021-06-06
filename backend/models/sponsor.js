@@ -86,8 +86,12 @@ const sponsorSchema = new Schema({
 
   company_logo:[subSchema],
   poster:[subSchema],
+<<<<<<< HEAD
   video:[subSchema],
 >>>>>>> d6169f2 (sponsor edit profile can fetch data)
+=======
+  video:[videoSchema],
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
 
 }, {
   timestamps: true,

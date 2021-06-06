@@ -43,6 +43,7 @@ const [user, setState] = useState({
             alert("Password don't match");  
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
         else if (user.newPassword==="" || user.confirmPassword===""){
             alert("Form not fill");
         }
@@ -55,6 +56,9 @@ const [user, setState] = useState({
                window.location.href = '/user_dashboard';
 =======
         else if (user.newPassword=="" || user.confirmPassword==""){
+=======
+        else if (user.newPassword==="" || user.confirmPassword===""){
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
             alert("Form not fill");
         }
         else{
@@ -66,8 +70,12 @@ const [user, setState] = useState({
             ///////update to db /////////////
              axiosInstance.post("/accounts/update", user)
             .then(function(response) {
+<<<<<<< HEAD
               // window.location.href = '/user_dashboard';
 >>>>>>> 7c0a793 (merged with alexia's branch)
+=======
+               window.location.href = '/user_dashboard';
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
             }).catch(function(error) {
               console.log(error);
             })

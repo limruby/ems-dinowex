@@ -2,11 +2,15 @@ import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import axiosInstance from '../../../../utils/axiosConfig.js';
+<<<<<<< HEAD
 import { FaTrashAlt } from 'react-icons/fa';
+=======
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
  
 function EditAccount({data, setData}) {
  
 const showUpload=(e)=>{
+<<<<<<< HEAD
   e.preventDefault();
     if(data.video.length < 5){
       if (tempData.tempVidName!=="" && tempData.tempVidPath!==""){
@@ -31,6 +35,37 @@ const showUpload=(e)=>{
         alert("Incomplete Form");
     }
       }
+=======
+    if(data.video.length < 5){
+        e.preventDefault();
+        if(tempData.tempVidName!==""){
+      if(tempData.tempVidPath===""){
+        alert("Incomplete Form");
+      }
+    }
+    else if(tempData.tempVidPath!==""){
+      if(tempData.tempVidName===""){
+        alert("Incomplete Form");
+      }
+    }
+    if (tempData.tempVidName!=="" && tempData.tempVidPath!==""){
+      data.video.push({'name':tempData.tempVidName,'source':tempData.tempVidPath})
+       
+    }
+    setData({
+        ...data,
+      })
+          tempData.tempVidName="";
+          tempData.tempVidPath="";
+ 
+          setTemp({
+                ...tempData,
+          });
+    }
+    else {
+        window.alert("You've exceeded the limit of upload videos!");
+    }
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
        
 }
 const [tempData, setTemp] = useState({
@@ -54,10 +89,15 @@ console.log(data)
    
       section.push(
         <div>          
+<<<<<<< HEAD
                    <p>{data.poster[0].name}
             <button className="deleteBtn" type="button" onClick={deleteFile('poster',0)}> <FaTrashAlt/></button>
            </p>
                    
+=======
+                   <p>{data.poster[0].name}</p>
+                    <button className="deleteBtn" type="button" onClick={deleteFile('poster',0)}> delete</button>
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
               </div>
       )
     }
@@ -73,7 +113,11 @@ console.log(data)
             section.push(
               <p>
                           {data.video[i].name}
+<<<<<<< HEAD
                           <button className="deleteBtn" type="button" onClick={deleteFile('video',i)}> <FaTrashAlt/></button>
+=======
+                          <button className="deleteBtn" type="button" onClick={deleteFile('video',i)}> delete</button>
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
                         </p>
 
                         
@@ -95,12 +139,17 @@ console.log(data)
                     <input type="text" className="form-control" name="videoPath" id="videoPath"
                     onChange={inputChange('vidPath', 0)} value={tempData.tempVidPath} />
                 </div>
+<<<<<<< HEAD
                 <div>
                                         <button onClick={showUpload} className="btn btn-primary">Add</button>
                                 </div>
               </div>            
           )         
                
+=======
+              </div>            
+          )               
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
     }
     return section;
   }
@@ -140,9 +189,12 @@ console.log(data)
         fileReader.onload = function(fileLoadedEvent) {
             file = fileLoadedEvent.target.result;
               data.poster.push({'name':fileName,'source':fileReader.result})
+<<<<<<< HEAD
               setData({
                 ...data
           })
+=======
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
                              
         };
     // Convert data to base64
@@ -168,6 +220,7 @@ console.log(data)
  
   const handleForm=(e)=>{
       e.preventDefault();
+<<<<<<< HEAD
 
       var postData = {
           _id : data._id,
@@ -176,12 +229,42 @@ console.log(data)
       }
 
      axiosInstance.post("/api/sponsors/update", postData)
+=======
+      // perform all neccassary validations
+    // video: if name !null, path must !null
+    if(tempData.tempVidName!==""){
+      if(tempData.tempVidPath===""){
+        alert("Incomplete Form");
+      }
+    }
+    else if(tempData.tempVidPath!==""){
+      if(tempData.tempVidName===""){
+        alert("Incomplete Form");
+      }
+    }
+    if (tempData.tempVidName!=="" && tempData.tempVidPath!==""){
+      data.video.push({'name':tempData.tempVidName,'source':tempData.tempVidPath})
+       
+    }
+    setData({
+        ...data,
+      })
+ 
+ 
+     console.log(data);
+ 
+     axiosInstance.post("/sponsors/update", data)
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
             .then(function(response) {
                window.location.href = '/user_dashboard';
             }).catch(function(error) {
               console.log(error);
             })
  
+<<<<<<< HEAD
+=======
+ 
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
   };
  
   return(
@@ -190,14 +273,26 @@ console.log(data)
       <div className="form-container">
                 <h1 className="mb-5">Edit Promotional content</h1>
  
+<<<<<<< HEAD
                 <h5>Poster<i className="caution"> (*Max 1)</i></h5>    
+=======
+                <h5>Poster</h5>    
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
                            
                 {displayPosterForm()}
                                
                 <hr/>
  
+<<<<<<< HEAD
                  <h5>Video<i className="caution"> (*Max 5)</i></h5>
                  {displayVideoForm()}
+=======
+                 <h5>Video</h5>
+                 {displayVideoForm()}
+                                <div>
+                                        <button onClick={showUpload} className="btn btn-primary">Add</button>
+                                </div>
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
                
                 <br />
                

@@ -1,8 +1,11 @@
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
+<<<<<<< HEAD
 import { FaTrashAlt } from 'react-icons/fa';
 import Editor from './editor';
+=======
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
 
 import axiosInstance from '../../../../utils/axiosConfig.js';
 
@@ -47,7 +50,11 @@ function EditBookChapter({data, setData}) {
 
 	                    <li>
 	                      {reference}
+<<<<<<< HEAD
 	                      <button className="deleteBtn" type="button" onClick={deleteReference(index)}> <FaTrashAlt/></button>
+=======
+	                      <button className="deleteBtn" type="button" onClick={deleteReference(index)}> delete</button>
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
 	                    </li>
 	                    ))}
 	                </ul>
@@ -101,9 +108,12 @@ function EditBookChapter({data, setData}) {
 			data.abstract.push({'references': []})
 			
 		}
+<<<<<<< HEAD
 		else if(data.bookChapter[0]&&!data.bookChapter[0]['references']){
 			data.bookChapter[0]['references']=[];
 		}
+=======
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
 			data.bookChapter[0]['references'].push(tempState.reference);
 		
 	    setData({
@@ -131,6 +141,7 @@ function EditBookChapter({data, setData}) {
 	const handleForm=(e)=>{
 	e.preventDefault();
 	// perform all neccassary validations
+<<<<<<< HEAD
 		var postData = {
                 _id : data._id,                
                 bookChapter : data.bookChapter
@@ -138,6 +149,9 @@ function EditBookChapter({data, setData}) {
 
 
 	   axiosInstance.post("/api/competitors/update", postData)
+=======
+	   axiosInstance.post("/competitors/update", data)
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
             .then(function(response) {
               window.location.href = '/user_dashboard';
             }).catch(function(error) {
@@ -182,7 +196,12 @@ function EditBookChapter({data, setData}) {
 
 	                <div className="form-group">
 	                    <label htmlFor="content">Content </label>
+<<<<<<< HEAD
 						<Editor id = {data._id} bookChapter_data = {data.bookChapter}/>
+=======
+	                    <textarea className="form-control" id="content" cols="30" rows="10"
+                    	onChange={inputChange('content')} value={checkExist('content', 0)} />
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
 	                </div>
 					
 					 <div className="form-group">

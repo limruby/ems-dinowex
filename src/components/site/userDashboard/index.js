@@ -1,9 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import axiosInstance from '../../../utils/axiosConfig.js';
 <<<<<<< HEAD
+<<<<<<< HEAD
  
 =======
 
+=======
+ 
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
 import Footer from './../footer';
 >>>>>>> 7c0a793 (merged with alexia's branch)
 import {Link} from 'react-router-dom';
@@ -17,17 +21,24 @@ import BookChapter from './book-chapter-sec';
 import ResearchTeam from './research-team-sec';
  
 import PdfAbstract from './pdf-abstract-bookChapter';
+<<<<<<< HEAD
 import Preview from './preview-sec';
+=======
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
  
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Tab, Nav, Row, Col,Card} from "react-bootstrap";
 import {FaEdit,FaCertificate,FaBook,FaRegBookmark} from 'react-icons/fa';
 import {BsPeopleCircle,BsFiles,BsBookHalf} from "react-icons/bs";
 <<<<<<< HEAD
+<<<<<<< HEAD
  
 =======
 
 >>>>>>> 7c0a793 (merged with alexia's branch)
+=======
+ 
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
 function UserDashboard() {
  
 ////////////////////get login user info (REPLACE THIS)  /////////////////////
@@ -35,12 +46,17 @@ function UserDashboard() {
   const [account, setAccount]=useState([]);
   const account_id = localStorage.getItem('user_id');
 <<<<<<< HEAD
+<<<<<<< HEAD
  
  
   useEffect(() => {
       axiosInstance.get("/api/competitors/read", {params:{account_id:account_id}})
 =======
 
+=======
+ 
+ 
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
   useEffect(() => {
 <<<<<<< HEAD
       axiosInstance .get("/competitors/read", {params:{account_id:account_id}})
@@ -55,10 +71,14 @@ function UserDashboard() {
         });
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
      
       axiosInstance.get("/api/sponsors/read", {params:{account_id:account_id}})
 =======
       
+=======
+     
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
       axiosInstance.get("/sponsors/read", {params:{account_id:account_id}})
 >>>>>>> d6169f2 (sponsor edit profile can fetch data)
         .then(function(response) {
@@ -67,6 +87,7 @@ function UserDashboard() {
           console.log(error);
         });
  
+<<<<<<< HEAD
       axiosInstance.get("/api/accounts/read", {params:{account_id:account_id}})
 =======
 
@@ -74,6 +95,8 @@ function UserDashboard() {
       axiosInstance .get("/accounts/read", {params:{account_id:account_id}})
 >>>>>>> 7c0a793 (merged with alexia's branch)
 =======
+=======
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
       axiosInstance.get("/accounts/read", {params:{account_id:account_id}})
 >>>>>>> d6169f2 (sponsor edit profile can fetch data)
         .then(function(response) {
@@ -81,6 +104,7 @@ function UserDashboard() {
         }).catch(function(error) {
           console.log(error);
         })
+<<<<<<< HEAD
 <<<<<<< HEAD
     }, [account_id]);
  
@@ -94,9 +118,15 @@ function UserDashboard() {
 
     }, [account_id]);
 >>>>>>> d6169f2 (sponsor edit profile can fetch data)
+=======
+    }, [account_id]);
+ 
+       
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
 //////////////////////////////////////////////////////////////////////////////////
 <<<<<<< HEAD
  function welcome(role){
+<<<<<<< HEAD
 <<<<<<< HEAD
         switch(role){
                 case 'Sponsor':
@@ -124,25 +154,33 @@ function welcome(role){
 >>>>>>> 335f562 (testing with uploadfilehandler)
 	switch(role){
 		case 'Sponsor':
+=======
+        switch(role){
+                case 'Sponsor':
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
         return (
-			<div className="row-username">
-				<p>Welcome {user.company_name}</p>
-			</div>);
-
-		case 'Competitor':
-		return (
-			<div className="row-username">
-				<p>Welcome {user.name}</p>
-			</div>);
-		default:
+                        <div className="row-username">
+                                <p>Welcome {user.company_name}</p>
+                        </div>);
+ 
+                case 'Competitor':
+                return (
+                        <div className="row-username">
+                                <p>Welcome {user.name}</p>
+                        </div>);
+                default:
         return (
-			<div className="row-username">
-				<p>Welcome back</p>
-			</div>);
-	}
+                        <div className="row-username">
+                                <p>Welcome back</p>
+                        </div>);
+        }
  }
+<<<<<<< HEAD
 
 >>>>>>> 85998ee (welcome back xxx)
+=======
+ 
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
   function TabTitles(role){
     switch(role){
       case 'Sponsor':
@@ -189,6 +227,7 @@ function welcome(role){
    <>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
  
     {welcome(account.role)}
  
@@ -200,6 +239,11 @@ function welcome(role){
    {welcome(account.role)} 
 
 >>>>>>> 7c0a793 (merged with alexia's branch)
+=======
+ 
+    {welcome(account.role)}
+ 
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
    <div className="wrapper">
        <Tab.Container id="left-tabs-example" defaultActiveKey="Account-Profiles">
           <Row>
@@ -207,10 +251,14 @@ function welcome(role){
                
                {TabTitles(account.role)}
 <<<<<<< HEAD
+<<<<<<< HEAD
            
 =======
             
 >>>>>>> 7c0a793 (merged with alexia's branch)
+=======
+           
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
             </Col>
  
  
@@ -240,10 +288,14 @@ function welcome(role){
           </Card.Body>
         </Card>
 <<<<<<< HEAD
+<<<<<<< HEAD
  
 =======
 
 >>>>>>> 7c0a793 (merged with alexia's branch)
+=======
+ 
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
                   <p/>
  
                   <Card>
@@ -253,6 +305,7 @@ function welcome(role){
                       <a className="edit" href="/user_dashboard/edit_profile"><FaEdit/> Edit</a>
                     </Link>
                     <h2> Profile </h2>  
+<<<<<<< HEAD
 <<<<<<< HEAD
                      <Profile user={user} role={account.role}/>    
                   </div>
@@ -275,10 +328,22 @@ function welcome(role){
 =======
 
 >>>>>>> 7c0a793 (merged with alexia's branch)
+=======
+                     <Profile user={user} role={account.role}/>    
+                  </div>
+          </Card.Body>
+        </Card>
+ 
+                </Tab.Pane>
+ 
+                <Tab.Pane eventKey="Promo-Content">
+ 
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
                   <div className="sec-container">
                     <Link to='/user_dashboard/edit_content'>
                       <a className="edit" href="/user_dashboard/edit_content"><FaEdit/> Edit</a>
                     </Link>
+<<<<<<< HEAD
 <<<<<<< HEAD
                     <h2> Promotional Content</h2>    
                     <PromoContent user={user}/>
@@ -300,10 +365,21 @@ function welcome(role){
 =======
 
 >>>>>>> 7c0a793 (merged with alexia's branch)
+=======
+                    <h5> Promotional Content</h5>    
+                    <PromoContent user={user}/>
+                  </div>  
+ 
+                </Tab.Pane>
+ 
+                <Tab.Pane eventKey="Competition-Material">
+ 
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
                   <div className="sec-container">
                     <Link to='/user_dashboard/edit_content'>
                       <a className="edit" href=""><FaEdit/> Edit</a>
                     </Link>
+<<<<<<< HEAD
 <<<<<<< HEAD
                     <h2> Competition Material</h2>    
                     <CompetitionMaterial user={user}/>
@@ -325,10 +401,21 @@ function welcome(role){
 =======
 
 >>>>>>> 7c0a793 (merged with alexia's branch)
+=======
+                    <h5> Competition Material</h5>    
+                    <CompetitionMaterial user={user}/>
+                  </div>  
+ 
+                </Tab.Pane>
+ 
+                <Tab.Pane eventKey="Abstract">
+ 
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
                   <div className="sec-container">
                    <Link to='/user_dashboard/edit_abstract'>
                       <a className="edit" href=""><FaEdit/> Edit</a>
                     </Link>
+<<<<<<< HEAD
 <<<<<<< HEAD
                     <h2> Abstract </h2>    
                     <Abstract user={user}/>
@@ -342,6 +429,9 @@ function welcome(role){
 			<Card.Body>
 =======
                     <h5> Abstract </h5>     
+=======
+                    <h5> Abstract </h5>    
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
                     <Abstract/>
                   </div>  
 >>>>>>> 7c0a793 (merged with alexia's branch)
@@ -350,14 +440,19 @@ function welcome(role){
                       <a className="edit" href=""><FaEdit/> Edit</a>
                     </Link>
 <<<<<<< HEAD
+<<<<<<< HEAD
                     <h2> BookChapter </h2>    
                     <BookChapter user={user}/>
 =======
                     <h5> BookChapter </h5>     
+=======
+                    <h5> BookChapter </h5>    
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
                     <BookChapter/>
                      <PdfAbstract/>
 >>>>>>> 7c0a793 (merged with alexia's branch)
                   </div>
+<<<<<<< HEAD
 			</Card.Body>
         </Card>
         <p/>
@@ -371,11 +466,15 @@ function welcome(role){
         </Card>
 		<p/>
 		<PdfAbstract user = {user}/>
+=======
+ 
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
                 </Tab.Pane>
  
                
  
                 <Tab.Pane eventKey="Research-Team">
+<<<<<<< HEAD
 <<<<<<< HEAD
  
 		<Card>
@@ -383,10 +482,14 @@ function welcome(role){
 =======
 
 >>>>>>> 7c0a793 (merged with alexia's branch)
+=======
+ 
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
                   <div className="sec-container">
                    <Link to='/user_dashboard/edit_researchTeam'>
                       <a className="edit" href=""><FaEdit/> Edit</a>
                     </Link>
+<<<<<<< HEAD
 <<<<<<< HEAD
                     <h2> Research Team</h2>    
                     <ResearchTeam user={user}/>
@@ -415,14 +518,28 @@ function welcome(role){
         </Card>
 =======
 
+=======
+                    <h5> Research Team</h5>    
+                    <ResearchTeam/>
+                  </div>  
+ 
+                </Tab.Pane>
+ 
+                <Tab.Pane eventKey="Cert">
+ 
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
                   <div className="sec-container">
-                    <h5> Download Certification</h5>     
-                    
+                    <h5> Download Certification</h5>    
+                   
                     <h2>Coming Soon</h2>
                    
                   </div>  
+<<<<<<< HEAD
 
 >>>>>>> 7c0a793 (merged with alexia's branch)
+=======
+ 
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
                 </Tab.Pane>
  
               </Tab.Content>
@@ -431,10 +548,20 @@ function welcome(role){
           </Row>
         </Tab.Container>
  
+<<<<<<< HEAD
     </div>
  
    
     
+=======
+ 
+ 
+ 
+    </div>
+ 
+   
+    <Footer/>
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
    
   </>
   );

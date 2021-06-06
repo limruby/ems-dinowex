@@ -17,12 +17,17 @@ function EditProfile({data, setData}) {
         e.preventDefault();
     // perform all neccassary validations
 <<<<<<< HEAD
+<<<<<<< HEAD
         if (data.name ===""||data.affiliation===""||data.nric_passport_selection===""||data.nric_passport_no===""
             ||data.address===""||data.gender===""){
 =======
         if (data.name ==""||data.affiliation==""||data.nric_passport_selection==""||data.nric_passport_no==""
             ||data.address==""||data.gender==""){
 >>>>>>> 7c0a793 (merged with alexia's branch)
+=======
+        if (data.name ===""||data.affiliation===""||data.nric_passport_selection===""||data.nric_passport_no===""
+            ||data.address===""||data.gender===""){
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
             alert("Form not fill");
         }
         else{
