@@ -6,12 +6,14 @@ import axiosInstance from '../../utils/axiosConfig.js';
 const Success = () => {
     
     if (localStorage.getItem('competitor_id')) {
-        console.log()
+        
         const string = localStorage.getItem('competitor_id').substring(1, localStorage.getItem('competitor_id').length-1);
-        const competitor_id = { competitor_id:string};
-        console.log(competitor_id)
-        axiosInstance.post('/api/competitors/updatePayment', competitor_id).then(res => 
-            {console.log(competitor_id)}
+        console.log("payment_success PAGE "+string)
+        const competitor_id = {competitor_id:string};
+        console.log("Payment success"+ competitor_id)
+        axiosInstance.post('/api/competitors/updatePayment', competitor_id)
+        .then(
+            res => {"POST SUCCESS"}
         ).catch(err => {console.log(err)})
         }
         

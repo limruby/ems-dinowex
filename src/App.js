@@ -15,7 +15,7 @@ import sponsor_hall from './components/site/eventLobby/sponsor_hall/sponsor_hall
 import competition_hall from './components/site/eventLobby/competition_hall/competition_hall';
 import Navbar from './components/site/navbar';
 import Footer from './components/site/footer';
-//import AdminDashboard from './components/site/adminDashboard';
+import AdminDashboard from './components/site/adminDashboard';
 import PageNotFound from './components/PageNotFound.js';
 
 
@@ -25,9 +25,6 @@ const queryClient = new QueryClient()
 
 const AdminRoute = ({ component: Component, ...rest }) => (
   <Route {...rest} render={(props) => (
-    
-    
-    
       isAdmin()
         ?  <Component {...props} />     //true
         :  <Redirect to='/page_not_found' />
@@ -64,7 +61,7 @@ function App() {
         <PrivateRoute exact path='/user_dashboard/edit_abstract' component={EditUserDetails}/>
         <PrivateRoute exact path='/user_dashboard/edit_book_chapter' component={EditUserDetails}/>
 
-        {/*<AdminRoute exact path='/admin_dashboard'  component={AdminDashboard}/>*/}
+        <AdminRoute exact path='/admin_dashboard'  component={AdminDashboard}/>
 
 		    <Route exact path='/eventLobby'  component={eventLobby}/>  
         <Route exact path='/sponsor_hall'  component={sponsor_hall}/> 

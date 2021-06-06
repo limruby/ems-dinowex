@@ -141,7 +141,6 @@ const readAll = (req, res, next)=>{
   updateCompetitor['bill_paid_at'] = localStorage.getItem('bill_paid_at')
   updateCompetitor['bill_status'] = localStorage.getItem('bill_status')
   
-  console.log(competitor_id)
 
 Competitor.findByIdAndUpdate(req.body.competitor_id, updateCompetitor, (err, competitors) => {
   
@@ -162,7 +161,7 @@ return res.status(200).json({ success: true, data: req.body })
    var res_string = url.split('?');
    var queryString=res_string[1];
    const params = qs.parse(queryString)
-   console.log(params)
+  //  console.log(params)
   
 // do a validation
 const billplzId = "billplzid" + params['billplz[id]'];

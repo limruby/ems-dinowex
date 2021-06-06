@@ -25,11 +25,59 @@ function Login()
 
             localStorage.clear();
             if(res.data.auth===true){
-                localStorage.setItem('token', res.data.token); 
-                localStorage.setItem('user_id', JSON.stringify(res.data.result._id));
-              console.log(res.data);  
-                
-            redirect();
+
+                if(res.data.result.role==="Admin"){
+                    localStorage.setItem('role', res.data.result.role);                    
+                    window.location.href = '/admin_dashboard';
+                }
+                else if(res.data.result.role==="Competitor"){
+                    console.log(res.data.result._id)
+                    var account_id = JSON.stringify(res.data.result._id)
+                   
+                    axiosInstance.get("/api/competitors/read", {params:{account_id:account_id}})
+                    .then(function(response) {
+                          if(response.data.data.bill_status === "true"){
+                               localStorage.setItem('token', res.data.token); 
+                               localStorage.setItem('user_id', JSON.stringify(res.data.result._id));
+                               
+                                redirect();
+                          }
+                          else{
+                              localStorage.setItem("competitor_id", JSON.stringify(response.data.data._id))
+                              console.log(localStorage.getItem("competitor_id"))
+                              var url=""
+                              if(response.data.data.category === "Professional Innovator"){
+                                url = "https://www.billplz-sandbox.com/_0pbgc2r6"
+                              }
+                              else if(response.data.data.category === "Junior Innovator"){
+                                url = "https://www.billplz-sandbox.com/9vpry5o83"
+                           }
+                              else if(response.data.data.category === "Young Innovator"){
+                                url = "https://www.billplz-sandbox.com/lew_nvul8"
+                           }
+                           window.open(url,"_self")
+                          }
+
+                        }).catch(function(error) {
+                          console.log(error);
+                        });                    
+                }
+                else if(res.data.result.role==="Sponsor"){                    
+                    axiosInstance.get("/api/sponsors/read", {params:{account_id:res.data.result._id}})
+                        .then(function(response) {
+                          if(response.data.data.bill_status === "true"){
+                               localStorage.setItem('token', res.data.token); 
+                               localStorage.setItem('user_id', JSON.stringify(res.data.result._id));                              
+                               redirect();
+                          }
+                          else{
+                              //redirect
+                          }
+
+                        }).catch(function(error) {
+                          console.log(error);
+                        });
+                    }                           
             }
             else{
                 alert("Email or password not match.")

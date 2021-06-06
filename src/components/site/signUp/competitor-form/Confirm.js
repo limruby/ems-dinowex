@@ -24,7 +24,16 @@ export class Confirm extends Component {
             gender:gender,
             phone_no:phone_no
         };
-        
+        var url=""
+        if (data.category === "Professional Innovator"){
+             url = "https://www.billplz-sandbox.com/_0pbgc2r6"
+        }
+        else if(data.category === "Junior Innovator"){
+             url = "https://www.billplz-sandbox.com/9vpry5o83"
+        }
+        else if(data.category === "Young Innovator"){
+             url = "https://www.billplz-sandbox.com/lew_nvul8"
+        }
         var account_id="";
 
         axiosInstance.post('/api/accounts/signUp', data)
@@ -39,8 +48,8 @@ export class Confirm extends Component {
                     //save user_ID to localstorage
 
                     localStorage.setItem('competitor_id', JSON.stringify(res.data._id));
-                    console.log(res.data);  
-                    window.open("https://www.billplz-sandbox.com/nbnrslu82","_self")
+                    console.log("Confirm.js SIGN UP PAGE"+ localStorage.getItem('competitor_id'));  
+                    window.open(url,"_self")
                     this.props.nextStep();             
                 });
              }
