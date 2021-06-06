@@ -1,5 +1,8 @@
 import jwt_decode from 'jwt-decode';
+<<<<<<< HEAD
 import axiosInstance from './axiosConfig.js';
+=======
+>>>>>>> 2dbc05f (sponsor sign up updated)
 
 export const isAuth = () => {
 
@@ -19,6 +22,7 @@ export const isAuth = () => {
     } else {
         return false;
     }
+<<<<<<< HEAD
 }
 
 export const isAdmin = () => {
@@ -38,4 +42,6 @@ export const isAdmin = () => {
         
         return false;
     }
+=======
+>>>>>>> 2dbc05f (sponsor sign up updated)
 }

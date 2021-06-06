@@ -3,6 +3,7 @@
   min-height: 420px;
 }
 
+<<<<<<< HEAD
 .login-form-container {
     display: flex;
     flex-direction: column;
@@ -17,6 +18,18 @@
 }
 .login-form-container span{
  color: red;
+=======
+.login-form-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  width: 30%;
+  background:rgb(255, 255,255, 0.7);
+  padding: 2rem;
+  padding-right: 0;
+>>>>>>> 2dbc05f (sponsor sign up updated)
 }
 
 .form-input{

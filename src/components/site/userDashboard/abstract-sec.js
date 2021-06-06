@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 
 
@@ -51,6 +52,26 @@ const AbstractContent = ({user}) =>  {
             <div>
                 <ul> <b>Keywords</b>:
                   {user.abstract[0]['keywords'].map((keyword)=>(
+=======
+import React, {useState, useEffect} from 'react';
+import axiosInstance from '../../../utils/axiosConfig.js';
+
+
+
+const PromoContent = () =>  {
+
+  const [result, setResult]=useState([]);
+
+
+
+  function displayResult(){
+    var section = [];
+    if(result.keywords){
+        section.push(
+            <div>
+                <ul>
+                  {result.keywords.map((keyword)=>(
+>>>>>>> 2dbc05f (sponsor sign up updated)
                     <li>
                      {keyword}
                     </li>
@@ -59,6 +80,7 @@ const AbstractContent = ({user}) =>  {
             </div>
         );
     }
+<<<<<<< HEAD
   }
  }
     return section;
@@ -68,6 +90,21 @@ const AbstractContent = ({user}) =>  {
     <div>
       <div id="pdfAbstract">
 
+=======
+    return section;
+  }
+
+
+  return (       
+    <div>
+      <div id="pdfAbstract">
+        <p>{result.title}</p>
+        <p>{result.author}</p>
+        <p>{result.affiliation}</p>
+        <p>{result.abstract}</p>
+
+        {displayResult()}
+>>>>>>> 2dbc05f (sponsor sign up updated)
         
       </div>  
       
@@ -79,4 +116,8 @@ const AbstractContent = ({user}) =>  {
 
 
 
+<<<<<<< HEAD
 export default AbstractContent;
+=======
+export default PromoContent;
+>>>>>>> 2dbc05f (sponsor sign up updated)

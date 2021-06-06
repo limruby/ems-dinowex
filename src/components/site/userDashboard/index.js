@@ -1,30 +1,52 @@
 import React, {useState, useEffect} from 'react';
 import axiosInstance from '../../../utils/axiosConfig.js';
+<<<<<<< HEAD
  
 import {Link} from 'react-router-dom';
 import './userDashboard.css';
  
+=======
+
+import Navbar from './../navbar';
+import Footer from './../footer';
+import {Link} from 'react-router-dom';
+import './userDashboard.css';
+
+>>>>>>> 2dbc05f (sponsor sign up updated)
 import Profile from './profile-sec';
 import PromoContent from './promo-content-sec';
 import CompetitionMaterial from './competition-material-sec';
 import Abstract from './abstract-sec';
 import BookChapter from './book-chapter-sec';
 import ResearchTeam from './research-team-sec';
+<<<<<<< HEAD
  
 import PdfAbstract from './pdf-abstract-bookChapter';
 import Preview from './preview-sec';
  
+=======
+
+import PdfAbstract from './pdf-abstract-bookChapter';
+
+>>>>>>> 2dbc05f (sponsor sign up updated)
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Tab, Nav, Row, Col,Card} from "react-bootstrap";
 import {FaEdit,FaCertificate,FaBook,FaRegBookmark} from 'react-icons/fa';
 import {BsPeopleCircle,BsFiles,BsBookHalf} from "react-icons/bs";
+<<<<<<< HEAD
  
 function UserDashboard() {
  
+=======
+
+function UserDashboard() {
+
+>>>>>>> 2dbc05f (sponsor sign up updated)
 ////////////////////get login user info (REPLACE THIS)  /////////////////////
   const [user, setUser]=useState([]);
   const [account, setAccount]=useState([]);
   const account_id = localStorage.getItem('user_id');
+<<<<<<< HEAD
  
  
   useEffect(() => {
@@ -36,18 +58,29 @@ function UserDashboard() {
         });
      
       axiosInstance.get("/api/sponsors/read", {params:{account_id:account_id}})
+=======
+
+  useEffect(() => {
+      axiosInstance .get("/competitors/read", {params:{account_id:account_id}})
+>>>>>>> 2dbc05f (sponsor sign up updated)
         .then(function(response) {
           setUser(response.data.data);
         }).catch(function(error) {
           console.log(error);
         });
+<<<<<<< HEAD
  
       axiosInstance.get("/api/accounts/read", {params:{account_id:account_id}})
+=======
+
+      axiosInstance .get("/accounts/read", {params:{account_id:account_id}})
+>>>>>>> 2dbc05f (sponsor sign up updated)
         .then(function(response) {
           setAccount(response.data.data);
         }).catch(function(error) {
           console.log(error);
         })
+<<<<<<< HEAD
     }, [account_id]);
  
        
@@ -73,6 +106,12 @@ function UserDashboard() {
         }
  }
  
+=======
+
+    }, []);
+//////////////////////////////////////////////////////////////////////////////////
+
+>>>>>>> 2dbc05f (sponsor sign up updated)
   function TabTitles(role){
     switch(role){
       case 'Sponsor':
@@ -113,6 +152,7 @@ function UserDashboard() {
         return '';
     }
   }
+<<<<<<< HEAD
  
  
   return (
@@ -120,12 +160,26 @@ function UserDashboard() {
  
     {welcome(account.role)}
  
+=======
+
+
+  return (
+   <>
+   <Navbar/>
+
+   <div className="row-username">
+       <p>Welcome {user.name}</p>
+
+   </div>  
+
+>>>>>>> 2dbc05f (sponsor sign up updated)
    <div className="wrapper">
        <Tab.Container id="left-tabs-example" defaultActiveKey="Account-Profiles">
           <Row>
             <Col sm={3} className="sidebar-wrapper">
                
                {TabTitles(account.role)}
+<<<<<<< HEAD
            
             </Col>
  
@@ -142,17 +196,40 @@ function UserDashboard() {
                       <a className="edit" href="/user_dashboard/edit_account"><FaEdit/> Edit Email</a>
                     </Link>
                     <h2> Account Details</h2>    
+=======
+            
+            </Col>
+
+
+            <Col sm={9}>
+              <Tab.Content>
+
+                <Tab.Pane eventKey="Account-Profiles">
+                
+                  <Card>
+					<Card.Body>
+					<div className="sec-container">
+                    <Link to='/user_dashboard/edit_account'>
+                      <a className="edit" href=""><FaEdit/> Edit Email</a>
+                    </Link>
+                    <h2> Account Details</h2>     
+>>>>>>> 2dbc05f (sponsor sign up updated)
                     <ul>
                       <li>
                         <p> Email: {account.email} </p>
                       </li>
                       <li>
                         <Link to='/user_dashboard/edit_password'>
+<<<<<<< HEAD
                         <button className="edit-button"><FaEdit/> Edit Password</button>
+=======
+                        <button className="edit-password"><FaEdit/> Edit Password</button>
+>>>>>>> 2dbc05f (sponsor sign up updated)
                         </Link>
                       </li>
                     </ul>
                   </div>
+<<<<<<< HEAD
           </Card.Body>
         </Card>
  
@@ -160,11 +237,21 @@ function UserDashboard() {
  
                   <Card>
           <Card.Body>
+=======
+					</Card.Body>
+				</Card>
+
+                  <p/>
+
+                  <Card>
+					<Card.Body>
+>>>>>>> 2dbc05f (sponsor sign up updated)
                   <div className="sec-container">
                     <Link to='/user_dashboard/edit_profile'>
                       <a className="edit" href="/user_dashboard/edit_profile"><FaEdit/> Edit</a>
                     </Link>
                     <h2> Profile </h2>  
+<<<<<<< HEAD
                      <Profile user={user} role={account.role}/>    
                   </div>
           </Card.Body>
@@ -189,10 +276,34 @@ function UserDashboard() {
                 <Tab.Pane eventKey="Competition-Material">
 			<Card>
 			<Card.Body>
+=======
+                     <Profile user={user} role={account.role}/>     
+                  </div>
+				  </Card.Body>
+				</Card>
+
+                </Tab.Pane>
+
+                <Tab.Pane eventKey="Promo-Content">
+
                   <div className="sec-container">
                     <Link to='/user_dashboard/edit_content'>
                       <a className="edit" href=""><FaEdit/> Edit</a>
                     </Link>
+                    <h5> Promotional Content</h5>     
+                    <PromoContent user={user}/>
+                  </div>  
+
+                </Tab.Pane>
+
+                <Tab.Pane eventKey="Competition-Material">
+
+>>>>>>> 2dbc05f (sponsor sign up updated)
+                  <div className="sec-container">
+                    <Link to='/user_dashboard/edit_content'>
+                      <a className="edit" href=""><FaEdit/> Edit</a>
+                    </Link>
+<<<<<<< HEAD
                     <h2> Competition Material</h2>    
                     <CompetitionMaterial user={user}/>
                   </div>  
@@ -203,10 +314,21 @@ function UserDashboard() {
                 <Tab.Pane eventKey="Abstract">
 		<Card>
 			<Card.Body>
+=======
+                    <h5> Competition Material</h5>     
+                    <CompetitionMaterial/>
+                  </div>  
+
+                </Tab.Pane>
+
+                <Tab.Pane eventKey="Abstract">
+
+>>>>>>> 2dbc05f (sponsor sign up updated)
                   <div className="sec-container">
                    <Link to='/user_dashboard/edit_abstract'>
                       <a className="edit" href=""><FaEdit/> Edit</a>
                     </Link>
+<<<<<<< HEAD
                     <h2> Abstract </h2>    
                     <Abstract user={user}/>
                   </div> 
@@ -217,10 +339,16 @@ function UserDashboard() {
 
 		<Card>
 			<Card.Body>
+=======
+                    <h5> Abstract </h5>     
+                    <Abstract/>
+                  </div>  
+>>>>>>> 2dbc05f (sponsor sign up updated)
                   <div className="sec-container">
                    <Link to='/user_dashboard/edit_book_chapter'>
                       <a className="edit" href=""><FaEdit/> Edit</a>
                     </Link>
+<<<<<<< HEAD
                     <h2> BookChapter </h2>    
                     <BookChapter user={user}/>
                   </div>
@@ -245,10 +373,24 @@ function UserDashboard() {
  
 		<Card>
 			<Card.Body>
+=======
+                    <h5> BookChapter </h5>     
+                    <BookChapter/>
+                     <PdfAbstract/>
+                  </div>
+
+                </Tab.Pane>
+
+                
+
+                <Tab.Pane eventKey="Research-Team">
+
+>>>>>>> 2dbc05f (sponsor sign up updated)
                   <div className="sec-container">
                    <Link to='/user_dashboard/edit_researchTeam'>
                       <a className="edit" href=""><FaEdit/> Edit</a>
                     </Link>
+<<<<<<< HEAD
                     <h2> Research Team</h2>    
                     <ResearchTeam user={user}/>
                   </div>  
@@ -285,4 +427,42 @@ function UserDashboard() {
  
 }
  
+=======
+                    <h5> Research Team</h5>     
+                    <ResearchTeam/>
+                  </div>  
+
+                </Tab.Pane>
+
+                <Tab.Pane eventKey="Cert">
+
+                  <div className="sec-container">
+                    <h5> Download Certification</h5>     
+                    
+                    <h2>Coming Soon</h2>
+                   
+                  </div>  
+
+                </Tab.Pane>
+
+              </Tab.Content>
+            </Col>
+
+          </Row>
+        </Tab.Container>
+
+
+ 
+
+    </div>
+  
+    
+    <Footer/>
+    
+  </>
+  );
+
+}
+
+>>>>>>> 2dbc05f (sponsor sign up updated)
 export default UserDashboard;

@@ -1,11 +1,20 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import "../../../assets/css/agency.min.css";
+<<<<<<< HEAD
+=======
+import NavBar from './../navbar';
+import Footer from './../footer';
+>>>>>>> 2dbc05f (sponsor sign up updated)
 
 function LandingPage() {
 
   return (
     <div className="LandingPage">
+<<<<<<< HEAD
+=======
+      <NavBar/>
+>>>>>>> 2dbc05f (sponsor sign up updated)
 
       <header className="masthead">
         <div className="container">
@@ -265,6 +274,10 @@ function LandingPage() {
         </div>
       </section>
 
+<<<<<<< HEAD
+=======
+      <Footer/>
+>>>>>>> 2dbc05f (sponsor sign up updated)
 
     </div>
   );

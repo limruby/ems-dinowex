@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './login.css';
 import "../../../assets/css/agency.min.css";
+<<<<<<< HEAD
 //import NavBar from './../navbar';
+=======
+import NavBar from './../navbar';
+>>>>>>> 2dbc05f (sponsor sign up updated)
 
 import Footer from './../footer';
 import axiosInstance from '../../../utils/axiosConfig.js';
@@ -20,11 +24,16 @@ function Login()
             password: password
         }
         
+<<<<<<< HEAD
         axiosInstance.post('/api/accounts/login', data)
+=======
+        axiosInstance.post('/accounts/login', data)
+>>>>>>> 2dbc05f (sponsor sign up updated)
         .then(res=> {
 
             localStorage.clear();
             if(res.data.auth===true){
+<<<<<<< HEAD
 
                 if(res.data.result.role==="Admin"){
                     localStorage.setItem('role', res.data.result.role);                    
@@ -91,6 +100,13 @@ function Login()
                           console.log(error);
                         });
                     }                           
+=======
+                localStorage.setItem('token', res.data.token); 
+                localStorage.setItem('user_id', JSON.stringify(res.data.result._id));
+              console.log(res.data);  
+                
+            redirect();
+>>>>>>> 2dbc05f (sponsor sign up updated)
             }
             else{
                 alert("Email or password not match.")
@@ -104,6 +120,10 @@ function Login()
 
   return (
     <>
+<<<<<<< HEAD
+=======
+        <NavBar/>
+>>>>>>> 2dbc05f (sponsor sign up updated)
 
         <div className="login-main-container">
             <div className="login-form-container">
@@ -137,6 +157,10 @@ function Login()
 
         </div> 
 
+<<<<<<< HEAD
+=======
+        <Footer/>
+>>>>>>> 2dbc05f (sponsor sign up updated)
     </>
   )
 }

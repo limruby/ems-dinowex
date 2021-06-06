@@ -8,7 +8,11 @@ export class Confirm extends Component {
         e.preventDefault();
         const { 
             values: {email, password, confirmPassword, role, category , name, ic_passport_selection, ic_passport_number, affiliation, address, gender
+<<<<<<< HEAD
                 , no_of_team_members,members, phone_no}
+=======
+                , no_of_team_members,members}
+>>>>>>> 2dbc05f (sponsor sign up updated)
         } = this.props;
 
         var data = {
@@ -21,6 +25,7 @@ export class Confirm extends Component {
             nric_passport_no: ic_passport_number,
             affiliation: affiliation,
             address:address,
+<<<<<<< HEAD
             gender:gender,
             phone_no:phone_no
         };
@@ -59,6 +64,27 @@ export class Confirm extends Component {
 
         });
                                    
+=======
+            gender:gender
+        };
+        
+        var account_id="";
+
+            axiosInstance.post('/accounts/signUp', data)
+            .then(res=> {
+                this.account_id = res.data._id;
+                data["account_id"] = this.account_id;
+                 
+
+                axiosInstance.post('/competitors/create', data)
+                .then(res=>{
+                    console.log(res.data)
+                this.props.nextStep();
+                });
+
+            });
+                         
+>>>>>>> 2dbc05f (sponsor sign up updated)
        
     };
 
@@ -70,7 +96,11 @@ export class Confirm extends Component {
     render() {
         const { 
             values: {email, password, confirmPassword, role, category , name, ic_passport_selection, ic_passport_number, affiliation, address, gender
+<<<<<<< HEAD
             , no_of_team_members,members, phone_no}
+=======
+            , no_of_team_members,members}
+>>>>>>> 2dbc05f (sponsor sign up updated)
         } = this.props;
 
 
@@ -81,7 +111,10 @@ export class Confirm extends Component {
                 <ul class="list-group">
                     <li class="list-group-item">Name: {name}</li>
                     <li class="list-group-item">Email: {email}</li>
+<<<<<<< HEAD
                     <li class="list-group-item">Contact Number: {phone_no}</li>
+=======
+>>>>>>> 2dbc05f (sponsor sign up updated)
                     <li class="list-group-item">Affiliation: {affiliation}</li>
                     <li class="list-group-item">NRIC/Passport Number: {ic_passport_number}</li>                    
                     <li class="list-group-item">Address: {address}</li>
@@ -106,4 +139,8 @@ export class Confirm extends Component {
     }
 }
 
+<<<<<<< HEAD
 export default Confirm
+=======
+export default Confirm
+>>>>>>> 2dbc05f (sponsor sign up updated)

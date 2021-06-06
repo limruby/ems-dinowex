@@ -1,6 +1,7 @@
 const Competitor = require('../models/competitor');
 const mongoose = require('mongoose');
 var ObjectId = require('mongodb').ObjectId;
+<<<<<<< HEAD
 const qs = require('querystring');
 const CryptoJS = require('crypto-js');
 
@@ -11,6 +12,16 @@ const create = (req, res, next)=>{
   const account_id = req.body.account_id;
   const category = req.body.category;
   const phone_no = req.body.phone_no;
+=======
+
+
+
+const create = (req, res, next)=>{
+
+
+  const account_id = req.body.account_id;
+  const category = req.body.category;
+>>>>>>> 2dbc05f (sponsor sign up updated)
   const name = req.body.name;
   const affiliation = req.body.affiliation;
   const nric_passport_selection = req.body.nric_passport_selection;
@@ -27,12 +38,20 @@ const create = (req, res, next)=>{
       nric_passport_selection,
       nric_passport_no,
       address,
+<<<<<<< HEAD
       gender,
       phone_no
     });
 
     newCompetitor.save()
       .then(() => res.json(newCompetitor))
+=======
+      gender
+    });
+
+    newCompetitor.save()
+      .then(() => res.json('Competitor Created!'))
+>>>>>>> 2dbc05f (sponsor sign up updated)
       .catch(err => res.status(400).json('Error: ' + err));
 };
 
@@ -52,6 +71,7 @@ const read = (req, res, next)=>{
     }).catch(err => console.log(err))
  };
 
+<<<<<<< HEAD
 const update = (req, res, next)=>{
 
 
@@ -187,3 +207,73 @@ if(params['billplz[paid]'] === "true" && params['billplz[x_signature]'] === hash
 }
 
 module.exports = {create, read, update, readAll, pay, updatePayment}
+=======
+
+
+
+const update = (req, res, next)=>{
+
+  const account_id = req.body.account_id;
+  const category = req.body.category;
+  const name = req.body.name;
+  const affiliation = req.body.affiliation;
+  const nric_passport_selection = req.body.nric_passport_selection;
+  const nric_passport_no = req.body.nric_passport_no;
+  const address = req.body.address;
+  const gender = req.body.gender;
+
+
+  const members = req.body.members;
+
+  const poster = req.body.poster;
+
+  const achievement = req.body.achievement;
+  const publication = req.body.publication;
+  const grant = req.body.grant;
+  const video = req.body.video;
+  
+  const abstract = req.body.abstract;
+  const bookChapter = req.body.bookChapter;
+
+
+
+  const newCompetitor = new Competitor({
+      account_id, 
+      category,
+      name,
+      affiliation,
+      nric_passport_selection,
+      nric_passport_no,
+      address,
+      gender,
+      poster,
+      achievement,
+      publication,
+      grant,
+      video,
+      abstract,
+      bookChapter
+    });
+
+    newCompetitor.save()
+      .then(() => res.json('Competitor Created!'))
+      .catch(err => res.status(400).json('Error: ' + err));
+
+
+    Competitor.findByIdAndUpdate(req.body._id, newCompetitor, (err, competitors) => {
+        if (err) {
+            return res.status(400).json({ success: false, error: err })
+        }
+        
+        return res.status(200).json({ success: true, data: competitors })
+    }).catch(err => console.log(err))
+ };
+
+
+
+
+
+
+
+module.exports = {create, read, update}
+>>>>>>> 2dbc05f (sponsor sign up updated)

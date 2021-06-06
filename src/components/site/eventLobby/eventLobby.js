@@ -1,6 +1,10 @@
 import React,{useState, useEffect} from "react";
 import { useHistory,Link } from 'react-router-dom';
 import "../../../assets/css/agency.min.css";
+<<<<<<< HEAD
+=======
+import NavBar from './../navbar';
+>>>>>>> 2dbc05f (sponsor sign up updated)
 import Footer from './../footer';
 import './eventLobby.css';
 import sponsor_hall from "../../../assets/img/sponsor_hall.jpg";
@@ -14,7 +18,11 @@ function EventLobby() {
 const history = useHistory();
   return (
     <div className="eventLobby">
+<<<<<<< HEAD
   
+=======
+      <NavBar/>
+>>>>>>> 2dbc05f (sponsor sign up updated)
   
 		<div className="eventLobby-main-container row justify-content-center">
             <div onClick={()=> history.push("/sponsor_hall")} className="eventLobby-container col-lg-4 zoom">
@@ -32,6 +40,10 @@ const history = useHistory();
         </div>
 
 
+<<<<<<< HEAD
+=======
+      <Footer/>
+>>>>>>> 2dbc05f (sponsor sign up updated)
 
     </div>
   );

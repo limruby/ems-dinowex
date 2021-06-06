@@ -10,7 +10,10 @@ export class Confirm extends Component {
                 password,
                 company_name, 
                 company_pic_name, 
+<<<<<<< HEAD
                 company_pic_ic,
+=======
+>>>>>>> 2dbc05f (sponsor sign up updated)
                 company_contact, 
                 company_address, 
                 company_website, 
@@ -24,13 +27,17 @@ export class Confirm extends Component {
             password: password,
             company_name: company_name,
             company_pic_name: company_pic_name,
+<<<<<<< HEAD
             company_pic_ic:company_pic_ic,
+=======
+>>>>>>> 2dbc05f (sponsor sign up updated)
             company_address:company_address,
             company_contact: company_contact,
             company_website: company_website,
             category: category
         };
         var account_id="";
+<<<<<<< HEAD
         var url=""
         if (data.category === "Bronze Package"){
              url = "https://www.billplz-sandbox.com/ip52udve6"
@@ -62,18 +69,41 @@ export class Confirm extends Component {
                 }  
            });    
        };
+=======
+
+        axiosInstance.post('/accounts/signUp', data)
+        .then(res=> {
+            this.account_id = res.data._id;
+            data["account_id"] = this.account_id;
+             
+
+            axiosInstance.post('/sponsors/create', data)
+            .then(res=>{
+                console.log(res.data)
+            this.props.nextStep();
+            });
+
+        });
+                     
+   
+};
+>>>>>>> 2dbc05f (sponsor sign up updated)
     back = e => {
         e.preventDefault();
         this.props.prevStep();
     };
 
     render() {
+<<<<<<< HEAD
         const { values, inputChange } = this.props;
+=======
+>>>>>>> 2dbc05f (sponsor sign up updated)
         const { 
             values: {email, 
                 password,
                 company_name, 
                 company_pic_name, 
+<<<<<<< HEAD
                 company_pic_ic,
                 company_contact, 
                 company_address, 
@@ -83,10 +113,20 @@ export class Confirm extends Component {
             }
         } = this.props;
 
+=======
+                company_contact, 
+                company_address, 
+                company_website, 
+                category}
+        } = this.props;
+
+
+>>>>>>> 2dbc05f (sponsor sign up updated)
         return (
             <div>
                 <h1>Confirmation</h1>
                 <ul className="list-group">
+<<<<<<< HEAD
                     <li className="list-group-item">Company Name: {values.company_name}</li>
                     <li className="list-group-item">PIC Name: {values.company_pic_name}</li>
                     <li className="list-group-item">IC: {values.company_pic_ic}</li>
@@ -98,6 +138,20 @@ export class Confirm extends Component {
                 </ul>
 
                 <br /><br />
+=======
+                    <li className="list-group-item">Company Name: {company_name}</li>
+                    <li className="list-group-item">PIC Name: {company_pic_name}</li>
+                    <li className="list-group-item">Email: {email}</li>
+                    <li className="list-group-item">Phone Number: {company_contact}</li>
+                    <li className="list-group-item">Company Address: {company_address}</li>
+                    <li className="list-group-item">Company Website: {company_website}</li>
+                    <li className="list-group-item">Selected Category: {category}</li>
+
+                </ul>
+
+                <br /><br />
+
+>>>>>>> 2dbc05f (sponsor sign up updated)
                 <div className="row">
                     <div className="col-6">
                         <button className="btn btn-danger" onClick={this.back}>Back</button>
@@ -106,7 +160,10 @@ export class Confirm extends Component {
                         <button className="btn btn-primary" onClick={this.continue}>Confirm</button>
                     </div>
                 </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2dbc05f (sponsor sign up updated)
             </div>
         )
     }

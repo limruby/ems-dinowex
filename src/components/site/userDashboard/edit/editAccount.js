@@ -1,9 +1,21 @@
+<<<<<<< HEAD
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
+=======
+
+import React, {useState} from 'react';
+import {Link} from 'react-router-dom';
+import Form from 'react-bootstrap/Form';
+>>>>>>> 2dbc05f (sponsor sign up updated)
 import axiosInstance from '../../../../utils/axiosConfig.js';
 
 function EditAccount({data, setData}) {
 
+<<<<<<< HEAD
+=======
+console.log(data)
+
+>>>>>>> 2dbc05f (sponsor sign up updated)
     const inputChange = input => e => {
         setData({
             ...data,
@@ -14,14 +26,24 @@ function EditAccount({data, setData}) {
     const handleForm=(e)=>{
         e.preventDefault();
     // perform all neccassary validations
+<<<<<<< HEAD
        if (data.email === ""){
+=======
+       if (data.email ==""){
+>>>>>>> 2dbc05f (sponsor sign up updated)
             alert("Form not fill");
         }
         else{
             ///////update to db /////////////
+<<<<<<< HEAD
             axiosInstance.post("/api/accounts/update", data)
             .then(function(response) {
               window.location.href = '/user_dashboard';
+=======
+            axiosInstance.post("/accounts/update", data)
+            .then(function(response) {
+              // window.location.href = '/user_dashboard';
+>>>>>>> 2dbc05f (sponsor sign up updated)
             }).catch(function(error) {
               console.log(error);
             })

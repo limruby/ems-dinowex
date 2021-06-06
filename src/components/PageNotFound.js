@@ -1,4 +1,5 @@
 import React from 'react';
+<<<<<<< HEAD
 import './PageNotFound.css';
 
 const NotFoundPage = () => {
@@ -9,6 +10,11 @@ const NotFoundPage = () => {
 	</div>
   </div>
   );
+=======
+
+const NotFoundPage = () => {
+  return <h1>404 Page NotFound</h1>;
+>>>>>>> 2dbc05f (sponsor sign up updated)
 }
 
 export default NotFoundPage;
