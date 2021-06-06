@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import React, {useState, useEffect} from 'react';
 
 
@@ -50,24 +51,57 @@ import React from 'react';
 
 =======
 >>>>>>> d6169f2 (sponsor edit profile can fetch data)
+=======
+import React, {useState, useEffect} from 'react';
+
+
+>>>>>>> d4022a0 (update Alexia's code)
 const PromoContent = ({user}) =>  {
 
-/*
+ 
+console.log(user);
+
 function displayPoster(){
-  if(user.poster[0]){
-    return (<p>{user.poster[0].name}</p>)
-  }  
-}
-*/
-function displayAchievement(){
-  if(user.achievement){
+
+  // if(user.poster!=undefined){  //after mount
+  //     if(user.poster.length){
+  //       return (<p>{user.poster[0].name}</p>)
+  //     }
+  //     else{
+  //       return (<p>empty</p>)
+  //     }
+  // }  
+
+  if(user.poster){
     var section = [];
 
-    for (var i=0; i<user.achievement.length; i++){
+    for (var i=0; i<user.poster.length; i++){
         section.push(
             <li>
+                Name: {user.poster.name}
+            </li>
+        );
+    }
+    return section;
+
+  }
+
+}
+
+
+function displayAchievement(){
+  if(user.achievements){
+    var section = [];
+
+    for (var i=0; i<user.achievements.length; i++){
+        section.push(
+            <li>
+<<<<<<< HEAD
                 Name: {user.achievement.name}
 >>>>>>> 7c0a793 (merged with alexia's branch)
+=======
+                Name: {user.achievements.name}
+>>>>>>> d4022a0 (update Alexia's code)
             </li>
         );
     }
@@ -163,15 +197,18 @@ function displayVideo(){
 
 }
 
-
   return (       
     <div>
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 =======
 >>>>>>> 7c0a793 (merged with alexia's branch)
+=======
+
+>>>>>>> d4022a0 (update Alexia's code)
     <h5>Poster</h5>
-     {/*displayPoster()*/} 
+    {displayPoster()}
     <hr/>
     <h5>Achievements</h5>    
     <ul>
