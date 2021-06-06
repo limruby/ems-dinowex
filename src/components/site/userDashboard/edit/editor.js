@@ -67,6 +67,7 @@ const editorConfiguration = {
             '|',
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             'outdent',
             'indent',
@@ -77,10 +78,13 @@ const editorConfiguration = {
             'indent',
             '|',
 >>>>>>> 8930f2e (merge from alexia)
+=======
+>>>>>>> f475b73 (html2canvas print PDF preview)
             'imageUpload',
             'blockQuote',
             'insertTable',
             'mediaEmbed',
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
             
@@ -92,6 +96,9 @@ const editorConfiguration = {
             'undo',
             'redo'
 >>>>>>> 8930f2e (merge from alexia)
+=======
+            
+>>>>>>> f475b73 (html2canvas print PDF preview)
         ]
     },
     language: 'en',
@@ -101,12 +108,15 @@ const editorConfiguration = {
             'imageStyle:full',
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             'imageStyle:side'
 >>>>>>> 172511b (ckeditor)
 =======
             'imageStyle:side'
 >>>>>>> 8930f2e (merge from alexia)
+=======
+>>>>>>> f475b73 (html2canvas print PDF preview)
         ]
     },
     table: {
@@ -121,18 +131,25 @@ const editorConfiguration = {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> ab7142a (edit-bookchapter-content-done)
+=======
+>>>>>>> f475b73 (html2canvas print PDF preview)
 
 class EditorSec extends Component {
     render() {
 
         var data;
 <<<<<<< HEAD
+<<<<<<< HEAD
     	var initialData;
 =======
 		var initialData;
 >>>>>>> ab7142a (edit-bookchapter-content-done)
+=======
+    	var initialData;
+>>>>>>> f475b73 (html2canvas print PDF preview)
 		
 		if(this.props.bookChapter_data==null||this.props.bookChapter_data[0]==undefined||this.props.bookChapter_data[0]['content']==null){
 				initialData="";
@@ -140,6 +157,9 @@ class EditorSec extends Component {
 				initialData = this.props.bookChapter_data[0]['content'];
 			}
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f475b73 (html2canvas print PDF preview)
 
         const submit=(e)=>{
             e.preventDefault();
@@ -158,6 +178,7 @@ class EditorSec extends Component {
 				postData.bookChapter[0]['content'] = data;
 			}
             
+<<<<<<< HEAD
 
          // console.log(postData);
             // axiosInstance.post("/competitors/update", postData)
@@ -199,6 +220,8 @@ class EditorSec extends Component {
 				postData.bookChapter[0]['content'] = data;
 			}
             
+=======
+>>>>>>> f475b73 (html2canvas print PDF preview)
 
          // console.log(postData);
             // axiosInstance.post("/competitors/update", postData)
@@ -218,6 +241,7 @@ class EditorSec extends Component {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                     data={initialData}
                     onReady={ editor => {
                         // You can store the "editor" and use when it is needed.
@@ -232,6 +256,9 @@ class EditorSec extends Component {
 =======
                     data={initialData}
 >>>>>>> ab7142a (edit-bookchapter-content-done)
+=======
+                    data={initialData}
+>>>>>>> f475b73 (html2canvas print PDF preview)
                     onReady={ editor => {
                         // You can store the "editor" and use when it is needed.
 <<<<<<< HEAD
@@ -246,8 +273,11 @@ class EditorSec extends Component {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> ab7142a (edit-bookchapter-content-done)
+=======
+>>>>>>> f475b73 (html2canvas print PDF preview)
 						var postData = {
 						_id : this.props.id,
 						bookChapter : this.props.bookChapter_data
@@ -260,6 +290,7 @@ class EditorSec extends Component {
 					}
                     //console.log( { event, editor, data } );
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                         console.log( { event, editor, data } );
 >>>>>>> 172511b (ckeditor)
@@ -268,6 +299,8 @@ class EditorSec extends Component {
 >>>>>>> 8930f2e (merge from alexia)
 =======
 >>>>>>> ab7142a (edit-bookchapter-content-done)
+=======
+>>>>>>> f475b73 (html2canvas print PDF preview)
                     } }
                     // onBlur={ ( event, editor ) => {
                     //     console.log( 'Blur.', editor.getData() );

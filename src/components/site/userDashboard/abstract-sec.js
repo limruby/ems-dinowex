@@ -68,6 +68,7 @@ const AbstractContent = ({user}) =>  {
     <div>
       <div id="pdfAbstract">
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
        
@@ -76,6 +77,9 @@ const AbstractContent = ({user}) =>  {
         {displayContent()}
         {displayKeywords()}
 >>>>>>> c5b9c68 (complete userdashboard)
+=======
+
+>>>>>>> f475b73 (html2canvas print PDF preview)
         
       </div>  
       

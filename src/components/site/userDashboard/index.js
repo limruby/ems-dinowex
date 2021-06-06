@@ -25,9 +25,13 @@ import ResearchTeam from './research-team-sec';
  
 import PdfAbstract from './pdf-abstract-bookChapter';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import Preview from './preview-sec';
 =======
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+=======
+import Preview from './preview-sec';
+>>>>>>> f475b73 (html2canvas print PDF preview)
  
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Tab, Nav, Row, Col,Card} from "react-bootstrap";
@@ -527,6 +531,15 @@ function welcome(role){
                     <h2> BookChapter </h2>    
                     <BookChapter user={user}/>
 >>>>>>> 70358d5 (update kale's progress 17th May 2021)
+                  </div>
+			</Card.Body>
+        </Card>
+        <p/>
+        <Card>
+			<Card.Body>
+                  <div className="sec-container">
+                    <h2> Preview </h2>    
+                    <Preview user={user}/>
                   </div>
 			</Card.Body>
         </Card>

@@ -262,6 +262,7 @@ function EditBookChapter({data, setData}) {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 						<Editor id = {data._id} bookChapter_data = {data.bookChapter}/>
 =======
 	                    <textarea className="form-control" id="content" cols="30" rows="10"
@@ -283,6 +284,9 @@ function EditBookChapter({data, setData}) {
 =======
 	                    <Editor id = {data._id} bookChapter_data = {data.bookChapter}/>
 >>>>>>> 8654e33 (edit folder)
+=======
+						<Editor id = {data._id} bookChapter_data = {data.bookChapter}/>
+>>>>>>> f475b73 (html2canvas print PDF preview)
 	                </div>
 					
 					 <div className="form-group">

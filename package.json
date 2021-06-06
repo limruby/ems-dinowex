@@ -15,7 +15,10 @@
     "bootstrap": "^4.6.0",
     "ckeditor5-custom-build": "file:./ckeditor5",
     "cors": "^2.8.5",
+<<<<<<< HEAD
     "crypto-js": "^3.3.0",
+=======
+>>>>>>> f475b73 (html2canvas print PDF preview)
     "dom-to-image": "^2.6.0",
     "dotenv": "^8.2.0",
     "embla-carousel": "^4.5.1",

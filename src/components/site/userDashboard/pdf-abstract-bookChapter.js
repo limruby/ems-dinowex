@@ -188,12 +188,17 @@ const Content = ({user, account}) =>  {
   return (       
     <div>
 <<<<<<< HEAD
+<<<<<<< HEAD
           {/* 
         <button className="edit-button" onClick={generatePDF} type="primary">Download PDF</button> */} 
 =======
             
         <button className="edit-button" onClick={generatePDF} type="primary">Download PDF</button> 
 >>>>>>> 70358d5 (update kale's progress 17th May 2021)
+=======
+          {/* 
+        <button className="edit-button" onClick={generatePDF} type="primary">Download PDF</button> */} 
+>>>>>>> f475b73 (html2canvas print PDF preview)
 
     </div>
   );

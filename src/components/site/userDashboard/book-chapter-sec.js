@@ -118,12 +118,16 @@ function displayReference(){
     <div>
       <div>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         {displayIntroduction()}
         {displayContent()}
         {displayConclusion()}
         {displayReference()}
 >>>>>>> c5b9c68 (complete userdashboard)
+=======
+
+>>>>>>> f475b73 (html2canvas print PDF preview)
       </div>  
       
     </div>
