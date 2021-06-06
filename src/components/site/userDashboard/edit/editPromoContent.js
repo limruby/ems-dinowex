@@ -3,9 +3,13 @@ import {Link} from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import axiosInstance from '../../../../utils/axiosConfig.js';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { FaTrashAlt } from 'react-icons/fa';
 =======
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+=======
+import { FaTrashAlt } from 'react-icons/fa';
+>>>>>>> 70358d5 (update kale's progress 17th May 2021)
  
 function EditAccount({data, setData}) {
  
@@ -90,6 +94,7 @@ console.log(data)
       section.push(
         <div>          
 <<<<<<< HEAD
+<<<<<<< HEAD
                    <p>{data.poster[0].name}
             <button className="deleteBtn" type="button" onClick={deleteFile('poster',0)}> <FaTrashAlt/></button>
            </p>
@@ -98,6 +103,12 @@ console.log(data)
                    <p>{data.poster[0].name}</p>
                     <button className="deleteBtn" type="button" onClick={deleteFile('poster',0)}> delete</button>
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+=======
+                   <p>{data.poster[0].name}
+				    <button className="deleteBtn" type="button" onClick={deleteFile('poster',0)}> <FaTrashAlt/></button>
+				   </p>
+                   
+>>>>>>> 70358d5 (update kale's progress 17th May 2021)
               </div>
       )
     }
@@ -114,10 +125,14 @@ console.log(data)
               <p>
                           {data.video[i].name}
 <<<<<<< HEAD
+<<<<<<< HEAD
                           <button className="deleteBtn" type="button" onClick={deleteFile('video',i)}> <FaTrashAlt/></button>
 =======
                           <button className="deleteBtn" type="button" onClick={deleteFile('video',i)}> delete</button>
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+=======
+                          <button className="deleteBtn" type="button" onClick={deleteFile('video',i)}> <FaTrashAlt/></button>
+>>>>>>> 70358d5 (update kale's progress 17th May 2021)
                         </p>
 
                         

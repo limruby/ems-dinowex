@@ -3,9 +3,13 @@ import {Link} from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import axiosInstance from '../../../../utils/axiosConfig.js';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { FaTrashAlt } from 'react-icons/fa';
 =======
 >>>>>>> c5b9c68 (complete userdashboard)
+=======
+import { FaTrashAlt } from 'react-icons/fa';
+>>>>>>> 70358d5 (update kale's progress 17th May 2021)
 
 function EditTeam({data, setData}) {
 
@@ -247,10 +251,14 @@ const inputChange = (element, index) => e => {
                        <p>{data.members[i].affiliation}</p>
                        <p>{data.members[i].email}</p>
 <<<<<<< HEAD
+<<<<<<< HEAD
                         <button className="deleteBtn" type="button" onClick={deleteFile('members',i)}> <FaTrashAlt/></button>
 =======
                         <button className="deleteBtn" type="button" onClick={deleteFile('members',i)}> delete</button>
 >>>>>>> c5b9c68 (complete userdashboard)
+=======
+                        <button className="deleteBtn" type="button" onClick={deleteFile('members',i)}> <FaTrashAlt/></button>
+>>>>>>> 70358d5 (update kale's progress 17th May 2021)
                   </div>
           )
         }

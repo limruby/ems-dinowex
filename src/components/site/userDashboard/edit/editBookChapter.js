@@ -2,10 +2,14 @@ import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { FaTrashAlt } from 'react-icons/fa';
 import Editor from './editor';
 =======
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+=======
+import { FaTrashAlt } from 'react-icons/fa';
+>>>>>>> 70358d5 (update kale's progress 17th May 2021)
 
 import axiosInstance from '../../../../utils/axiosConfig.js';
 
@@ -51,10 +55,14 @@ function EditBookChapter({data, setData}) {
 	                    <li>
 	                      {reference}
 <<<<<<< HEAD
+<<<<<<< HEAD
 	                      <button className="deleteBtn" type="button" onClick={deleteReference(index)}> <FaTrashAlt/></button>
 =======
 	                      <button className="deleteBtn" type="button" onClick={deleteReference(index)}> delete</button>
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+=======
+	                      <button className="deleteBtn" type="button" onClick={deleteReference(index)}> <FaTrashAlt/></button>
+>>>>>>> 70358d5 (update kale's progress 17th May 2021)
 	                    </li>
 	                    ))}
 	                </ul>

@@ -3,6 +3,7 @@ import axiosInstance from '../../../utils/axiosConfig.js';
 <<<<<<< HEAD
 <<<<<<< HEAD
  
+<<<<<<< HEAD
 =======
 
 =======
@@ -10,6 +11,8 @@ import axiosInstance from '../../../utils/axiosConfig.js';
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
 import Footer from './../footer';
 >>>>>>> 7c0a793 (merged with alexia's branch)
+=======
+>>>>>>> 70358d5 (update kale's progress 17th May 2021)
 import {Link} from 'react-router-dom';
 import './userDashboard.css';
  
@@ -280,7 +283,7 @@ function welcome(role){
                       </li>
                       <li>
                         <Link to='/user_dashboard/edit_password'>
-                        <button className="edit-password"><FaEdit/> Edit Password</button>
+                        <button className="edit-button"><FaEdit/> Edit Password</button>
                         </Link>
                       </li>
                     </ul>
@@ -337,12 +340,18 @@ function welcome(role){
                 </Tab.Pane>
  
                 <Tab.Pane eventKey="Promo-Content">
+<<<<<<< HEAD
  
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+=======
+		<Card>
+			<Card.Body>
+>>>>>>> 70358d5 (update kale's progress 17th May 2021)
                   <div className="sec-container">
                     <Link to='/user_dashboard/edit_content'>
                       <a className="edit" href="/user_dashboard/edit_content"><FaEdit/> Edit</a>
                     </Link>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
                     <h2> Promotional Content</h2>    
@@ -367,18 +376,28 @@ function welcome(role){
 >>>>>>> 7c0a793 (merged with alexia's branch)
 =======
                     <h5> Promotional Content</h5>    
+=======
+                    <h2> Promotional Content</h2>    
+>>>>>>> 70358d5 (update kale's progress 17th May 2021)
                     <PromoContent user={user}/>
                   </div>  
- 
+			</Card.Body>
+        </Card>
                 </Tab.Pane>
  
                 <Tab.Pane eventKey="Competition-Material">
+<<<<<<< HEAD
  
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+=======
+			<Card>
+			<Card.Body>
+>>>>>>> 70358d5 (update kale's progress 17th May 2021)
                   <div className="sec-container">
                     <Link to='/user_dashboard/edit_content'>
                       <a className="edit" href=""><FaEdit/> Edit</a>
                     </Link>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
                     <h2> Competition Material</h2>    
@@ -403,18 +422,28 @@ function welcome(role){
 >>>>>>> 7c0a793 (merged with alexia's branch)
 =======
                     <h5> Competition Material</h5>    
+=======
+                    <h2> Competition Material</h2>    
+>>>>>>> 70358d5 (update kale's progress 17th May 2021)
                     <CompetitionMaterial user={user}/>
                   </div>  
- 
+			</Card.Body>
+        </Card>
                 </Tab.Pane>
  
                 <Tab.Pane eventKey="Abstract">
+<<<<<<< HEAD
  
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+=======
+		<Card>
+			<Card.Body>
+>>>>>>> 70358d5 (update kale's progress 17th May 2021)
                   <div className="sec-container">
                    <Link to='/user_dashboard/edit_abstract'>
                       <a className="edit" href=""><FaEdit/> Edit</a>
                     </Link>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
                     <h2> Abstract </h2>    
@@ -439,10 +468,23 @@ function welcome(role){
 >>>>>>> c5b9c68 (complete userdashboard)
                   </div>  
 >>>>>>> 7c0a793 (merged with alexia's branch)
+=======
+                    <h2> Abstract </h2>    
+                    <Abstract user={user}/>
+                  </div> 
+			</Card.Body>
+        </Card>
+
+		<p/>
+
+		<Card>
+			<Card.Body>
+>>>>>>> 70358d5 (update kale's progress 17th May 2021)
                   <div className="sec-container">
                    <Link to='/user_dashboard/edit_book_chapter'>
                       <a className="edit" href=""><FaEdit/> Edit</a>
                     </Link>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
                     <h2> BookChapter </h2>    
@@ -470,14 +512,21 @@ function welcome(role){
                   <div className="sec-container">
                     <h2> Preview </h2>    
                     <Preview user={user}/>
+=======
+                    <h2> BookChapter </h2>    
+                    <BookChapter user={user}/>
+>>>>>>> 70358d5 (update kale's progress 17th May 2021)
                   </div>
 			</Card.Body>
         </Card>
 		<p/>
 		<PdfAbstract user = {user}/>
+<<<<<<< HEAD
 =======
  
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+=======
+>>>>>>> 70358d5 (update kale's progress 17th May 2021)
                 </Tab.Pane>
  
                
@@ -488,16 +537,20 @@ function welcome(role){
  
 		<Card>
 			<Card.Body>
+<<<<<<< HEAD
 =======
 
 >>>>>>> 7c0a793 (merged with alexia's branch)
 =======
  
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+=======
+>>>>>>> 70358d5 (update kale's progress 17th May 2021)
                   <div className="sec-container">
                    <Link to='/user_dashboard/edit_researchTeam'>
                       <a className="edit" href=""><FaEdit/> Edit</a>
                     </Link>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
                     <h2> Research Team</h2>    
@@ -529,26 +582,40 @@ function welcome(role){
 
 =======
                     <h5> Research Team</h5>    
+=======
+                    <h2> Research Team</h2>    
+>>>>>>> 70358d5 (update kale's progress 17th May 2021)
                     <ResearchTeam user={user}/>
                   </div>  
- 
+			</Card.Body>
+        </Card>
                 </Tab.Pane>
  
                 <Tab.Pane eventKey="Cert">
+<<<<<<< HEAD
  
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+=======
+		<Card>
+			<Card.Body>
+>>>>>>> 70358d5 (update kale's progress 17th May 2021)
                   <div className="sec-container">
-                    <h5> Download Certification</h5>    
+                    <h2> Download Certification</h2>    
                    
-                    <h2>Coming Soon</h2>
+                    <h5>Coming Soon</h5>
                    
                   </div>  
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 >>>>>>> 7c0a793 (merged with alexia's branch)
 =======
  
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+=======
+			</Card.Body>
+        </Card>
+>>>>>>> 70358d5 (update kale's progress 17th May 2021)
                 </Tab.Pane>
  
               </Tab.Content>
@@ -572,8 +639,12 @@ function welcome(role){
     </div>
  
    
+<<<<<<< HEAD
     <Footer/>
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+=======
+    
+>>>>>>> 70358d5 (update kale's progress 17th May 2021)
    
   </>
   );

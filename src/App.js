@@ -15,7 +15,11 @@ import sponsor_hall from './components/site/eventLobby/sponsor_hall/sponsor_hall
 import competition_hall from './components/site/eventLobby/competition_hall/competition_hall';
 import Navbar from './components/site/navbar';
 import Footer from './components/site/footer';
+<<<<<<< HEAD
 import AdminDashboard from './components/site/adminDashboard';
+=======
+// import AdminDashboard from './components/site/adminDashboard';
+>>>>>>> 70358d5 (update kale's progress 17th May 2021)
 import PageNotFound from './components/PageNotFound.js';
 
 
@@ -86,4 +90,8 @@ function App() {
   );
 }
 
+<<<<<<< HEAD
 export default App;
+=======
+export default App;
+>>>>>>> 70358d5 (update kale's progress 17th May 2021)

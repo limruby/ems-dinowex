@@ -4,6 +4,9 @@ import Form from 'react-bootstrap/Form';
 import axiosInstance from '../../../../utils/axiosConfig.js';
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 70358d5 (update kale's progress 17th May 2021)
 import { FaTrashAlt } from 'react-icons/fa';
  
  
@@ -92,8 +95,11 @@ const inputChange = input => e => {
     const uploadLogoHandler = (element, index) => e => {
 =======
     const uploadLogoHandler = (element, index) => e => {
+<<<<<<< HEAD
 	console.log("asd");
 >>>>>>> 082b413 (upload and display company logo)
+=======
+>>>>>>> 70358d5 (update kale's progress 17th May 2021)
         if(element == 'company_logo'){
           let selectedFile = e.target.files;
             let file = null;
@@ -123,6 +129,9 @@ const inputChange = input => e => {
         }
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 70358d5 (update kale's progress 17th May 2021)
 	
 
 var obj =[];
@@ -131,10 +140,13 @@ var obj =[];
       let obj = data.company_logo;
       obj.splice(index,1);
     }
+<<<<<<< HEAD
 =======
 /////////////////////////////////////////////////////////////
 <<<<<<< HEAD
 >>>>>>> d6169f2 (sponsor edit profile can fetch data)
+=======
+>>>>>>> 70358d5 (update kale's progress 17th May 2021)
 
       setData({
           ...data,
@@ -169,6 +181,7 @@ function displayLogo(){
     }
     return section;
   }
+<<<<<<< HEAD
 /////////////////////////////////////////////////////////////
     return(
         <>
@@ -198,6 +211,8 @@ const uploadFileHandler = (e) => {
 		<div className="form-container">
 >>>>>>> 335f562 (testing with uploadfilehandler)
 =======
+=======
+>>>>>>> 70358d5 (update kale's progress 17th May 2021)
 /////////////////////////////////////////////////////////////
     return(
         <>
@@ -275,6 +290,7 @@ const uploadFileHandler = (e) => {
 >>>>>>> d6169f2 (sponsor edit profile can fetch data)
 =======
                     <label htmlFor="company_logo"><span>*</span>Company Logo With Transparent Background</label><br />
+<<<<<<< HEAD
                     <img src={data.company_logo } alt="" />
 <<<<<<< HEAD
                     <input type="file" name={data.company_name +" logo"} onChange={uploadFileHandler} />
@@ -296,6 +312,11 @@ const uploadFileHandler = (e) => {
 
 =======
 >>>>>>> 3979fae (upload sponsor logo)
+=======
+                    {displayLogo()}
+                </div>
+
+>>>>>>> 70358d5 (update kale's progress 17th May 2021)
                 <br />
                <div className="col-4 btn-group">
                     <Link to="/user_dashboard">
