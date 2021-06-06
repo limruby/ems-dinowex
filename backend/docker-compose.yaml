@@ -60,7 +60,11 @@ services:
 networks:
   server:
 <<<<<<< HEAD
+<<<<<<< HEAD
     external: true
 =======
     external: true
 >>>>>>> 38f483b (update docker)
+=======
+    external: true
+>>>>>>> b8460f4 (update docker)
