@@ -1,11 +1,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> d4022a0 (update Alexia's code)
+=======
+>>>>>>> d526164 (upload sponsor company logo)
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import axiosInstance from '../../../../utils/axiosConfig.js';
+<<<<<<< HEAD
 <<<<<<< HEAD
 import { FaTrashAlt } from 'react-icons/fa';
  
@@ -360,6 +364,8 @@ export default EditAccount;
 import React from 'react';
 =======
 >>>>>>> d4022a0 (update Alexia's code)
+=======
+>>>>>>> d526164 (upload sponsor company logo)
 
 function EditAccount({data, setData}) {
 
@@ -566,7 +572,11 @@ console.log(data)
               data.poster.push({'name':fileName,'source':fileReader.result})
             };
         // Convert data to base64
+<<<<<<< HEAD
             // var baseFile = fileReader.readAsDataURL(fileToLoad);
+=======
+             var baseFile = fileReader.readAsDataURL(fileToLoad);
+>>>>>>> d526164 (upload sponsor company logo)
         }
       
 
@@ -635,9 +645,12 @@ console.log(data)
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 export default PromoContent;
 >>>>>>> 7c0a793 (merged with alexia's branch)
 =======
+=======
+>>>>>>> d526164 (upload sponsor company logo)
   };
 
 
@@ -698,5 +711,9 @@ export default PromoContent;
   )
 }
 
+<<<<<<< HEAD
 export default EditAccount;
 >>>>>>> d4022a0 (update Alexia's code)
+=======
+export default EditAccount;
+>>>>>>> d526164 (upload sponsor company logo)

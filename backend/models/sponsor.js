@@ -77,7 +77,7 @@ const sponsorSchema = new Schema({
   video:[videoSchema],
 =======
   company_logo: {
-    type: Buffer,
+    type: Binary,
     required: false
   }, 
 

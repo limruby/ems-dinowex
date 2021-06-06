@@ -1,6 +1,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import React, {useState, useEffect} from 'react';
 
 
@@ -56,6 +57,11 @@ import React, {useState, useEffect} from 'react';
 
 
 >>>>>>> d4022a0 (update Alexia's code)
+=======
+import React, {useState, useEffect} from 'react';
+
+
+>>>>>>> d526164 (upload sponsor company logo)
 const PromoContent = ({user}) =>  {
 
  
@@ -97,11 +103,15 @@ function displayAchievement(){
         section.push(
             <li>
 <<<<<<< HEAD
+<<<<<<< HEAD
                 Name: {user.achievement.name}
 >>>>>>> 7c0a793 (merged with alexia's branch)
 =======
                 Name: {user.achievements.name}
 >>>>>>> d4022a0 (update Alexia's code)
+=======
+                Name: {user.achievements.name}
+>>>>>>> d526164 (upload sponsor company logo)
             </li>
         );
     }
@@ -168,6 +178,7 @@ function displayGrant(){
   if(user.grants){
     var section = [];
 
+<<<<<<< HEAD
     for (var i=0; i<user.grants.length; i++){
         section.push(
             <li>
@@ -207,6 +218,11 @@ function displayVideo(){
 =======
 
 >>>>>>> d4022a0 (update Alexia's code)
+=======
+  return (       
+    <div>
+
+>>>>>>> d526164 (upload sponsor company logo)
     <h5>Poster</h5>
     {displayPoster()}
     <hr/>
@@ -234,4 +250,8 @@ function displayVideo(){
 }
 
 
+<<<<<<< HEAD
 export default CompetitionMaterial;
+=======
+export default PromoContent;
+>>>>>>> d526164 (upload sponsor company logo)

@@ -10,6 +10,7 @@ function EditProfile({data, setData}) {
  
 =======
 
+
 function EditProfile({data, setData}) {
 
 >>>>>>> d6169f2 (sponsor edit profile can fetch data)
@@ -54,11 +55,15 @@ const inputChange = input => e => {
         else{
         	 ///////update to db /////////////
 <<<<<<< HEAD
+<<<<<<< HEAD
              axiosInstance.post("/competitors/update", data)
 >>>>>>> d6169f2 (sponsor edit profile can fetch data)
 =======
              axiosInstance.post("/sponsors/update", data)
 >>>>>>> e43c0d3 (edit sponsor profile line 26)
+=======
+             axiosInstance.post("/sponsors/update", data)
+>>>>>>> d526164 (upload sponsor company logo)
              .then(function(response) {
                window.location.href = '/user_dashboard';
              }).catch(function(error) {
@@ -66,6 +71,7 @@ const inputChange = input => e => {
              })
         }
     }
+<<<<<<< HEAD
 <<<<<<< HEAD
     const uploadLogoHandler = (element, index) => e => {
         if(element == 'company_logo'){
@@ -161,6 +167,8 @@ const uploadFileHandler = (e) => {
         console.log(error);
     }
 }
+=======
+>>>>>>> d526164 (upload sponsor company logo)
 
 /////////////////////////////////////////////////////////////
 	return(
@@ -234,8 +242,12 @@ const uploadFileHandler = (e) => {
 =======
                     <label htmlFor="company_logo"><span>*</span>Company Logo With Transparent Background</label><br />
                     <img src={data.company_logo } alt="" />
+<<<<<<< HEAD
                     <input type="file" name={data.company_name +" logo"} onChange={uploadFileHandler} />
 >>>>>>> 335f562 (testing with uploadfilehandler)
+=======
+                    <input type="file" onChange={inputChange('company_logo')} name="upload_file"/>
+>>>>>>> d526164 (upload sponsor company logo)
                 </div>
 
                 <br />

@@ -100,6 +100,7 @@ const competitorSchema = new Schema({
     type: String,
     required: true
   },
+<<<<<<< HEAD
   bill_id:{
     type: String, 
   },
@@ -109,12 +110,19 @@ const competitorSchema = new Schema({
   bill_status: {
     type:String,
   },
+=======
+
+>>>>>>> d526164 (upload sponsor company logo)
   poster:[subSchema],
   achievements:[subSchema],
   publications:[subSchema],
   grants:[subSchema],
   
+<<<<<<< HEAD
   video:[videoSchema],
+=======
+  video:[subSchema],
+>>>>>>> d526164 (upload sponsor company logo)
 
   abstract:[abstractSchema],
 

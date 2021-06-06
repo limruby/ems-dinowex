@@ -212,3 +212,8 @@ module.exports = {create, read, readAll, update, updatePayment, pay}
 =======
 >>>>>>> d6169f2 (sponsor edit profile can fetch data)
 
+<<<<<<< HEAD
+=======
+module.exports = {create, read, update}
+
+>>>>>>> d526164 (upload sponsor company logo)
