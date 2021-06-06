@@ -15,6 +15,7 @@ function EditAccount({data, setData}) {
  
 const showUpload=(e)=>{
 <<<<<<< HEAD
+<<<<<<< HEAD
   e.preventDefault();
     if(data.video.length < 5){
       if (tempData.tempVidName!=="" && tempData.tempVidPath!==""){
@@ -40,36 +41,36 @@ const showUpload=(e)=>{
     }
       }
 =======
+=======
+  e.preventDefault();
+>>>>>>> 1848300 (validation test complete)
     if(data.video.length < 5){
-        e.preventDefault();
-        if(tempData.tempVidName!==""){
-      if(tempData.tempVidPath===""){
-        alert("Incomplete Form");
+      if (tempData.tempVidName!=="" && tempData.tempVidPath!==""){
+        data.video.push({'name':tempData.tempVidName,'source':tempData.tempVidPath})
+        setData({
+          ...data,
+        })
+            tempData.tempVidName="";
+            tempData.tempVidPath="";
+   
+            setTemp({
+                  ...tempData,
+            });
+      }  
+      else if(tempData.tempVidName!=="" && tempData.tempVidPath===""){
+          alert("Incomplete Form");  
       }
-    }
-    else if(tempData.tempVidPath!==""){
-      if(tempData.tempVidName===""){
+      else if(tempData.tempVidName==="" && tempData.tempVidPath!==""){
+          alert("Incomplete Form");
+      }  
+      else if(tempData.tempVidName==="" && tempData.tempVidPath===""){
         alert("Incomplete Form");
-      }
     }
-    if (tempData.tempVidName!=="" && tempData.tempVidPath!==""){
-      data.video.push({'name':tempData.tempVidName,'source':tempData.tempVidPath})
-       
-    }
-    setData({
-        ...data,
-      })
-          tempData.tempVidName="";
-          tempData.tempVidPath="";
- 
-          setTemp({
-                ...tempData,
-          });
-    }
-    else {
-        window.alert("You've exceeded the limit of upload videos!");
-    }
+<<<<<<< HEAD
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+=======
+      }
+>>>>>>> 1848300 (validation test complete)
        
 }
 const [tempData, setTemp] = useState({
@@ -105,8 +106,8 @@ console.log(data)
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
 =======
                    <p>{data.poster[0].name}
-				    <button className="deleteBtn" type="button" onClick={deleteFile('poster',0)}> <FaTrashAlt/></button>
-				   </p>
+            <button className="deleteBtn" type="button" onClick={deleteFile('poster',0)}> <FaTrashAlt/></button>
+           </p>
                    
 >>>>>>> 70358d5 (update kale's progress 17th May 2021)
               </div>
@@ -155,6 +156,7 @@ console.log(data)
                     onChange={inputChange('vidPath', 0)} value={tempData.tempVidPath} />
                 </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <div>
                                         <button onClick={showUpload} className="btn btn-primary">Add</button>
                                 </div>
@@ -165,6 +167,14 @@ console.log(data)
               </div>            
           )               
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+=======
+                <div>
+                                        <button onClick={showUpload} className="btn btn-primary">Add</button>
+                                </div>
+              </div>            
+          )         
+               
+>>>>>>> 1848300 (validation test complete)
     }
     return section;
   }
@@ -205,11 +215,17 @@ console.log(data)
             file = fileLoadedEvent.target.result;
               data.poster.push({'name':fileName,'source':fileReader.result})
 <<<<<<< HEAD
+<<<<<<< HEAD
               setData({
                 ...data
           })
 =======
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+=======
+              setData({
+                ...data
+          })
+>>>>>>> 1848300 (validation test complete)
                              
         };
     // Convert data to base64
@@ -235,6 +251,7 @@ console.log(data)
  
   const handleForm=(e)=>{
       e.preventDefault();
+<<<<<<< HEAD
 <<<<<<< HEAD
 
       var postData = {
@@ -268,6 +285,8 @@ console.log(data)
  
      console.log(data);
  
+=======
+>>>>>>> 1848300 (validation test complete)
      axiosInstance.post("/sponsors/update", data)
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
             .then(function(response) {
@@ -277,9 +296,12 @@ console.log(data)
             })
  
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
  
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+=======
+>>>>>>> 1848300 (validation test complete)
   };
  
   return(
@@ -304,10 +326,13 @@ console.log(data)
 =======
                  <h5>Video</h5>
                  {displayVideoForm()}
+<<<<<<< HEAD
                                 <div>
                                         <button onClick={showUpload} className="btn btn-primary">Add</button>
                                 </div>
 >>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+=======
+>>>>>>> 1848300 (validation test complete)
                
                 <br />
                

@@ -36,13 +36,18 @@ export class Confirm extends Component {
         }
         var account_id="";
 
+<<<<<<< HEAD
         axiosInstance.post('/api/accounts/signUp', data)
+=======
+        axiosInstance.post('/accounts/signUp', data)
+>>>>>>> 1848300 (validation test complete)
             .then(res=> {
                
                  
             if(res.data._id){
                 this.account_id = res.data._id;
                 data["account_id"] = this.account_id;
+<<<<<<< HEAD
                 axiosInstance.post('/api/competitors/create', data)
                 .then(res=>{
                     //save user_ID to localstorage
@@ -51,6 +56,13 @@ export class Confirm extends Component {
                     console.log("Confirm.js SIGN UP PAGE"+ localStorage.getItem('competitor_id'));  
                     window.open(url,"_self")
                     this.props.nextStep();             
+=======
+
+                axiosInstance.post('/competitors/create', data)
+                .then(res=>{
+                    console.log(res.data)
+                    this.props.nextStep();
+>>>>>>> 1848300 (validation test complete)
                 });
              }
              else{

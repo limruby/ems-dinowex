@@ -21,6 +21,7 @@ const [tempData, setTemp] = useState({
 });
 const showUpload=(e)=>{
 <<<<<<< HEAD
+<<<<<<< HEAD
     if(data.members.length < 4){
         e.preventDefault();
     if (tempData.tempName!=="" && tempData.tempAff!=="" && tempData.tempEmail!==""){
@@ -80,27 +81,13 @@ const inputChange = (element, index) => e => {
     }
 =======
     if(data.members.length < 5){
+=======
+    if(data.members.length < 4){
+>>>>>>> 1848300 (validation test complete)
         e.preventDefault();
-    if(tempData.tempName!==""){
-      if(tempData.tempName===""){
-        alert("Incomplete Form");
-      }
-    }
-    else if(tempData.tempAff===""){
-      if(tempData.tempAff===""){
-        alert("Incomplete Form");
-      }
-    }
-    else if(tempData.tempEmail===""){
-        if(tempData.tempEmail===""){
-          alert("Incomplete Form");
-        }
-      }
     if (tempData.tempName!=="" && tempData.tempAff!=="" && tempData.tempEmail!==""){
-      data.members.push({'name':tempData.tempName,'affiliation':tempData.tempAff, 'email':tempData.tempEmail})
-       
-    }
-    setData({
+      data.members.push({'name':tempData.tempName,'affiliation':tempData.tempAff, 'email':tempData.tempEmail})   
+      setData({
         ...data,
       })
           tempData.tempName="";
@@ -111,10 +98,23 @@ const inputChange = (element, index) => e => {
                 ...tempData,
           });
     }
-    else {
-        window.alert("You've exceeded the limit of members!");
+    if(tempData.tempName!==""){
+      if(tempData.tempAff===""||tempData.tempEmail===""){
+        alert("Incomplete Form");
+      }
     }
-       
+    else if(tempData.tempAff!==""){
+      if(tempData.tempName===""||tempData.tempEmail===""){
+        alert("Incomplete Form");
+      }
+    }
+    else if(tempData.tempEmail!==""){
+        if(tempData.tempName===""||tempData.tempAff===""){
+          alert("Incomplete Form");
+        }
+      }
+ 
+    }   
 }
 var obj =[];
   const deleteFile = (element,index) => e => {
@@ -144,9 +144,7 @@ const inputChange = (element, index) => e => {
     setTemp({
       ...tempData
     });
-    setData({
-        ...data,
-      })
+
      console.log(data);
 };
 
@@ -156,9 +154,12 @@ const inputChange = (element, index) => e => {
 
 	const handleForm=(e)=>{
     {/* 
+<<<<<<< HEAD
 =======
 	const handleForm=(e)=>{
 >>>>>>> c5b9c68 (complete userdashboard)
+=======
+>>>>>>> 1848300 (validation test complete)
         if(tempData.tempName!==""){
             if(tempData.tempName===""){
               alert("Incomplete Form");
@@ -182,6 +183,7 @@ const inputChange = (element, index) => e => {
               ...data,
             })
 <<<<<<< HEAD
+<<<<<<< HEAD
             */}
        
        
@@ -195,9 +197,12 @@ const inputChange = (element, index) => e => {
        
            axiosInstance.post("/api/competitors/update", postData)
 =======
+=======
+            */}
+>>>>>>> 1848300 (validation test complete)
        
        
-           console.log(data);
+           e.preventDefault();
        
            axiosInstance.post("/competitors/update", data)
 >>>>>>> c5b9c68 (complete userdashboard)
@@ -214,10 +219,14 @@ const inputChange = (element, index) => e => {
     function displayMembers(){
         var section = [];
 <<<<<<< HEAD
+<<<<<<< HEAD
         if(data.members==null||data.members[0]==null||data.members.length<4){
 =======
         if(data.members==null||data.members[0]==null||data.members.length<5){
 >>>>>>> c5b9c68 (complete userdashboard)
+=======
+        if(data.members==null||data.members[0]==null||data.members.length<4){
+>>>>>>> 1848300 (validation test complete)
         
             section.push(
                 <div>

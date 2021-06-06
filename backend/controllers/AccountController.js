@@ -17,6 +17,7 @@ const register = (req, res, next)=>{
     const email = req.body.email;
     const password = hashedPassword;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
      Account.findOne({ email:req.body.email}, function(err, result) {
     if(err) throw err;
@@ -45,6 +46,28 @@ const register = (req, res, next)=>{
       email,
       password
 >>>>>>> 7c0a793 (merged with alexia's branch)
+=======
+
+     Account.findOne({ email:req.body.email}, function(err, result) {
+    if(err) throw err;
+    if(result){
+        res.json('Email existed');
+    }
+    else{
+
+        const newAccount = new Account({
+          role, 
+          email,
+          password
+        });
+
+        newAccount.save()
+          .then(() => res.json(newAccount))
+          .catch(err => res.status(400).json('Error: ' + err));
+    }
+
+      
+>>>>>>> 1848300 (validation test complete)
     });
 
   });

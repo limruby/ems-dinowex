@@ -31,6 +31,7 @@ export class Confirm extends Component {
             category: category
         };
         var account_id="";
+<<<<<<< HEAD
         var url=""
         if (data.category === "Bronze Package"){
              url = "https://www.billplz-sandbox.com/ip52udve6"
@@ -62,6 +63,31 @@ export class Confirm extends Component {
                 }  
            });    
        };
+=======
+
+        axiosInstance.post('/accounts/signUp', data)
+            .then(res=> {
+               
+                 
+            if(res.data._id){
+                this.account_id = res.data._id;
+                data["account_id"] = this.account_id;
+
+                axiosInstance.post('/sponsors/create', data)
+                .then(res=>{
+                    console.log(res.data)
+                    this.props.nextStep();
+                });
+             }
+             else{
+                 alert('Email existed')
+             }
+
+        });
+                                   
+       
+    };
+>>>>>>> 1848300 (validation test complete)
     back = e => {
         e.preventDefault();
         this.props.prevStep();
