@@ -16,11 +16,6 @@ const register = (req, res, next)=>{
     const role = req.body.role;
     const email = req.body.email;
     const password = hashedPassword;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 
      Account.findOne({ email:req.body.email}, function(err, result) {
     if(err) throw err;
@@ -41,39 +36,6 @@ const register = (req, res, next)=>{
     }
 
       
-<<<<<<< HEAD
-=======
-    
-
-    const newAccount = new Account({
-      role, 
-      email,
-      password
->>>>>>> 7c0a793 (merged with alexia's branch)
-=======
-
-     Account.findOne({ email:req.body.email}, function(err, result) {
-    if(err) throw err;
-    if(result){
-        res.json('Email existed');
-    }
-    else{
-
-        const newAccount = new Account({
-          role, 
-          email,
-          password
-        });
-
-        newAccount.save()
-          .then(() => res.json(newAccount))
-          .catch(err => res.status(400).json('Error: ' + err));
-    }
-
-      
->>>>>>> 1848300 (validation test complete)
-=======
->>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
     });
 
   });
@@ -160,19 +122,7 @@ const update = (req, res, next)=>{
           return res.status(200).json({ success: true, data: updateAccount })
         }
     }).catch(err => console.log(err)) 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 
-  }
-}
-
->>>>>>> 7c0a793 (merged with alexia's branch)
-
-<<<<<<< HEAD
-=======
-
->>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
   }
 }
 
@@ -192,7 +142,6 @@ const readAdmin = (req, res, next)=>{
   }).catch(err => console.log(err))
 };
 
-<<<<<<< HEAD
 const readAll = (req, res, next)=>{
   
   Account.find({}, (err, accounts) => {
@@ -208,24 +157,3 @@ const readAll = (req, res, next)=>{
   }).catch(err => console.log(err))
 };
 module.exports = {register, login, read, update, readAdmin, readAll}
-=======
-const readAdmin = (req, res, next)=>{
-  
-  Account.find({role: "Admin"},(err, accounts) => {
-      if (err) {
-          return res.status(400).json({ success: false, error: err })
-      }
-      if (!accounts) {
-          return res
-              .status(404)
-              .json({ success: false, error:err })
-      }
-      return res.status(200).json({ success: true, data: accounts })
-  }).catch(err => console.log(err))
-};
-
-module.exports = {register, login, read, update, readAdmin}
->>>>>>> b014062 (admindashboard_incomplete)
-=======
-module.exports = {register, login, read, update, readAdmin}
->>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
