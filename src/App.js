@@ -16,10 +16,12 @@ import competition_hall from './components/site/eventLobby/competition_hall/comp
 import Navbar from './components/site/navbar';
 import Footer from './components/site/footer';
 import AdminDashboard from './components/site/adminDashboard';
+import AdminEditDetails from './components/site/adminDashboard/edit';
 import PageNotFound from './components/PageNotFound.js';
 
 
 import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
+import EditAccount from './components/site/adminDashboard/edit/editAccount';
 
 const queryClient = new QueryClient()
 
@@ -27,7 +29,7 @@ const AdminRoute = ({ component: Component, ...rest }) => (
   <Route {...rest} render={(props) => (
       isAdmin()
         ?  <Component {...props} />     //true
-        :  <Redirect to='/page_not_found' />
+        :  <Redirect to='/page_not_found/' />
     )} />
 )
 
@@ -62,6 +64,10 @@ function App() {
         <PrivateRoute exact path='/user_dashboard/edit_book_chapter' component={EditUserDetails}/>
 
         <AdminRoute exact path='/admin_dashboard'  component={AdminDashboard}/>
+        <AdminRoute exact path='/admin_dashboard/edit_account'  component={AdminEditDetails}/>
+       <AdminRoute exact path='/admin_dashboard/:id/edit_password'  component={AdminEditDetails}/> 
+       <AdminRoute exact path='/admin_dashboard/:id/edit_profile_sponsor'  component={AdminEditDetails}/> 
+       <AdminRoute exact path='/admin_dashboard/:id/edit_profile_competitor'  component={AdminEditDetails}/> 
 
 		    <Route exact path='/eventLobby'  component={eventLobby}/>  
         <Route exact path='/sponsor_hall'  component={sponsor_hall}/> 

@@ -1,5 +1,6 @@
 import React, { useMemo,useState, useEffect } from "react";
 import Table from './Table.js';
+import {Link} from 'react-router-dom';
 import axiosInstance from '../../../utils/axiosConfig';
 
 function Competitor(){
@@ -43,9 +44,11 @@ const columns = React.useMemo(
           },
           {
             Header: 'Edit',
-            Cell: cell => (
-              <button className="btn btn-danger" >
-                Edit
+            Cell: data => (
+              <button className="btn btn-success" >
+                <div>
+          <Link to={`admin_dashboard/${data.row.original.account_id}/edit_profile_competitor`}>Edit</Link>
+              </div>
               </button>
             )
           },

@@ -39,9 +39,9 @@ export class Profiles extends Component {
                     <select className="form-control" id="category" required='required'
                     onChange={inputChange('category')} value={values.category} >
                         <option value="">Please select</option>
-                        <option value="Gold Package">Gold Package</option>
-                        <option value="Silver Package">Silver Package</option>
-                        <option value="Bronze Package">Bronze Package</option>
+                        <option value="Professional Innovator">Professional Innovator</option>
+                        <option value="Junior Innovator">Junior Innovator</option>
+                        <option value="Young Innovator">Young Innovator</option>
                     </select>
                 </div>
 

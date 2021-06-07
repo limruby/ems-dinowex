@@ -25,7 +25,7 @@ export const isAdmin = () => {
 
     if (localStorage.getItem('role')) {
         let role = localStorage.getItem('role');
-
+        
         if(role === "Admin"){
             return true;            
         }
