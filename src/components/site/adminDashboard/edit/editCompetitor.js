@@ -4,7 +4,15 @@ import Form from 'react-bootstrap/Form';
 import axiosInstance from '../../../../utils/axiosConfig.js';
 
 function EditProfile() {
-    const [data, setData] = useState();
+    const [data, setData] = useState({
+        name:'',
+        affiliation:'',
+        nric_passport_selection:'',
+        nric_passport_no:'',
+        address:'',
+        gender:'',
+        category:''
+    });
 
     const location = useLocation();
     const thePath = location.pathname;
@@ -44,7 +52,8 @@ function EditProfile() {
                 nric_passport_selection : data.nric_passport_selection,
                 nric_passport_no : data.nric_passport_no,
                 address : data.address,
-                gender : data.gender
+                gender : data.gender,
+                category: data.category
             }
 
 
@@ -71,6 +80,16 @@ function EditProfile() {
                     onChange={inputChange('name')} value={data.name} />
                 </div>
                 <div className="form-group">
+                    <label htmlFor="category"><span>*</span>Category</label>
+                    <select className="form-control" id="category" required
+                    onChange={inputChange('category')} value={data.category} >
+                        <option value="">Please select</option>
+                        <option value="Professional Innovator">Professional Innovator</option>
+                        <option value="Junior Innovator">Junior Innovator</option>
+                        <option value="Young Innovator">Young Innovator</option>
+                    </select> 
+                </div>
+                <div className="form-group">
                     <label htmlFor="affiliation"><span>*</span>Affiliation</label>
                     <input className="form-control" type='text'name='affiliation' id="affiliation"
                     placeholder='Affiliation' required
@@ -89,21 +108,6 @@ function EditProfile() {
                     <input className="form-control" type='text'name='nric_passport_no' id="nric_passport_no"
                     placeholder='NRIC / Passport Number' required
                     onChange={inputChange('nric_passport_no')} value={data.nric_passport_no} />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="address"><span>*</span>Address</label>
-                    <textarea className="form-control" id="address" cols="30" rows="7"
-                    onChange={inputChange('address')} value={data.address} 
-                    ></textarea>
-                </div>
-                <div className="form-group">
-                    <label htmlFor="gender_id"><span>*</span>Gender</label>
-                    <select className="form-control" id="gender_id" required
-                    onChange={inputChange('gender')} value={data.gender} >
-                        <option value="">Please select</option>
-                        <option value="MALE">Male</option>
-                        <option value="FEMALE">Female</option>
-                    </select>
                 </div>
         
 

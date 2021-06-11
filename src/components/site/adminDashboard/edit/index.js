@@ -7,6 +7,7 @@ import EditAccount from './editAccount.js';
 import EditPassword from './editPassword.js';
 import EditProfile_C from './editCompetitor.js';
 import EditProfile_S from './editSponsor.js';
+import CreateProfile from './createAccount.js';
 
 
 function FormNavigator() {
@@ -44,7 +45,16 @@ const lastPath = thePath.substring(thePath.lastIndexOf('/') + 1);
 			</div>
 		)			
 	}
+	else if (lastPath === 'create_profile'){
+		console.log(lastPath)
+		return( 
+		    <div className="form-main-container">
+				<CreateProfile/>
+			</div>
+		)			
+	}
 	else{
+		console.log(lastPath)
 		return(
 			<></>
 		)

@@ -31,6 +31,10 @@ const columns = React.useMemo(
             accessor: 'category',
           },
           {
+            Header: 'Sponsor Amount (RM)',
+            accessor: 'amount',
+          },
+          {
             Header: 'Company',
             accessor: 'company_name',
           },

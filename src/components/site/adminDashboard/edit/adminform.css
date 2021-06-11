@@ -44,6 +44,19 @@ label{
   padding: 2rem;
   padding-right: 20px;
 }
+.create-form-container{
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /*align-items: center;*/
+  margin: auto;
+  width: 30%;
+  background:#fff;
+  padding: 2rem;
+  padding-right: 20px;
+
+}
 
 .category-dropdown button{
   background: #343a40;

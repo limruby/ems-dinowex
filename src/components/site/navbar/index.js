@@ -48,8 +48,51 @@ const logout=()=>{
  
 window.addEventListener('resize', showButton);
  
+if (isAdmin() === true){
+  return (
+
+    <IconContext.Provider value={{color:'#000'}}>
  
-   if (isAuth() === true) {
+    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+      <Navbar.Brand href="#home"> <Link to='home_section_id' className="navbar-logo" onClick={closeMobileMenu}>
+           <img src={logo} height="50px" width="200px" alt="" />
+        </Link></Navbar.Brand>
+      <Nav className="ml-auto">    
+           
+        <div className="menu-icon" onClick={handleClick}>
+          {click ? <FaTimes />  : <FaBars/>}
+        </div>
+ 
+        <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+          <li className="nav-item">
+            <Nav.Link href="/">Home</Nav.Link>
+          </li>
+          <li className="nav-item">
+              <NavDropdown title="Event Lobby" id="basic-nav-dropdown" onToggle={() => { window.location.href = '/eventLobby'}}
+              show={show}
+              onMouseEnter={showDropdown}
+              onMouseLeave={hideDropdown}>
+                <NavDropdown.Item href="/sponsor_hall" >Sponsor Hall</NavDropdown.Item>
+                <NavDropdown.Item href="/competition_hall">Competition Hall</NavDropdown.Item>
+              </NavDropdown>
+          </li>
+          <li className="nav-item">
+            <Nav.Link href="/admin_dashboard">AdminDashboard</Nav.Link>
+          </li>
+          <li className="nav-item">
+            <Nav.Link onClick={logout}>Log Out</Nav.Link>
+          </li>
+        </ul>
+     
+      </Nav>
+    </Navbar>
+        </IconContext.Provider>  
+ 
+  );
+
+}
+ 
+  else if (isAuth() === true) {
   return (
  
     <IconContext.Provider value={{color:'#000'}}>
@@ -91,49 +134,7 @@ window.addEventListener('resize', showButton);
  
   );
   }
-  else if (isAdmin() === true){
-    return (
  
-      <IconContext.Provider value={{color:'#000'}}>
-   
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-        <Navbar.Brand href="#home"> <Link to='home_section_id' className="navbar-logo" onClick={closeMobileMenu}>
-             <img src={logo} height="50px" width="200px" alt="" />
-          </Link></Navbar.Brand>
-        <Nav className="ml-auto">    
-             
-          <div className="menu-icon" onClick={handleClick}>
-            {click ? <FaTimes />  : <FaBars/>}
-          </div>
-   
-          <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-            <li className="nav-item">
-              <Nav.Link href="/">Home</Nav.Link>
-            </li>
-            <li className="nav-item">
-                <NavDropdown title="Event Lobby" id="basic-nav-dropdown" onToggle={() => { window.location.href = '/eventLobby'}}
-                show={show}
-                onMouseEnter={showDropdown}
-                onMouseLeave={hideDropdown}>
-                  <NavDropdown.Item href="/sponsor_hall" >Sponsor Hall</NavDropdown.Item>
-                  <NavDropdown.Item href="/competition_hall">Competition Hall</NavDropdown.Item>
-                </NavDropdown>
-            </li>
-            <li className="nav-item">
-              <Nav.Link href="/admin_dashboard">AdminDashboard</Nav.Link>
-            </li>
-            <li className="nav-item">
-              <Nav.Link onClick={logout}>Log Out</Nav.Link>
-            </li>
-          </ul>
-       
-        </Nav>
-      </Navbar>
-          </IconContext.Provider>  
-   
-    );
-
-  }
   else{
         return(
        

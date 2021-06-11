@@ -48,7 +48,7 @@ function EditAccount({data, setData}) {
 
                
                 <div className="col-4 btn-group">
-                    <Link to="/user_dashboard">
+                    <Link to="/admin_dashboard">
                         <button className="btn btn-danger back-btn">Back</button>
                     </Link>
                     <input className="btn btn-primary" type="submit" value="Update" />
