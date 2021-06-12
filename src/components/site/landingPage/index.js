@@ -41,14 +41,12 @@ function LandingPage() {
             <div className="col-lg-4">
 			<div className="card mb-5 mb-lg-0">
 			<div className="card-body">
-				<h5 className="card-title text-muted text-uppercase text-center">Inventor/ Innovator</h5>
+				
 				<h1 className="card-price text-center">Professional</h1>
 				<hr></hr>
 				<p>Professionals from the relevant industry or staff of higher education institutions including private and public universities including polytechnic, community colleges, SME industries</p>
 				<hr></hr>
-				<p>Registration Fee : RM390</p>
-				<hr></hr>
-				<span className="competition-span"><p>* Early Bird Registration Fee : RM350</p></span>
+				<p>Registration Fee : RM280</p>
 				<hr></hr>
         <Link to="/sign_up">
 				  <div className="text-center"><a className="btn btn-primary text-uppercase js-scroll-trigger" href="/sign_up">Register</a></div>
@@ -61,14 +59,12 @@ function LandingPage() {
             <div className="col-lg-4">
 			<div className="card mb-5 mb-lg-0">
 			<div className="card-body">
-				<h5 className="card-title text-muted text-uppercase text-center">Young Inventor/ Innovator</h5>
-				<h1 className="card-price text-center">Higher Institution</h1>
+				<h1 className="card-price text-center">Young Innovator</h1>
 				<hr></hr>
 				<p>Students from all HEI including public and private universities, polytechnic, industrial learning colleges, IKM MARA, and international student participation</p>
-				<hr></hr>
-				<p>Registration Fee : RM290</p>
-				<hr></hr>
-				<span className="competition-span"><p>* Early Bird Registration Fee : RM250</p></span>
+				<br/>
+        <hr></hr>
+				<p>Registration Fee : RM230</p>
 				<hr></hr>
         <Link to="/sign_up">
 				  <div className="text-center"><a className="btn btn-primary text-uppercase js-scroll-trigger" href="/sign_up">Register</a></div>
@@ -80,14 +76,13 @@ function LandingPage() {
             <div className="col-lg-4">
 			<div className="card mb-5 mb-lg-0">
 			<div className="card-body">
-				<h5 className="card-title text-muted text-uppercase text-center">Junior Inventor/ Innovator</h5>
-				<h1 className="card-price text-center">School Students</h1>
+				{/* <h5 className="card-title text-muted text-uppercase text-center">Junior Inventor/ Innovator</h5> */}
+				<h1 className="card-price text-center">Junior Innovator</h1>
 				<hr></hr>
 				<p>Schools students (Age 17 and below) from government and private school including MRSM, Vocational Colleges</p>
-				<hr></hr>
-				<p>Registration Fee : RM190</p>
-				<hr></hr>
-				<span className="competition-span"><p>* Early Bird Registration Fee : RM150</p></span>
+				<br/><br/>
+        <hr></hr>
+				<p>Registration Fee : RM130</p>
 				<hr></hr>
         <Link to="/sign_up">
 				  <div className="text-center"><a className="btn btn-primary text-uppercase js-scroll-trigger" href="/sign_up">Register</a></div>

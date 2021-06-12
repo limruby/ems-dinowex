@@ -67,7 +67,7 @@ if (isAdmin() === true){
           <li className="nav-item">
             <Nav.Link href="/">Home</Nav.Link>
           </li>
-          <li className="nav-item">
+          {/* <li className="nav-item">
               <NavDropdown title="Event Lobby" id="basic-nav-dropdown" onToggle={() => { window.location.href = '/eventLobby'}}
               show={show}
               onMouseEnter={showDropdown}
@@ -75,7 +75,7 @@ if (isAdmin() === true){
                 <NavDropdown.Item href="/sponsor_hall" >Sponsor Hall</NavDropdown.Item>
                 <NavDropdown.Item href="/competition_hall">Competition Hall</NavDropdown.Item>
               </NavDropdown>
-          </li>
+          </li> */}
           <li className="nav-item">
             <Nav.Link href="/admin_dashboard">AdminDashboard</Nav.Link>
           </li>
@@ -111,7 +111,7 @@ if (isAdmin() === true){
           <li className="nav-item">
             <Nav.Link href="/">Home</Nav.Link>
           </li>
-          <li className="nav-item">
+          {/* <li className="nav-item">
               <NavDropdown title="Event Lobby" id="basic-nav-dropdown" onToggle={() => { window.location.href = '/eventLobby'}}
               show={show}
               onMouseEnter={showDropdown}
@@ -119,7 +119,7 @@ if (isAdmin() === true){
                 <NavDropdown.Item href="/sponsor_hall" >Sponsor Hall</NavDropdown.Item>
                 <NavDropdown.Item href="/competition_hall">Competition Hall</NavDropdown.Item>
               </NavDropdown>
-          </li>
+          </li> */}
           <li className="nav-item">
             <Nav.Link href="/user_dashboard">UserDashboard</Nav.Link>
           </li>
@@ -154,7 +154,7 @@ if (isAdmin() === true){
           <li className="nav-item">
             <Nav.Link href="/">Home</Nav.Link>
           </li>
-          <li className="nav-item">
+          {/* <li className="nav-item">
               <NavDropdown title="Event Lobby" id="basic-nav-dropdown" onToggle={() => { window.location.href = '/eventLobby'}}
               show={show}
               onMouseEnter={showDropdown}
@@ -162,7 +162,7 @@ if (isAdmin() === true){
                 <NavDropdown.Item href="/sponsor_hall" >Sponsor Hall</NavDropdown.Item>
                 <NavDropdown.Item href="/competition_hall">Competition Hall</NavDropdown.Item>
               </NavDropdown>
-          </li>
+          </li> */}
           <li className="nav-item">
             <Nav.Link href="/sign_up">Registration</Nav.Link>
           </li>
