@@ -1,18 +1,6 @@
 import React, { useState } from "react";
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { useTable, useFilters, useSortBy, useGlobalFilter } from "react-table";
-=======
-import { useTable, useFilters, useSortBy } from "react-table";
->>>>>>> ca69ace (Admin)
-=======
-import { useTable, useFilters, useSortBy, useGlobalFilter } from "react-table";
->>>>>>> b014062 (admindashboard_incomplete)
-=======
-import { useTable, useFilters, useSortBy, useGlobalFilter } from "react-table";
->>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
-
+import { useTable, useFilters, useSortBy, useGlobalFilter,usePagination, } from "react-table";
+ 
 export default function Table({ columns, data }) {
   const [filterInput, setFilterInput] = useState("");
   // Use the state and functions returned from useTable to build your UI
@@ -22,82 +10,44 @@ export default function Table({ columns, data }) {
     headerGroups,
     rows,
     prepareRow,
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
     setFilter,
-    setGlobalFilter
-=======
-    setFilter
->>>>>>> ca69ace (Admin)
-=======
-    setFilter,
-    setGlobalFilter
->>>>>>> b014062 (admindashboard_incomplete)
-=======
-    setFilter,
-    setGlobalFilter
->>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
+    setGlobalFilter,
+    pageOptions,
+    pageCount,
+    page,
+    state: { pageIndex, pageSize },
+    gotoPage,
+    previousPage,
+    nextPage,
+    setPageSize,
+    canPreviousPage,
+    canNextPage,
   } = useTable(
     {
       columns,
-      data
+      data,
+      initialState: { pageIndex: 0 },
     },
     useFilters,
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
     useGlobalFilter,
-=======
->>>>>>> ca69ace (Admin)
-=======
-    useGlobalFilter,
->>>>>>> b014062 (admindashboard_incomplete)
-=======
-    useGlobalFilter,
->>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
-    useSortBy
+    useSortBy,
+    usePagination,
   );
-
+ 
   const handleFilterChange = e => {
     const value = e.target.value || undefined;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
     setGlobalFilter(value);
     setFilterInput(value);
  
-=======
-    setFilter("show.name", value);
-    setFilterInput(value);
->>>>>>> ca69ace (Admin)
-=======
-    setGlobalFilter(value);
-    setFilterInput(value);
- 
->>>>>>> b014062 (admindashboard_incomplete)
-=======
-    setGlobalFilter(value);
-    setFilterInput(value);
- 
->>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
   };
-
+ 
   // Render the UI for your table
   return (
     <>
       <input
         value={filterInput}
         onChange={handleFilterChange}
-<<<<<<< HEAD
-<<<<<<< HEAD
         placeholder={"Search"}
-=======
-        placeholder={"Search name"}
->>>>>>> ca69ace (Admin)
-=======
-        placeholder={"Search name"}
->>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
       />
       <table {...getTableProps()}>
         <thead>
@@ -121,7 +71,7 @@ export default function Table({ columns, data }) {
           ))}
         </thead>
         <tbody {...getTableBodyProps()}>
-          {rows.map((row, i) => {
+          {page.map((row, i) => {
             prepareRow(row);
             return (
               <tr {...row.getRowProps()}>
@@ -135,6 +85,33 @@ export default function Table({ columns, data }) {
           })}
         </tbody>
       </table>
+      <div>
+        <button className="btn-primary btn table-button" onClick={() => previousPage()} disabled={!canPreviousPage}>
+          Previous Page
+        </button>
+        <button className="btn-primary btn table-button" onClick={() => nextPage()} disabled={!canNextPage}>
+          Next Page
+        </button>
+        <div>
+          Page{''}
+          <em className="table-button">
+            {pageIndex + 1} of {pageOptions.length}
+          </em>
+          <select className="table-button"
+          value={pageSize}
+          onChange={e => {
+            setPageSize(Number(e.target.value))
+          }}
+        >
+          {[5, 10, 15, 25, 30].map(pageSize => (
+            <option key={pageSize} value={pageSize}>
+              Show {pageSize}
+            </option>
+          ))}
+        </select>
+        </div>
+ 
+      </div>
     </>
   );
 }

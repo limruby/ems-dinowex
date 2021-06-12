@@ -28,7 +28,6 @@ export class Profiles extends Component {
                 values.company_contact==""||
                 values.company_address==""||
                 values.company_website==""|| 
-                values.company_pic_ic ==""||
                 values.company_logo){
                 alert("Form not fill");
             }

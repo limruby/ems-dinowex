@@ -1,40 +1,9 @@
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { FaTrashAlt } from 'react-icons/fa';
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-import Editor from './editor';
-<<<<<<< HEAD
-=======
->>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
-=======
-import { FaTrashAlt } from 'react-icons/fa';
->>>>>>> 70358d5 (update kale's progress 17th May 2021)
-=======
->>>>>>> 172511b (ckeditor)
-=======
-import Editor from "./editor.js";
-=======
->>>>>>> 09b1a14 (merge from before)
-=======
-import Editor from './editor';
->>>>>>> 8930f2e (merge from alexia)
-
-<<<<<<< HEAD
->>>>>>> 962c9ed (merge from before)
-
-=======
->>>>>>> 8654e33 (edit folder)
-=======
 import { FaTrashAlt } from 'react-icons/fa';
 import Editor from './editor';
 
->>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 import axiosInstance from '../../../../utils/axiosConfig.js';
 
 function EditBookChapter({data, setData}) {
@@ -78,19 +47,7 @@ function EditBookChapter({data, setData}) {
 
 	                    <li>
 	                      {reference}
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 	                      <button className="deleteBtn" type="button" onClick={deleteReference(index)}> <FaTrashAlt/></button>
-=======
-	                      <button className="deleteBtn" type="button" onClick={deleteReference(index)}> delete</button>
->>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
-=======
-	                      <button className="deleteBtn" type="button" onClick={deleteReference(index)}> <FaTrashAlt/></button>
->>>>>>> 70358d5 (update kale's progress 17th May 2021)
-=======
-	                      <button className="deleteBtn" type="button" onClick={deleteReference(index)}> <FaTrashAlt/></button>
->>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 	                    </li>
 	                    ))}
 	                </ul>
@@ -110,35 +67,11 @@ function EditBookChapter({data, setData}) {
                     <input type="text" className="form-control" name="reference" id="reference"
                     placeholder='reference'                    
                     onChange={tempInput('reference')} value={tempState.reference}/>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
                 	<button className="btn btn-primary" type="button" onClick={addReference()}> Add</button>
 
 					<br/>
                 	
 
-<<<<<<< HEAD
-=======
-					<br/>
-                	<button className="addBtn btn-primary btn" type="button" onClick={addReference()}> Add</button>
->>>>>>> 962c9ed (merge from before)
-=======
-                	<button className="addBtn" type="button" onClick={addReference()}> Add</button>
->>>>>>> 8654e33 (edit folder)
-=======
-                	<button className="btn btn-primary" type="button" onClick={addReference()}> Add</button>
->>>>>>> 248fc10 (added /api/ to axios GET POST)
-=======
-					<br/>
-                	<button className="addBtn btn btn-primary" type="button" onClick={addReference()}> Add</button>
->>>>>>> ab7142a (edit-bookchapter-content-done)
-=======
->>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
                 </div>
 
                 <hr/>
@@ -168,24 +101,9 @@ function EditBookChapter({data, setData}) {
 			data.abstract.push({'references': []})
 			
 		}
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 		else if(data.bookChapter[0]&&!data.bookChapter[0]['references']){
 			data.bookChapter[0]['references']=[];
 		}
-=======
->>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
-=======
-		else if(data.bookChapter[0]&&!data.bookChapter[0]['references']){
-			data.bookChapter[0]['references']=[];
-		}
->>>>>>> c5b9c68 (complete userdashboard)
-=======
-		else if(data.bookChapter[0]&&!data.bookChapter[0]['references']){
-			data.bookChapter[0]['references']=[];
-		}
->>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 			data.bookChapter[0]['references'].push(tempState.reference);
 		
 	    setData({
@@ -213,37 +131,22 @@ function EditBookChapter({data, setData}) {
 	const handleForm=(e)=>{
 	e.preventDefault();
 	// perform all neccassary validations
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 8654e33 (edit folder)
-=======
->>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 		var postData = {
                 _id : data._id,                
                 bookChapter : data.bookChapter
             }
-
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
+			if(data.bookChapter[0].content===undefined){
+				data.bookChapter[0].content = "";
+			}if(data.bookChapter[0].introduction===undefined){
+				data.bookChapter[0].introduction = "";
+			}if(data.bookChapter[0].conclusion===undefined){
+				data.bookChapter[0].conclusion = "";
+			}
+			console.log(postData)
 	   axiosInstance.post("/api/competitors/update", postData)
-=======
-	   axiosInstance.post("/competitors/update", data)
->>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
-=======
-	   axiosInstance.post("/competitors/update", postData)
->>>>>>> 8654e33 (edit folder)
-=======
-	   axiosInstance.post("/api/competitors/update", postData)
->>>>>>> 248fc10 (added /api/ to axios GET POST)
-=======
-	   axiosInstance.post("/api/competitors/update", postData)
->>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
             .then(function(response) {
-              window.location.href = '/user_dashboard';
+				
+            //   window.location.href = '/user_dashboard';
             }).catch(function(error) {
               console.log(error);
             })
@@ -286,40 +189,7 @@ function EditBookChapter({data, setData}) {
 
 	                <div className="form-group">
 	                    <label htmlFor="content">Content </label>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 						<Editor id = {data._id} bookChapter_data = {data.bookChapter}/>
-=======
-	                    <textarea className="form-control" id="content" cols="30" rows="10"
-                    	onChange={inputChange('content')} value={checkExist('content', 0)} />
->>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
-=======
-	                    <Editor/>
->>>>>>> 172511b (ckeditor)
-=======
-						<br/>
-						<Link to="/user_dashboard/edit_chapter_content">
-	                        <button className="btn btn-primary">Edit Content</button>
-	                    </Link>
- 
->>>>>>> 962c9ed (merge from before)
-=======
-	                    <Editor/>
->>>>>>> 8930f2e (merge from alexia)
-=======
-	                    <Editor id = {data._id} bookChapter_data = {data.bookChapter}/>
->>>>>>> 8654e33 (edit folder)
-=======
-						<Editor id = {data._id} bookChapter_data = {data.bookChapter}/>
->>>>>>> f475b73 (html2canvas print PDF preview)
-=======
-						<Editor id = {data._id} bookChapter_data = {data.bookChapter}/>
->>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 	                </div>
 					
 					 <div className="form-group">

@@ -12,7 +12,6 @@ import {FaEdit,FaCertificate,FaBook,FaRegBookmark} from 'react-icons/fa';
 import {BsPeopleCircle,BsFiles,BsBookHalf} from "react-icons/bs";
 
 import Account from './account';
-import Admin from './admin-sec';
 import Competitor from './competitor-sec';
 import Sponsor from './sponsor-sec';
 import './table.css'
@@ -45,7 +44,7 @@ function TabTitles(){
     <div>
       
       <div className="wrapper">
-       <Tab.Container id="left-tabs-example" defaultActiveKey="Admin">
+       <Tab.Container id="left-tabs-example" defaultActiveKey="Account">
           <Row>
             <Col sm={3} className="sidebar-wrapper">
                

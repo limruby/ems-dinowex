@@ -140,6 +140,9 @@ const update = (req, res, next)=>{
   if(req.body.bookChapter){
     updateCompetitor['bookChapter'] = req.body.bookChapter;
   }
+  if(req.body.category){
+    updateCompetitor['category'] = req.body.category;
+  }
    
 
     Competitor.findByIdAndUpdate(req.body._id, updateCompetitor, (err, competitors) => {

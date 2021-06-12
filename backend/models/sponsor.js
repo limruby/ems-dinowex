@@ -94,6 +94,9 @@ const sponsorSchema = new Schema({
   payment_verify: {
     type:String,
   },
+  amount: {
+    type:String,
+  },
   company_logo:[subSchema],
   poster:[subSchema],
   video:[videoSchema],

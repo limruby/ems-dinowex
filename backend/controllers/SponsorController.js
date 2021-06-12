@@ -146,7 +146,13 @@ const update = (req, res, next)=>{
     
       if(req.body.video){
         updateSponsor['video'] = req.body.video;
-      }          
+      }    
+      if(req.body.category){
+        updateSponsor['category'] = req.body.category;
+      }      
+      if(req.body.amount){
+        updateSponsor['amount'] = req.body.amount;
+      }
     
         Sponsor.findByIdAndUpdate(req.body._id, updateSponsor, (err, sponsors) => {
             if (err) {

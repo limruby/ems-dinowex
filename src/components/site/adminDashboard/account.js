@@ -1,41 +1,27 @@
-import React, { useMemo,useState, useEffect } from "react";
+import React, { useMemo, useState, useEffect } from "react";
 import Table from './Table.js';
 import axiosInstance from '../../../utils/axiosConfig';
+import { Link } from 'react-router-dom';
 
-function Account(){
+function Account() {
 
-  const [data, setData]=useState([]);
- 
- 
+  const [data, setData] = useState([]);
+
+
   useEffect(() => {
-     
- 
-      axiosInstance.get("/api/accounts/readAll")
-        .then(function(response) {
-          setData(response.data.data);
-        }).catch(function(error) {
-          console.log(error);
-        })
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
-        // axiosInstance.get("/api/accounts/readAll")  //filter
-        // .then(function(response) {
-        //   setData(response.data.data);
-        // }).catch(function(error) {
-        //   console.log(error);
-        // })
-<<<<<<< HEAD
->>>>>>> b014062 (admindashboard_incomplete)
-=======
->>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
-    }, []);
- 
 
-const columns = React.useMemo(
+    axiosInstance.get("/api/accounts/readAll")
+      .then(function (response) {
+        setData(response.data.data);
+      }).catch(function (error) {
+        console.log(error);
+      })
+
+  }, []);
+
+
+  const columns = React.useMemo(
     () => [
       {
         Header: 'Account',
@@ -45,32 +31,40 @@ const columns = React.useMemo(
             accessor: 'email',
           },
           {
-            Header: 'Password',
-            accessor: 'password',
-            Cell: cell => (
-              <button className="btn btn-danger" >
-                Edit
-              </button>
-            )
-          },
-          {
             Header: 'Role',
             accessor: 'role'
-          }
+          },
+          {
+            Header: 'Password',
+            accessor: 'password',
+            Cell: data => (
+              <Link to={`/admin_dashboard/${data.row.original._id}/edit_password`}>
+                <button className="btn btn-success" >
+
+                  Edit
+
+                </button></Link>
+            )
+          },
+
         ],
       },
 
-     
+
     ],
     []
   )
 
-  
+
 
   return (
     <div className="App">
-     
+      <Link to='/admin_dashboard/create_profile'>
+        <button className="btn btn-success" >
 
+          Create New Profile
+
+        </button></Link>
       <Table columns={columns} data={data} />
     </div>
   );
