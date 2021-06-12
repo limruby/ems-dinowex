@@ -1,34 +1,13 @@
 import React,{useState, useEffect} from 'react';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 import {isAuth, isAdmin} from './utils/isAuth'
 
-<<<<<<< HEAD
-=======
-import {isAuth} from './utils/isAuth'
-=======
-import {isAuth, isAdmin} from './utils/isAuth'
->>>>>>> bdfdade (Admin login)
-
-//
->>>>>>> a678ac2 (test)
-=======
->>>>>>> f9183b2 (update changes)
 import Landing from './components/site/landingPage';
 import SignIn from './components/site/login/login';
 import SignUp from './components/site/signUp'
 import Payment_Success from './components/site/payment_success.js'
 import Payment_Fail from './components/site/payment_fail'
-=======
-import {isAuth, isAdmin} from './utils/isAuth'
-
-import Landing from './components/site/landingPage';
-import SignIn from './components/site/login/login';
-import SignUp from './components/site/signUp'
->>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 import UserDashboard from './components/site/userDashboard';
 import EditUserDetails from './components/site/userDashboard/edit';
 import eventLobby from './components/site/eventLobby/eventLobby';
@@ -36,47 +15,21 @@ import sponsor_hall from './components/site/eventLobby/sponsor_hall/sponsor_hall
 import competition_hall from './components/site/eventLobby/competition_hall/competition_hall';
 import Navbar from './components/site/navbar';
 import Footer from './components/site/footer';
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 import AdminDashboard from './components/site/adminDashboard';
-=======
-// import AdminDashboard from './components/site/adminDashboard';
->>>>>>> 70358d5 (update kale's progress 17th May 2021)
-=======
-import AdminDashboard from './components/site/adminDashboard';
->>>>>>> bdfdade (Admin login)
-=======
-//import AdminDashboard from './components/site/adminDashboard';
->>>>>>> f9183b2 (update changes)
-=======
-//import AdminDashboard from './components/site/adminDashboard';
->>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
+import AdminEditDetails from './components/site/adminDashboard/edit';
 import PageNotFound from './components/PageNotFound.js';
 
 
 import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
+import EditAccount from './components/site/adminDashboard/edit/editAccount';
 
 const queryClient = new QueryClient()
 
 const AdminRoute = ({ component: Component, ...rest }) => (
   <Route {...rest} render={(props) => (
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-    
-    
-    
->>>>>>> bdfdade (Admin login)
-=======
-    
-    
-    
->>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
       isAdmin()
         ?  <Component {...props} />     //true
-        :  <Redirect to='/page_not_found' />
+        :  <Redirect to='/page_not_found/' />
     )} />
 )
 
@@ -100,16 +53,6 @@ function App() {
         <Route exact path='/' component={Landing}/>
         <Route exact path='/sign_in'  component={SignIn}/>
         <Route exact path='/sign_up'  component={SignUp}/>  
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-        <Route exact path='/upload'  component={uploadImage}/>  
->>>>>>> 7c0a793 (merged with alexia's branch)
-=======
->>>>>>> d6169f2 (sponsor edit profile can fetch data)
-=======
->>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 
         <PrivateRoute exact path='/user_dashboard'  component={UserDashboard}/>  
         <PrivateRoute exact path='/user_dashboard/edit_account' component={EditUserDetails}/>
@@ -120,21 +63,19 @@ function App() {
         <PrivateRoute exact path='/user_dashboard/edit_abstract' component={EditUserDetails}/>
         <PrivateRoute exact path='/user_dashboard/edit_book_chapter' component={EditUserDetails}/>
 
-        {/*<AdminRoute exact path='/admin_dashboard'  component={AdminDashboard}/>*/}
-
+        <AdminRoute exact path='/admin_dashboard'  component={AdminDashboard}/>
+        <AdminRoute exact path='/admin_dashboard/edit_account'  component={AdminEditDetails}/>
+       <AdminRoute exact path='/admin_dashboard/:id/edit_password'  component={AdminEditDetails}/> 
+       <AdminRoute exact path='/admin_dashboard/:id/edit_profile_sponsor'  component={AdminEditDetails}/> 
+       <AdminRoute exact path='/admin_dashboard/:id/edit_profile_competitor'  component={AdminEditDetails}/> 
+       <AdminRoute exact path='/admin_dashboard/create_profile'  component={AdminEditDetails}/>
 		    <Route exact path='/eventLobby'  component={eventLobby}/>  
         <Route exact path='/sponsor_hall'  component={sponsor_hall}/> 
         <Route exact path='/competition_hall'  component={competition_hall}/>
 
         <Route exact path='/page_not_found' component={PageNotFound} />
-<<<<<<< HEAD
-<<<<<<< HEAD
         <Route exact path='/payment_success'  component={Payment_Success}/>
         <Route exact path='/payment_fail'  component={Payment_Fail}/>
-=======
->>>>>>> bdfdade (Admin login)
-=======
->>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
       </Switch>
 	  <Footer/>
       
@@ -144,12 +85,4 @@ function App() {
   );
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 export default App;
-=======
-export default App;
->>>>>>> 70358d5 (update kale's progress 17th May 2021)
-=======
-export default App;
->>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
