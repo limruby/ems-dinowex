@@ -21,7 +21,10 @@ export class Profiles extends Component {
             if (
                 values.company_name ==""||
                 values.company_pic_name==""||
+<<<<<<< HEAD
                 values.company_pic_ic==""||
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
                 values.company_contact==""||
                 values.company_address==""||
                 values.company_website==""|| 

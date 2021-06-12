@@ -70,7 +70,19 @@ const Content = ({user, account}) =>  {
   function appendbookChapterContent(){
     if(user.bookChapter[0]===undefined){return ''}
     else if(user.bookChapter[0].content===undefined){return ''}
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
     else {return parse(user.bookChapter[0].content)}
+=======
+    else {return user.bookChapter[0].content}
+>>>>>>> c5b9c68 (complete userdashboard)
+=======
+    else {return parse(user.bookChapter[0].content)}
+>>>>>>> 248fc10 (added /api/ to axios GET POST)
+=======
+    else {return parse(user.bookChapter[0].content)}
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
   }
 
   function appendConclusion(){
@@ -179,8 +191,23 @@ const Content = ({user, account}) =>  {
 
   return (       
     <div>
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
           {/* 
         <button className="edit-button" onClick={generatePDF} type="primary">Download PDF</button> */} 
+=======
+            
+        <button className="edit-button" onClick={generatePDF} type="primary">Download PDF</button> 
+>>>>>>> 70358d5 (update kale's progress 17th May 2021)
+=======
+          {/* 
+        <button className="edit-button" onClick={generatePDF} type="primary">Download PDF</button> */} 
+>>>>>>> f475b73 (html2canvas print PDF preview)
+=======
+          {/* 
+        <button className="edit-button" onClick={generatePDF} type="primary">Download PDF</button> */} 
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 
     </div>
   );

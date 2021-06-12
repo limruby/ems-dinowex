@@ -1,6 +1,22 @@
 import React, {useState, useEffect} from 'react';
 import axiosInstance from '../../../utils/axiosConfig.js';
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
  
+<<<<<<< HEAD
+=======
+
+=======
+ 
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+import Footer from './../footer';
+>>>>>>> 7c0a793 (merged with alexia's branch)
+=======
+>>>>>>> 70358d5 (update kale's progress 17th May 2021)
+=======
+ 
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 import {Link} from 'react-router-dom';
 import './userDashboard.css';
  
@@ -12,47 +28,153 @@ import BookChapter from './book-chapter-sec';
 import ResearchTeam from './research-team-sec';
  
 import PdfAbstract from './pdf-abstract-bookChapter';
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 import Preview from './preview-sec';
+=======
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+=======
+import Preview from './preview-sec';
+>>>>>>> f475b73 (html2canvas print PDF preview)
+=======
+import Preview from './preview-sec';
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
  
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Tab, Nav, Row, Col,Card} from "react-bootstrap";
 import {FaEdit,FaCertificate,FaBook,FaRegBookmark} from 'react-icons/fa';
 import {BsPeopleCircle,BsFiles,BsBookHalf} from "react-icons/bs";
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> 7c0a793 (merged with alexia's branch)
+=======
+ 
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+=======
+ 
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 function UserDashboard() {
  
 ////////////////////get login user info (REPLACE THIS)  /////////////////////
   const [user, setUser]=useState([]);
   const [account, setAccount]=useState([]);
   const account_id = localStorage.getItem('user_id');
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
  
  
   useEffect(() => {
       axiosInstance.get("/api/competitors/read", {params:{account_id:account_id}})
+=======
+
+=======
+ 
+ 
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+  useEffect(() => {
+<<<<<<< HEAD
+<<<<<<< HEAD
+      axiosInstance .get("/competitors/read", {params:{account_id:account_id}})
+>>>>>>> 7c0a793 (merged with alexia's branch)
+=======
+      axiosInstance.get("/competitors/read", {params:{account_id:account_id}})
+>>>>>>> d6169f2 (sponsor edit profile can fetch data)
+=======
+      axiosInstance.get("/api/competitors/read", {params:{account_id:account_id}})
+>>>>>>> 248fc10 (added /api/ to axios GET POST)
+=======
+ 
+ 
+  useEffect(() => {
+      axiosInstance.get("/api/competitors/read", {params:{account_id:account_id}})
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
         .then(function(response) {
           setUser(response.data.data);
         }).catch(function(error) {
           console.log(error);
         });
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
      
       axiosInstance.get("/api/sponsors/read", {params:{account_id:account_id}})
+<<<<<<< HEAD
+=======
+      
+=======
+     
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+      axiosInstance.get("/sponsors/read", {params:{account_id:account_id}})
+>>>>>>> d6169f2 (sponsor edit profile can fetch data)
+=======
+>>>>>>> 248fc10 (added /api/ to axios GET POST)
+=======
+     
+      axiosInstance.get("/api/sponsors/read", {params:{account_id:account_id}})
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
         .then(function(response) {
           setUser(response.data.data);
         }).catch(function(error) {
           console.log(error);
         });
  
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
       axiosInstance.get("/api/accounts/read", {params:{account_id:account_id}})
+=======
+
+<<<<<<< HEAD
+      axiosInstance .get("/accounts/read", {params:{account_id:account_id}})
+>>>>>>> 7c0a793 (merged with alexia's branch)
+=======
+=======
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+      axiosInstance.get("/accounts/read", {params:{account_id:account_id}})
+>>>>>>> d6169f2 (sponsor edit profile can fetch data)
+=======
+      axiosInstance.get("/api/accounts/read", {params:{account_id:account_id}})
+>>>>>>> 248fc10 (added /api/ to axios GET POST)
+=======
+      axiosInstance.get("/api/accounts/read", {params:{account_id:account_id}})
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
         .then(function(response) {
           setAccount(response.data.data);
         }).catch(function(error) {
           console.log(error);
         })
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
     }, [account_id]);
  
        
+=======
+
+<<<<<<< HEAD
+    }, []);
+>>>>>>> 7c0a793 (merged with alexia's branch)
+=======
+
+    }, [account_id]);
+>>>>>>> d6169f2 (sponsor edit profile can fetch data)
+=======
+    }, [account_id]);
+ 
+       
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
 //////////////////////////////////////////////////////////////////////////////////
+<<<<<<< HEAD
  function welcome(role){
+<<<<<<< HEAD
+<<<<<<< HEAD
         switch(role){
                 case 'Sponsor':
         return (
@@ -73,6 +195,52 @@ function UserDashboard() {
         }
  }
  
+=======
+=======
+function welcome(role){
+>>>>>>> 335f562 (testing with uploadfilehandler)
+	switch(role){
+		case 'Sponsor':
+=======
+        switch(role){
+                case 'Sponsor':
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+=======
+    }, [account_id]);
+ 
+       
+//////////////////////////////////////////////////////////////////////////////////
+ function welcome(role){
+        switch(role){
+                case 'Sponsor':
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
+        return (
+                        <div className="row-username">
+                                <p>Welcome {user.company_name}</p>
+                        </div>);
+ 
+                case 'Competitor':
+                return (
+                        <div className="row-username">
+                                <p>Welcome {user.name}</p>
+                        </div>);
+                default:
+        return (
+                        <div className="row-username">
+                                <p>Welcome back</p>
+                        </div>);
+        }
+ }
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+>>>>>>> 85998ee (welcome back xxx)
+=======
+ 
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+=======
+ 
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
   function TabTitles(role){
     switch(role){
       case 'Sponsor':
@@ -117,16 +285,50 @@ function UserDashboard() {
  
   return (
    <>
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
  
     {welcome(account.role)}
  
+=======
+   <Navbar/>
+=======
+>>>>>>> d6169f2 (sponsor edit profile can fetch data)
+
+   {welcome(account.role)} 
+
+>>>>>>> 7c0a793 (merged with alexia's branch)
+=======
+ 
+    {welcome(account.role)}
+ 
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+=======
+ 
+    {welcome(account.role)}
+ 
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
    <div className="wrapper">
        <Tab.Container id="left-tabs-example" defaultActiveKey="Account-Profiles">
           <Row>
             <Col sm={3} className="sidebar-wrapper">
                
                {TabTitles(account.role)}
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
            
+=======
+            
+>>>>>>> 7c0a793 (merged with alexia's branch)
+=======
+           
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+=======
+           
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
             </Col>
  
  
@@ -155,7 +357,19 @@ function UserDashboard() {
                   </div>
           </Card.Body>
         </Card>
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> 7c0a793 (merged with alexia's branch)
+=======
+ 
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+=======
+ 
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
                   <p/>
  
                   <Card>
@@ -165,6 +379,33 @@ function UserDashboard() {
                       <a className="edit" href="/user_dashboard/edit_profile"><FaEdit/> Edit</a>
                     </Link>
                     <h2> Profile </h2>  
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+                     <Profile user={user} role={account.role}/>    
+                  </div>
+          </Card.Body>
+        </Card>
+ 
+=======
+                     <Profile user={user} role={account.role}/>     
+                  </div>
+          </Card.Body>
+        </Card>
+
+>>>>>>> 7c0a793 (merged with alexia's branch)
+                </Tab.Pane>
+ 
+                <Tab.Pane eventKey="Promo-Content">
+<<<<<<< HEAD
+		<Card>
+			<Card.Body>
+=======
+
+>>>>>>> 7c0a793 (merged with alexia's branch)
+=======
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
                      <Profile user={user} role={account.role}/>    
                   </div>
           </Card.Body>
@@ -173,13 +414,54 @@ function UserDashboard() {
                 </Tab.Pane>
  
                 <Tab.Pane eventKey="Promo-Content">
+<<<<<<< HEAD
+<<<<<<< HEAD
+ 
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+=======
 		<Card>
 			<Card.Body>
+>>>>>>> 70358d5 (update kale's progress 17th May 2021)
+=======
+		<Card>
+			<Card.Body>
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
                   <div className="sec-container">
                     <Link to='/user_dashboard/edit_content'>
                       <a className="edit" href="/user_dashboard/edit_content"><FaEdit/> Edit</a>
                     </Link>
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
                     <h2> Promotional Content</h2>    
+                    <PromoContent user={user}/>
+                  </div>  
+			</Card.Body>
+        </Card>
+=======
+                    <h5> Promotional Content</h5>     
+                    <PromoContent user={user}/>
+                  </div>  
+
+>>>>>>> 7c0a793 (merged with alexia's branch)
+                </Tab.Pane>
+ 
+                <Tab.Pane eventKey="Competition-Material">
+<<<<<<< HEAD
+			<Card>
+			<Card.Body>
+=======
+
+>>>>>>> 7c0a793 (merged with alexia's branch)
+=======
+                    <h5> Promotional Content</h5>    
+=======
+                    <h2> Promotional Content</h2>    
+>>>>>>> 70358d5 (update kale's progress 17th May 2021)
+=======
+                    <h2> Promotional Content</h2>    
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
                     <PromoContent user={user}/>
                   </div>  
 			</Card.Body>
@@ -187,13 +469,54 @@ function UserDashboard() {
                 </Tab.Pane>
  
                 <Tab.Pane eventKey="Competition-Material">
+<<<<<<< HEAD
+<<<<<<< HEAD
+ 
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+=======
 			<Card>
 			<Card.Body>
+>>>>>>> 70358d5 (update kale's progress 17th May 2021)
+=======
+			<Card>
+			<Card.Body>
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
                   <div className="sec-container">
                     <Link to='/user_dashboard/edit_content'>
                       <a className="edit" href=""><FaEdit/> Edit</a>
                     </Link>
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
                     <h2> Competition Material</h2>    
+                    <CompetitionMaterial user={user}/>
+                  </div>  
+			</Card.Body>
+        </Card>
+<<<<<<< HEAD
+=======
+                    <h5> Competition Material</h5>     
+                    <CompetitionMaterial user={user}/>
+                  </div>  
+
+>>>>>>> 7c0a793 (merged with alexia's branch)
+                </Tab.Pane>
+ 
+                <Tab.Pane eventKey="Abstract">
+<<<<<<< HEAD
+		<Card>
+			<Card.Body>
+=======
+
+>>>>>>> 7c0a793 (merged with alexia's branch)
+=======
+                    <h5> Competition Material</h5>    
+=======
+                    <h2> Competition Material</h2>    
+>>>>>>> 70358d5 (update kale's progress 17th May 2021)
                     <CompetitionMaterial user={user}/>
                   </div>  
 			</Card.Body>
@@ -201,12 +524,28 @@ function UserDashboard() {
                 </Tab.Pane>
  
                 <Tab.Pane eventKey="Abstract">
+<<<<<<< HEAD
+ 
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+=======
 		<Card>
 			<Card.Body>
+>>>>>>> 70358d5 (update kale's progress 17th May 2021)
+=======
+                </Tab.Pane>
+ 
+                <Tab.Pane eventKey="Abstract">
+		<Card>
+			<Card.Body>
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
                   <div className="sec-container">
                    <Link to='/user_dashboard/edit_abstract'>
                       <a className="edit" href=""><FaEdit/> Edit</a>
                     </Link>
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
                     <h2> Abstract </h2>    
                     <Abstract user={user}/>
                   </div> 
@@ -217,12 +556,76 @@ function UserDashboard() {
 
 		<Card>
 			<Card.Body>
+=======
+                    <h5> Abstract </h5>     
+=======
+                    <h5> Abstract </h5>    
+<<<<<<< HEAD
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+                    <Abstract/>
+=======
+                    <Abstract user={user}/>
+>>>>>>> c5b9c68 (complete userdashboard)
+                  </div>  
+>>>>>>> 7c0a793 (merged with alexia's branch)
+=======
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
+                    <h2> Abstract </h2>    
+                    <Abstract user={user}/>
+                  </div> 
+			</Card.Body>
+        </Card>
+
+		<p/>
+
+		<Card>
+			<Card.Body>
+<<<<<<< HEAD
+>>>>>>> 70358d5 (update kale's progress 17th May 2021)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
                   <div className="sec-container">
                    <Link to='/user_dashboard/edit_book_chapter'>
                       <a className="edit" href=""><FaEdit/> Edit</a>
                     </Link>
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
                     <h2> BookChapter </h2>    
                     <BookChapter user={user}/>
+=======
+                    <h5> BookChapter </h5>     
+=======
+                    <h5> BookChapter </h5>    
+<<<<<<< HEAD
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+                    <BookChapter/>
+                     <PdfAbstract/>
+>>>>>>> 7c0a793 (merged with alexia's branch)
+=======
+                    <BookChapter user={user}/>
+                     <PdfAbstract user = {user}/>
+>>>>>>> c5b9c68 (complete userdashboard)
+                  </div>
+<<<<<<< HEAD
+			</Card.Body>
+        </Card>
+        <p/>
+        <Card>
+			<Card.Body>
+                  <div className="sec-container">
+                    <h2> Preview </h2>    
+                    <Preview user={user}/>
+=======
+                    <h2> BookChapter </h2>    
+                    <BookChapter user={user}/>
+>>>>>>> 70358d5 (update kale's progress 17th May 2021)
+=======
+                    <h2> BookChapter </h2>    
+                    <BookChapter user={user}/>
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
                   </div>
 			</Card.Body>
         </Card>
@@ -237,26 +640,63 @@ function UserDashboard() {
         </Card>
 		<p/>
 		<PdfAbstract user = {user}/>
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+ 
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+=======
+>>>>>>> 70358d5 (update kale's progress 17th May 2021)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
                 </Tab.Pane>
  
                
  
                 <Tab.Pane eventKey="Research-Team">
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
  
 		<Card>
 			<Card.Body>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7c0a793 (merged with alexia's branch)
+=======
+ 
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+=======
+>>>>>>> 70358d5 (update kale's progress 17th May 2021)
+=======
+ 
+		<Card>
+			<Card.Body>
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
                   <div className="sec-container">
                    <Link to='/user_dashboard/edit_researchTeam'>
                       <a className="edit" href=""><FaEdit/> Edit</a>
                     </Link>
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
                     <h2> Research Team</h2>    
                     <ResearchTeam user={user}/>
                   </div>  
 			</Card.Body>
         </Card>
+=======
+                    <h5> Research Team</h5>     
+                    <ResearchTeam/>
+                  </div>  
+
+>>>>>>> 7c0a793 (merged with alexia's branch)
                 </Tab.Pane>
  
                 <Tab.Pane eventKey="Cert">
+<<<<<<< HEAD
 		<Card>
 			<Card.Body>
                   <div className="sec-container">
@@ -267,6 +707,57 @@ function UserDashboard() {
                   </div>  
 			</Card.Body>
         </Card>
+=======
+
+=======
+                    <h5> Research Team</h5>    
+=======
+                    <h2> Research Team</h2>    
+>>>>>>> 70358d5 (update kale's progress 17th May 2021)
+=======
+                    <h2> Research Team</h2>    
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
+                    <ResearchTeam user={user}/>
+                  </div>  
+			</Card.Body>
+        </Card>
+                </Tab.Pane>
+ 
+                <Tab.Pane eventKey="Cert">
+<<<<<<< HEAD
+<<<<<<< HEAD
+ 
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+=======
+		<Card>
+			<Card.Body>
+>>>>>>> 70358d5 (update kale's progress 17th May 2021)
+=======
+		<Card>
+			<Card.Body>
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
+                  <div className="sec-container">
+                    <h2> Download Certification</h2>    
+                   
+                    <h5>Coming Soon</h5>
+                   
+                  </div>  
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+>>>>>>> 7c0a793 (merged with alexia's branch)
+=======
+ 
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+=======
+			</Card.Body>
+        </Card>
+>>>>>>> 70358d5 (update kale's progress 17th May 2021)
+=======
+			</Card.Body>
+        </Card>
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
                 </Tab.Pane>
  
               </Tab.Content>
@@ -275,10 +766,34 @@ function UserDashboard() {
           </Row>
         </Tab.Container>
  
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
     </div>
  
    
     
+=======
+ 
+ 
+ 
+=======
+>>>>>>> c5b9c68 (complete userdashboard)
+    </div>
+ 
+   
+<<<<<<< HEAD
+    <Footer/>
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+=======
+    
+>>>>>>> 70358d5 (update kale's progress 17th May 2021)
+=======
+    </div>
+ 
+   
+    
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
    
   </>
   );

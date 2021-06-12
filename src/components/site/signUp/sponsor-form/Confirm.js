@@ -4,13 +4,16 @@ import axiosInstance from '../../../../utils/axiosConfig.js';
 export class Confirm extends Component {
     continue = async (e) => {
         e.preventDefault();
-        const { 
+   {/*     const { 
             values: {
                 email, 
                 password,
                 company_name, 
                 company_pic_name, 
+<<<<<<< HEAD
                 company_pic_ic,
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
                 company_contact, 
                 company_address, 
                 company_website, 
@@ -24,13 +27,18 @@ export class Confirm extends Component {
             password: password,
             company_name: company_name,
             company_pic_name: company_pic_name,
+<<<<<<< HEAD
             company_pic_ic:company_pic_ic,
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
             company_address:company_address,
             company_contact: company_contact,
             company_website: company_website,
             category: category
         };
         var account_id="";
+<<<<<<< HEAD
+<<<<<<< HEAD
         var url=""
         if (data.category === "Bronze Package"){
              url = "https://www.billplz-sandbox.com/ip52udve6"
@@ -62,6 +70,36 @@ export class Confirm extends Component {
                 }  
            });    
        };
+=======
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
+
+        axiosInstance.post('/accounts/signUp', data)
+            .then(res=> {
+               
+                 
+            if(res.data._id){
+                this.account_id = res.data._id;
+                data["account_id"] = this.account_id;
+
+                axiosInstance.post('/sponsors/create', data)
+                .then(res=>{
+                    console.log(res.data)
+                    this.props.nextStep();
+                });
+             }
+             else{
+                 alert('Email existed')
+             }
+
+        });
+       */}                             
+       
+    };
+<<<<<<< HEAD
+>>>>>>> 1848300 (validation test complete)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
     back = e => {
         e.preventDefault();
         this.props.prevStep();
@@ -69,6 +107,13 @@ export class Confirm extends Component {
 
     render() {
         const { values, inputChange } = this.props;
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 66ccca2 (sponsor uitmpay done)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
         const { 
             values: {email, 
                 password,
@@ -82,31 +127,126 @@ export class Confirm extends Component {
                 amount
             }
         } = this.props;
+<<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+        // const { 
+        //     values: {email, 
+        //         password,
+        //         company_name, 
+        //         company_pic_name, 
+        //         company_contact, 
+        //         company_address, 
+        //         company_website, 
+        //         category}
+        // } = this.props;
+        var  amount;
+
+        if(values.category === "Gold Package"){                     
+              amount= 390.00.toFixed(2);;
+        }
+        else if (values.category === "Silver Package"){
+              amount= 290.00.toFixed(2);;
+        }
+        else if (values.category === "Bronze Package"){
+              amount= 190.00.toFixed(2);;
+        }
+
+=======
+        
+>>>>>>> 66ccca2 (sponsor uitmpay done)
+=======
+        
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
+    var sha1 = require('sha1');
+    var hash_value = sha1(values.token + values.cmpy_code + values.zone + values.product_ID + amount + ".00");  
+    console.log(company_contact)
+
+<<<<<<< HEAD
+>>>>>>> 54aefd4 (sponsor payment gateway setup halfway, amount not clear)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
         return (
             <div>
                 <h1>Confirmation</h1>
                 <ul className="list-group">
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
                     <li className="list-group-item">Company Name: {values.company_name}</li>
                     <li className="list-group-item">PIC Name: {values.company_pic_name}</li>
                     <li className="list-group-item">IC: {values.company_pic_ic}</li>
+=======
+                    <li className="list-group-item">Company Name: {values.Componentcompany_name}</li>
+                    <li className="list-group-item">PIC Name: {values.company_pic_name}</li>
+>>>>>>> 54aefd4 (sponsor payment gateway setup halfway, amount not clear)
+=======
+                    <li className="list-group-item">Company Name: {values.company_name}</li>
+                    <li className="list-group-item">PIC Name: {values.company_pic_name}</li>
+                    <li className="list-group-item">IC: {values.company_pic_ic}</li>
+>>>>>>> 66ccca2 (sponsor uitmpay done)
+=======
+                    <li className="list-group-item">Company Name: {values.company_name}</li>
+                    <li className="list-group-item">PIC Name: {values.company_pic_name}</li>
+                    <li className="list-group-item">IC: {values.company_pic_ic}</li>
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
                     <li className="list-group-item">Email: {values.email}</li>
                     <li className="list-group-item">Phone Number: {values.company_contact}</li>
                     <li className="list-group-item">Company Address: {values.company_address}</li>
                     <li className="list-group-item">Company Website: {values.company_website}</li>
                     <li className="list-group-item">Selected Category: {values.category}</li>
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
                 </ul>
 
                 <br /><br />
+=======
+=======
+                    <li className="list-group-item">Sponsor Amount: RM {values.amount}.00</li>
+>>>>>>> 66ccca2 (sponsor uitmpay done)
+=======
+                    <li className="list-group-item">Sponsor Amount: RM {values.amount}.00</li>
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
+
+                </ul>
+
+                <br /><br />
+                <form className="list-group" action="https://uitmpay.uitm.edu.my/otherservices/products/AA04/02/149" method="POST">
+                    <input type="text" name="userid" value={values.company_pic_name} hidden/>
+                    <input type="text" name="ord_mercref" value= {"iidentex"+values.company_pic_name} hidden/>
+                    <input type="text" name="name" value={values.company_pic_name} hidden/>
+                    <input type="text" name="ic" value={values.company_pic_ic} hidden/>
+                    <input type="text" name="email" value={values.email}  hidden/>
+                    <input type="text" name="phone" value={values.company_contact}  hidden/>
+                    <input type="text" name="designation" value={values.company_pic_name} hidden/>
+                    <input type="text" name="address" value={values.company_address}  hidden/>
+
+<<<<<<< HEAD
+<<<<<<< HEAD
+                    <input type="text" name="hash_value" value={hash_value}hidden/>
+                    <input type="number" name="amount" value={amount} hidden />
+>>>>>>> 54aefd4 (sponsor payment gateway setup halfway, amount not clear)
+=======
+                    <input type="text" name="hash_value" value={hash_value} hidden/>
+                    <input type="number" name="amount" value={parseFloat(amount).toFixed(2)}  hidden/>
+                    
+>>>>>>> 66ccca2 (sponsor uitmpay done)
+=======
+                    <input type="text" name="hash_value" value={hash_value} hidden/>
+                    <input type="number" name="amount" value={parseFloat(amount).toFixed(2)}  hidden/>
+                    
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
                 <div className="row">
                     <div className="col-6">
                         <button className="btn btn-danger" onClick={this.back}>Back</button>
                     </div>
                     <div className="col-6 text-right">
-                        <button className="btn btn-primary" onClick={this.continue}>Confirm</button>
+                    <input type="submit" className="btn btn-primary"name="submit" value="Make payment" />
                     </div>
                 </div>
-
+                </form>
             </div>
         )
     }

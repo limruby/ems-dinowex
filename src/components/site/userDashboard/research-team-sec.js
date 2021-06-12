@@ -32,4 +32,12 @@ const Members = ({user}) =>  {
 
 
 
+<<<<<<< HEAD
+<<<<<<< HEAD
 export default Members;
+=======
+export default Members;
+>>>>>>> c5b9c68 (complete userdashboard)
+=======
+export default Members;
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed

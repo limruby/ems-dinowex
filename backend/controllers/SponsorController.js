@@ -1,19 +1,43 @@
 const Sponsor = require('../models/sponsor');
 // const mongoose = require('mongoose');
 var ObjectId = require('mongodb').ObjectId;
+<<<<<<< HEAD
 const qs = require('querystring');
 const CryptoJS = require('crypto-js');
 
+<<<<<<< HEAD
+<<<<<<< HEAD
 var LocalStorage = require('node-localstorage').LocalStorage,
   localStorage = new LocalStorage('./scratch');
   
+=======
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'uploads')
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.fieldname + '-' + Date.now())
+  }
+})
+ 
+var upload = multer({ storage: storage })
+
+>>>>>>> 86840ba (upload file function)
+=======
+>>>>>>> 67436a0 (delete code)
+=======
+
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 const create = (req, res, next)=>{
 
   const account_id = req.body.account_id;
   const category = req.body.category;
   const company_name = req.body.company_name;
   const company_pic_name = req.body.company_pic_name;
+<<<<<<< HEAD
   const company_pic_ic = req.body.company_pic_ic;
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
   const company_contact = req.body.company_contact;
   const company_address = req.body.company_address;
   const company_website = req.body.company_website;
@@ -24,7 +48,10 @@ const create = (req, res, next)=>{
     category,
     company_name, 
     company_pic_name, 
+<<<<<<< HEAD
     company_pic_ic,
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
     company_contact, 
     company_address, 
     company_website, 
@@ -32,7 +59,11 @@ const create = (req, res, next)=>{
     });
 
     newSponsor.save()
+<<<<<<< HEAD
       .then(() => res.json(newSponsor))
+=======
+      .then(() => res.json('New Sponsor Created!'))
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
       .catch(err => res.status(400).json('Error: ' + err));
 };
 
@@ -52,6 +83,7 @@ const read = (req, res, next)=>{
     }).catch(err => console.log(err))
  };
 
+<<<<<<< HEAD
  const readAll = (req, res, next)=>{ 
   Sponsor.find({}, (err, sponsors) => {
       if (err) {
@@ -65,10 +97,20 @@ const read = (req, res, next)=>{
       return res.status(200).json({ success: true, data: sponsors })
   }).catch(err => console.log(err))
 };
+=======
+
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 
 
 const update = (req, res, next)=>{
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> d6169f2 (sponsor edit profile can fetch data)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
       var updateSponsor = {};
 
       if(req.body.company_name){
@@ -77,9 +119,15 @@ const update = (req, res, next)=>{
       if(req.body.company_pic_name){
         updateSponsor['company_pic_name'] = req.body.company_pic_name;
       }
+<<<<<<< HEAD
+<<<<<<< HEAD
       if(req.body.company_pic_ic){
         updateSponsor['company_pic_ic'] = req.body.company_pic_ic;
       }
+=======
+>>>>>>> d6169f2 (sponsor edit profile can fetch data)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
       if(req.body.company_contact){
         updateSponsor['company_contact'] = req.body.company_contact;
       }
@@ -115,6 +163,8 @@ const update = (req, res, next)=>{
           }
         }).catch(err => console.log(err))
      };
+<<<<<<< HEAD
+<<<<<<< HEAD
 
 const updatePayment = (req, res, next) => {
       console.log(req.body.sponsor_id)
@@ -134,6 +184,43 @@ const updatePayment = (req, res, next) => {
     if(sponsors){
     return res.status(200).json({ success: true, data: req.body })
     }
+=======
+    const account_id = req.body.account_id;
+    const category = req.body.category;
+    const company_name = req.body.company_name;
+    const company_pic_name = req.body.company_pic_name;
+    const company_contact = req.body.company_contact;
+    const company_address = req.body.company_address;
+    const company_website = req.body.company_website;
+    const company_logo = req.body.company_logo;
+    const poster = req.body.poster;
+    const video = req.body.video;
+
+  const newSponsor = new Sponsor({
+    account_id, 
+    category,
+    company_name, 
+    company_pic_name, 
+    company_contact, 
+    company_address, 
+    company_website, 
+    company_logo,
+    poster,
+    video,
+    });
+
+    newSponsor.save()
+      .then(() => res.json('Sponsor Created!'))
+      .catch(err => res.status(400).json('Error: ' + err));
+
+
+    Sponsor.findByIdAndUpdate(req.body._id, newSponsor, (err, sponsors) => {
+        if (err) {
+            return res.status(400).json({ success: false, error: err })
+        }
+        
+        return res.status(200).json({ success: true, data: sponsors })
+>>>>>>> 7c0a793 (merged with alexia's branch)
     }).catch(err => console.log(err))
     
     }
@@ -170,4 +257,16 @@ const updatePayment = (req, res, next) => {
     }
 
 module.exports = {create, read, readAll, update, updatePayment, pay}
+=======
+>>>>>>> d6169f2 (sponsor edit profile can fetch data)
 
+<<<<<<< HEAD
+=======
+module.exports = {create, read, update}
+
+>>>>>>> d526164 (upload sponsor company logo)
+=======
+
+module.exports = {create, read, update}
+
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed

@@ -14,6 +14,60 @@ function displayVideo(){
     return section;
 
   }
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+}
+ 
+  return (      
+    <div>
+      <h4>Videos</h4>
+      <ul>
+        {displayVideo()}
+      </ul>
+<<<<<<< HEAD
+	  <hr/>
+      <h4>Poster</h4>
+=======
+      <h2>Poster</h2>
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+      <ul>
+        {displayPoster()}
+      </ul>
+    </div>
+  );
+ 
+}
+ 
+ 
+ 
+ 
+export default PromoContent;
+=======
+   
+    return (      
+      <div>
+        <h4>Videos</h4>
+        <ul>
+          {displayVideo()}
+        </ul>
+        <h4>Poster</h4>
+        <ul>
+          {displayPoster()}
+        </ul>
+      </div>
+    );
+   
+  }
+   
+   
+   
+   
+  export default PromoContent;
+>>>>>>> 70358d5 (update kale's progress 17th May 2021)
+=======
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 }
 function displayPoster(){
   if(user.poster){
@@ -51,4 +105,9 @@ function displayPoster(){
  
  
  
+<<<<<<< HEAD
 export default PromoContent;
+>>>>>>> 962c9ed (merge from before)
+=======
+export default PromoContent;
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed

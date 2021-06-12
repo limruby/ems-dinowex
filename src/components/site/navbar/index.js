@@ -40,12 +40,35 @@ const showDropdown = (e)=>{
 const hideDropdown = e => {
     setShow(false);
 }
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
  
 const logout=()=>{
         localStorage.clear();
         window.location.href = '/';
 };
  
+<<<<<<< HEAD
+=======
+
+=======
+ 
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+const logout=()=>{
+        localStorage.clear();
+        window.location.href = '/';
+};
+<<<<<<< HEAD
+
+>>>>>>> bad270e (with logout function)
+=======
+ 
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 window.addEventListener('resize', showButton);
  
 if (isAdmin() === true){
@@ -164,10 +187,30 @@ if (isAdmin() === true){
               </NavDropdown>
           </li>
           <li className="nav-item">
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
             <Nav.Link href="/sign_up">Registration</Nav.Link>
           </li>
           <li className="nav-item">
             <Nav.Link href="/sign_in">Sign In</Nav.Link>
+=======
+            <Nav.Link href="/user_dashboard">UserDashboard</Nav.Link>
+          </li>
+          <li className="nav-item">
+            <Nav.Link onClick={logout}>Log Out</Nav.Link>
+>>>>>>> bad270e (with logout function)
+=======
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
+            <Nav.Link href="/sign_up">Registration</Nav.Link>
+          </li>
+          <li className="nav-item">
+            <Nav.Link href="/sign_in">Sign In</Nav.Link>
+<<<<<<< HEAD
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
           </li>
         </ul>
      

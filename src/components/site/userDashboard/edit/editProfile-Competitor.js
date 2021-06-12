@@ -16,12 +16,34 @@ function EditProfile({data, setData}) {
     const handleForm=(e)=>{
         e.preventDefault();
     // perform all neccassary validations
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
         if (data.name ===""||data.affiliation===""||data.nric_passport_selection===""||data.nric_passport_no===""
             ||data.address===""||data.gender===""){
+=======
+        if (data.name ==""||data.affiliation==""||data.nric_passport_selection==""||data.nric_passport_no==""
+            ||data.address==""||data.gender==""){
+>>>>>>> 7c0a793 (merged with alexia's branch)
+=======
+        if (data.name ===""||data.affiliation===""||data.nric_passport_selection===""||data.nric_passport_no===""
+            ||data.address===""||data.gender===""){
+>>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
+=======
+        if (data.name ===""||data.affiliation===""||data.nric_passport_selection===""||data.nric_passport_no===""
+            ||data.address===""||data.gender===""){
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
             alert("Form not fill");
         }
         else{
             ///////update to db /////////////
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 8654e33 (edit folder)
+=======
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
             var postData = {
                 _id : data._id,
                 name : data.name,
@@ -33,7 +55,22 @@ function EditProfile({data, setData}) {
             }
 
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
             axiosInstance.post("/api/competitors/update", postData)
+=======
+            axiosInstance.post("/competitors/update", data)
+>>>>>>> 7c0a793 (merged with alexia's branch)
+=======
+            axiosInstance.post("/competitors/update", postData)
+>>>>>>> 8654e33 (edit folder)
+=======
+            axiosInstance.post("/api/competitors/update", postData)
+>>>>>>> 248fc10 (added /api/ to axios GET POST)
+=======
+            axiosInstance.post("/api/competitors/update", postData)
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
             .then(function(response) {
               window.location.href = '/user_dashboard';
             }).catch(function(error) {
@@ -110,4 +147,12 @@ console.log(data);
 
 }
 
+<<<<<<< HEAD
+<<<<<<< HEAD
 export default EditProfile;
+=======
+export default EditProfile;
+>>>>>>> 7c0a793 (merged with alexia's branch)
+=======
+export default EditProfile;
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
