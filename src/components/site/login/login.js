@@ -25,7 +25,6 @@ function Login()
 
             localStorage.clear();
             if(res.data.auth===true){
-<<<<<<< HEAD
 
                 if(res.data.result.role==="Admin"){
                     localStorage.setItem('role', res.data.result.role);  
@@ -93,13 +92,6 @@ function Login()
                           console.log(error);
                         });
                     }                           
-=======
-                localStorage.setItem('token', res.data.token); 
-                localStorage.setItem('user_id', JSON.stringify(res.data.result._id));
-              console.log(res.data);  
-                
-            redirect();
->>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
             }
             else{
                 alert("Email or password not match.")

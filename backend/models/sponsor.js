@@ -35,19 +35,6 @@ const sponsorSchema = new Schema({
     type: String,
     required: true
   }, 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-  phone_no:{
-	type:String,
-	required:true
-  },
->>>>>>> 577544f (with payment gateway-half done)
-=======
->>>>>>> 54aefd4 (sponsor payment gateway setup halfway, amount not clear)
-=======
->>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
   company_name: {
     type: String,
     required: true
@@ -68,20 +55,10 @@ const sponsorSchema = new Schema({
     type: String,
     required: true
   }, 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 66ccca2 (sponsor uitmpay done)
-=======
->>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
   company_pic_ic:{
     type: String,
     required: true
   },
-<<<<<<< HEAD
-<<<<<<< HEAD
   bill_id:{
     type: String, 
   },
@@ -100,30 +77,6 @@ const sponsorSchema = new Schema({
   company_logo:[subSchema],
   poster:[subSchema],
   video:[videoSchema],
-=======
-  company_logo: {
-    type: Buffer,
-    required: false
-  }, 
-=======
->>>>>>> 082b413 (upload and display company logo)
-=======
->>>>>>> 66ccca2 (sponsor uitmpay done)
-
-  company_logo:[subSchema],
-  poster:[subSchema],
-<<<<<<< HEAD
-  video:[subSchema],
->>>>>>> d6169f2 (sponsor edit profile can fetch data)
-=======
-  video:[videoSchema],
->>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
-=======
-
-  company_logo:[subSchema],
-  poster:[subSchema],
-  video:[videoSchema],
->>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 
 }, {
   timestamps: true,

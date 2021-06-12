@@ -3,10 +3,6 @@ import AccountSetup from './AccountSetup';
 import Category from './Category';
 import Profiles from './Profiles';
 import Confirm from './Confirm';
-<<<<<<< HEAD
-=======
-import Success from './Success';
->>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 
 export class SponsorForm extends Component {
     state = {
@@ -23,13 +19,7 @@ export class SponsorForm extends Component {
         company_website:'',
         company_logo:'',        
         role: 'sponsor',
-        category:'',
-        amount:'',
-
-        cmpy_code : "AA04",
-        zone :"02",
-        product_ID :"149",
-        token :"Yb0V3AJkfDqVsJX1K7Hvuj7vPnDFyp8ZFZytBAN6sgGTtas7Fq",
+        category:''
     };
 
     nextStep = () => {
@@ -43,21 +33,9 @@ export class SponsorForm extends Component {
     };
 
     inputChange = input => e => {
-        if(input === "category"){
-            this.setState({
-                [input]: e.target.value,
-                
-            });
-            this.setState({
-                ['amount']: ''
-            });
-        }
-        else {
-            this.setState({
-                [input]: e.target.value
-            });
-        }
-        
+        this.setState({
+            [input]: e.target.value
+        });
     };
 
     render() {
@@ -74,15 +52,7 @@ export class SponsorForm extends Component {
         company_website,
         company_logo,        
         role,
-        category,
-        amount,
-    
-        cmpy_code,
-        zone,
-        product_ID,
-        token,
-
-    } = this.state;
+        category} = this.state;
         const values = { 
         email,
         password,
@@ -95,14 +65,7 @@ export class SponsorForm extends Component {
         company_website,
         company_logo,        
         role,
-        category,
-        amount,
-
-        cmpy_code,
-        zone,
-        product_ID,
-        token,
-    };
+        category};
 
         switch (step) {
             case 1:
@@ -140,13 +103,6 @@ export class SponsorForm extends Component {
                         values={values}
                     />
                 );
-<<<<<<< HEAD
-=======
-            case 5:
-                return (
-                    <Success />
-                );
->>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
         }
     }
 }

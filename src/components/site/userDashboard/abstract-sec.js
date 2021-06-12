@@ -67,23 +67,7 @@ const AbstractContent = ({user}) =>  {
   return (       
     <div>
       <div id="pdfAbstract">
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
-       
-
-        {displayTitle()}
-        {displayContent()}
-        {displayKeywords()}
->>>>>>> c5b9c68 (complete userdashboard)
-=======
-
->>>>>>> f475b73 (html2canvas print PDF preview)
-=======
-
->>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
         
       </div>  
       
@@ -95,12 +79,4 @@ const AbstractContent = ({user}) =>  {
 
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 export default AbstractContent;
-=======
-export default AbstractContent;
->>>>>>> c5b9c68 (complete userdashboard)
-=======
-export default AbstractContent;
->>>>>>> d66119a3842624f919323611cf66ba932f9a38ed

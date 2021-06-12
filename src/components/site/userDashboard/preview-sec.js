@@ -10,16 +10,6 @@ const PdfPreview = ({user, account}) =>  {
 
     if(user.abstract!==undefined){
     var section = [];
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> f475b73 (html2canvas print PDF preview)
-=======
->>>>>>> b231f77 (https done but CORS issue for payment)
-=======
->>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
     for (var i=0; i<user.abstract.length; i++){
         section.push(
             <div id="abstract_title">

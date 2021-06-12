@@ -91,23 +91,7 @@ const competitorSchema = new Schema({
   phone_no:{
 	type:String,
 	required:true
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
   },
-=======
-  }
->>>>>>> 4ea11f3 (with phone number)
-=======
-  },
->>>>>>> f9183b2 (update changes)
-=======
-  },
->>>>>>> afc4289 (with payment gateway-half done)
-=======
-  },
->>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
   address: {
     type: String,
     required: true
@@ -116,9 +100,6 @@ const competitorSchema = new Schema({
     type: String,
     required: true
   },
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
   bill_id:{
     type: String, 
   },
@@ -128,37 +109,12 @@ const competitorSchema = new Schema({
   bill_status: {
     type:String,
   },
-=======
-
->>>>>>> d526164 (upload sponsor company logo)
-=======
-
->>>>>>> 614d77e (update model)
-=======
-
->>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
   poster:[subSchema],
   achievements:[subSchema],
   publications:[subSchema],
   grants:[subSchema],
-<<<<<<< HEAD
-<<<<<<< HEAD
-  
-<<<<<<< HEAD
-<<<<<<< HEAD
-  video:[videoSchema],
-=======
-=======
->>>>>>> 614d77e (update model)
-  video:[subSchema],
->>>>>>> d526164 (upload sponsor company logo)
-=======
-  video:[videoSchema],
->>>>>>> 28aeaaf (sponsor video and poster, upload and delete)
-=======
   
   video:[videoSchema],
->>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 
   abstract:[abstractSchema],
 
