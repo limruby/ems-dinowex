@@ -54,10 +54,6 @@ const PdfPreview = ({user, account}) =>  {
 
           <div id="downloadPdf" style={defaultStyle}>
               <p>{displayTitle()}</p>
-
-
-
-
           </div>
       </div>
   );

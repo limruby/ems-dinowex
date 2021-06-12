@@ -42,38 +42,36 @@ function CreateAccount() {
 
     const handleForm=(e)=>{
         e.preventDefault();
-    // perform all neccassary validations
-    
         // perform all neccassary validations
-            if (data.password === null || data.email === null || data.role === null) {
-                alert("Form Incomplete!");  
-            }
+        if (data.password === null || data.email === null || data.role === null) {
+            alert("Form Incomplete!");  
+        }
 
 
         else{
             ///////update to db /////////////
             axiosInstance.post("/api/accounts/signUp", data)
             .then(function(response) {
-              if(data.role === "Competitor"){
-                compData["account_id"] = response.data._id
-                axiosInstance.post("/api/competitors/create", compData)
-                .then(function(response){
-                    window.location.href = '/admin_dashboard';
-                }).catch(function(error){
-                    console.log(error)
-                })
-              }
-              else if(data.role === "Sponsor"){
-                sponsorData["account_id"] = response.data._id
-                axiosInstance.post("/api/sponsors/create", sponsorData)
-                .then(function(response){
-                    window.location.href = '/admin_dashboard';
-                }).catch(function(error){
-                    console.log(error)
-                })
-              }
+                if(data.role === "Competitor"){
+                    compData["account_id"] = response.data._id
+                    axiosInstance.post("/api/competitors/create", compData)
+                    .then(function(response){
+                        window.location.href = '/admin_dashboard';
+                    }).catch(function(error){
+                        console.log(error)
+                    })
+                }
+                else if(data.role === "Sponsor"){
+                    sponsorData["account_id"] = response.data._id
+                    axiosInstance.post("/api/sponsors/create", sponsorData)
+                    .then(function(response){
+                        window.location.href = '/admin_dashboard';
+                    }).catch(function(error){
+                        console.log(error)
+                    })
+                }
             }).catch(function(error) {
-              console.log(error);
+                console.log(error);
             })
             
         }
@@ -113,7 +111,6 @@ function CreateAccount() {
                 </div>
 
         
-
                 <br />
 
                 <div className="row">

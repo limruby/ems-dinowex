@@ -3,22 +3,21 @@ import FormChange from './form_change';
 import Footer from './../footer';
 import './form.css';
 
-function Profile() {
+function Signup() {
 
 
   return (
     <>
-    <div className="signup-main-container">
-      <div className="signup-form-container">
-      <FormChange value />     
+    
+      <div className="signup-main-container">
+        <div className="signup-form-container">
+          <FormChange value />     
+        </div>
       </div>
-      </div>
-  
-      
   
     </>
   );
 
 }
 
-export default Profile;
+export default Signup;

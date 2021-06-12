@@ -89,8 +89,8 @@ const competitorSchema = new Schema({
     required: true
   }, 
   phone_no:{
-	type:String,
-	required:true
+    type:String,
+    required:true
   },
   address: {
     type: String,

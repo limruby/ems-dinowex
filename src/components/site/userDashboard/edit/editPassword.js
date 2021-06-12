@@ -2,51 +2,46 @@ import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import axiosInstance from '../../../../utils/axiosConfig.js';
- 
-function EditAccount({data, setData}) {
- 
-/////////////////////get login user (REPLACE THIS) ////////////////
-const [user, setState] = useState({
-      _id: '',
-      newPassword: '',
-      confirmPassword:''
- 
-});
-   
- 
+
+function EditPassword({data, setData}) {
+
+    const [user, setState] = useState({
+        _id: '',
+        newPassword: '',
+        confirmPassword:''
+    });
+
     const inputChange = input => e => {
         setState({
             ...user,
-                        _id:data._id,
+            _id:data._id,
             [input]: e.target.value
         });
     };
- 
+
     const handleForm=(e)=>{
         e.preventDefault();
-    // perform all neccassary validations
+        // perform all neccassary validations
         if (user.newPassword !== user.confirmPassword) {
             alert("Password don't match");  
         }
         else if (user.newPassword==="" || user.confirmPassword===""){
             alert("Form not fill");
         }
-        else{
-           
-             console.log(data);  
+        else{        
             ///////update to db /////////////
-             axiosInstance.post("/api/accounts/update", user)
+            axiosInstance.post("/api/accounts/update", user)
             .then(function(response) {
-               window.location.href = '/user_dashboard';
+                window.location.href = '/user_dashboard';
             }).catch(function(error) {
-              console.log(error);
+                console.log(error);
             })
         }
     }
- 
+
 /////////////////////////////////////////////////////////////
- 
-    return(
+
+     return(
         <>
             <form onSubmit={handleForm}>
             <div className="form-container">
@@ -82,8 +77,8 @@ const [user, setState] = useState({
             </form>
          </>
  
-        )
- 
+        );
+
 }
- 
-export default EditAccount;
+
+export default EditPassword;

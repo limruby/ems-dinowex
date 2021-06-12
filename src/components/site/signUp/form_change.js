@@ -14,36 +14,36 @@ const SectionChange = () =>  {
     setValue(e);
   }
 
-   
-    if(value==='Competitor'){
-      return ( 
-        <CompetitionSection /> 
-        );
-    }
-    else if(value==='Sponsor'){
-      return ( 
-        <SponsorshipSection /> 
-        );
-    }
-    else{
-      return (
-        <div className="signUp-form-container">
-          <h3>Select Category</h3>
-          <DropdownButton
-          alignRight
-          title={value}
-          id="dropdown-menu-align-right"
-          onSelect={handleSelect}
-          className="category-dropdown"
-          >
-            <Dropdown.Item eventKey="Competitor">Competitor</Dropdown.Item>
-            <Dropdown.Item eventKey="Sponsor">Sponsor</Dropdown.Item>
-          </DropdownButton>
-        </div>
-        
-        );
+  
+  if(value==='Competitor'){
+    return ( 
+      <CompetitionSection /> 
+      );
+  }
+  else if(value==='Sponsor'){
+    return ( 
+      <SponsorshipSection /> 
+      );
+  }
+  else{
+    return (
+      <div className="signUp-form-container">
+      <h3>Select Category</h3>
+      <DropdownButton
+      alignRight
+      title={value}
+      id="dropdown-menu-align-right"
+      onSelect={handleSelect}
+      className="category-dropdown"
+      >
+      <Dropdown.Item eventKey="Competitor">Competitor</Dropdown.Item>
+      <Dropdown.Item eventKey="Sponsor">Sponsor</Dropdown.Item>
+      </DropdownButton>
+      </div>
+      
+      );
     }
 
-}
+  }
 
-export default SectionChange;
+  export default SectionChange;

@@ -2,51 +2,50 @@ import React, {useState} from 'react';
 import {Link, useLocation} from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import axiosInstance from '../../../../utils/axiosConfig.js';
- 
-function EditAccount() {
- 
+
+function EditPassword() {
+
 /////////////////////get login user (REPLACE THIS) ////////////////
 const [user, setState] = useState({
-      _id: '',
-      newPassword: '',
-      confirmPassword:''
- 
+    _id: '',
+    newPassword: '',
+    confirmPassword:''
+
 });
 const location = useLocation();
 const thePath = location.pathname;
 const user_id = thePath.substring(thePath.indexOf('/', 2) + 1, thePath.lastIndexOf('/'));
-console.log(user_id)
-    const inputChange = input => e => {
-        setState({
-            ...user,
-            _id:user_id,
-            [input]: e.target.value
-        });
-    };
- 
-    const handleForm=(e)=>{
-        e.preventDefault();
+
+const inputChange = input => e => {
+    setState({
+        ...user,
+        _id:user_id,
+        [input]: e.target.value
+    });
+};
+
+const handleForm=(e)=>{
+    e.preventDefault();
     // perform all neccassary validations
-        if (user.newPassword !== user.confirmPassword) {
-            alert("Password don't match");  
-        }
-        else if (user.newPassword==="" || user.confirmPassword===""){
-            alert("Form not fill");
-        }
-        else{
-           
+    if (user.newPassword !== user.confirmPassword) {
+        alert("Password don't match");  
+    }
+    else if (user.newPassword==="" || user.confirmPassword===""){
+        alert("Form not fill");
+    }
+    else{
             ///////update to db /////////////
-             axiosInstance.post("/api/accounts/update", user)
+            axiosInstance.post("/api/accounts/update", user)
             .then(function(response) {
-               window.location.href = '/admin_dashboard';
+                window.location.href = '/admin_dashboard';
             }).catch(function(error) {
-              console.log(error);
+                console.log(error);
             })
         }
     }
- 
+
 /////////////////////////////////////////////////////////////
- 
+
     return(
         <>
             <form onSubmit={handleForm}>
@@ -84,7 +83,5 @@ console.log(user_id)
          </>
  
         )
- 
 }
- 
-export default EditAccount;
+export default EditPassword;

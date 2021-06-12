@@ -3,17 +3,17 @@ import {Link, useLocation} from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import axiosInstance from '../../../../utils/axiosConfig.js';
 import { FaTrashAlt } from 'react-icons/fa';
- 
- 
+
+
 function EditProfile() {
-  const [data, setData] = useState({
-    company_name:'',
-    company_pic_name:'',
-    company_contact:'',
-    category:'',
-    amount:''
-});
-const location = useLocation();
+    const [data, setData] = useState({
+        company_name:'',
+        company_pic_name:'',
+        company_contact:'',
+        category:'',
+        amount:''
+    });
+    const location = useLocation();
     const thePath = location.pathname;
     const user_id = thePath.substring(thePath.indexOf('/', 2) + 1, thePath.lastIndexOf('/'));
     const string = '"'+ user_id +'"'
@@ -21,47 +21,47 @@ const location = useLocation();
     useEffect(() => {
         axiosInstance.get("/api/sponsors/read", {params:{account_id:string}})
         .then(function(response) {
-          setData(response.data.data);
+            setData(response.data.data);
         }).catch(function(error) {
-          console.log(error); })
+            console.log(error); })
     }, [string])
-/////////////////////get login user (REPLACE THIS) ////////////////
+
 const inputChange = input => e => {
     setData({
         ...data,
         [input]: e.target.value
     });
 };
- 
-    const handleForm=(e)=>{
-        e.preventDefault();
+
+const handleForm=(e)=>{
+    e.preventDefault();
     // perform all neccassary validations
-          if (data.company_name === ""||data.company_pic_name ===""||data.company_contact ===""||data.category===""||data.amount===""
-){
-            alert("Form not fill");
-        }
-        else{
-             ///////update to db /////////////
-              var postData = {
-                _id : data._id,
-                company_name : data.company_name,
-                company_pic_name : data.company_pic_name,
-                company_contact : data.company_contact,
-                category: data.category,
-                amount: data.amount
-            }
+    if (data.company_name === ""||data.company_pic_name ===""||data.company_contact ===""||data.category===""||data.amount===""
+        ){
+        alert("Form not fill");
+}
+else{
+            ///////update to db /////////////
+             var postData = {
+                 _id : data._id,
+                 company_name : data.company_name,
+                 company_pic_name : data.company_pic_name,
+                 company_contact : data.company_contact,
+                 category: data.category,
+                 amount: data.amount
+             }
 
              axiosInstance.post("/api/sponsors/update", postData)
              .then(function(response) {
-               window.location.href = '/admin_dashboard';
+                 window.location.href = '/admin_dashboard';
              }).catch(function(error) {
-               console.log(error);
+                 console.log(error);
              })
-        }
-    }
-  
+         }
+     }
+
 /////////////////////////////////////////////////////////////
-    return(
+return(
         <>
         <form onSubmit={handleForm} action="/uploadfile" enctype="multipart/form-data" method="POST">
         <div className="form-container">
@@ -119,6 +119,5 @@ const inputChange = input => e => {
          </>
         )
 }
- 
+
 export default EditProfile;
- 

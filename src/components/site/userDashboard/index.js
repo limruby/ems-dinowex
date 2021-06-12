@@ -10,8 +10,6 @@ import CompetitionMaterial from './competition-material-sec';
 import Abstract from './abstract-sec';
 import BookChapter from './book-chapter-sec';
 import ResearchTeam from './research-team-sec';
- 
-import PdfAbstract from './pdf-abstract-bookChapter';
 import Preview from './preview-sec';
  
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -52,26 +50,26 @@ function UserDashboard() {
  
        
 //////////////////////////////////////////////////////////////////////////////////
- function welcome(role){
-        switch(role){
-                case 'Sponsor':
-        return (
-                        <div className="row-username">
-                                <p>Welcome {user.company_name}</p>
-                        </div>);
- 
-                case 'Competitor':
-                return (
-                        <div className="row-username">
-                                <p>Welcome {user.name}</p>
-                        </div>);
-                default:
-        return (
-                        <div className="row-username">
-                                <p>Welcome back</p>
-                        </div>);
-        }
- }
+  function welcome(role){
+    switch(role){
+      case 'Sponsor':
+      return (
+        <div className="row-username">
+          <p>Welcome {user.company_name}</p>
+        </div>);
+
+      case 'Competitor':
+      return (
+        <div className="row-username">
+          <p>Welcome {user.name}</p>
+        </div>);
+      default:
+      return (
+        <div className="row-username">
+          <p>Welcome back</p>
+        </div>);
+    }
+  }
  
   function TabTitles(role){
     switch(role){
@@ -120,13 +118,11 @@ function UserDashboard() {
  
     {welcome(account.role)}
  
-   <div className="wrapper">
+    <div className="wrapper">
        <Tab.Container id="left-tabs-example" defaultActiveKey="Account-Profiles">
           <Row>
-            <Col sm={3} className="sidebar-wrapper">
-               
-               {TabTitles(account.role)}
-           
+            <Col sm={3} className="sidebar-wrapper">               
+               {TabTitles(account.role)}           
             </Col>
  
  
@@ -136,150 +132,145 @@ function UserDashboard() {
                 <Tab.Pane eventKey="Account-Profiles">
                
                   <Card>
-          <Card.Body>
-          <div className="sec-container">
-                    <Link to='/user_dashboard/edit_account'>
-                      <a className="edit" href="/user_dashboard/edit_account"><FaEdit/> Edit Email</a>
-                    </Link>
-                    <h2> Account Details</h2>    
-                    <ul>
-                      <li>
-                        <p> Email: {account.email} </p>
-                      </li>
-                      <li>
-                        <Link to='/user_dashboard/edit_password'>
-                        <button className="edit-button"><FaEdit/> Edit Password</button>
+                    <Card.Body>
+                      <div className="sec-container">
+                        <Link to='/user_dashboard/edit_account'>
+                          <a className="edit" href="/user_dashboard/edit_account"><FaEdit/> Edit Email</a>
                         </Link>
-                      </li>
-                    </ul>
-                  </div>
-          </Card.Body>
-        </Card>
+                        <h2> Account Details</h2>    
+                        <ul>
+                          <li>
+                            <p> Email: {account.email} </p>
+                          </li>
+                          <li>
+                            <Link to='/user_dashboard/edit_password'>
+                            <button className="edit-button"><FaEdit/> Edit Password</button>
+                            </Link>
+                          </li>
+                        </ul>
+                      </div>
+                    </Card.Body>
+                  </Card>
  
                   <p/>
  
                   <Card>
-          <Card.Body>
-                  <div className="sec-container">
-                    <Link to='/user_dashboard/edit_profile'>
-                      <a className="edit" href="/user_dashboard/edit_profile"><FaEdit/> Edit</a>
-                    </Link>
-                    <h2> Profile </h2>  
-                     <Profile user={user} role={account.role}/>    
-                  </div>
-          </Card.Body>
-        </Card>
- 
+                    <Card.Body>
+                      <div className="sec-container">
+                        <Link to='/user_dashboard/edit_profile'>
+                          <a className="edit" href="/user_dashboard/edit_profile"><FaEdit/> Edit</a>
+                        </Link>
+                        <h2> Profile </h2>  
+                         <Profile user={user} role={account.role}/>    
+                      </div>
+                    </Card.Body>
+                  </Card>
                 </Tab.Pane>
  
                 <Tab.Pane eventKey="Promo-Content">
-		<Card>
-			<Card.Body>
-                  <div className="sec-container">
-                    <Link to='/user_dashboard/edit_content'>
-                      <a className="edit" href="/user_dashboard/edit_content"><FaEdit/> Edit</a>
-                    </Link>
-                    <h2> Promotional Content</h2>    
-                    <PromoContent user={user}/>
-                  </div>  
-			</Card.Body>
-        </Card>
+              		<Card>
+              			<Card.Body>
+                      <div className="sec-container">
+                        <Link to='/user_dashboard/edit_content'>
+                          <a className="edit" href="/user_dashboard/edit_content"><FaEdit/> Edit</a>
+                        </Link>
+                        <h2> Promotional Content</h2>    
+                        <PromoContent user={user}/>
+                      </div>  
+              			</Card.Body>
+                  </Card>
                 </Tab.Pane>
  
                 <Tab.Pane eventKey="Competition-Material">
-			<Card>
-			<Card.Body>
-                  <div className="sec-container">
-                    <Link to='/user_dashboard/edit_content'>
-                      <a className="edit" href=""><FaEdit/> Edit</a>
-                    </Link>
-                    <h2> Competition Material</h2>    
-                    <CompetitionMaterial user={user}/>
-                  </div>  
-			</Card.Body>
-        </Card>
+            			<Card>
+              			<Card.Body>
+                      <div className="sec-container">
+                        <Link to='/user_dashboard/edit_content'>
+                          <a className="edit" href=""><FaEdit/> Edit</a>
+                        </Link>
+                        <h2> Competition Material</h2>    
+                        <CompetitionMaterial user={user}/>
+                      </div>  
+              			</Card.Body>
+                  </Card>
                 </Tab.Pane>
  
                 <Tab.Pane eventKey="Abstract">
-		<Card>
-			<Card.Body>
-                  <div className="sec-container">
-                   <Link to='/user_dashboard/edit_abstract'>
-                      <a className="edit" href=""><FaEdit/> Edit</a>
-                    </Link>
-                    <h2> Abstract </h2>    
-                    <Abstract user={user}/>
-                  </div> 
-			</Card.Body>
-        </Card>
+              		<Card>
+              			<Card.Body>
+                      <div className="sec-container">
+                       <Link to='/user_dashboard/edit_abstract'>
+                          <a className="edit" href=""><FaEdit/> Edit</a>
+                        </Link>
+                        <h2> Abstract </h2>    
+                        <Abstract user={user}/>
+                      </div> 
+                			</Card.Body>
+                    </Card>
 
-		<p/>
+              		<p/>
 
-		<Card>
-			<Card.Body>
-                  <div className="sec-container">
-                   <Link to='/user_dashboard/edit_book_chapter'>
-                      <a className="edit" href=""><FaEdit/> Edit</a>
-                    </Link>
-                    <h2> BookChapter </h2>    
-                    <BookChapter user={user}/>
-                  </div>
-			</Card.Body>
-        </Card>
-        <p/>
-        <Card>
-			<Card.Body>
-                  <div className="sec-container">
-                    <h2> Preview </h2>    
-                    <Preview user={user}/>
-                  </div>
-			</Card.Body>
-        </Card>
-		<p/>
-		<PdfAbstract user = {user}/>
+              		<Card>
+              			<Card.Body>
+                      <div className="sec-container">
+                       <Link to='/user_dashboard/edit_book_chapter'>
+                          <a className="edit" href=""><FaEdit/> Edit</a>
+                        </Link>
+                        <h2> BookChapter </h2>    
+                        <BookChapter user={user}/>
+                      </div>
+              			</Card.Body>
+                  </Card>
+
+                  <p/>
+
+                  <Card>
+              			<Card.Body>
+                      <div className="sec-container">
+                        <h2> Preview </h2>    
+                        <Preview user={user}/>
+                      </div>
+              			</Card.Body>
+                  </Card>
                 </Tab.Pane>
  
                
  
                 <Tab.Pane eventKey="Research-Team">
  
-		<Card>
-			<Card.Body>
-                  <div className="sec-container">
-                   <Link to='/user_dashboard/edit_researchTeam'>
-                      <a className="edit" href=""><FaEdit/> Edit</a>
-                    </Link>
-                    <h2> Research Team</h2>    
-                    <ResearchTeam user={user}/>
-                  </div>  
-			</Card.Body>
-        </Card>
+              		<Card>
+              			<Card.Body>
+                      <div className="sec-container">
+                       <Link to='/user_dashboard/edit_researchTeam'>
+                          <a className="edit" href=""><FaEdit/> Edit</a>
+                        </Link>
+                        <h2> Research Team</h2>    
+                        <ResearchTeam user={user}/>
+                      </div>  
+              			</Card.Body>
+                  </Card>
                 </Tab.Pane>
  
                 <Tab.Pane eventKey="Cert">
-		<Card>
-			<Card.Body>
-                  <div className="sec-container">
-                    <h2> Download Certification</h2>    
-                   
-                    <h5>Coming Soon</h5>
-                   
-                  </div>  
-			</Card.Body>
-        </Card>
+              		<Card>
+              			<Card.Body>
+                      <div className="sec-container">
+                        <h2> Download Certification</h2>    
+                       
+                        <h5>Coming Soon</h5>
+                       
+                      </div>  
+              			</Card.Body>
+                  </Card>
                 </Tab.Pane>
  
               </Tab.Content>
             </Col>
- 
           </Row>
         </Tab.Container>
  
     </div>
  
-   
-    
-   
   </>
   );
  

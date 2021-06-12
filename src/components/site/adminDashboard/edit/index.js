@@ -17,46 +17,44 @@ const location = useLocation();
 const thePath = location.pathname;
 const lastPath = thePath.substring(thePath.lastIndexOf('/') + 1);
 
-	if(lastPath === 'edit_account'){
-		return( 
-		    <div className="form-main-container">
-				<EditAccount />
-			</div>
+if(lastPath === 'edit_account'){
+	return( 
+		<div className="form-main-container">
+			<EditAccount />
+		</div>
 		)
 	}
 	else if(lastPath === 'edit_password'){
 		return( 
-		    <div className="form-main-container">
-				<EditPassword/>
-			</div>
+		<div className="form-main-container">
+			<EditPassword/>
+		</div>
 		)
 	}
 	else if (lastPath === 'edit_profile_sponsor'){
 		return( 
-		    <div className="form-main-container">
-				<EditProfile_S/>
-			</div>
+		<div className="form-main-container">
+			<EditProfile_S/>
+		</div>
 		)
 	}
 	else if (lastPath === 'edit_profile_competitor'){
 		return( 
-		    <div className="form-main-container">
-				<EditProfile_C/>
-			</div>
+		<div className="form-main-container">
+			<EditProfile_C/>
+		</div>
 		)			
 	}
-	else if (lastPath === 'create_profile'){
-		console.log(lastPath)
+	else if (lastPath === 'create_profile'){		
 		return( 
-		    <div className="form-main-container">
-				<CreateProfile/>
-			</div>
+		<div className="form-main-container">
+			<CreateProfile/>
+		</div>
 		)			
 	}
 	else{
-		console.log(lastPath)
 		return(
-			<></>
+		<></>
 		)
 	}
 }
