@@ -35,8 +35,8 @@ services:
         JSONWTK: h98asblj23hfjka
     networks:
       - server
-    ports:
-      - 5000:5000
+    # ports:
+    #   - 5000:5000
     labels:
       - traefik.enable=true
       - traefik.docker.network=server
