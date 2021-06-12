@@ -181,7 +181,7 @@ function LandingPage() {
 
       
 
-      <section className="page-section" id="contact">
+      {/* <section className="page-section" id="contact">
         <div className="container">
           <div className="row">
             <div className="col-lg-12 text-center">
@@ -258,7 +258,7 @@ function LandingPage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
 
     </div>
