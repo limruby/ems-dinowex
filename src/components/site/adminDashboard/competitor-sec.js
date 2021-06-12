@@ -25,6 +25,7 @@ const columns = React.useMemo(
       {
         Header: 'Profile',
         columns: [
+         
           {
             Header: 'Category',
             accessor: 'category',
