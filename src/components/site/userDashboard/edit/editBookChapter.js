@@ -135,11 +135,18 @@ function EditBookChapter({data, setData}) {
                 _id : data._id,                
                 bookChapter : data.bookChapter
             }
-
-
+			if(data.bookChapter[0].content===undefined){
+				data.bookChapter[0].content = "";
+			}if(data.bookChapter[0].introduction===undefined){
+				data.bookChapter[0].introduction = "";
+			}if(data.bookChapter[0].conclusion===undefined){
+				data.bookChapter[0].conclusion = "";
+			}
+			console.log(postData)
 	   axiosInstance.post("/api/competitors/update", postData)
             .then(function(response) {
-              window.location.href = '/user_dashboard';
+				
+            //   window.location.href = '/user_dashboard';
             }).catch(function(error) {
               console.log(error);
             })
