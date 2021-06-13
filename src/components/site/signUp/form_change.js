@@ -3,7 +3,6 @@ import CompetitionSection from '../../site/signUp/competitor-form';
 import SponsorshipSection from '../../site/signUp/sponsor-form';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
-import './form.css';
 
 const SectionChange = () =>  {
 
@@ -27,7 +26,12 @@ const SectionChange = () =>  {
     }
     else{
       return (
-        <div className="signUp-form-container">
+        <div>
+           <section className="section-container">
+      
+        <div className="spacer">
+          </div>
+        <div className="form-container">
           <h3>Select Category</h3>
           <DropdownButton
           alignRight
@@ -39,6 +43,10 @@ const SectionChange = () =>  {
             <Dropdown.Item eventKey="Competitor">Competitor</Dropdown.Item>
             <Dropdown.Item eventKey="Sponsor">Sponsor</Dropdown.Item>
           </DropdownButton>
+        </div>
+        <div className="spacer">
+          </div>
+          </section>
         </div>
         
         );

@@ -187,7 +187,7 @@ console.log(data)
   return(
     <>
             <form onSubmit={handleForm}>
-      <div className="form-container">
+      <div className="edit-form-container">
                 <h1 className="mb-5">Edit Promotional content</h1>
  
                 <h5>Poster<i className="caution"> (*Max 1)</i></h5>    
@@ -201,7 +201,7 @@ console.log(data)
                
                 <br />
                
-                <div className="col-4 btn-group">
+                <div className="btn-group">
                     <Link to="/user_dashboard">
                         <button className="btn btn-danger back-btn">Back</button>
                     </Link>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 
+
 export class AccountSetup extends Component {
     continue = e => {
         e.preventDefault();
@@ -28,7 +29,8 @@ export class AccountSetup extends Component {
         }
 
         return (
-            <div>
+            <section className="section-container">
+            <div className="form-container">
                 <form onSubmit={handleForm}>
                 <h1 className="mb-5">Account Setup</h1>
                 <div className="form-group">
@@ -67,7 +69,9 @@ export class AccountSetup extends Component {
                     </div>
                 </div>
                 </form>
-            </div>
+                </div>
+                </section>
+         
         )
     }
 }

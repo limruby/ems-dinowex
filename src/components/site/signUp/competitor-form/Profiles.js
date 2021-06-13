@@ -28,7 +28,7 @@ export class Profiles extends Component {
         }
 
         return (
-            <div>
+            <div className="form-container" style={{marginTop:"2%", marginBottom:"2%"}}>
                 <form onSubmit={handleForm}>
                 <h1 className="mb-5">Profile Details</h1>
                 <p>For team leader if participate as a team.*</p>

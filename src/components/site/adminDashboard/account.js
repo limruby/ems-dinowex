@@ -60,9 +60,9 @@ function Account() {
   return (
     <div className="App">
       <Link to='/admin_dashboard/create_profile'>
-        <button className="btn btn-success" >
+        <button className="btn btn-danger" >
 
-          Create New Profile
+          Create New Account
 
         </button></Link>
       <Table columns={columns} data={data} />

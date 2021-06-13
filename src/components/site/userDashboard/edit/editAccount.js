@@ -34,10 +34,10 @@ function EditAccount({data, setData}) {
     return(
         <>
             <form onSubmit={handleForm}>
-            <div className="form-container">
+            <div className="edit-form-container">
                 <h1 className="mb-5">Edit Account Info</h1>
                 <div className="form-group">
-                    <label htmlFor="email">Email Address </label>
+                    <label htmlFor="email"><span>*</span>Email Address </label>
                     <input className="form-control" type='email'name='email' id="email"
                     placeholder='E-mail' required
                     onChange={inputChange('email')} value={data.email} 
@@ -47,7 +47,7 @@ function EditAccount({data, setData}) {
                 <br />
 
                
-                <div className="col-4 btn-group">
+                <div className="btn-group">
                     <Link to="/user_dashboard">
                         <button className="btn btn-danger back-btn">Back</button>
                     </Link>

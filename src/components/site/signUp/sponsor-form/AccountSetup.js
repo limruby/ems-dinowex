@@ -28,7 +28,8 @@ export class AccountSetup extends Component {
         }
 
         return (
-            <div>
+            <section className="section-container">
+            <div className="form-container">
                 <form onSubmit={handleForm}>
                 <h1 className="mb-5">Account Setup</h1>
                 <div className="form-group">
@@ -68,6 +69,7 @@ export class AccountSetup extends Component {
                 </div>
                 </form>
             </div>
+            </section>
         )
     }
 }

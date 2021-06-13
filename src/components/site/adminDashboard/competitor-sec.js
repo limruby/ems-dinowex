@@ -1,31 +1,31 @@
-import React, { useMemo,useState, useEffect } from "react";
+import React, { useMemo, useState, useEffect } from "react";
 import Table from './Table.js';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import axiosInstance from '../../../utils/axiosConfig';
 
-function Competitor(){
+function Competitor() {
 
-  const [data, setData]=useState([]);
- 
- 
+  const [data, setData] = useState([]);
+
+
   useEffect(() => {
-     
- 
-      axiosInstance.get("/api/competitors/readAll")
-        .then(function(response) {
-          setData(response.data.data);
-        }).catch(function(error) {
-          console.log(error);
-        })
-    }, []);
- 
 
-const columns = React.useMemo(
+
+    axiosInstance.get("/api/competitors/readAll")
+      .then(function (response) {
+        setData(response.data.data);
+      }).catch(function (error) {
+        console.log(error);
+      })
+  }, []);
+
+
+  const columns = React.useMemo(
     () => [
       {
         Header: 'Profile',
         columns: [
-         
+
           {
             Header: 'Category',
             accessor: 'category',
@@ -45,26 +45,26 @@ const columns = React.useMemo(
           {
             Header: 'Edit',
             Cell: data => (
-              <button className="btn btn-success" >
-                <div>
-          <Link to={`admin_dashboard/${data.row.original.account_id}/edit_profile_competitor`}>Edit</Link>
-              </div>
-              </button>
+              <Link to={`admin_dashboard/${data.row.original.account_id}/edit_profile_competitor`}>
+                <button className="btn btn-success" >
+                  Edit
+                </button></Link>
+
             )
           },
         ],
       },
 
-     
+
     ],
     []
   )
 
-  
+
 
   return (
     <div className="App">
-     
+
 
       <Table columns={columns} data={data} />
     </div>

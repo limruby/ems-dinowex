@@ -47,7 +47,7 @@ console.log(data);
     return(
         <>
         <form onSubmit={handleForm}>
-        <div className="form-container">
+        <div className="edit-form-container" style={{marginTop:"5%", marginBottom:"5%"}}>
                 <h1 className="mb-5">Edit Profile Info</h1>
 
                 <div className="form-group">
@@ -95,7 +95,7 @@ console.log(data);
 
                 <br />
 
-                <div className="col-4 btn-group">
+                <div className="btn-group">
                     <Link to="/user_dashboard">
                         <button className="btn btn-danger back-btn">Back</button>
                     </Link>

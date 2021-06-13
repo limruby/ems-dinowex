@@ -10,7 +10,7 @@ import Sponsor from './sponsor-sec';
 import './table.css'
  
 function AdminDashboard() {
- 
+
 function TabTitles(){
 	return(   
 	  <Nav variant="pills" className="flex-column">
@@ -33,7 +33,7 @@ function TabTitles(){
   
      
     <div>
-      
+      <div className="welcome-box"><h1>Welcome Admin!</h1></div>
       <div className="wrapper">
        <Tab.Container id="left-tabs-example" defaultActiveKey="Account">
           <Row>

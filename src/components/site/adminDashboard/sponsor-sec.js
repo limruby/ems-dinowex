@@ -53,11 +53,11 @@ const columns = React.useMemo(
           {
             Header: 'Edit',
             Cell: data => (
+              <Link to={`admin_dashboard/${data.row.original.account_id}/edit_profile_sponsor`}>
               <button className="btn btn-success" >
-               <div>
-          <Link to={`admin_dashboard/${data.row.original.account_id}/edit_profile_sponsor`}>Edit</Link>
-              </div>
+         Edit
               </button>
+              </Link>
             )
           },
         ],

@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
+import { FaTrashAlt } from 'react-icons/fa';
 
 import axiosInstance from '../../../../utils/axiosConfig.js';
 
@@ -34,13 +35,13 @@ function EditAbstract({data, setData}) {
 
         if(data.abstract!=undefined&&data.abstract[0]!=undefined&&data.abstract[0]['keywords']!=undefined){
             section.push(
-                <div>
+                <div className="keyword-box">
                     <ul>
                         {data.abstract[0]['keywords'].map((keyword, index)=>(
 
                         <li>
                           {keyword}
-                          <button className="deleteBtn" type="button" onClick={deleteKeyword(index)}> delete</button>
+                          <button className="deleteBtn" type="button" onClick={deleteKeyword(index)}><FaTrashAlt/></button>
                         </li>
                         ))}
                     </ul>
@@ -187,7 +188,7 @@ function checkExist(element, index){
         return(
             <>
                 <form onSubmit={handleForm}>
-                <div className="form-container">
+                <div className="edit-form-container"  style={{marginTop:"5%", marginBottom:"5%"}}>
                     <h1 className="mb-5">Edit Abstract</h1>
 
                     <div className="form-group">
@@ -198,23 +199,22 @@ function checkExist(element, index){
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="abstract">Abstract </label>
+                        <label htmlFor="abstract"><span>*</span>Abstract </label>
                         <textarea className="form-control" id="abstract" cols="30" rows="10"
                         onChange={inputChange('content')} value={checkExist('content', 0)}/>
                     </div>
-
-
-                    <h5>Keywords</h5>
+                    <div className="form-group">
+                    <label><span>*</span>Keywords</label>
 
                     {displayKeywords()}
 
                     {displayKeywordsForm()}
-
+                    </div>
                      
                     <br />
 
                    
-                    <div className="col-4 btn-group">
+                    <div className="btn-group">
                         <Link to="/user_dashboard">
                             <button className="btn btn-danger back-btn">Back</button>
                         </Link>

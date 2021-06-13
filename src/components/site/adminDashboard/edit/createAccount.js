@@ -82,7 +82,7 @@ function CreateAccount() {
 /////////////////////////////////////////////////////////////
 
     return(
-               <div className="create-form-container">
+               <div className="edit-form-container">
                 <form onSubmit={handleForm}>
                 <h1 className="mb-5">Account Setup</h1>
                 <div className="form-group">

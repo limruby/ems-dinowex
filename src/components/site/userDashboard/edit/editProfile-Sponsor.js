@@ -118,7 +118,7 @@ function displayLogo(){
     return(
         <>
         <form onSubmit={handleForm} action="/uploadfile" enctype="multipart/form-data" method="POST">
-        <div className="form-container">
+        <div className="edit-form-container" style={{marginTop:"5%", marginBottom:"5%"}}>
                 <h1 className="mb-5">Edit Profile Info</h1>
  
               
@@ -171,7 +171,7 @@ function displayLogo(){
                 </div>
 
                 <br />
-               <div className="col-4 btn-group">
+               <div className="btn-group">
                     <Link to="/user_dashboard">
                         <button className="btn btn-danger back-btn">Back</button>
                     </Link>

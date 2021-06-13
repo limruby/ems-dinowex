@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { useLocation } from 'react-router-dom';
 import axiosInstance from '../../../../utils/axiosConfig.js';
-import './adminform.css';
+import '../../../../assets/css/agency.min.css';
 
 import EditAccount from './editAccount.js';
 import EditPassword from './editPassword.js';
@@ -19,16 +19,16 @@ const lastPath = thePath.substring(thePath.lastIndexOf('/') + 1);
 
 	if(lastPath === 'edit_account'){
 		return( 
-		    <div className="form-main-container">
+		    <section className="section-container">
 				<EditAccount />
-			</div>
+				</section>
 		)
 	}
 	else if(lastPath === 'edit_password'){
 		return( 
-		    <div className="form-main-container">
+			<section className="section-container">
 				<EditPassword/>
-			</div>
+			</section>
 		)
 	}
 	else if (lastPath === 'edit_profile_sponsor'){
@@ -48,9 +48,9 @@ const lastPath = thePath.substring(thePath.lastIndexOf('/') + 1);
 	else if (lastPath === 'create_profile'){
 		console.log(lastPath)
 		return( 
-		    <div className="form-main-container">
+			<section className="section-container">
 				<CreateProfile/>
-			</div>
+			</section>
 		)			
 	}
 	else{

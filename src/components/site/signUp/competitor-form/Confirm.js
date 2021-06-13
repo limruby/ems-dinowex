@@ -75,7 +75,8 @@ export class Confirm extends Component {
 
 
         return (
-            <div>
+            <section className="section-container" style={{marginBottom:"5%"}}>
+            <div className="form-container" >
                 <h1>Confirmation</h1>
 
                 <ul class="list-group">
@@ -102,6 +103,7 @@ export class Confirm extends Component {
                     </div>
                 </div>
             </div>
+            </section>
         )
     }
 }

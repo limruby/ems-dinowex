@@ -107,9 +107,10 @@ class EditorSec extends Component {
                     //     console.log( 'Focus.',  editor.getData() );
                     // } }
                 />
-                <p>Click "Set" to save the data</p>
+                <div className="content-box">
+                <span>Click "Set" to save the content</span>
                 <button className="btn btn-primary" onClick={submit}>Set</button>
-
+                </div>
             </div>
         );
     }
