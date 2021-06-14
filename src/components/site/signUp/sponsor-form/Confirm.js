@@ -84,7 +84,8 @@ export class Confirm extends Component {
         } = this.props;
 
         return (
-            <div>
+            <section className="section-container">
+            <div className="form-container">
                 <h1>Confirmation</h1>
                 <ul className="list-group">
                     <li className="list-group-item">Company Name: {values.company_name}</li>
@@ -108,6 +109,7 @@ export class Confirm extends Component {
                 </div>
 
             </div>
+            </section>
         )
     }
 }

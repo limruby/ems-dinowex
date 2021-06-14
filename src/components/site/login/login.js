@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './login.css';
 import "../../../assets/css/agency.min.css";
-import Footer from './../footer';
 import axiosInstance from '../../../utils/axiosConfig.js';
 
 function Login()
@@ -103,8 +101,8 @@ function Login()
 
     return (
     <>
-
-        <div className="login-main-container">
+<section className="section-container">
+        
             <div className="login-form-container">
                 <h3>Login</h3>
                 <form onSubmit={submit}>
@@ -122,7 +120,10 @@ function Login()
                     data-validation-required-message="Please enter your password."
                     value={password}
                     onChange={(e)=>setPassword(e.target.value)}/>
-                
+
+
+                    <div style={{textAlign:"center"}}>
+
                     <input className="submit-btn" type="submit" value="Login" />
 
                     <Link to="/sign_up">
@@ -130,11 +131,12 @@ function Login()
                            <a href="/sign_up">Not register yet? Sign up here.</a>
                         </p>
                     </Link>
+                    </div>
                 </form>
-            </div>
+         
 
         </div> 
-
+        </section>
     </>
     )
 }

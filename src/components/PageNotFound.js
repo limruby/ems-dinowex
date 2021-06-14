@@ -1,13 +1,14 @@
 import React from 'react';
-import './PageNotFound.css';
+import '../assets/css/agency.min.css';
 
 const NotFoundPage = () => {
   return( 
-  <div className="pageNotFound-main-container">
-  	<div className="pageNotFound-container">
-  		<h1>404 Page NotFound</h1>
-  	</div>
-  </div>
+  <section className="section-container">
+	<div className="form-container">
+		<h1 style={{textAlign:"center"}}>404 Page Not Found</h1>
+    </div>
+    </section>
+  
   );
 }
 

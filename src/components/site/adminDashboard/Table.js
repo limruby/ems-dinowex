@@ -85,7 +85,7 @@ export default function Table({ columns, data }) {
           })}
         </tbody>
       </table>
-      <div>
+      <div className="pagination-btn">
         <button className="btn-primary btn table-button" onClick={() => previousPage()} disabled={!canPreviousPage}>
           Previous Page
         </button>

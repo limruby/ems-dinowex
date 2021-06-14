@@ -49,6 +49,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
     <Router>
     <Navbar isAuth={loggedIn} />
+   
       <Switch>
         <Route exact path='/' component={Landing}/>
         <Route exact path='/sign_in'  component={SignIn}/>
@@ -77,6 +78,7 @@ function App() {
         <Route exact path='/payment_success'  component={Payment_Success}/>
         <Route exact path='/payment_fail'  component={Payment_Fail}/>
       </Switch>
+     
 	  <Footer/>
       
 

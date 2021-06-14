@@ -183,26 +183,29 @@ function displayPosterForm(){
 
   return(
     <>
-        <form onSubmit={handleForm}>
-        <div className="form-container">
-            <h1 className="mb-5">Edit Promotional content</h1>
 
-            <h5>Poster<i className="caution"> (*Max 1)</i></h5>    
-                       
-            {displayPosterForm()}
+            <form onSubmit={handleForm}>
+      <div className="edit-form-container">
+                <h1 className="mb-5">Edit Promotional content</h1>
+ 
+                <h5>Poster<i className="caution"> (*Max 1)</i></h5>    
                            
-            <hr/>
+                {displayPosterForm()}
+                               
+                <hr/>
+ 
+                 <h5>Video<i className="caution"> (*Max 5)</i></h5>
+                 {displayVideoForm()}
+               
+                <br />
+               
+                <div className="btn-group">
+                    <Link to="/user_dashboard">
+                        <button className="btn btn-danger back-btn">Back</button>
+                    </Link>
+                    <input className="btn btn-primary" type="submit" value="Update" />
+                </div>
 
-             <h5>Video<i className="caution"> (*Max 5)</i></h5>
-             {displayVideoForm()}
-           
-            <br />
-           
-            <div className="col-4 btn-group">
-                <Link to="/user_dashboard">
-                    <button className="btn btn-danger back-btn">Back</button>
-                </Link>
-                <input className="btn btn-primary" type="submit" value="Update" />
             </div>
         </div>
         </form>

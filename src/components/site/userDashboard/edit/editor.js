@@ -77,6 +77,7 @@ class EditorSec extends Component {
                     } }
                     onChange={ ( event, editor ) => {
                         data = editor.getData();
+
                         var postData = {
                             _id : this.props.id,
                             bookChapter : this.props.bookChapter_data
@@ -91,9 +92,10 @@ class EditorSec extends Component {
                 } }
                     
             />
-            <p>Click "Set" to save the data</p>
-            <button className="btn btn-primary" onClick={submit}>Set</button>
-
+            <div className="content-box">
+                <span>Click "Set" to save the content</span>
+                <button className="btn btn-primary" onClick={submit}>Set</button>
+                </div>
             </div>
             );
         }

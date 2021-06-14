@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { useLocation } from 'react-router-dom';
 import axiosInstance from '../../../../utils/axiosConfig.js';
-import './form.css';
+import '../../../../assets/css/agency.min.css';
 
 import EditAccount from './editAccount.js';
 import EditPassword from './editPassword.js';
@@ -50,18 +50,22 @@ const thePath = location.pathname;
 const lastPath = thePath.substring(thePath.lastIndexOf('/') + 1);
 
 
-if(lastPath === 'edit_account'){
-	return( 
-			<div className="form-main-container">
-			<EditAccount data={account} setData={setAccount}/>
-			</div>
+
+	if(lastPath === 'edit_account'){
+		return( 
+			<section className="section-container">
+				<EditAccount data={account} setData={setAccount}/>
+			</section>
+
 		)
 	}
 	else if(lastPath === 'edit_password'){
 		return( 
-			<div className="form-main-container">
+
+		    <section className="section-container">
+
 				<EditPassword data={account} setData={setAccount}/>
-			</div>
+			</section>
 		)
 	}
 	else if (account.role === 'Sponsor'){
@@ -76,9 +80,11 @@ if(lastPath === 'edit_account'){
 
 			case 'edit_content':
 				return( 
-					<div className="form-main-container">
+
+					<section className="section-container">
+
 						<EditPromoContent data={user} setData={setUser}/>
-					</div>
+					</section>
 				)
 			break;
 
@@ -98,9 +104,11 @@ if(lastPath === 'edit_account'){
 
 			case 'edit_researchTeam':
 				return( 
-					<div className="form-main-container">
+
+				    <section className="section-container">
+
 						<EditResearchTeam data={user} setData={setUser}/>
-					</div>
+					</section>
 				)
 			break;
 
@@ -134,7 +142,10 @@ if(lastPath === 'edit_account'){
 	}
 	else{
 		return(
-		<></>
+
+			<>
+			</>
+
 		)
 	}
 }
