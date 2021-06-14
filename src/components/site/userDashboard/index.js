@@ -8,6 +8,7 @@ import CompetitionMaterial from './competition-material-sec';
 import Abstract from './abstract-sec';
 import BookChapter from './book-chapter-sec';
 import ResearchTeam from './research-team-sec';
+
 import PdfAbstract from './pdf-abstract-bookChapter';
 import Preview from './preview-sec';import 'bootstrap/dist/css/bootstrap.min.css';
 import { Tab, Nav, Row, Col, Card } from "react-bootstrap";
@@ -17,45 +18,56 @@ import { BsPeopleCircle, BsFiles, BsBookHalf } from "react-icons/bs";
 function UserDashboard() {  ////////////////////get login user info (REPLACE THIS)  /////////////////////
   const [user, setUser] = useState([]);
   const [account, setAccount] = useState([]);
+
   const account_id = localStorage.getItem('user_id');
   useEffect(() => {
-    axiosInstance.get("/api/competitors/read", { params: { account_id: account_id } })
-      .then(function (response) {
-        setUser(response.data.data);
-      }).catch(function (error) {
-        console.log(error);
-      });    axiosInstance.get("/api/sponsors/read", { params: { account_id: account_id } })
-      .then(function (response) {
-        setUser(response.data.data);
-      }).catch(function (error) {
-        console.log(error);
-      });    axiosInstance.get("/api/accounts/read", { params: { account_id: account_id } })
-      .then(function (response) {
-        setAccount(response.data.data);
-      }).catch(function (error) {
-        console.log(error);
-      })
-  }, [account_id]);
-  //////////////////////////////////////////////////////////////////////////////////
-  function welcome(role) {
-    switch (role) {
+      axiosInstance.get("/api/competitors/read", {params:{account_id:account_id}})
+        .then(function(response) {
+          setUser(response.data.data);
+        }).catch(function(error) {
+          console.log(error);
+        });
+     
+      axiosInstance.get("/api/sponsors/read", {params:{account_id:account_id}})
+        .then(function(response) {
+          setUser(response.data.data);
+        }).catch(function(error) {
+          console.log(error);
+        });
+ 
+      axiosInstance.get("/api/accounts/read", {params:{account_id:account_id}})
+        .then(function(response) {
+          setAccount(response.data.data);
+        }).catch(function(error) {
+          console.log(error);
+        })
+    }, [account_id]);
+ 
+       
+//////////////////////////////////////////////////////////////////////////////////
+  function welcome(role){
+    switch(role){
       case 'Sponsor':
-        return (
-          <div className="row-username">
-            <p>Welcome {user.company_name}</p>
-          </div>);      case 'Competitor':
-        return (
-          <div className="row-username">
-            <p>Welcome {user.name}</p>
-          </div>);
+      return (
+        <div className="row-username">
+          <p>Welcome {user.company_name}</p>
+        </div>);
+
+      case 'Competitor':
+      return (
+        <div className="row-username">
+          <p>Welcome {user.name}</p>
+        </div>);
       default:
-        return (
-          <div className="row-username">
-            <p>Welcome back</p>
-          </div>);
+      return (
+        <div className="row-username">
+          <p>Welcome back</p>
+        </div>);
     }
-  }  function TabTitles(role) {
-    switch (role) {
+  }
+ 
+  function TabTitles(role){
+    switch(role){
       case 'Sponsor':
         return (
           <Nav variant="pills" className="flex-column">
@@ -213,3 +225,4 @@ function UserDashboard() {  ////////////////////get login user info (REPLACE THI
           </Tab.Container>       </div>      
     </>
   );}export default UserDashboard;
+

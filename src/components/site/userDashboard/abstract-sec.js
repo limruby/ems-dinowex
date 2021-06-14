@@ -1,82 +1,70 @@
-
-
-
 const AbstractContent = ({user}) =>  {
-
-  console.log(user);
 
   function displayTitle(){
 
     if(user.abstract!==undefined){
-    var section = [];
+      var section = [];
 
-    for (var i=0; i<user.abstract.length; i++){
+      for (var i=0; i<user.abstract.length; i++){
         section.push(
-            <p>
-                <b>Title</b>: {user.abstract[0].title}
-            </p>
-        );
+          <p>
+            <b>Title</b>: {user.abstract[0].title}
+          </p>
+          );
+      }
+      return section;
     }
-
-    return section;
-  }
   }
 
   
   function displayContent(){
-      var section = [];
+    var section = [];
 
     if(user.abstract!=null){
       for (var i=0; i<user.abstract.length; i++){
         section.push(
-            <p>
-                <b>Content</b>: {user.abstract[0].content}
-            </p>
-        );
-    }
+          <p>
+            <b>Content</b>: {user.abstract[0].content}
+          </p>
+          );
+      }
     }
     return section;
     
   }
 
-
-
   function displayKeywords(){
     var section = [];
     if(user.abstract!=null){
 
-    if(user.abstract[0]!=null){
-      if(user.abstract[0]['keywords']!=undefined){
-        section.push(
+      if(user.abstract[0]!=null){
+        if(user.abstract[0]['keywords']!=undefined){
+          section.push(
             <div>
-                <ul> <b>Keywords</b>:
-                  {user.abstract[0]['keywords'].map((keyword)=>(
-                    <li>
-                     {keyword}
-                    </li>
-                    ))}
-                </ul>
+              <ul> 
+                <b>Keywords</b>:
+                {user.abstract[0]['keywords'].map((keyword)=>(
+                <li>
+                  {keyword}
+                </li>
+                ))}
+              </ul>
             </div>
-        );
+            );
+          }
+        }
+      }
+      return section;
     }
+
+    return (       
+      <div>
+      </div>
+    );
+
   }
- }
-    return section;
-  }
-
-  return (       
-    <div>
-      <div id="pdfAbstract">
-
-        
-      </div>  
-      
-    </div>
-  );
- 
-}
 
 
 
 
-export default AbstractContent;
+  export default AbstractContent;

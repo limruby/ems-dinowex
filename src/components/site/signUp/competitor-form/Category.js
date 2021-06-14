@@ -11,8 +11,6 @@ export class Profiles extends Component {
         this.props.prevStep();
     };
 
-
-
     render() {
         const { values, inputChange } = this.props;
 

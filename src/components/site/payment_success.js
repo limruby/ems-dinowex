@@ -10,6 +10,7 @@ const Success = () => {
  
         const string = localStorage.getItem('competitor_id').substring(1, localStorage.getItem('competitor_id').length-1);
         const competitor_id = {competitor_id:string};
+        
         axiosInstance.post('/api/competitors/updatePayment', competitor_id)
         .then(
             res => {"COMPETITOR POST SUCCESS"}
@@ -17,10 +18,9 @@ const Success = () => {
         }
     else if (localStorage.getItem('sponsor_id')) {
  
-            const string = localStorage.getItem('sponsor_id').substring(1, localStorage.getItem('sponsor_id').length-1);
-            console.log("SPONSOR payment_success PAGE "+string)
+            const string = localStorage.getItem('sponsor_id').substring(1, localStorage.getItem('sponsor_id').length-1);            
             const sponsor_id = {sponsor_id:string};
-            console.log("Payment success"+ sponsor_id)
+
             axiosInstance.post('/api/sponsors/updatePayment', sponsor_id)
             .then(
                 res => {"SPONSOR POST SUCCESS"}
@@ -29,6 +29,7 @@ const Success = () => {
  
  
   return (
+
     <section className="section-container">
            
                 <div className="form-container">
@@ -41,6 +42,7 @@ const Success = () => {
            
             </section>
         )
+
 }
  
 export default Success;

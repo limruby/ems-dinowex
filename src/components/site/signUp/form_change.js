@@ -12,7 +12,6 @@ const SectionChange = () =>  {
     console.log(e);
     setValue(e);
   }
-
    
     if(value==='Competitor'){
       return ( 
@@ -50,8 +49,9 @@ const SectionChange = () =>  {
         </div>
         
         );
+
     }
 
-}
+  }
 
-export default SectionChange;
+  export default SectionChange;

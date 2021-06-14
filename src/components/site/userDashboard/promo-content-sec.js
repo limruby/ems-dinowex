@@ -3,7 +3,6 @@ const PromoContent = ({user}) =>  {
 function displayVideo(){
   if(user.video){
     var section = [];
-
     for (var i=0; i<user.video.length; i++){
         section.push(
             <li>
@@ -12,9 +11,10 @@ function displayVideo(){
         );
     }
     return section;
-
   }
 }
+
+
 function displayPoster(){
   if(user.poster){
     var section = [];
@@ -28,9 +28,9 @@ function displayPoster(){
         );
     }
     return section;
- 
   }
 }
+ 
  
   return (      
     <div>

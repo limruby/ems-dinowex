@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import "../../../assets/css/agency.min.css";
 import axiosInstance from '../../../utils/axiosConfig.js';
- 
+
 function Login()
 {
     const [email, setEmail] =useState("");
@@ -28,66 +28,66 @@ function Login()
                     window.location.href = '/admin_dashboard';
                 }
                 else if(res.data.result.role==="Competitor"){
-                    // console.log(res.data.result._id)
+
                     var account_id = JSON.stringify(res.data.result._id)
-                   
+
                     axiosInstance.get("/api/competitors/read", {params:{account_id:account_id}})
                     .then(function(response) {
-                          if(response.data.data.bill_status === "true"){
-                               localStorage.setItem('token', res.data.token); 
-                               localStorage.setItem('user_id', JSON.stringify(res.data.result._id));
-                               
-                                redirect();
-                          }
-                          else{
-                              localStorage.setItem("competitor_id", JSON.stringify(response.data.data._id))
-                              console.log(localStorage.getItem("competitor_id"))
-                              var url=""
-                              if(response.data.data.category === "Professional Innovator"){
-                                url = "https://www.billplz-sandbox.com/_0pbgc2r6"
-                              }
-                              else if(response.data.data.category === "Junior Innovator"){
-                                url = "https://www.billplz-sandbox.com/9vpry5o83"
-                           }
-                              else if(response.data.data.category === "Young Innovator"){
-                                url = "https://www.billplz-sandbox.com/lew_nvul8"
-                           }
-                           window.open(url,"_self")
-                          }
+                        if(response.data.data.bill_status === "true"){
+                            localStorage.setItem('token', res.data.token); 
+                            localStorage.setItem('user_id', JSON.stringify(res.data.result._id));
 
-                        }).catch(function(error) {
-                          console.log(error);
-                        });                    
+                            redirect();
+                        }
+                        else{
+                            localStorage.setItem("competitor_id", JSON.stringify(response.data.data._id));                            
+                            var url=""
+                            if(response.data.data.category === "Professional Innovator"){
+                                url = "https://www.billplz-sandbox.com/_0pbgc2r6"
+                            }
+                            else if(response.data.data.category === "Junior Innovator"){
+                                url = "https://www.billplz-sandbox.com/9vpry5o83"
+                            }
+                            else if(response.data.data.category === "Young Innovator"){
+                                url = "https://www.billplz-sandbox.com/lew_nvul8"
+                            }
+                            window.open(url,"_self")
+                        }
+
+                    }).catch(function(error) {
+                        console.log(error);
+                    });                    
                 }
                 else if(res.data.result.role==="Sponsor"){      
-                    var sponsor_id = JSON.stringify(res.data.result._id)              
+                    var sponsor_id = JSON.stringify(res.data.result._id) 
+
                     axiosInstance.get("/api/sponsors/read", {params:{account_id:sponsor_id}})
-                        .then(function(response) {
-                          if(response.data.data.bill_status === "true"){
-                               localStorage.setItem('token', res.data.token); 
-                               localStorage.setItem('user_id', JSON.stringify(res.data.result._id));                              
-                               redirect();
-                          }
-                          else{
-                            localStorage.setItem("sponsor_id", JSON.stringify(response.data.data._id))
-                            console.log(localStorage.getItem("sponsor_id"))
+                    .then(function(response) {
+                        if(response.data.data.bill_status === "true"){
+                            localStorage.setItem('token', res.data.token); 
+                            localStorage.setItem('user_id', JSON.stringify(res.data.result._id));                              
+                            redirect();
+                        }
+                        else{
+                            localStorage.setItem("sponsor_id", JSON.stringify(response.data.data._id));
+                            
                             var sponsor_url=""
                             if (response.data.data.category === "Bronze Package"){
-                              sponsor_url = "https://www.billplz-sandbox.com/ip52udve6"
-                         }
-                         else if(response.data.data.category === "Silver Package"){
-                          sponsor_url = "https://www.billplz-sandbox.com/urnlfccd7"
-                         }
-                         else if(response.data.data.category === "Gold Package"){
-                          sponsor_url = "https://www.billplz-sandbox.com/nnoul8ls0"
-                         }
-                         window.open(sponsor_url,"_self")
-                          }
+                                sponsor_url = "https://www.billplz-sandbox.com/ip52udve6"
+                            }
+                            else if(response.data.data.category === "Silver Package"){
+                                sponsor_url = "https://www.billplz-sandbox.com/urnlfccd7"
+                            }
+                            else if(response.data.data.category === "Gold Package"){
+                                sponsor_url = "https://www.billplz-sandbox.com/nnoul8ls0"
+                            }
+                            window.open(sponsor_url,"_self")
+                        }
 
-                        }).catch(function(error) {
-                          console.log(error);
-                        });
-                    }                           
+                    }).catch(function(error) {
+                        console.log(error);
+                    });
+                }                           
             }
             else{
                 alert("Email or password not match.")
@@ -99,12 +99,12 @@ function Login()
         window.location.href = '/user_dashboard';
     }
 
-  return (
+    return (
     <>
 <section className="section-container">
         
             <div className="login-form-container">
-                    <h3>Login</h3>
+                <h3>Login</h3>
                 <form onSubmit={submit}>
 
                     <label htmlFor="email_id">E-mail <span>*</span></label>
@@ -121,7 +121,9 @@ function Login()
                     value={password}
                     onChange={(e)=>setPassword(e.target.value)}/>
 
+
                     <div style={{textAlign:"center"}}>
+
                     <input className="submit-btn" type="submit" value="Login" />
 
                     <Link to="/sign_up">
@@ -136,7 +138,7 @@ function Login()
         </div> 
         </section>
     </>
-  )
+    )
 }
 
 export default Login;

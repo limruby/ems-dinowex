@@ -6,24 +6,40 @@ import axiosInstance from '../../../utils/axiosConfig';
 function Sponsor(){
 
   const [data, setData]=useState([]);
- 
- 
+  
+  
   useEffect(() => {
-     
- 
-      axiosInstance.get("/api/sponsors/readAll")
-        .then(function(response) {
-          setData(response.data.data);
-        }).catch(function(error) {
-          console.log(error);
-        })
+    
+    
+    axiosInstance.get("/api/sponsors/readAll")
+    .then(function(response) {
+      setData(response.data.data);
+    }).catch(function(error) {
+      console.log(error);
+    })
 
-    }, []);
- 
+  }, []);
+  
 
-const columns = React.useMemo(
+  const columns = React.useMemo(
     () => [
+    {
+      Header: 'Profile',
+      columns: [
       {
+        Header: 'Package',
+        accessor: 'category',
+      },
+      {
+        Header: 'Sponsor Amount (RM)',
+        accessor: 'amount',
+      },
+      {
+        Header: 'Company',
+        accessor: 'company_name',
+      },
+      {
+
         Header: 'Profile',
         columns: [
           {
@@ -60,24 +76,23 @@ const columns = React.useMemo(
               </Link>
             )
           },
+
         ],
       },
 
-     
-    ],
-    []
-  )
+      
+      ],
+      []
+      )
 
-  
+      
 
   return (
-    <div className="App">
-     
-
+    <div className="App">    
       <Table columns={columns} data={data} />
     </div>
   );
 
-}
+    }
 
-export default Sponsor;
+    export default Sponsor;

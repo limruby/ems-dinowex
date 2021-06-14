@@ -3,20 +3,7 @@ import React, {useState, useEffect} from 'react';
 
 const CompetitionMaterial = ({user}) =>  {
 
- 
-console.log(user);
-
 function displayPoster(){
-
-  // if(user.poster!=undefined){  //after mount
-  //     if(user.poster.length){
-  //       return (<p>{user.poster[0].name}</p>)
-  //     }
-  //     else{
-  //       return (<p>empty</p>)
-  //     }
-  // }  
-
   if(user.poster){
     var section = [];
 
@@ -28,9 +15,7 @@ function displayPoster(){
         );
     }
     return section;
-
   }
-
 }
 
 
@@ -46,7 +31,6 @@ function displayAchievement(){
         );
     }
     return section;
-
   }
 }
 
@@ -62,7 +46,6 @@ function displayPublication(){
         );
     }
     return section;
-
   }
 }
 
@@ -78,7 +61,6 @@ function displayGrant(){
         );
     }
     return section;
-
   }
 }
 
@@ -94,7 +76,6 @@ function displayVideo(){
         );
     }
     return section;
-
   }
 
 }
@@ -102,28 +83,34 @@ function displayVideo(){
 
   return (       
     <div>
+        <h5>Poster</h5>
+        {displayPoster()}
+        
+        <hr/>
 
-    <h5>Poster</h5>
-    {displayPoster()}
-    <hr/>
-    <h5>Achievements</h5>    
-    <ul>
-      {displayAchievement()}
-    </ul>
-    <hr/>
-    <h5>Publications</h5>    
-    <ul>
-      {displayPublication()}
-    </ul>
-    <hr/>
-    <h5>Grants</h5>    
-    <ul>
-      {displayGrant()}
-    </ul>
-    <hr/>
-    <h5>Video</h5>
-     {displayVideo()}
-    
+        <h5>Achievements</h5>    
+        <ul>
+          {displayAchievement()}
+        </ul>
+
+        <hr/>
+
+        <h5>Publications</h5>    
+        <ul>
+          {displayPublication()}
+        </ul>
+
+        <hr/>
+
+        <h5>Grants</h5>    
+        <ul>
+          {displayGrant()}
+        </ul>
+
+        <hr/>
+
+        <h5>Video</h5>
+         {displayVideo()}        
     </div>
   );
  

@@ -14,16 +14,16 @@ function EditAccount({data, setData}) {
     const handleForm=(e)=>{
         e.preventDefault();
     // perform all neccassary validations
-       if (data.email === ""){
-            alert("Form not fill");
-        }
-        else{
+    if (data.email === ""){
+        alert("Form not fill");
+    }
+    else{
             ///////update to db /////////////
             axiosInstance.post("/api/accounts/update", data)
             .then(function(response) {
-              window.location.href = '/user_dashboard';
+                window.location.href = '/user_dashboard';
             }).catch(function(error) {
-              console.log(error);
+                console.log(error);
             })
             
         }

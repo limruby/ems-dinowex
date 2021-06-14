@@ -12,52 +12,52 @@ function Account() {
 
 
     axiosInstance.get("/api/accounts/readAll")
-      .then(function (response) {
-        setData(response.data.data);
-      }).catch(function (error) {
-        console.log(error);
-      })
+    .then(function (response) {
+      setData(response.data.data);
+    }).catch(function (error) {
+      console.log(error);
+    })
 
   }, []);
 
 
   const columns = React.useMemo(
     () => [
+    {
+      Header: 'Account',
+      columns: [
       {
-        Header: 'Account',
-        columns: [
-          {
-            Header: 'Email',
-            accessor: 'email',
-          },
-          {
-            Header: 'Role',
-            accessor: 'role'
-          },
-          {
-            Header: 'Password',
-            accessor: 'password',
-            Cell: data => (
-              <Link to={`/admin_dashboard/${data.row.original._id}/edit_password`}>
-                <button className="btn btn-success" >
-
-                  Edit
-
-                </button></Link>
-            )
-          },
-
-        ],
+        Header: 'Email',
+        accessor: 'email',
       },
+      {
+        Header: 'Role',
+        accessor: 'role'
+      },
+      {
+        Header: 'Password',
+        accessor: 'password',
+        Cell: data => (
+          <Link to={`/admin_dashboard/${data.row.original._id}/edit_password`}>
+          <button className="btn btn-success" >
+
+          Edit
+
+          </button></Link>
+          )
+      },
+
+      ],
+    },
 
 
     ],
     []
-  )
+    )
 
 
 
-  return (
+ return (
     <div className="App">
       <Link to='/admin_dashboard/create_profile'>
         <button className="btn btn-danger" >
@@ -69,6 +69,6 @@ function Account() {
     </div>
   );
 
-}
+  }
 
-export default Account;
+  export default Account;

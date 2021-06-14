@@ -1,5 +1,6 @@
 version: '3.7'
 services:
+<<<<<<< HEAD
 
   # mongodb:
   #   image: mongo
@@ -47,6 +48,28 @@ services:
     ports:
       - 3000:5000
     container_name: app
+=======
+  app:
+    build: .
+    volumes:
+      - ./build/:/usr/src/app/build/
+    restart: always
+    networks:
+      - server
+    container_name: app
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=server
+      - traefik.http.services.vexs_server.loadbalancer.server.port=5000
+
+      - traefik.http.routers.vexs_server.rule=Host(`vexsdev.getitqec.com`)
+      - traefik.http.routers.vexs_server.entrypoints=http
+      - traefik.http.routers.vexs_server.middlewares=redirect@file
+      - traefik.http.routers.vexs_server-secured.rule=Host(`vexsdev.getitqec.com`)
+      - traefik.http.routers.vexs_server-secured.entrypoints=https
+      - traefik.http.routers.vexs_server-secured.tls.certresolver=mytlschallenge
+      # - traefik.http.routers.vexs_server-secured.middlewares=cache-header@file
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 
 networks:
   server:

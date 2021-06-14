@@ -3,26 +3,24 @@ import { Link } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import axiosInstance from '../../../../utils/axiosConfig.js';
 
-function EditAccount({ data, setData }) {
+function EditPassword({data, setData}) {
 
-    /////////////////////get login user (REPLACE THIS) ////////////////
     const [user, setState] = useState({
         _id: '',
         newPassword: '',
-        confirmPassword: ''
-
+        confirmPassword:''
     });
-
 
     const inputChange = input => e => {
         setState({
             ...user,
-            _id: data._id,
+            _id:data._id,
             [input]: e.target.value
         });
     };
 
-    const handleForm = (e) => {
+
+    const handleForm=(e)=>{
         e.preventDefault();
         // perform all neccassary validations
         if (user.newPassword !== user.confirmPassword) {
@@ -31,22 +29,20 @@ function EditAccount({ data, setData }) {
         else if (user.newPassword === "" || user.confirmPassword === "") {
             alert("Form not fill");
         }
-        else {
-
-            console.log(data);
+        else{        
             ///////update to db /////////////
             axiosInstance.post("/api/accounts/update", user)
-                .then(function (response) {
-                    window.location.href = '/user_dashboard';
-                }).catch(function (error) {
-                    console.log(error);
-                })
+            .then(function(response) {
+                window.location.href = '/user_dashboard';
+            }).catch(function(error) {
+                console.log(error);
+            })
         }
     }
 
-    /////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
 
-    return (
+     return(
         <>
             <form onSubmit={handleForm}>
                 <div className="edit-form-container">
@@ -80,10 +76,10 @@ function EditAccount({ data, setData }) {
                     </div>
                 </div>
             </form>
-        </>
-
-    )
+         </>
+ 
+        );
 
 }
 
-export default EditAccount;
+export default EditPassword;

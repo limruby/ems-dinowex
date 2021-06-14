@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import FormChange from './form_change';
 import Footer from './../footer';
-function Profile() {
+
+function Signup() {
   return (
     <>      
     <FormChange value />
     </>
   );
-} export default Profile;
+} export default Signup;
+

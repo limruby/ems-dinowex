@@ -7,27 +7,26 @@ import axiosInstance from '../../../../utils/axiosConfig.js';
 
 function EditAbstract({data, setData}) {
 
-    console.log(data.abstract)
     const inputChange = input => e => {
 
         if(input=='title'){
             if(!data.abstract[0]){
                 data.abstract.push({'title': e.target.value})            }
-            else{
-                data.abstract[0].title = e.target.value;
+                else{
+                    data.abstract[0].title = e.target.value;
+                }
             }
-        }
-        if(input=='content'){
-            if(!data.abstract[0]){
-                data.abstract.push({'content': e.target.value})            }
-            else{
-                data.abstract[0].content = e.target.value;
-            }
-        }
-        setData({
-            ...data,
-        });
-    };
+            if(input=='content'){
+                if(!data.abstract[0]){
+                    data.abstract.push({'content': e.target.value})            }
+                    else{
+                        data.abstract[0].content = e.target.value;
+                    }
+                }
+                setData({
+                    ...data,
+                });
+            };
 
     //display Keyword
     function displayKeywords(){
@@ -35,6 +34,7 @@ function EditAbstract({data, setData}) {
 
         if(data.abstract!=undefined&&data.abstract[0]!=undefined&&data.abstract[0]['keywords']!=undefined){
             section.push(
+
                 <div className="keyword-box">
                     <ul>
                         {data.abstract[0]['keywords'].map((keyword, index)=>(
@@ -45,8 +45,9 @@ function EditAbstract({data, setData}) {
                         </li>
                         ))}
                     </ul>
+
                 </div>
-            );
+                );
         }
 
         return section;
@@ -57,55 +58,55 @@ function EditAbstract({data, setData}) {
 
         if(data.abstract!==undefined){
             if(data.abstract==null||data.abstract[0]==undefined||data.abstract[0].keywords==null){
-            section.push(
-                <div>
+                section.push(
+                    <div>
                     <div className="form-group">
-                        <input type="text" className="form-control" name="keyword" id="keyword"
-                        placeholder='keyword'                    
-                        onChange={tempInput('keyword')} value={tempState.keyword}/>
-                        <p/>
-                        <button className="addBtn btn btn-primary" type="button" onClick={addKeyword()}> Add</button>
+                    <input type="text" className="form-control" name="keyword" id="keyword"
+                    placeholder='keyword'                    
+                    onChange={tempInput('keyword')} value={tempState.keyword}/>
+                    <p/>
+                    <button className="addBtn btn btn-primary" type="button" onClick={addKeyword()}> Add</button>
                     </div>
 
                     <hr/>
-                </div>
-            );
-            }
+                    </div>
+                    );
+                }
                 else if(data.abstract[0].keywords.length<5){
-            section.push(
-                <div>
+                    section.push(
+                    <div>
                     <div className="form-group">
-                        <input type="text" className="form-control" name="keyword" id="keyword"
-                        placeholder='keyword'                    
-                        onChange={tempInput('keyword')} value={tempState.keyword}/>
-                        <p/>
-                        <button className="addBtn btn btn-primary" type="button" onClick={addKeyword()}> Add</button>
+                    <input type="text" className="form-control" name="keyword" id="keyword"
+                    placeholder='keyword'                    
+                    onChange={tempInput('keyword')} value={tempState.keyword}/>
+                    <p/>
+                    <button className="addBtn btn btn-primary" type="button" onClick={addKeyword()}> Add</button>
                     </div>
 
                     <hr/>
-                </div>
-            );
-                
+                    </div>
+                    );
+
+                }
             }
+            return section;
         }
-        return section;
-    }
 
 
-    const [tempState, setTempt] = useState({
-        keyword:""
-    });
-
-    const tempInput = input => e => {
-        setTempt({
-            ...tempState,
-            keyword: e.target.value
+        const [tempState, setTempt] = useState({
+            keyword:""
         });
-    };
+
+        const tempInput = input => e => {
+            setTempt({
+                ...tempState,
+                keyword: e.target.value
+            });
+        };
 
     //////// add keyword ////////////
     const addKeyword = () => e => {
-    
+
         if(!data.abstract[0]){
             data.abstract.push({'keywords': []})
         }
@@ -117,8 +118,7 @@ function EditAbstract({data, setData}) {
         setData({
             ...data,
             
-        });
-        console.log(data.abstract);
+        });        
         //clear tempStateKeyword
         setTempt({
             ...tempState,
@@ -130,42 +130,31 @@ function EditAbstract({data, setData}) {
 
     //////// remove keyword ////////////
     const deleteKeyword = (index) => e => {
-        console.log(index)
-        console.log(data.abstract[0]['keywords'][index])
-
-        data.abstract[0]['keywords'].splice(index,1);
-
-        console.log(index)
+        data.abstract[0]['keywords'].splice(index,1);        
         setData({
             ...data,
             
-        });
-        console.log(data.abstract);
+        });        
     }
 
 
     const handleForm=(e)=>{
         e.preventDefault();
     // perform all neccassary validations
-           var postData = {
-                _id : data._id,                
-                abstract : data.abstract
-            }
-            
-            axiosInstance.post("/api/competitors/update", postData)
-            .then(function(response) {
-              window.location.href = '/user_dashboard';
-            }).catch(function(error) {
-              console.log(error);
-            })
-        
+    var postData = {
+        _id : data._id,                
+        abstract : data.abstract
     }
 
+    axiosInstance.post("/api/competitors/update", postData)
+    .then(function(response) {
+        window.location.href = '/user_dashboard';
+    }).catch(function(error) {
+        console.log(error);
+    })
 
+}
 
-    /////////////////////////////////////////////////////////////
-
-        
 //load data to input field value
 function checkExist(element, index){
     var value="";
@@ -178,9 +167,6 @@ function checkExist(element, index){
     else if(data.abstract[0].content && element==="content"){
         return data.abstract[0].content;
     }    
-   
-
-    console.log(data.abstract)
 }
 
 
@@ -191,12 +177,14 @@ function checkExist(element, index){
                 <div className="edit-form-container"  style={{marginTop:"5%", marginBottom:"5%"}}>
                     <h1 className="mb-5">Edit Abstract</h1>
 
-                    <div className="form-group">
-                        <label htmlFor="name"><span>*</span>Project Title</label>
-                        <input type="text" className="form-control" name="title" id="title"
-                        placeholder='project title' required                    
-                        onChange={inputChange('title')} value={checkExist('title', 0)} />
-                    </div>
+
+                <div className="form-group">
+                    <label htmlFor="name"><span>*</span>Project Title</label>
+                    <input type="text" className="form-control" name="title" id="title"
+                    placeholder='project title' required                    
+                    onChange={inputChange('title')} value={checkExist('title', 0)} />
+                </div>
+
 
                     <div className="form-group">
                         <label htmlFor="abstract"><span>*</span>Abstract </label>
@@ -206,7 +194,9 @@ function checkExist(element, index){
                     <div className="form-group">
                     <label><span>*</span>Keywords</label>
 
-                    {displayKeywords()}
+
+                {displayKeywords()}
+
 
                     {displayKeywordsForm()}
                     </div>
@@ -220,12 +210,13 @@ function checkExist(element, index){
                         </Link>
                         <input className="btn btn-primary" type="submit" value="Update" />
                     </div>
+
                 </div>
-                </form>
-             </>
+            </div>
+            </form>
+         </>
 
-            )
-
-    }
+        )
+}
 
 export default EditAbstract;

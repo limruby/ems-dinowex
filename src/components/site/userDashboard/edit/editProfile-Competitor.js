@@ -5,22 +5,21 @@ import axiosInstance from '../../../../utils/axiosConfig.js';
 
 function EditProfile({data, setData}) {
 
-/////////////////////get login data (REPLACE THIS) ////////////////
-    const inputChange = input => e => {
-        setData({
-            ...data,
-            [input]: e.target.value
-        });
-    };
+const inputChange = input => e => {
+    setData({
+        ...data,
+        [input]: e.target.value
+    });
+};
 
-    const handleForm=(e)=>{
-        e.preventDefault();
+const handleForm=(e)=>{
+    e.preventDefault();
     // perform all neccassary validations
-        if (data.name ===""||data.affiliation===""||data.nric_passport_selection===""||data.nric_passport_no===""
-            ||data.address===""||data.gender===""){
-            alert("Form not fill");
-        }
-        else{
+    if (data.name ===""||data.affiliation===""||data.nric_passport_selection===""||data.nric_passport_no===""
+        ||data.address===""||data.gender===""){
+        alert("Form not fill");
+    }
+    else{
             ///////update to db /////////////
             var postData = {
                 _id : data._id,
@@ -32,22 +31,21 @@ function EditProfile({data, setData}) {
                 gender : data.gender
             }
 
-
             axiosInstance.post("/api/competitors/update", postData)
             .then(function(response) {
-              window.location.href = '/user_dashboard';
+                window.location.href = '/user_dashboard';
             }).catch(function(error) {
-              console.log(error);
+                console.log(error);
             })
         }
     }
-console.log(data);
 /////////////////////////////////////////////////////////////
-
     return(
         <>
+
         <form onSubmit={handleForm}>
         <div className="edit-form-container" style={{marginTop:"5%", marginBottom:"5%"}}>
+
                 <h1 className="mb-5">Edit Profile Info</h1>
 
                 <div className="form-group">
@@ -103,8 +101,7 @@ console.log(data);
                 </div>
             </div>
             </form>
-
-         </>
+        </>
 
         )
 

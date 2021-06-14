@@ -1,0 +1,27 @@
+version: '3.7'
+services:
+  app_prod:
+    build: .
+    volumes:
+      - ./build/:/usr/src/app/build/
+    restart: always
+    networks:
+      - server
+    container_name: app_prod
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=server
+      - traefik.http.services.vexs_server.loadbalancer.server.port=5000
+
+      - traefik.http.routers.vexs_server_prod.rule=Host(`vexs.fsktm.um.edu.my`)
+      - traefik.http.routers.vexs_server_prod.entrypoints=http
+      # - traefik.http.routers.vexs_server.middlewares=redirect@file
+      - traefik.http.routers.vexs_server_prod-secured.rule=Host(`vexs.fsktm.um.edu.my`)
+      - traefik.http.routers.vexs_server_prod-secured.entrypoints=https
+      - traefik.http.routers.vexs_server_prod-secured.tls.certresolver=mytlschallenge
+      # - tls.certificates.certFile
+      - traefik.http.routers.vexs_server_prod-secured.middlewares=cache-header@file
+
+networks:
+  server:
+    external: true

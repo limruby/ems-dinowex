@@ -16,16 +16,17 @@ export class Profiles extends Component {
 
 
         const handleForm=(e)=>{
-        e.preventDefault();
+            e.preventDefault();
         // perform all neccassary validations
-            if (values.name ==""||values.affiliation==""||values.ic_passport_selection==""||values.ic_passport_number==""||values.phone_no==""
-                ||values.address==""||values.gender==""){
-                alert("Form not fill");
-            }
-            else{
-                this.continue(e);
-            }
+        if (values.name ==""||values.affiliation==""||values.ic_passport_selection==""||values.ic_passport_number==""||values.phone_no==""
+            ||values.address==""||values.gender==""){
+            alert("Form not fill");
         }
+        else{
+            this.continue(e);
+        }
+    }
+
 
         return (
             <div className="form-container" style={{marginTop:"2%", marginBottom:"2%"}}>
@@ -82,17 +83,18 @@ export class Profiles extends Component {
                 </div>
                 <br />
 
-                <div className="row">
-                    <div className="col-6">
-                        <button className="btn btn-danger" onClick={this.back}>Back</button>
-                    </div>
-                    <div className="col-6 text-right">
-                          <input className="btn btn-primary" type="submit" value="Continue" />
-                    </div>
+
+            <div className="row">
+                <div className="col-6">
+                    <button className="btn btn-danger" onClick={this.back}>Back</button>
                 </div>
-                </form>
+                <div className="col-6 text-right">
+                      <input className="btn btn-primary" type="submit" value="Continue" />
+                </div>
             </div>
-        )
+            </form>
+        </div>
+    )
     }
 }
 

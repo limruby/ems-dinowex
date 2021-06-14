@@ -11,52 +11,62 @@ function EditTeam({ data, setData }) {
     tempName: "",
     tempAff: "",
     tempEmail: ""
-  });
-  const showUpload = (e) => {
-    if (data.members.length < 4) {
-      e.preventDefault();
-      if (tempData.tempName !== "" && tempData.tempAff !== "" && tempData.tempEmail !== "") {
-        data.members.push({ 'name': tempData.tempName, 'affiliation': tempData.tempAff, 'email': tempData.tempEmail })
-        setData({
-          ...data,
-        })
-        tempData.tempName = "";
-        tempData.tempAff = "";
-        tempData.tempEmail = "";        setTemp({
-          ...tempData,
-        });
-      }
-      if (tempData.tempName !== "") {
-        if (tempData.tempAff === "" || tempData.tempEmail === "") {
-          alert("Incomplete Form");
+
+});
+const showUpload=(e)=>{
+    if(data.members.length < 4){
+        e.preventDefault();
+        if (tempData.tempName!=="" && tempData.tempAff!=="" && tempData.tempEmail!==""){
+            data.members.push({'name':tempData.tempName,'affiliation':tempData.tempAff, 'email':tempData.tempEmail})   
+            setData({
+                ...data,
+            })
+            tempData.tempName="";
+            tempData.tempAff="";
+            tempData.tempEmail="";
+
+            setTemp({
+                ...tempData,
+            });
         }
-      }
-      else if (tempData.tempAff !== "") {
-        if (tempData.tempName === "" || tempData.tempEmail === "") {
-          alert("Incomplete Form");
+        if(tempData.tempName!==""){
+            if(tempData.tempAff===""||tempData.tempEmail===""){
+                alert("Incomplete Form");
+            }
         }
-      }
-      else if (tempData.tempEmail !== "") {
-        if (tempData.tempName === "" || tempData.tempAff === "") {
-          alert("Incomplete Form");
+        else if(tempData.tempAff!==""){
+            if(tempData.tempName===""||tempData.tempEmail===""){
+                alert("Incomplete Form");
+            }
         }
-      }    }
-  }
-  var obj = [];
-  const deleteFile = (element, index) => e => {
-    if (element === 'members') {
-      let obj = data.members;
-      obj.splice(index, 1);
-    }
+        else if(tempData.tempEmail!==""){
+            if(tempData.tempName===""||tempData.tempAff===""){
+                alert("Incomplete Form");
+            }
+        }
+
+    }   
+}
+var obj =[];
+const deleteFile = (element,index) => e => {
+    if(element==='members'){
+        let obj = data.members;
+        obj.splice(index,1);
+    } 
     setData({
-      ...data,    });
-    console.log(data);
-  }
+        ...data,
 
-  const inputChange = (element, index) => e => {
+    });
+}
 
-    if (element === 'name') {
-      tempData.tempName = e.target.value;
+const inputChange = (element, index) => e => {
+
+    if(element === 'name'){
+        tempData.tempName=e.target.value;
+    }
+    if(element === 'affiliation'){
+        tempData.tempAff=e.target.value;
+
     }
     if (element === 'affiliation') {
       tempData.tempAff = e.target.value;
@@ -65,7 +75,7 @@ function EditTeam({ data, setData }) {
       tempData.tempEmail = e.target.value;
     }
     setTemp({
-      ...tempData
+        ...tempData
     });
 
     console.log(data);

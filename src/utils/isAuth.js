@@ -32,10 +32,7 @@ export const isAdmin = () => {
         else{
             return false;
         }
-
-       
     } else {
-        
         return false;
     }
 }
