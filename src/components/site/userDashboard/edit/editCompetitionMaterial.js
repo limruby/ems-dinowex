@@ -263,7 +263,7 @@ const handleForm=(e)=>{
       _id : data._id,
       poster : data.poster,
       achievements : data.achievements,
-      publication : data.publication,
+      publications : data.publications,
       grants : data.grants,
       video : data.video,
     }
