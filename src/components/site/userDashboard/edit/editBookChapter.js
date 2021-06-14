@@ -1,15 +1,16 @@
-import React, {useState} from 'react';
-import {Link} from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import { FaTrashAlt } from 'react-icons/fa';
 import Editor from './editor';
 
 import axiosInstance from '../../../../utils/axiosConfig.js';
 
-function EditBookChapter({data, setData}) {
+function EditBookChapter({ data, setData }) {
 
 
 	const inputChange = input => e => {
+
 		if(input=='introduction'){
 			if(!data.bookChapter[0]){
 				data.bookChapter.push({'introduction': e.target.value})			}
@@ -65,7 +66,7 @@ function EditBookChapter({data, setData}) {
 				<div className="form-group">
 					<input type="text" className="form-control" name="reference" id="reference"
 					placeholder='reference'                    
-					onChange={tempInput('reference')} value={tempState.reference}/>
+					onChange={tempInput('reference')} value={tempState.reference} style={{marginBottom:"2%"}}/>
 					<button className="btn btn-primary" type="button" onClick={addReference()}> Add</button>
 					<br/>
 				</div>
@@ -89,12 +90,12 @@ function EditBookChapter({data, setData}) {
 
 	//////// add reference ////////////
 	const addReference = () => e => {
-		if(!data.bookChapter[0]){
-			data.abstract.push({'references': []})
-			
+		if (!data.bookChapter[0]) {
+			data.abstract.push({ 'references': [] })
+
 		}
-		else if(data.bookChapter[0]&&!data.bookChapter[0]['references']){
-			data.bookChapter[0]['references']=[];
+		else if (data.bookChapter[0] && !data.bookChapter[0]['references']) {
+			data.bookChapter[0]['references'] = [];
 		}
 		data.bookChapter[0]['references'].push(tempState.reference);
 		
@@ -111,6 +112,7 @@ function EditBookChapter({data, setData}) {
 
 	//////// remove reference ////////////
 	const deleteReference = (index) => e => {
+
 		data.bookChapter[0]['references'].splice(index,1);
 		setData({
 			...data,
@@ -156,47 +158,48 @@ function checkExist(element, index){
 
 	/////////////////////////////////////////////////////////////
 
-		return(
-			<>
-	            <form onSubmit={handleForm}>
-				<div className="form-container">
-	                <h1 className="mb-5">Edit Book Chapter</h1>
+	return (
+		<>
+			<form onSubmit={handleForm}>
+				<div className="edit-form-container" style={{ marginTop: "5%", marginBottom:"5%" }}>
+					<h1 className="mb-5">Edit Book Chapter</h1>
 
-	                <div className="form-group">
-	                    <label htmlFor="introduction">Introduction</label>
-	                    <textarea className="form-control" id="introduction" cols="30" rows="10"
-                    	onChange={inputChange('introduction')} value={checkExist('introduction', 0)} />
-	                </div>
+					<div className="form-group">
+						<label htmlFor="introduction">Introduction</label>
+						<textarea className="form-control" id="introduction" cols="30" rows="10"
+							onChange={inputChange('introduction')} value={checkExist('introduction', 0)} />
+					</div>
 
-	                <div className="form-group">
-	                    <label htmlFor="content">Content </label>
-						<Editor id = {data._id} bookChapter_data = {data.bookChapter}/>
-	                </div>
-					
-					 <div className="form-group">
-	                    <label htmlFor="conclusion">Conclusion </label>
-	                    <textarea className="form-control" id="conclusion" cols="30" rows="10"
-                    	onChange={inputChange('conclusion')} value={checkExist('conclusion', 0)} />
-	                </div>
+					<div className="form-group">
+						<label htmlFor="content">Content </label>
+						<Editor id={data._id} bookChapter_data={data.bookChapter} />
+					</div>
 
-                   	<h5>References</h5>
-	                {displayReferences()}
-	                {displayReferencesForm()}
+					<div className="form-group">
+						<label htmlFor="conclusion">Conclusion </label>
+						<textarea className="form-control" id="conclusion" cols="30" rows="10"
+							onChange={inputChange('conclusion')} value={checkExist('conclusion', 0)} />
+					</div>
 
-	                <br />
+					<div className="keyword-box">
+					<label>References</label>
+					{displayReferences()}
+					{displayReferencesForm()}
+					</div>
+					<br />
 
-	               
-	                <div className="col-4 btn-group">
-	                    <Link to="/user_dashboard">
-	                        <button className="btn btn-danger back-btn">Back</button>
-	                    </Link>
-	                    <input className="btn btn-primary" type="submit" value="Update" />
-	                </div>
-	            </div>
-	            </form>
-	         </>
 
-			)
+					<div className="btn-group">
+						<Link to="/user_dashboard">
+							<button className="btn btn-danger back-btn">Back</button>
+						</Link>
+						<input className="btn btn-primary" type="submit" value="Update" />
+					</div>
+				</div>
+			</form>
+		</>
+
+	)
 
 }
 

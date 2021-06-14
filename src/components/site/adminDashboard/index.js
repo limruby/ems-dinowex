@@ -32,6 +32,7 @@ function AdminDashboard() {
 	return (
 
 		<div>
+    <div className="welcome-box"><h1>Welcome Admin!</h1></div>
 			<div className="wrapper">
 				<Tab.Container id="left-tabs-example" defaultActiveKey="Account">
 					<Row>
@@ -89,3 +90,4 @@ function AdminDashboard() {
 	}
 
 	export default AdminDashboard;
+

@@ -29,7 +29,8 @@ export class Profiles extends Component {
 
 
         return (
-            <div>
+            <section className="section-container">
+            <div className="form-container">
                 <h1 className="mb-5">Select Category</h1>
                 
                 <div className="form-group">
@@ -54,6 +55,7 @@ export class Profiles extends Component {
                     </div>
                 </div>
             </div>
+            </section>
         )
     }
 }
