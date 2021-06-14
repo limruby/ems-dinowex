@@ -21,7 +21,7 @@ function AdminDashboard() {
 			<Nav.Link eventKey="Competitor"><BsFiles size={20}/> Competitor</Nav.Link>
 			</Nav.Item>
 			<Nav.Item>
-			<Nav.Link eventKey="Sponsor"><FaCertificate size={20}/>Sponsor</Nav.Link>
+			<Nav.Link eventKey="Sponsor"><FaCertificate size={20}/> Sponsor</Nav.Link>
 			</Nav.Item>
 			</Nav>
 			);

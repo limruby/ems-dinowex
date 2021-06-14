@@ -9,7 +9,7 @@ function displayPoster(){
 
     for (var i=0; i<user.poster.length; i++){
         section.push(
-            <li>
+            <li style={{listStyle:"none"}}>
                {user.poster[i].name}
             </li>
         );
@@ -70,7 +70,7 @@ function displayVideo(){
 
     for (var i=0; i<user.video.length; i++){
         section.push(
-            <li>
+            <li style={{listStyle:"none"}}>
                <a href={user.video[0].source}>{user.video[0].name}</a>
             </li>
         );

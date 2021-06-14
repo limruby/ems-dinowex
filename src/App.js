@@ -74,7 +74,7 @@ function App() {
         <Route exact path='/sponsor_hall'  component={sponsor_hall}/> 
         <Route exact path='/competition_hall'  component={competition_hall}/>
 
-        <Route exact path='/page_not_found' component={PageNotFound} />
+        <Route component={PageNotFound} />
         <Route exact path='/payment_success'  component={Payment_Success}/>
         <Route exact path='/payment_fail'  component={Payment_Fail}/>
       </Switch>
