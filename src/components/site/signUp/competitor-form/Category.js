@@ -11,17 +11,14 @@ export class Profiles extends Component {
         this.props.prevStep();
     };
 
-
-
     render() {
         const { values, inputChange } = this.props;
 
 
         const handleForm=(e)=>{
         e.preventDefault();
-        var amount="";
         // perform all neccassary validations
-            if (values.category === ""){
+            if (values.category ==""){
                 alert("Form not fill");
             }
             else{
@@ -41,8 +38,8 @@ export class Profiles extends Component {
                     onChange={inputChange('category')} value={values.category} >
                         <option value="">Please select</option>
                         <option value="Professional Innovator">Professional Innovator</option>
-                        <option value="Young Innovator">Young Innovator</option>
                         <option value="Junior Innovator">Junior Innovator</option>
+                        <option value="Young Innovator">Young Innovator</option>
                     </select>
                 </div>
 

@@ -18,48 +18,48 @@ function FormNavigator() {
 
 
 ////////////////////get login user role /////////////////////
-  const [user, setUser]=useState([]);
-  const [account, setAccount]=useState([]);
-  const account_id = localStorage.getItem('user_id');
+const [user, setUser]=useState([]);
+const [account, setAccount]=useState([]);
+const account_id = localStorage.getItem('user_id');
 
-  useEffect(() => {
-      axiosInstance.get("/api/competitors/read", {params:{account_id:account_id}})
-        .then(function(response) {
-          setUser(response.data.data);
-        }).catch(function(error) {
-          console.log(error);
-        });
+useEffect(() => {
+	axiosInstance.get("/api/competitors/read", {params:{account_id:account_id}})
+	.then(function(response) {
+		setUser(response.data.data);
+	}).catch(function(error) {
+		console.log(error);
+	});
 	axiosInstance.get("/api/sponsors/read", {params:{account_id:account_id}})
-        .then(function(response) {
-          setUser(response.data.data);
-        }).catch(function(error) {
-          console.log(error);
-        });
+	.then(function(response) {
+		setUser(response.data.data);
+	}).catch(function(error) {
+		console.log(error);
+	});
 
-      axiosInstance.get("/api/accounts/read", {params:{account_id:account_id}})
-        .then(function(response) {
-          setAccount(response.data.data);
-        }).catch(function(error) {
-          console.log(error);
-        })
+	axiosInstance.get("/api/accounts/read", {params:{account_id:account_id}})
+	.then(function(response) {
+		setAccount(response.data.data);
+	}).catch(function(error) {
+		console.log(error);
+	})
 
-    },[]);
+},[]);
 //////////////////////////////////////////////////////////////////////////////////
 const location = useLocation();
 const thePath = location.pathname;
 const lastPath = thePath.substring(thePath.lastIndexOf('/') + 1);
 
 
-	if(lastPath === 'edit_account'){
-		return( 
-		    <div className="form-main-container">
-				<EditAccount data={account} setData={setAccount}/>
+if(lastPath === 'edit_account'){
+	return( 
+			<div className="form-main-container">
+			<EditAccount data={account} setData={setAccount}/>
 			</div>
 		)
 	}
 	else if(lastPath === 'edit_password'){
 		return( 
-		    <div className="form-main-container">
+			<div className="form-main-container">
 				<EditPassword data={account} setData={setAccount}/>
 			</div>
 		)
@@ -68,7 +68,7 @@ const lastPath = thePath.substring(thePath.lastIndexOf('/') + 1);
 		switch(lastPath){
 			case 'edit_profile':
 				return( 
-				    <div className="form-main-container">
+					<div className="form-main-container">
 						<EditProfile_S data={user} setData={setUser}/>
 					</div>
 				)
@@ -76,21 +76,21 @@ const lastPath = thePath.substring(thePath.lastIndexOf('/') + 1);
 
 			case 'edit_content':
 				return( 
-				    <div className="form-main-container">
+					<div className="form-main-container">
 						<EditPromoContent data={user} setData={setUser}/>
 					</div>
 				)
 			break;
 
 			default:
-				
+			
 		}
 	}
 	else if (account.role === 'Competitor'){
 		switch(lastPath){
 			case 'edit_profile':
 				return( 
-				    <div className="form-main-container">
+					<div className="form-main-container">
 						<EditProfile_C data={user} setData={setUser}/>
 					</div>
 				)
@@ -98,7 +98,7 @@ const lastPath = thePath.substring(thePath.lastIndexOf('/') + 1);
 
 			case 'edit_researchTeam':
 				return( 
-				    <div className="form-main-container">
+					<div className="form-main-container">
 						<EditResearchTeam data={user} setData={setUser}/>
 					</div>
 				)
@@ -106,7 +106,7 @@ const lastPath = thePath.substring(thePath.lastIndexOf('/') + 1);
 
 			case 'edit_content':
 				return( 
-				    <div className="form-main-container">
+					<div className="form-main-container">
 						<EditCompetitionMaterial data={user} setData={setUser}/>
 					</div>
 				)
@@ -114,7 +114,7 @@ const lastPath = thePath.substring(thePath.lastIndexOf('/') + 1);
 
 			case 'edit_abstract':
 				return( 
-				    <div className="form-main-container">
+					<div className="form-main-container">
 						<EditAbstract data={user} setData={setUser}/>
 					</div>
 				)
@@ -122,19 +122,19 @@ const lastPath = thePath.substring(thePath.lastIndexOf('/') + 1);
 
 			case 'edit_book_chapter':
 				return( 
-				    <div className="form-main-container">
+					<div className="form-main-container">
 						<EditBookChapter data={user} setData={setUser}/>
 					</div>
 				)
 			break;
 
 			default:
-				
+			
 		}
 	}
 	else{
 		return(
-			<></>
+		<></>
 		)
 	}
 }

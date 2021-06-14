@@ -1,7 +1,19 @@
 # compiled output
 /dist
 /build
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 node_modules
+=======
+/node_modules
+>>>>>>> 6ac8c9a (merge with kale's branch 14th May 9.15pm)
+=======
+node_modules
+>>>>>>> 1759568 (optimize deploy)
+=======
+node_modules
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
 
 # Logs
 logs
@@ -36,11 +48,44 @@ lerna-debug.log*
 
 .env
 .eslintcache
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 
 deploy-staging.sh
+<<<<<<< HEAD
 *.tar
 .vs/event_management_system/v16/.suo
 .vs/slnx.sqlite
 backend/env
 package-lock.json
 *.sqlite
+=======
+>>>>>>> 6ac8c9a (merge with kale's branch 14th May 9.15pm)
+=======
+
+deploy-staging.sh
+<<<<<<< HEAD
+>>>>>>> bc7bab1 (staging ignore)
+=======
+*.tar
+>>>>>>> 1759568 (optimize deploy)
+=======
+=======
+
+deploy-staging.sh
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed
+*.tar
+.vs/event_management_system/v16/.suo
+.vs/slnx.sqlite
+backend/env
+package-lock.json
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> ed4044d (test)
+=======
+*.sqlite
+>>>>>>> 254a571 (gitignore)
+=======
+*.sqlite
+>>>>>>> d66119a3842624f919323611cf66ba932f9a38ed

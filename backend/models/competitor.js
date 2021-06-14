@@ -89,8 +89,8 @@ const competitorSchema = new Schema({
     required: true
   }, 
   phone_no:{
-	type:String,
-	required:true
+    type:String,
+    required:true
   },
   address: {
     type: String,
@@ -100,7 +100,15 @@ const competitorSchema = new Schema({
     type: String,
     required: true
   },
-
+  bill_id:{
+    type: String, 
+  },
+  bill_paid_at:{
+    type: String,  
+  },
+  bill_status: {
+    type:String,
+  },
   poster:[subSchema],
   achievements:[subSchema],
   publications:[subSchema],

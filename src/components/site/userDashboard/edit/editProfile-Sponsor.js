@@ -3,51 +3,50 @@ import {Link} from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import axiosInstance from '../../../../utils/axiosConfig.js';
 import { FaTrashAlt } from 'react-icons/fa';
- 
- 
+
+
 function EditProfile({data, setData}) {
- 
-/////////////////////get login user (REPLACE THIS) ////////////////
-const inputChange = input => e => {
-    setData({
-        ...data,
-        [input]: e.target.value
-    });
-};
- 
+
+    const inputChange = input => e => {
+        setData({
+            ...data,
+            [input]: e.target.value
+        });
+    };
+
     const handleForm=(e)=>{
         e.preventDefault();
     // perform all neccassary validations
-          if (data.company_name === ""||data.company_pic_name ===""||data.company_contact ===""||data.company_address===""
-            ||data.company_website===""|| data.company_logo==="" || data.company_pic_ic===""){
-            alert("Form not fill");
-        }
-        else{
-             ///////update to db /////////////
-              var postData = {
-                _id : data._id,
-                company_name : data.company_name,
-                company_pic_name : data.company_pic_name,
-                company_pic_ic: data.company_pic_ic,
-                company_contact : data.company_contact,
-                company_address : data.company_address,
-                company_website : data.company_website,
-                company_logo : data.company_logo
-            }
-
-             axiosInstance.post("/api/sponsors/update", postData)
-             .then(function(response) {
-               window.location.href = '/user_dashboard';
-             }).catch(function(error) {
-               console.log(error);
-             })
-        }
+    if (data.company_name === ""||data.company_pic_name ===""||data.company_contact ===""||data.company_address===""
+        ||data.company_website===""|| data.company_logo==="" || data.company_pic_ic===""){
+        alert("Form not fill");
     }
-    const uploadLogoHandler = (element, index) => e => {
-        if(element == 'company_logo'){
-          let selectedFile = e.target.files;
-            let file = null;
-            let fileName = "";
+    else{
+             ///////update to db /////////////
+         var postData = {
+             _id : data._id,
+             company_name : data.company_name,
+             company_pic_name : data.company_pic_name,
+             company_pic_ic: data.company_pic_ic,
+             company_contact : data.company_contact,
+             company_address : data.company_address,
+             company_website : data.company_website,
+             company_logo : data.company_logo
+         }
+
+         axiosInstance.post("/api/sponsors/update", postData)
+         .then(function(response) {
+             window.location.href = '/user_dashboard';
+         }).catch(function(error) {
+             console.log(error);
+         })
+         }
+     }
+     const uploadLogoHandler = (element, index) => e => {
+         if(element == 'company_logo'){
+             let selectedFile = e.target.files;
+             let file = null;
+             let fileName = "";
             //Check File is not Empty
             if (selectedFile.length > 0) {
                 // Select the very first file from list
@@ -58,69 +57,63 @@ const inputChange = input => e => {
                 // Onload of file read the file content
                 fileReader.onload = function(fileLoadedEvent) {
                     file = fileLoadedEvent.target.result;
-                    // Print data in console
-                  //data.company_logo[0]['name'] = fileName;
-                  //data.company_logo[0]['source'] = fileReader.result;
-				data.company_logo={
-				'name':fileName,
-				'source':fileReader.result
-				}
-                  //data.company_logo.push({'name':fileName,'source':fileReader.result})
-                };
+                  
+                  data.company_logo={
+                      'name':fileName,
+                      'source':fileReader.result
+                  }                  
+              };
             // Convert data to base64
-                 var baseFile = fileReader.readAsDataURL(fileToLoad);
-            }
+            var baseFile = fileReader.readAsDataURL(fileToLoad);
         }
     }
-	
+}
+
 
 var obj =[];
-  const deleteFile = (element,index) => e => {
+const deleteFile = (element,index) => e => {
     if(element==='company_logo'){
-      let obj = data.company_logo;
-      obj.splice(index,1);
+        let obj = data.company_logo;
+        obj.splice(index,1);
     }
 
-      setData({
-          ...data,
-      });
-      
-  }
+    setData({
+        ...data,
+    });
+
+}
 ///////Display company logo//////
 function displayLogo(){
     var section = [];
     if(data.company_logo==null||data.company_logo[0]==null){
-      section.push(
+        section.push(
             <div className="form-group">                
                 <input type="file" onChange={uploadLogoHandler('company_logo', 0)} />
             </div>
-          );
+            );
+        }
+        else{
+
+            const imageBuffer = Buffer.from(data.company_logo[0].source.data); 
+
+            section.push(
+                <div>
+                    <img src={imageBuffer} alt={data.company_logo[0].name} width="150" height="150" responsive/>
+                    <p>
+                        {data.company_logo[0].name}
+                        <button className="deleteBtn " type="button" onClick={deleteFile('company_logo',0)}><FaTrashAlt/></button>
+                    </p>
+                </div>
+            )
+        }
+        return section;
     }
-    else{
-      
-      const imageBuffer = Buffer.from(data.company_logo[0].source.data); 
-      
-      section.push(
-        <div>
-          <img src={imageBuffer} alt={data.company_logo[0].name} width="150" height="150" responsive/>
-                      
-                   <p>
-				   {data.company_logo[0].name}
-				   <button className="deleteBtn " type="button" onClick={deleteFile('company_logo',0)}><FaTrashAlt/></button>
-				   </p>
-				   
-              </div>
-      )
-    }
-    return section;
-  }
 /////////////////////////////////////////////////////////////
     return(
         <>
-        <form onSubmit={handleForm} action="/uploadfile" enctype="multipart/form-data" method="POST">
-        <div className="form-container">
+            <form onSubmit={handleForm} action="/uploadfile" enctype="multipart/form-data" method="POST">
+            <div className="form-container">
                 <h1 className="mb-5">Edit Profile Info</h1>
- 
               
                  <div className="form-group">
                     <label htmlFor="company_name"><span>*</span>Company Name (as per SME license)</label>
@@ -182,6 +175,5 @@ function displayLogo(){
          </>
         )
 }
- 
+
 export default EditProfile;
- 

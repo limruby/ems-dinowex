@@ -1,38 +1,43 @@
 import React, {useState} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useLocation} from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import axiosInstance from '../../../../utils/axiosConfig.js';
 
-function EditPassword({data, setData}) {
+function EditPassword() {
 
-    const [user, setState] = useState({
-        _id: '',
-        newPassword: '',
-        confirmPassword:''
+/////////////////////get login user (REPLACE THIS) ////////////////
+const [user, setState] = useState({
+    _id: '',
+    newPassword: '',
+    confirmPassword:''
+
+});
+const location = useLocation();
+const thePath = location.pathname;
+const user_id = thePath.substring(thePath.indexOf('/', 2) + 1, thePath.lastIndexOf('/'));
+
+const inputChange = input => e => {
+    setState({
+        ...user,
+        _id:user_id,
+        [input]: e.target.value
     });
+};
 
-    const inputChange = input => e => {
-        setState({
-            ...user,
-            _id:data._id,
-            [input]: e.target.value
-        });
-    };
-
-    const handleForm=(e)=>{
-        e.preventDefault();
-        // perform all neccassary validations
-        if (user.newPassword !== user.confirmPassword) {
-            alert("Password don't match");  
-        }
-        else if (user.newPassword==="" || user.confirmPassword===""){
-            alert("Form not fill");
-        }
-        else{        
+const handleForm=(e)=>{
+    e.preventDefault();
+    // perform all neccassary validations
+    if (user.newPassword !== user.confirmPassword) {
+        alert("Password don't match");  
+    }
+    else if (user.newPassword==="" || user.confirmPassword===""){
+        alert("Form not fill");
+    }
+    else{
             ///////update to db /////////////
             axiosInstance.post("/api/accounts/update", user)
             .then(function(response) {
-                window.location.href = '/user_dashboard';
+                window.location.href = '/admin_dashboard';
             }).catch(function(error) {
                 console.log(error);
             })
@@ -41,7 +46,7 @@ function EditPassword({data, setData}) {
 
 /////////////////////////////////////////////////////////////
 
-     return(
+    return(
         <>
             <form onSubmit={handleForm}>
             <div className="form-container">
@@ -68,7 +73,7 @@ function EditPassword({data, setData}) {
                 <br />
  
                 <div className="col-4 btn-group">
-                    <Link to="/user_dashboard">
+                    <Link to="/admin_dashboard">
                         <button className="btn btn-danger back-btn">Back</button>
                     </Link>
                     <input className="btn btn-primary" type="submit" value="Update" />
@@ -77,8 +82,6 @@ function EditPassword({data, setData}) {
             </form>
          </>
  
-        );
-
+        )
 }
-
 export default EditPassword;

@@ -9,91 +9,83 @@ import axiosInstance from '../../../../utils/axiosConfig.js';
 function EditBookChapter({data, setData}) {
 
 
-    const inputChange = input => e => {
-	    if(input=='introduction'){
+	const inputChange = input => e => {
+		if(input=='introduction'){
 			if(!data.bookChapter[0]){
 				data.bookChapter.push({'introduction': e.target.value})			}
-			else{
-				data.bookChapter[0].introduction = e.target.value;
+				else{
+					data.bookChapter[0].introduction = e.target.value;
+				}
 			}
-		}
-		if(input=='content'){
-			if(!data.bookChapter[0]){
-				data.bookChapter.push({'content': e.target.value})			}
-			else{
-				data.bookChapter[0].content = e.target.value;
-			}
-		}
-		if(input=='conclusion'){
-			if(!data.bookChapter[0]){
-				data.bookChapter.push({'conclusion': e.target.value})			}
-			else{
-				data.bookChapter[0].conclusion = e.target.value;
-			}
-		}
-	    setData({
-	    	...data,
-	    });
-	};
+			if(input=='content'){
+				if(!data.bookChapter[0]){
+					data.bookChapter.push({'content': e.target.value})			}
+					else{
+						data.bookChapter[0].content = e.target.value;
+					}
+				}
+				if(input=='conclusion'){
+					if(!data.bookChapter[0]){
+						data.bookChapter.push({'conclusion': e.target.value})			}
+						else{
+							data.bookChapter[0].conclusion = e.target.value;
+						}
+					}
+					setData({
+						...data,
+					});
+				};
 		//display Reference
-	function displayReferences(){
-	    var section = [];
+		function displayReferences(){
+			var section = [];
 
-	    if(data.bookChapter!=undefined&&data.bookChapter[0]!=undefined&&data.bookChapter[0]['references']!=undefined){
-	        section.push(
-	            <div>
-	                <ul>
-	                    {data.bookChapter[0]['references'].map((reference, index)=>(
+			if(data.bookChapter!=undefined&&data.bookChapter[0]!=undefined&&data.bookChapter[0]['references']!=undefined){
+				section.push(
+					<div>
+						<ul>
+							{data.bookChapter[0]['references'].map((reference, index)=>(
+								<li>
+									{reference}
+									<button className="deleteBtn" type="button" onClick={deleteReference(index)}> <FaTrashAlt/></button>
+								</li>
+							))}
+						</ul>
+					</div>
+				);
+			}
 
-	                    <li>
-	                      {reference}
-	                      <button className="deleteBtn" type="button" onClick={deleteReference(index)}> <FaTrashAlt/></button>
-	                    </li>
-	                    ))}
-	                </ul>
-	            </div>
-	        );
-	    }
-
-	    return section;
-	}
+			return section;
+		}
 	//display empty Reference field
 	function displayReferencesForm(){
-	    var section = [];
-	    
-        section.push(
-            <div>
-                <div className="form-group">
-                    <input type="text" className="form-control" name="reference" id="reference"
-                    placeholder='reference'                    
-                    onChange={tempInput('reference')} value={tempState.reference}/>
-                	<button className="btn btn-primary" type="button" onClick={addReference()}> Add</button>
+		var section = [];
 
+		section.push(
+			<div>
+				<div className="form-group">
+					<input type="text" className="form-control" name="reference" id="reference"
+					placeholder='reference'                    
+					onChange={tempInput('reference')} value={tempState.reference}/>
+					<button className="btn btn-primary" type="button" onClick={addReference()}> Add</button>
 					<br/>
-                	
-
-                </div>
-
-                <hr/>
-            </div>
-        );
-	    
-
-	    return section;
-
-	}
+				</div>
+				<hr/>
+			</div>
+		);
+			return section;
+		}
 
 
-	const [tempState, setTempt] = useState({
-		reference:""
-	});
+		const [tempState, setTempt] = useState({
+			reference:""
+		});
 
-	const tempInput = input => e => {
-	    setTempt({
-	    	...tempState,
-	    	reference: e.target.value
-	    });
-	};
+		const tempInput = input => e => {
+			setTempt({
+				...tempState,
+				reference: e.target.value
+			});
+		};
 
 	//////// add reference ////////////
 	const addReference = () => e => {
@@ -104,13 +96,12 @@ function EditBookChapter({data, setData}) {
 		else if(data.bookChapter[0]&&!data.bookChapter[0]['references']){
 			data.bookChapter[0]['references']=[];
 		}
-			data.bookChapter[0]['references'].push(tempState.reference);
+		data.bookChapter[0]['references'].push(tempState.reference);
 		
-	    setData({
-	        ...data,
-	        
-	    });
-	    console.log(data.bookChapter);
+		setData({
+			...data,
+
+		});		
 	    //clear tempStateReference
 	    setTempt({
 	    	...tempState,
@@ -120,50 +111,47 @@ function EditBookChapter({data, setData}) {
 
 	//////// remove reference ////////////
 	const deleteReference = (index) => e => {
-	    data.bookChapter[0]['references'].splice(index,1);
-	    setData({
-	        ...data,
-	        
-	    });
-	    console.log(data.bookChapter);
+		data.bookChapter[0]['references'].splice(index,1);
+		setData({
+			...data,
+
+		});
 	}
 
 	const handleForm=(e)=>{
-	e.preventDefault();
+		e.preventDefault();
 	// perform all neccassary validations
-		var postData = {
-                _id : data._id,                
-                bookChapter : data.bookChapter
-            }
-
-
-	   axiosInstance.post("/api/competitors/update", postData)
-            .then(function(response) {
-              window.location.href = '/user_dashboard';
-            }).catch(function(error) {
-              console.log(error);
-            })
+	var postData = {
+		_id : data._id,                
+		bookChapter : data.bookChapter
 	}
+
+
+	axiosInstance.post("/api/competitors/update", postData)
+	.then(function(response) {
+		window.location.href = '/user_dashboard';
+	}).catch(function(error) {
+		console.log(error);
+	})
+}
 
 
 //load data to input field value
-	function checkExist(element, index){
-	    var value="";
-	    if(data.bookChapter==undefined ||data.bookChapter[0]==undefined){
-	        return ' ';
-	    }
-	    else if(data.bookChapter[0].introduction && element==="introduction"){
-	    	return data.bookChapter[0].introduction;
-	    }
-	    else if(data.bookChapter[0].content && element==="content"){
-	    	return data.bookChapter[0].content;
-	    }    
-	   	else if(data.bookChapter[0].conclusion && element==="conclusion"){
-	    	return data.bookChapter[0].conclusion;
-	    }  
-
-	    console.log(data.bookChapter)
+function checkExist(element, index){
+	var value="";
+	if(data.bookChapter==undefined ||data.bookChapter[0]==undefined){
+		return ' ';
 	}
+	else if(data.bookChapter[0].introduction && element==="introduction"){
+		return data.bookChapter[0].introduction;
+	}
+	else if(data.bookChapter[0].content && element==="content"){
+		return data.bookChapter[0].content;
+	}    
+	else if(data.bookChapter[0].conclusion && element==="conclusion"){
+		return data.bookChapter[0].conclusion;
+	}  
+}
 
 
 	/////////////////////////////////////////////////////////////
@@ -210,6 +198,6 @@ function EditBookChapter({data, setData}) {
 
 			)
 
-	}
+}
 
 export default EditBookChapter;

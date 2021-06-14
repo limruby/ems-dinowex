@@ -1,25 +1,49 @@
-import React, {useState} from 'react';
-import {Link} from 'react-router-dom';
+import React, {useState, useEffect} from 'react';
+import {Link, useLocation} from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import axiosInstance from '../../../../utils/axiosConfig.js';
 
-function EditProfile({data, setData}) {
-
-const inputChange = input => e => {
-    setData({
-        ...data,
-        [input]: e.target.value
+function EditProfile() {
+    const [data, setData] = useState({
+        name:'',
+        affiliation:'',
+        nric_passport_selection:'',
+        nric_passport_no:'',
+        address:'',
+        gender:'',
+        category:''
     });
-};
 
-const handleForm=(e)=>{
-    e.preventDefault();
+    const location = useLocation();
+    const thePath = location.pathname;
+    const user_id = thePath.substring(thePath.indexOf('/', 2) + 1, thePath.lastIndexOf('/'));
+    const string = '"'+ user_id +'"'
+    
+    useEffect(() => {
+        axiosInstance.get("/api/competitors/read", {params:{account_id:string}})
+        .then(function(response) {
+          setData(response.data.data);
+        }).catch(function(error) {
+          console.log(error); })
+    }, [string])
+       
+          
+    
+    const inputChange = input => e => {
+        setData({
+            ...data,
+            [input]: e.target.value
+        });
+    };
+
+    const handleForm=(e)=>{
+        e.preventDefault();
     // perform all neccassary validations
-    if (data.name ===""||data.affiliation===""||data.nric_passport_selection===""||data.nric_passport_no===""
-        ||data.address===""||data.gender===""){
-        alert("Form not fill");
-    }
-    else{
+        if (data.name ===""||data.affiliation===""||data.nric_passport_selection===""||data.nric_passport_no===""
+            ||data.address===""||data.gender===""){
+            alert("Form not fill");
+        }
+        else{
             ///////update to db /////////////
             var postData = {
                 _id : data._id,
@@ -28,22 +52,25 @@ const handleForm=(e)=>{
                 nric_passport_selection : data.nric_passport_selection,
                 nric_passport_no : data.nric_passport_no,
                 address : data.address,
-                gender : data.gender
+                gender : data.gender,
+                category: data.category
             }
+
 
             axiosInstance.post("/api/competitors/update", postData)
             .then(function(response) {
-                window.location.href = '/user_dashboard';
+              window.location.href = '/admin_dashboard';
             }).catch(function(error) {
-                console.log(error);
+              console.log(error);
             })
         }
     }
 /////////////////////////////////////////////////////////////
+
     return(
         <>
-            <form onSubmit={handleForm}>
-            <div className="form-container">
+        <form onSubmit={handleForm}>
+        <div className="form-container">
                 <h1 className="mb-5">Edit Profile Info</h1>
 
                 <div className="form-group">
@@ -51,6 +78,16 @@ const handleForm=(e)=>{
                     <input type="text" className="form-control" name="name" id="name"
                     placeholder='Full Name (as per IC / Passport)' required                    
                     onChange={inputChange('name')} value={data.name} />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="category"><span>*</span>Category</label>
+                    <select className="form-control" id="category" required
+                    onChange={inputChange('category')} value={data.category} >
+                        <option value="">Please select</option>
+                        <option value="Professional Innovator">Professional Innovator</option>
+                        <option value="Junior Innovator">Junior Innovator</option>
+                        <option value="Young Innovator">Young Innovator</option>
+                    </select> 
                 </div>
                 <div className="form-group">
                     <label htmlFor="affiliation"><span>*</span>Affiliation</label>
@@ -72,34 +109,20 @@ const handleForm=(e)=>{
                     placeholder='NRIC / Passport Number' required
                     onChange={inputChange('nric_passport_no')} value={data.nric_passport_no} />
                 </div>
-                <div className="form-group">
-                    <label htmlFor="address"><span>*</span>Address</label>
-                    <textarea className="form-control" id="address" cols="30" rows="7"
-                    onChange={inputChange('address')} value={data.address} 
-                    ></textarea>
-                </div>
-                <div className="form-group">
-                    <label htmlFor="gender_id"><span>*</span>Gender</label>
-                    <select className="form-control" id="gender_id" required
-                    onChange={inputChange('gender')} value={data.gender} >
-                        <option value="">Please select</option>
-                        <option value="MALE">Male</option>
-                        <option value="FEMALE">Female</option>
-                    </select>
-                </div>
         
 
                 <br />
 
                 <div className="col-4 btn-group">
-                    <Link to="/user_dashboard">
+                    <Link to="/admin_dashboard">
                         <button className="btn btn-danger back-btn">Back</button>
                     </Link>
                     <input className="btn btn-primary" type="submit" value="Update" />
                 </div>
             </div>
             </form>
-        </>
+
+         </>
 
         )
 

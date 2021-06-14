@@ -1,24 +1,20 @@
 const Profiles = ({user,role}) =>  {
 
-function display(){
-var section =[];
-if(user.company_logo){
+  function display(){
+    var section =[];
+    if(user.company_logo){
 
-    for (var i=0; i<user.company_logo.length; i++){
-	const imageBuffer = Buffer.from(user.company_logo[0].source.data); 
+      for (var i=0; i<user.company_logo.length; i++){
+        const imageBuffer = Buffer.from(user.company_logo[0].source.data); 
         section.push(
-            <li>
-			<img src={imageBuffer} alt={user.company_logo[0].name}/>
-           
-            </li>
-        );
-    }
-	}else{
-	console.log("no data");
-	
-	}
-    return section;
+          <li>
+          <img src={imageBuffer} alt={user.company_logo[0].name}/>
 
+          </li>
+        );
+      }
+    }
+    return section;
   }
    
   if(role === 'Competitor'){
@@ -46,8 +42,6 @@ if(user.company_logo){
      );
    }
   else if(role === 'Sponsor'){
-
-
     return (       
       <div>
         <ul>
@@ -59,6 +53,9 @@ if(user.company_logo){
           </li>
           <li>
             <p> Person In Charge's Full Name: {user.company_pic_name} </p>
+          </li>
+          <li>
+            <p> Person In Charge's IC: {user.company_pic_ic} </p>
           </li>
           <li>
             <p> Contact Number: {user.company_contact}</p>
@@ -77,14 +74,14 @@ if(user.company_logo){
       </div>
     );
   }
-   else{
+  else{
     return (
       <div className="empty-container">
           <p>Error display</p>
       </div> 
       
-      );
-    }
+    );
+  }
  
 }
 
