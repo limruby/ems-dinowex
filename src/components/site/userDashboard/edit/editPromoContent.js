@@ -207,7 +207,6 @@ function displayPosterForm(){
                 </div>
 
             </div>
-        </div>
         </form>
     </>
   )

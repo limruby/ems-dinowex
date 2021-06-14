@@ -23,19 +23,7 @@ function Competitor() {
   const columns = React.useMemo(
     () => [
     {
-      Header: 'Profile',
-      columns: [
-      
-      {
-        Header: 'Category',
-        accessor: 'category',
-      },
-      {
-        Header: 'Name',
-        accessor: 'name',
-      },
-      {
-
+  
         Header: 'Profile',
         columns: [
 
@@ -70,13 +58,8 @@ function Competitor() {
 
 
     ],
-    []
+    // []
   )
-
-
-
-  return (
-    <div className="App">
 
     return (
       <div className="App">    

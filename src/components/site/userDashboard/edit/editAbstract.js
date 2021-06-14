@@ -212,7 +212,7 @@ function checkExist(element, index){
                     </div>
 
                 </div>
-            </div>
+         
             </form>
          </>
 

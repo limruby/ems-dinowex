@@ -24,22 +24,6 @@ function Sponsor(){
   const columns = React.useMemo(
     () => [
     {
-      Header: 'Profile',
-      columns: [
-      {
-        Header: 'Package',
-        accessor: 'category',
-      },
-      {
-        Header: 'Sponsor Amount (RM)',
-        accessor: 'amount',
-      },
-      {
-        Header: 'Company',
-        accessor: 'company_name',
-      },
-      {
-
         Header: 'Profile',
         columns: [
           {
