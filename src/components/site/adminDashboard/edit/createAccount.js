@@ -31,6 +31,7 @@ function CreateAccount() {
         email:'',
         password:'',
         role:'',
+        category:''
     });
 
     const inputChange = input => e => {
@@ -38,8 +39,44 @@ function CreateAccount() {
             ...data,
             [input]: e.target.value
         });
+        if(input === "role"){
+            setData({
+                ...data,
+                'category' : ""
+            });
+        }
     };
 
+    function displayCategory(){
+        var section = []
+        if(data.role === "Competitor"){
+        section.push(
+            <div className="form-group">
+                <label htmlFor="category"><span>*</span>Subcategory </label>
+                <select className="form-control" id="category" required
+                    onChange={inputChange('category')} value={data.category} >
+                        <option value="">Please select</option>
+                        <option value="Professional Innovator">Professional Innovator</option>
+                        <option value="Junior Innovator">Junior Innovator</option>
+                        <option value="Young Innovator">Young Innovator</option>
+                    </select> 
+                </div>
+        )}else if(data.role === "Sponsor"){
+            section.push(
+                <div className="form-group">
+                    <label htmlFor="category"><span>*</span>Subcategory </label>
+                    <select className="form-control" id="category" required
+                        onChange={inputChange('category')} value={data.category} >
+                            <option value="">Please select</option>
+                            <option value="Gold Package">Gold Package</option>
+                            <option value="Silver Package">Silver Package</option>
+                            <option value="Bronze Package">Bronze Package</option>
+                        </select> 
+                    </div>
+            )
+        }
+        return section;
+    }
     const handleForm=(e)=>{
         e.preventDefault();
         // perform all neccassary validations
@@ -53,6 +90,7 @@ function CreateAccount() {
             axiosInstance.post("/api/accounts/signUp", data)
             .then(function(response) {
                 if(data.role === "Competitor"){
+                    compData["category"] = data.category;
                     compData["account_id"] = response.data._id
                     axiosInstance.post("/api/competitors/create", compData)
                     .then(function(response){
@@ -62,6 +100,7 @@ function CreateAccount() {
                     })
                 }
                 else if(data.role === "Sponsor"){
+                    sponsorData["category"] = data.category;
                     sponsorData["account_id"] = response.data._id
                     axiosInstance.post("/api/sponsors/create", sponsorData)
                     .then(function(response){
@@ -109,6 +148,7 @@ function CreateAccount() {
                         <option value="Judge">Judge</option> */}
                     </select> 
                 </div>
+                {displayCategory()}
 
         
                 <br />

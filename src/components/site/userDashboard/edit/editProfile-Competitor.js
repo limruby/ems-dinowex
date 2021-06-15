@@ -67,7 +67,7 @@ const handleForm=(e)=>{
                     onChange={inputChange('nric_passport_selection')} value={data.nric_passport_selection} >
                         <option value="">Please select</option>
                         <option value="NRIC">NRIC</option>
-                        <option value="PASSPORT NUMBER">Passport Number</option>
+                        <option value="Passport Number">Passport Number</option>
                     </select>
                     <br/>
                     <input className="form-control" type='text'name='nric_passport_no' id="nric_passport_no"

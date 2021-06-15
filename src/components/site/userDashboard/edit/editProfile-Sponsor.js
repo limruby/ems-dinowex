@@ -161,7 +161,7 @@ function displayLogo(){
                 </div>
  
                 <div className="form-group">
-                    <label htmlFor="company_logo"><span>*</span>Company Logo With Transparent Background</label><br />
+                    <label htmlFor="company_logo"><span>*</span>Company Logo With Transparent Background <span>(.jpg or .png only)</span></label><br />
                     {displayLogo()}
                 </div>
 
