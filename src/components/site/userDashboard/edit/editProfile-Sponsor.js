@@ -1,6 +1,5 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
-import Form from 'react-bootstrap/Form';
 import axiosInstance from '../../../../utils/axiosConfig.js';
 import { FaTrashAlt } from 'react-icons/fa';
 
@@ -43,7 +42,7 @@ function EditProfile({data, setData}) {
          }
      }
      const uploadLogoHandler = (element, index) => e => {
-         if(element == 'company_logo'){
+         if(element === 'company_logo'){
              let selectedFile = e.target.files;
              let file = null;
              let fileName = "";

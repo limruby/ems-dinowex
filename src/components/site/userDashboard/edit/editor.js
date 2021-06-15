@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import Editor from 'ckeditor5-custom-build/build/ckeditor';
 import { CKEditor } from '@ckeditor/ckeditor5-react'
 
-import axiosInstance from '../../../../utils/axiosConfig.js';
-
 
 const editorConfiguration = {
     toolbar: {
@@ -44,7 +42,7 @@ class EditorSec extends Component {
         var data;
         var initialData;
 
-        if(this.props.bookChapter_data==null||this.props.bookChapter_data[0]==undefined||this.props.bookChapter_data[0]['content']==null){
+        if(this.props.bookChapter_data==null||this.props.bookChapter_data[0]===undefined||this.props.bookChapter_data[0]['content']==null){
             initialData="";
         }else{
             initialData = this.props.bookChapter_data[0]['content'];
@@ -58,7 +56,7 @@ class EditorSec extends Component {
                 ,
                 bookChapter : this.props.bookChapter_data
             }
-            if(postData.bookChapter==null||postData.bookChapter[0]==undefined||postData.bookChapter[0]['content']==null){
+            if(postData.bookChapter==null||postData.bookChapter[0]===undefined||postData.bookChapter[0]['content']==null){
                 postData.bookChapter.push({'content':data})
             }else{
                 postData.bookChapter[0]['content'] = data;
@@ -83,7 +81,7 @@ class EditorSec extends Component {
                             bookChapter : this.props.bookChapter_data
                         }
 
-                        if(postData.bookChapter==null||postData.bookChapter[0]==undefined||postData.bookChapter[0]['content']==null){
+                        if(postData.bookChapter==null||postData.bookChapter[0]===undefined||postData.bookChapter[0]['content']==null){
                             postData.bookChapter.push({'content':data})
                         }else{
                             postData.bookChapter[0]['content'] = data;

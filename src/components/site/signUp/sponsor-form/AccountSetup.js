@@ -19,7 +19,7 @@ export class AccountSetup extends Component {
             if (values.password !== values.confirmPassword) {
                 alert("Password don't match");  
             }
-            else if (values.email =="" || values.password=="" || values.confirmPassword==""){
+            else if (values.email ==="" || values.password==="" || values.confirmPassword===""){
                 alert("Form not fill");
             }
             else{

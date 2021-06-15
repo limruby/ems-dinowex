@@ -1,5 +1,4 @@
 import jwt_decode from 'jwt-decode';
-import axiosInstance from './axiosConfig.js';
 
 export const isAuth = () => {
 

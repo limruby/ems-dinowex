@@ -1,8 +1,7 @@
-import React, {useState, useEffect} from 'react';
-import axiosInstance from '../../../utils/axiosConfig.js';
+import React from 'react';
 import {Tab, Nav, Row, Col,Card} from "react-bootstrap";
-import {FaEdit,FaCertificate,FaBook,FaRegBookmark} from 'react-icons/fa';
-import {BsPeopleCircle,BsFiles,BsBookHalf} from "react-icons/bs";
+import {FaCertificate} from 'react-icons/fa';
+import {BsPeopleCircle,BsFiles} from "react-icons/bs";
 
 import Account from './account';
 import Competitor from './competitor-sec';

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import axiosInstance from '../../utils/axiosConfig.js';
 import '../../assets/css/agency.min.css';
  
  

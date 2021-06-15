@@ -1,6 +1,5 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import { useLocation } from 'react-router-dom';
-import axiosInstance from '../../../../utils/axiosConfig.js';
 import '../../../../assets/css/agency.min.css';
 
 import EditAccount from './editAccount.js';

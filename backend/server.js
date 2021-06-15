@@ -32,5 +32,5 @@ const sponsorsRouter = require('./routes/sponsors');
 app.use('/api/sponsors', sponsorsRouter)
 
 app.listen(port, () => {
-	console.log('Now starting at http://localhost:5000/api/hello');
+	console.log('Now starting at http://localhost:5000/api/');
 });

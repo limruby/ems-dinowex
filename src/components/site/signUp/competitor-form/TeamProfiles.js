@@ -20,19 +20,19 @@ export class Profiles extends Component {
         //set the state value based on select option value
     divstatus = (e) =>{
         //clear all inputs
-        if(e.target.value==0){
+        if(e.target.value===0){
             this.setState({display1:'hide',display2: 'hide',display3: 'hide',display4: 'hide' });
         }
-        else if(e.target.value==1){
+        else if(e.target.value===1){
             this.setState({display1:'show', display2: 'hide', display3: 'hide',display4: 'hide' });
         }
-        else if(e.target.value==2){
+        else if(e.target.value===2){
             this.setState({display1:'show',display2:'show', display3: 'hide',display4: 'hide'});            
         }
-        else if(e.target.value==3){
+        else if(e.target.value===3){
             this.setState({display1:'show',display2:'show',display3:'show',display4: 'hide'});
         }
-        else if(e.target.value==4){
+        else if(e.target.value===4){
             this.setState({display1:'show',display2:'show',display3:'show',display4:'show'});
         }
      }
@@ -44,16 +44,16 @@ export class Profiles extends Component {
         const handleForm=(e)=>{
            e.preventDefault();
         // perform all neccassary validations
-            if (values.no_of_team_members==""){
+            if (values.no_of_team_members===""){
                 alert("Form not fill");
             }
             else{
-                if (values.no_of_team_members==0){
+                if (values.no_of_team_members===0){
                     this.continue(e);
 
                 }
-                else if(values.no_of_team_members==1){
-                    if(values.name_2==""||values.ic_passport_selection_2==""||values.ic_passport_number_2=="")
+                else if(values.no_of_team_members===1){
+                    if(values.name_2===""||values.ic_passport_selection_2===""||values.ic_passport_number_2==="")
                         {alert("Form not fill");}
                     else{
                         values.members.push({'name': values.name_2, 'ic_passport_selection':values.ic_passport_selection_2, 'ic_passport_number':values.ic_passport_number_2})
@@ -61,20 +61,20 @@ export class Profiles extends Component {
 
                     }
                 }
-                else if(values.no_of_team_members==2){
+                else if(values.no_of_team_members===2){
                     
-                    if(values.name_2==""||values.ic_passport_selection_2==""||values.ic_passport_number_2==""||
-                            values.name_3==""||values.ic_passport_selection_3==""||values.ic_passport_number_3=="")
+                    if(values.name_2===""||values.ic_passport_selection_2===""||values.ic_passport_number_2===""||
+                            values.name_3===""||values.ic_passport_selection_3===""||values.ic_passport_number_3==="")
                         {alert("Form not fill");}
                     else{
                         values.members.push({'name': values.name_2, 'ic_passport_selection':values.ic_passport_selection_2, 'ic_passport_number':values.ic_passport_number_2});
                         values.members.push({'name': values.name_3, 'ic_passport_selection':values.ic_passport_selection_3, 'ic_passport_number':values.ic_passport_number_3});
                         this.continue(e);}
                 }
-                else if(values.no_of_team_members==3){
-                    if(values.name_2==""||values.ic_passport_selection_2==""||values.ic_passport_number_2==""||
-                            values.name_3==""||values.ic_passport_selection_3==""||values.ic_passport_number_3==""||
-                            values.name_4==""||values.ic_passport_selection_4==""||values.ic_passport_number_4=="")
+                else if(values.no_of_team_members===3){
+                    if(values.name_2===""||values.ic_passport_selection_2===""||values.ic_passport_number_2===""||
+                            values.name_3===""||values.ic_passport_selection_3===""||values.ic_passport_number_3===""||
+                            values.name_4===""||values.ic_passport_selection_4===""||values.ic_passport_number_4==="")
                         {alert("Form not fill");}
                     else{
                         values.members.push({'name': values.name_2, 'ic_passport_selection':values.ic_passport_selection_2, 'ic_passport_number':values.ic_passport_number_2});
@@ -82,11 +82,11 @@ export class Profiles extends Component {
                         values.members.push({'name': values.name_4, 'ic_passport_selection':values.ic_passport_selection_4, 'ic_passport_number':values.ic_passport_number_4});
                        this.continue(e);}
                 }
-                else if(values.no_of_team_members==4){    
-                    if(values.name_2==""||values.ic_passport_selection_2==""||values.ic_passport_number_2==""||
-                            values.name_3==""||values.ic_passport_selection_3==""||values.ic_passport_number_3==""||
-                            values.name_4==""||values.ic_passport_selection_4==""||values.ic_passport_number_4==""||
-                            values.name_5==""||values.ic_passport_selection_5==""||values.ic_passport_number_5=="")
+                else if(values.no_of_team_members===4){    
+                    if(values.name_2===""||values.ic_passport_selection_2===""||values.ic_passport_number_2===""||
+                            values.name_3===""||values.ic_passport_selection_3===""||values.ic_passport_number_3===""||
+                            values.name_4===""||values.ic_passport_selection_4===""||values.ic_passport_number_4===""||
+                            values.name_5===""||values.ic_passport_selection_5===""||values.ic_passport_number_5==="")
                         {alert("Form not fill");}
                     else{ 
                         values.members.push({'name': values.name_2, 'ic_passport_selection':values.ic_passport_selection_2, 'ic_passport_number':values.ic_passport_number_2});
