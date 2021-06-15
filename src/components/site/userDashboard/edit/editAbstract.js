@@ -1,6 +1,5 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
-import Form from 'react-bootstrap/Form';
 import { FaTrashAlt } from 'react-icons/fa';
 
 import axiosInstance from '../../../../utils/axiosConfig.js';
@@ -9,14 +8,14 @@ function EditAbstract({data, setData}) {
 
     const inputChange = input => e => {
 
-        if(input=='title'){
+        if(input==='title'){
             if(!data.abstract[0]){
                 data.abstract.push({'title': e.target.value})            }
                 else{
                     data.abstract[0].title = e.target.value;
                 }
             }
-            if(input=='content'){
+            if(input==='content'){
                 if(!data.abstract[0]){
                     data.abstract.push({'content': e.target.value})            }
                     else{
@@ -32,7 +31,7 @@ function EditAbstract({data, setData}) {
     function displayKeywords(){
         var section = [];
 
-        if(data.abstract!=undefined&&data.abstract[0]!=undefined&&data.abstract[0]['keywords']!=undefined){
+        if(data.abstract!==undefined&&data.abstract[0]!==undefined&&data.abstract[0]['keywords']!==undefined){
             section.push(
 
                 <div className="keyword-box">
@@ -57,7 +56,7 @@ function EditAbstract({data, setData}) {
         var section = [];
 
         if(data.abstract!==undefined){
-            if(data.abstract==null||data.abstract[0]==undefined||data.abstract[0].keywords==null){
+            if(data.abstract==null||data.abstract[0]===undefined||data.abstract[0].keywords==null){
                 section.push(
                     <div>
                     <div className="form-group">
@@ -158,7 +157,7 @@ function EditAbstract({data, setData}) {
 //load data to input field value
 function checkExist(element, index){
     var value="";
-    if(data.abstract==undefined ||data.abstract[0]==undefined){
+    if(data.abstract===undefined ||data.abstract[0]===undefined){
         return ' ';
     }
     else if(data.abstract[0].title && element==="title"){

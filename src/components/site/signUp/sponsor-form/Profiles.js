@@ -19,12 +19,12 @@ export class Profiles extends Component {
         e.preventDefault();
         // perform all neccassary validations
             if (
-                values.company_name ==""||
-                values.company_pic_name==""||
-                values.company_pic_ic==""||
-                values.company_contact==""||
-                values.company_address==""||
-                values.company_website==""|| 
+                values.company_name ===""||
+                values.company_pic_name===""||
+                values.company_pic_ic===""||
+                values.company_contact===""||
+                values.company_address===""||
+                values.company_website===""|| 
                 values.company_logo){
                 alert("Form not fill");
             }

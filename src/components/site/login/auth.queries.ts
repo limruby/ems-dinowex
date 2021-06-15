@@ -1,5 +1,4 @@
-import {useMutation, useQuery, UseMutationOptions} from 'react-query';
-import { AxiosError, AxiosResponse } from 'axios';
+import {useMutation} from 'react-query';
 import { login } from './auth.services';
 
 export function useLogin() {

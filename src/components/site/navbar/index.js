@@ -4,8 +4,7 @@ import logo from "../../../assets/img/Dinowex.png";
 
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import { Link as LinkS} from 'react-scroll';
+
 import './navbar.css';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { IconContext } from 'react-icons/lib';

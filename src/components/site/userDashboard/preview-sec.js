@@ -158,7 +158,7 @@ const PdfPreview = ({user, account}) =>  {
         if(user.bookChapter!=null){
 
             if(user.bookChapter[0]!=null){
-                if(user.bookChapter[0]['references']!=undefined){
+                if(user.bookChapter[0]['references']!==undefined){
                     section.push(
                         <div id="body_content">
                             <p id="subtitle">References</p><br></br>

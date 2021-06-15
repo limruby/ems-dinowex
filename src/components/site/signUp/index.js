@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import FormChange from './form_change';
-import Footer from './../footer';
 
 function Signup() {
   return (

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Form from 'react-bootstrap/Form';
 import { FaTrashAlt } from 'react-icons/fa';
 import Editor from './editor';
 
@@ -11,21 +10,21 @@ function EditBookChapter({ data, setData }) {
 
 	const inputChange = input => e => {
 
-		if(input=='introduction'){
+		if(input==='introduction'){
 			if(!data.bookChapter[0]){
 				data.bookChapter.push({'introduction': e.target.value})			}
 				else{
 					data.bookChapter[0].introduction = e.target.value;
 				}
 			}
-			if(input=='content'){
+			if(input==='content'){
 				if(!data.bookChapter[0]){
 					data.bookChapter.push({'content': e.target.value})			}
 					else{
 						data.bookChapter[0].content = e.target.value;
 					}
 				}
-				if(input=='conclusion'){
+				if(input==='conclusion'){
 					if(!data.bookChapter[0]){
 						data.bookChapter.push({'conclusion': e.target.value})			}
 						else{
@@ -40,7 +39,7 @@ function EditBookChapter({ data, setData }) {
 		function displayReferences(){
 			var section = [];
 
-			if(data.bookChapter!=undefined&&data.bookChapter[0]!=undefined&&data.bookChapter[0]['references']!=undefined){
+			if(data.bookChapter!==undefined&&data.bookChapter[0]!==undefined&&data.bookChapter[0]['references']!==undefined){
 				section.push(
 					<div>
 						<ul>
@@ -150,7 +149,7 @@ function EditBookChapter({ data, setData }) {
 //load data to input field value
 function checkExist(element, index){
 	var value="";
-	if(data.bookChapter==undefined ||data.bookChapter[0]==undefined){
+	if(data.bookChapter===undefined ||data.bookChapter[0]===undefined){
 		return ' ';
 	}
 	if(data.bookChapter[0].introduction && element==="introduction"){

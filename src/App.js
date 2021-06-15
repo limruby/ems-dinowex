@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from 'react';
+import React,{useState} from 'react';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import {isAuth, isAdmin} from './utils/isAuth'
@@ -20,8 +20,7 @@ import AdminEditDetails from './components/site/adminDashboard/edit';
 import PageNotFound from './components/PageNotFound.js';
 
 
-import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
-import EditAccount from './components/site/adminDashboard/edit/editAccount';
+import { QueryClient, QueryClientProvider } from 'react-query'
 
 const queryClient = new QueryClient()
 
