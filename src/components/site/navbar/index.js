@@ -53,7 +53,7 @@ if (isAdmin() === true){
     <IconContext.Provider value={{color:'#000'}}>
  
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-      <Navbar.Brand href="#home"> <Link to='home_section_id' className="navbar-logo" onClick={closeMobileMenu}>
+      <Navbar.Brand href="#home"> <Link to='/' className="navbar-logo" onClick={closeMobileMenu}>
            <img src={logo} height="50px" width="200px" alt="" />
         </Link></Navbar.Brand>
       <Nav className="ml-auto">    
@@ -97,7 +97,7 @@ if (isAdmin() === true){
     <IconContext.Provider value={{color:'#000'}}>
  
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-      <Navbar.Brand href="#home"> <Link to='home_section_id' className="navbar-logo" onClick={closeMobileMenu}>
+      <Navbar.Brand href="#home"> <Link to='/' className="navbar-logo" onClick={closeMobileMenu}>
            <img src={logo} height="50px" width="200px" alt="" />
         </Link></Navbar.Brand>
       <Nav className="ml-auto">    
@@ -140,7 +140,7 @@ if (isAdmin() === true){
   <IconContext.Provider value={{color:'#000'}}>
  
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-      <Navbar.Brand href="#home"> <Link to='#' className="navbar-logo" onClick={closeMobileMenu}>
+      <Navbar.Brand href="#home"> <Link to='/' className="navbar-logo" onClick={closeMobileMenu}>
            <img src={logo} height="50px" width="200px" alt="" />
         </Link></Navbar.Brand>
       <Nav className="ml-auto">    
