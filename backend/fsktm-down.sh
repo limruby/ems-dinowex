@@ -1,2 +1,2 @@
 # down
-sudo docker-compose -f docker-compose-fsktm.yml down
+sudo docker-compose -f docker-compose-fsktm.yaml down
