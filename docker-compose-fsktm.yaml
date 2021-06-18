@@ -2,8 +2,8 @@ version: '3.7'
 services:
   app:
     build: .
-    volumes:
-      - ./build/:/usr/src/app/build/
+    # volumes:
+    #   - ./build/:/usr/src/app/build/
     restart: always
     networks:
       - server
