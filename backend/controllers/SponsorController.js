@@ -2,7 +2,7 @@ const Sponsor = require('../models/sponsor');
 var ObjectId = require('mongodb').ObjectId;
 const qs = require('querystring');
 const CryptoJS = require('crypto-js');
-
+require('dotenv').config();
 var LocalStorage = require('node-localstorage').LocalStorage,
 localStorage = new LocalStorage('./scratch');
 
@@ -168,10 +168,10 @@ const pay = (req, res, next) => {
       localStorage.setItem('bill_id',params['billplz[id]'])
       localStorage.setItem('bill_paid_at',params['billplz[paid_at]'])
       localStorage.setItem('bill_status', params['billplz[paid]'])
-      res.redirect('http://localhost:3000/payment_success');
+      res.redirect('http://vexsdev.fsktm.um.edu.my/payment_success');
     }
     else{
-      res.redirect('http://localhost:3000/payment_fail')
+      res.redirect('http://vexsdev.fsktm.um.edu.my/payment_fail')
     }
   }
 

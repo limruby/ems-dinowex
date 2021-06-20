@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 var ObjectId = require('mongodb').ObjectId;
 const qs = require('querystring');
 const CryptoJS = require('crypto-js');
+require('dotenv').config();
 
 var LocalStorage = require('node-localstorage').LocalStorage,
 localStorage = new LocalStorage('./scratch');
