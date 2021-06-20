@@ -10,7 +10,7 @@ COPY package-lock.json ./
 # RUN npm ci --silent
 RUN apk update && apk upgrade && apk add --no-cache bash git
 RUN npm install
-RUN npm install react-scripts@3.4.1 -g --silent
+RUN npm install react-scripts -g --silent
 COPY . ./
 RUN npm run build
 
