@@ -2,8 +2,8 @@ version: '3.7'
 services:
   app:
     build: .
-    volumes:
-      - ./build/:/usr/src/app/build/
+    # volumes:
+    #   - ./build/:/usr/src/app/build/
     restart: always
     networks:
       - server
@@ -11,7 +11,7 @@ services:
     labels:
       - traefik.enable=true
       - traefik.docker.network=server
-      - traefik.http.services.vexs_server.loadbalancer.server.port=5000
+      - traefik.http.services.vexs_server.loadbalancer.server.port=80
 
       - traefik.http.routers.vexs_server.rule=Host(`vexsdev.fsktm.um.edu.my`)
       - traefik.http.routers.vexs_server.entrypoints=http
