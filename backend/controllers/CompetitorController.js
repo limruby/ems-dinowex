@@ -169,6 +169,7 @@ const pay = (req, res, next) => {
    const params = qs.parse(queryString)
   //  console.log(params)
 const secret = process.env.BILLPLZ_SECRET 
+const return_url = process.env.RETURN_URL
 // do a validation
 const billplzId = "billplzid" + params['billplz[id]'];
 const billplzPaidAt = "billplzpaid_at" + params['billplz[paid_at]'];
@@ -185,10 +186,10 @@ if(params['billplz[paid]'] === "true" && params['billplz[x_signature]'] === hash
   localStorage.setItem('bill_id',params['billplz[id]'])
   localStorage.setItem('bill_paid_at',params['billplz[paid_at]'])
   localStorage.setItem('bill_status', params['billplz[paid]'])
-  res.redirect('http://vexsdev.fsktm.um.edu.my/payment_success');
+  res.redirect(return_url + 'payment_success');
 }
 else{
-  res.redirect('http://vexsdev.fsktm.um.edu.my/payment_fail')
+  res.redirect(return_url + 'payment_fail')
 }
 }
 
