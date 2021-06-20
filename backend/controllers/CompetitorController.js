@@ -167,13 +167,13 @@ const pay = (req, res, next) => {
    var queryString=res_string[1];
    const params = qs.parse(queryString)
   //  console.log(params)
-  
+const secret = process.env.BILLPLZ_SECRET 
 // do a validation
 const billplzId = "billplzid" + params['billplz[id]'];
 const billplzPaidAt = "billplzpaid_at" + params['billplz[paid_at]'];
 const billplzPaid = "billplzpaid" + params['billplz[paid]'];
 const combineString = billplzId +  "|" + billplzPaidAt +  "|" + billplzPaid;
-var hash = CryptoJS.HmacSHA256(combineString, "S-B3mEu_juz3G2q2IlEfYmmw").toString();
+var hash = CryptoJS.HmacSHA256(combineString, secret).toString();
   //  console.log(billplzPaid)
   //  console.log(params['billplz[paid]'])
   //  console.log(params['billplz[x_signature]'] == hash)
@@ -184,10 +184,10 @@ if(params['billplz[paid]'] === "true" && params['billplz[x_signature]'] === hash
   localStorage.setItem('bill_id',params['billplz[id]'])
   localStorage.setItem('bill_paid_at',params['billplz[paid_at]'])
   localStorage.setItem('bill_status', params['billplz[paid]'])
-  res.redirect('http://localhost:3000/payment_success');
+  res.redirect('http://vexsdev.fsktm.um.edu.my/payment_success');
 }
 else{
-  res.redirect('http://localhost:3000/payment_fail')
+  res.redirect('http://vexsdev.fsktm.um.edu.my/payment_fail')
 }
 }
 
