@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axiosInstance from '../../../../utils/axiosConfig.js';
+require('dotenv').config();
 
 export class Confirm extends Component {
 
@@ -25,13 +26,13 @@ export class Confirm extends Component {
             };
             var url=""
             if (data.category === "Professional Innovator"){
-                url = "https://www.billplz-sandbox.com/_0pbgc2r6"
+                url = `${process.env.REACT_APP_BILLPLZ_PRO}`
             }
             else if(data.category === "Junior Innovator"){
-                url = "https://www.billplz-sandbox.com/9vpry5o83"
+                url = `${process.env.REACT_APP_BILLPLZ_JUNIOR}`
             }
             else if(data.category === "Young Innovator"){
-                url = "https://www.billplz-sandbox.com/lew_nvul8"
+                url = `${process.env.REACT_APP_BILLPLZ_YOUNG}`
             }
             var account_id="";
 

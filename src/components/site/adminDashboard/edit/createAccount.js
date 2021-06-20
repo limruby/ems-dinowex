@@ -35,16 +35,21 @@ function CreateAccount() {
     });
 
     const inputChange = input => e => {
+
         setData({
             ...data,
             [input]: e.target.value
         });
+
         if(input === "role"){
             setData({
                 ...data,
+                 [input]: e.target.value,
                 'category' : ""
             });
         }
+
+
     };
 
     function displayCategory(){

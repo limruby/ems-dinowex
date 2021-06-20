@@ -33,13 +33,13 @@ export class Confirm extends Component {
         var account_id="";
         var url=""
         if (data.category === "Bronze Package"){
-             url = "https://www.billplz-sandbox.com/ip52udve6"
+             url = `${process.env.REACT_APP_BILLPLZ_BRONZE}`
         }
         else if(data.category === "Silver Package"){
-             url = "https://www.billplz-sandbox.com/urnlfccd7"
+             url = `${process.env.REACT_APP_BILLPLZ_SILVER}`
         }
         else if(data.category === "Gold Package"){
-             url = "https://www.billplz-sandbox.com/nnoul8ls0"
+             url = `${process.env.REACT_APP_BILLPLZ_GOLD}`
         }
         axiosInstance.post('/api/accounts/signUp', data)
             .then(res=> {
