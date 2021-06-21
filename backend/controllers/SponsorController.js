@@ -152,7 +152,7 @@ const pay = (req, res, next) => {
        const params = qs.parse(queryString)
        console.log(params)
     const secret = process.env.BILLPLZ_SECRET 
-    const return_url = process.env.REACT_BASE_RETURN_URL
+    const return_url = process.env.REACT_APP_RETURN_URL
     // do a validation
     const billplzId = "billplzid" + params['billplz[id]'];
     const billplzPaidAt = "billplzpaid_at" + params['billplz[paid_at]'];
