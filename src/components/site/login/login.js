@@ -43,13 +43,13 @@ function Login()
                             localStorage.setItem("competitor_id", JSON.stringify(response.data.data._id));                            
                             var url=""
                             if(response.data.data.category === "Professional Innovator"){
-                                url = "https://www.billplz-sandbox.com/_0pbgc2r6"
+                                url = `${process.env.REACT_APP_BILLPLZ_PRO}`
                             }
                             else if(response.data.data.category === "Junior Innovator"){
-                                url = "https://www.billplz-sandbox.com/9vpry5o83"
+                                url = `${process.env.REACT_APP_BILLPLZ_JUNIOR}`
                             }
                             else if(response.data.data.category === "Young Innovator"){
-                                url = "https://www.billplz-sandbox.com/lew_nvul8"
+                                url = `${process.env.REACT_APP_BILLPLZ_YOUNG}`
                             }
                             window.open(url,"_self")
                         }
@@ -70,16 +70,15 @@ function Login()
                         }
                         else{
                             localStorage.setItem("sponsor_id", JSON.stringify(response.data.data._id));
-                            
                             var sponsor_url=""
                             if (response.data.data.category === "Bronze Package"){
-                                sponsor_url = "https://www.billplz-sandbox.com/ip52udve6"
+                                sponsor_url = `${process.env.REACT_APP_BILLPLZ_BRONZE}`
                             }
                             else if(response.data.data.category === "Silver Package"){
-                                sponsor_url = "https://www.billplz-sandbox.com/urnlfccd7"
+                                sponsor_url = `${process.env.REACT_APP_BILLPLZ_SILVER}`
                             }
                             else if(response.data.data.category === "Gold Package"){
-                                sponsor_url = "https://www.billplz-sandbox.com/nnoul8ls0"
+                                sponsor_url = `${process.env.REACT_APP_BILLPLZ_GOLD}`
                             }
                             window.open(sponsor_url,"_self")
                         }

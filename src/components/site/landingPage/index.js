@@ -82,7 +82,7 @@ function LandingPage() {
 				<p>Schools students (Age 17 and below) from government and private school including MRSM, Vocational Colleges</p>
 				<br/><br/>
         <hr></hr>
-				<p>Registration Fee : RM130</p>
+				<p>Registration Fee : RM180</p>
 				<hr></hr>
         <Link to="/sign_up">
 				  <div className="text-center"><a className="btn btn-primary text-uppercase js-scroll-trigger" href="/sign_up">Register</a></div>
