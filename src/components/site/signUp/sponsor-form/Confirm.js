@@ -12,7 +12,12 @@ export class Confirm extends Component {
                 company_pic_name, 
                 company_pic_ic,
                 company_contact, 
-                company_address, 
+                address_1,
+                address_2,
+                postcode,
+                city,
+                state,
+                country, 
                 company_website, 
                 category
                 }
@@ -25,7 +30,12 @@ export class Confirm extends Component {
             company_name: company_name,
             company_pic_name: company_pic_name,
             company_pic_ic:company_pic_ic,
-            company_address:company_address,
+            address_1: address_1,
+            address_2: address_2,
+            postcode: postcode,
+            city: city,
+            state: state,
+            country,
             company_contact: company_contact,
             company_website: company_website,
             category: category
@@ -68,20 +78,18 @@ export class Confirm extends Component {
     };
 
     render() {
-        const { values, inputChange } = this.props;
-        const { 
-            values: {email, 
-                password,
-                company_name, 
-                company_pic_name, 
-                company_pic_ic,
-                company_contact, 
-                company_address, 
-                company_website, 
-                category,
-                amount
-            }
-        } = this.props;
+        const { values, inputChange } = this.props;        
+
+
+
+        var full_address = 
+            values.address_1 + "," +
+            values.address_2 + "," +
+            values.postcode + "," +
+            values.city + "," +
+            values.state+ "," +
+            values.country
+
 
         return (
             <section className="section-container">
@@ -93,7 +101,7 @@ export class Confirm extends Component {
                     <li className="list-group-item">IC: {values.company_pic_ic}</li>
                     <li className="list-group-item">Email: {values.email}</li>
                     <li className="list-group-item">Phone Number: {values.company_contact}</li>
-                    <li className="list-group-item">Company Address: {values.company_address}</li>
+                    <li className="list-group-item">Company Address: {full_address}</li>
                     <li className="list-group-item">Company Website: {values.company_website}</li>
                     <li className="list-group-item">Selected Category: {values.category}</li>
                 </ul>

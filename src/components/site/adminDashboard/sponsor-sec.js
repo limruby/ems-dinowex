@@ -49,7 +49,7 @@ function Sponsor(){
           {
             Header: 'Bill Id',
             accessor: 'bill_id',
-          },
+          },          
           {
             Header: 'Edit',
             Cell: data => (
@@ -59,6 +59,19 @@ function Sponsor(){
               </button>
               </Link>
             )
+          },
+          {
+            Header: 'Upload Receipt',
+            Cell: data => (
+              <Link to={`admin_dashboard/${data.row.original._id}/upload_receipt_sponsor`}>
+                <button className="btn btn-success" >
+                  Upload
+                </button></Link>
+            )
+          },
+          {
+            Header: 'Receipt Name',
+            accessor: 'receipt[0].name'
           },
 
         ],

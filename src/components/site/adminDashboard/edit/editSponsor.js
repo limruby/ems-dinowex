@@ -9,7 +9,7 @@ function EditProfile() {
         company_pic_name:'',
         company_contact:'',
         category:'',
-        amount:''
+        amount:'',
     });
     const location = useLocation();
     const thePath = location.pathname;
@@ -46,7 +46,7 @@ else{
                  company_pic_name : data.company_pic_name,
                  company_contact : data.company_contact,
                  category: data.category,
-                 amount: data.amount
+                 amount: data.amount,                 
              }
 
              axiosInstance.post("/api/sponsors/update", postData)
@@ -102,8 +102,7 @@ return(
                     placeholder='Contact Number' required
                     onChange={inputChange('company_contact')} value={data.company_contact} 
                     />
-                </div>
- 
+                </div>              
 
                 <br />
                <div className="btn-group">

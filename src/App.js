@@ -65,11 +65,14 @@ function App() {
 
         <AdminRoute exact path='/admin_dashboard'  component={AdminDashboard}/>
         <AdminRoute exact path='/admin_dashboard/edit_account'  component={AdminEditDetails}/>
-       <AdminRoute exact path='/admin_dashboard/:id/edit_password'  component={AdminEditDetails}/> 
-       <AdminRoute exact path='/admin_dashboard/:id/edit_profile_sponsor'  component={AdminEditDetails}/> 
-       <AdminRoute exact path='/admin_dashboard/:id/edit_profile_competitor'  component={AdminEditDetails}/> 
-       <AdminRoute exact path='/admin_dashboard/create_profile'  component={AdminEditDetails}/>
-		    <Route exact path='/eventLobby'  component={eventLobby}/>  
+        <AdminRoute exact path='/admin_dashboard/:id/edit_password'  component={AdminEditDetails}/> 
+        <AdminRoute exact path='/admin_dashboard/:id/edit_profile_sponsor'  component={AdminEditDetails}/> 
+        <AdminRoute exact path='/admin_dashboard/:id/edit_profile_competitor'  component={AdminEditDetails}/> 
+        <AdminRoute exact path='/admin_dashboard/create_profile'  component={AdminEditDetails}/>
+        <AdminRoute exact path='/admin_dashboard/:id/upload_receipt_competitor'  component={AdminEditDetails}/>
+        <AdminRoute exact path='/admin_dashboard/:id/upload_receipt_sponsor'  component={AdminEditDetails}/>
+
+        <Route exact path='/eventLobby'  component={eventLobby}/>  
         <Route exact path='/sponsor_hall'  component={sponsor_hall}/> 
         <Route exact path='/competition_hall'  component={competition_hall}/>
         <Route exact path='/payment_success'  component={Payment_Success}/>

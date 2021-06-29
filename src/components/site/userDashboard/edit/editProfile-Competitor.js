@@ -14,8 +14,17 @@ const inputChange = input => e => {
 const handleForm=(e)=>{
     e.preventDefault();
     // perform all neccassary validations
-    if (data.name ===""||data.affiliation===""||data.nric_passport_selection===""||data.nric_passport_no===""
-        ||data.address===""||data.gender===""){
+    if (data.name === "" ||
+        data.affiliation === "" ||
+        data.nric_passport_selection === "" ||
+        data.nric_passport_no === null ||
+        data.address_1 === "" ||
+        data.address_2 === "" ||
+        data.postcode === null ||
+        data.city === "" ||
+        data.state === "" ||
+        data.gender === "" ||
+        data.phone_no === null){
         alert("Form not fill");
     }
     else{
@@ -25,9 +34,14 @@ const handleForm=(e)=>{
                 name : data.name,
                 affiliation : data.affiliation,
                 nric_passport_selection : data.nric_passport_selection,
-                nric_passport_no : data.nric_passport_no,
-                address : data.address,
-                gender : data.gender
+                nric_passport_no : data.nric_passport_no,                
+                gender : data.gender,
+                address_1: data.address_1 === "",
+                address_2: data.address_2 === "",
+                postcode: data.postcode === "",
+                city: data.city === "",
+                state: data.state === "",
+                phone_no: data.phone_no
             }
 
             axiosInstance.post("/api/competitors/update", postData)
@@ -37,6 +51,35 @@ const handleForm=(e)=>{
                 console.log(error);
             })
         }
+    }
+    function displayInput(){
+        var section=[];
+        if(data.nric_passport_selection==="NRIC"){
+            section.push( <input
+                        className="form-control"
+                        type='text'
+                        name='nric_passport_no'
+                        id="nric_passport_no"
+                        placeholder='NRIC (Without dash) '
+                        required
+                        pattern="[0-9]{12}"
+                        onChange={
+                            inputChange('ic_passport_no')}
+                        value={data.nric_passport_no} />)
+        }
+        else if(data.nric_passport_selection==="PASSPORT NUMBER"){
+            section.push( <input
+                        className="form-control"
+                        type='text'
+                        name='nric_passport_no'
+                        id="nric_passport_no"
+                        placeholder='Passport Number '
+                        required
+                        onChange={
+                            inputChange('nric_passport_no')}
+                        value={data.nric_passport_no} />)
+        }
+        return section;
     }
 /////////////////////////////////////////////////////////////
     return(
@@ -61,34 +104,70 @@ const handleForm=(e)=>{
                     />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="nric_passport_selection"><span>*</span>NRIC / Passport Number</label>
-                    <select className="form-control" id="nric_passport_selection" required
-                    onChange={inputChange('nric_passport_selection')} value={data.nric_passport_selection} >
-                        <option value="">Please select</option>
-                        <option value="NRIC">NRIC</option>
-                        <option value="Passport Number">Passport Number</option>
-                    </select>
-                    <br/>
-                    <input className="form-control" type='text'name='nric_passport_no' id="nric_passport_no"
-                    placeholder='NRIC / Passport Number' required
-                    onChange={inputChange('nric_passport_no')} value={data.nric_passport_no} />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="address"><span>*</span>Address</label>
-                    <textarea className="form-control" id="address" cols="30" rows="7"
-                    onChange={inputChange('address')} value={data.address} 
-                    ></textarea>
-                </div>
-                <div className="form-group">
-                    <label htmlFor="gender_id"><span>*</span>Gender</label>
-                    <select className="form-control" id="gender_id" required
-                    onChange={inputChange('gender')} value={data.gender} >
-                        <option value="">Please select</option>
-                        <option value="MALE">Male</option>
-                        <option value="FEMALE">Female</option>
-                    </select>
-                </div>
-        
+                        <label htmlFor="ic_passport_selection"><span>NRIC/ Passport Selection: </span>{data.nric_passport_selection}</label>
+                        <br />
+                        {displayInput()}     
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="address_1"><span>*</span>Address Line 1</label>
+                        <input className="form-control" type="text" id="address"
+                            onChange={inputChange('address_1')} value={data.address_1} placeholder="address line 1" required
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="address_2"><span>*</span>Address Line 2</label>
+                        <input className="form-control" type="text" id="address_2"
+                            onChange={inputChange('address_2')} value={data.address_2} placeholder="address line 2" required
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="postcode"><span>*</span>Postcode</label>
+                        <input className="form-control" type="number" id="postcode"
+                            onChange={inputChange('postcode')} value={data.postcode} placeholder="postcode" required
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="city"><span>*</span>City</label>
+                        <input className="form-control" type="text" id="city"
+                            onChange={inputChange('city')} value={data.city} placeholder="city" required
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="state"><span>*</span>State</label>
+                        <select className="form-control" id="state" required
+                            onChange={inputChange('state')} value={data.state} >
+                            <option value="">Please select</option>
+                            <option value="Johor">Johor</option>
+                            <option value="Kedah">Kedah</option>
+                            <option value="Kelantan">Kelantan</option>
+                            <option value="Kuala Lumpur">Kuala Lumpur</option>
+                            <option value="Labuan">Labuan</option>
+                            <option value="Melaka">Melaka</option>
+                            <option value="Negeri Sembilan">Negeri Sembilan</option>
+                            <option value="Pahang">Pahang</option>
+                            <option value="Penang">Penang</option>
+                            <option value="Perak">Perak</option>
+                            <option value="Perlis">Perlis</option>
+                            <option value="Putrajaya">Putrajaya</option>
+                            <option value="Sabah">Sabah</option>
+                            <option value="Sarawak">Sarawak</option>
+                            <option value="Selangor">Selangor</option>
+                            <option value="Terengganu">Terengganu</option>
+                        </select>
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="country"><span>Country: </span>{data.country}</label>
+                        <br />    
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="gender_id"><span>*</span>Gender</label>
+                        <select className="form-control" id="gender_id" required
+                            onChange={inputChange('gender')} value={data.gender} >
+                            <option value="">Please select</option>
+                            <option value="MALE">Male</option>
+                            <option value="FEMALE">Female</option>
+                        </select>
+                    </div>
 
                 <br />
 

@@ -16,8 +16,18 @@ function EditProfile({data, setData}) {
     const handleForm=(e)=>{
         e.preventDefault();
     // perform all neccassary validations
-    if (data.company_name === ""||data.company_pic_name ===""||data.company_contact ===""||data.company_address===""
-        ||data.company_website===""|| data.company_logo==="" || data.company_pic_ic===""){
+    if (
+          data.company_name=== "" ||
+          data.company_pic_name=== "" ||
+          data.company_contact=== null ||
+          data.address_1=== "" ||
+          data.address_2=== "" ||
+          data.postcode=== null ||
+          data.city=== "" ||
+          data.state=== "" ||
+          data.company_website=== "" ||
+          data.company_logo=== "" ||
+          data.company_pic_ic=== null ){
         alert("Form not fill");
     }
     else{
@@ -28,7 +38,11 @@ function EditProfile({data, setData}) {
              company_pic_name : data.company_pic_name,
              company_pic_ic: data.company_pic_ic,
              company_contact : data.company_contact,
-             company_address : data.company_address,
+             address_1: data.address_1,
+             address_2: data.address_2,
+             postcode: data.postcode,
+             city: data.city,
+             state: data.state,
              company_website : data.company_website,
              company_logo : data.company_logo
          }
@@ -145,10 +159,51 @@ function displayLogo(){
                 </div>
  
                 <div className="form-group">
-                    <label htmlFor="company_address"><span>*</span>Company Address</label>
-                    <textarea className="form-control" id="company_address" cols="30" rows="10"
-                    onChange={inputChange('company_address')} value={data.company_address} 
-                    ></textarea>
+                  <label htmlFor="address_1"><span>*</span>Address Line 1</label>
+                  <input className="form-control" type="text" id="address"
+                      onChange={inputChange('address_1')} value={data.address_1} placeholder="address line 1" required
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="address_2"><span>*</span>Address Line 2</label>
+                  <input className="form-control" type="text" id="address_2"
+                      onChange={inputChange('address_2')} value={data.address_2} placeholder="address line 2" required
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="postcode"><span>*</span>Postcode</label>
+                  <input className="form-control" type="number" id="postcode"
+                      onChange={inputChange('postcode')} value={data.postcode} placeholder="postcode" required
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="city"><span>*</span>City</label>
+                  <input className="form-control" type="text" id="city"
+                      onChange={inputChange('city')} value={data.city} placeholder="city" required
+                  />
+                </div>
+                <div className="form-group">
+                   onChange<label htmlFor="state"><span>*</span>State</label>
+                   <select className="form-control" id="state" required
+                      onChange={inputChange('state')} value={data.state} >
+                        <option value="">Please select</option>
+                        <option value="Johor">Johor</option>
+                        <option value="Kedah">Kedah</option>
+                        <option value="Kelantan">Kelantan</option>
+                        <option value="Kuala Lumpur">Kuala Lumpur</option>
+                        <option value="Labuan">Labuan</option>
+                        <option value="Melaka">Melaka</option>
+                        <option value="Negeri Sembilan">Negeri Sembilan</option>
+                        <option value="Pahang">Pahang</option>
+                        <option value="Penang">Penang</option>
+                        <option value="Perak">Perak</option>
+                        <option value="Perlis">Perlis</option>
+                        <option value="Putrajaya">Putrajaya</option>
+                        <option value="Sabah">Sabah</option>
+                        <option value="Sarawak">Sarawak</option>
+                        <option value="Selangor">Selangor</option>
+                        <option value="Terengganu">Terengganu</option>
+                  </select>
                 </div>
  
                 <div className="form-group">

@@ -7,8 +7,25 @@ export class Confirm extends Component {
     continue = async (e) => {
         e.preventDefault();
         const { 
-            values: {email, password, confirmPassword, role, category , name, ic_passport_selection, ic_passport_number, affiliation, address, gender
-                ,phone_no}
+            values: {
+                email,
+                password,
+                confirmPassword,
+                role,
+                category,
+                amount,
+                name,
+                ic_passport_selection,
+                ic_passport_number,
+                affiliation,
+                gender,
+                phone_no,
+                address_1,
+                address_2,
+                postcode,
+                city,
+                state,
+                country,}
             } = this.props;
 
             var data = {
@@ -20,7 +37,11 @@ export class Confirm extends Component {
                 nric_passport_selection:ic_passport_selection,
                 nric_passport_no: ic_passport_number,
                 affiliation: affiliation,
-                address:address,
+                address_1: address_1,
+                address_2: address_2,
+                postcode: postcode,
+                city: city,
+                state: state,
                 gender:gender,
                 phone_no:phone_no
             };

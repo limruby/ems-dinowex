@@ -14,9 +14,15 @@ const create = (req, res, next)=>{
   const company_pic_name = req.body.company_pic_name;
   const company_pic_ic = req.body.company_pic_ic;
   const company_contact = req.body.company_contact;
-  const company_address = req.body.company_address;
+  const address_1 = req.body.address_1;  
+  const address_2 = req.body.address_2;
+  const postcode = req.body.postcode;
+  const city = req.body.city;
+  const state = req.body.state;
+  const country = req.body.country;
   const company_website = req.body.company_website;
   const company_logo = req.body.company_logo;
+  const receipt = req.body.receipt;
 
   const newSponsor = new Sponsor({
     account_id, 
@@ -24,10 +30,16 @@ const create = (req, res, next)=>{
     company_name, 
     company_pic_name, 
     company_pic_ic,
-    company_contact, 
-    company_address, 
+    company_contact,  
     company_website, 
-    company_logo
+    company_logo,
+    receipt,
+    address_1,
+    address_2,
+    postcode,
+    city,
+    state,
+    country,
   });
 
   newSponsor.save()
@@ -86,8 +98,26 @@ const update = (req, res, next)=>{
   if(req.body.company_contact){
     updateSponsor['company_contact'] = req.body.company_contact;
   }
-  if(req.body.company_address){
-    updateSponsor['company_address'] = req.body.company_address;
+  if(req.body.address_1){
+    updateSponsor['address_1'] = req.body.address_1;
+  }
+
+  if(req.body.address_2){
+    updateSponsor['address_2'] = req.body.address_2;
+  }
+
+  if(req.body.postcode){
+    updateSponsor['postcode'] = req.body.postcode;
+  }
+
+  if(req.body.city){
+    updateSponsor['city'] = req.body.city;
+  }
+  if(req.body.state){
+    updateSponsor['state'] = req.body.state;
+  }
+  if(req.body.country){
+    updateSponsor['country'] = req.body.country;
   }
   if(req.body.company_website){
     updateSponsor['company_website'] = req.body.company_website;
@@ -108,6 +138,9 @@ const update = (req, res, next)=>{
   if(req.body.amount){
     updateSponsor['amount'] = req.body.amount;
   }
+  if(req.body.receipt){
+    updateSponsor['receipt'] = req.body.receipt;
+  } 
 
   Sponsor.findByIdAndUpdate(req.body._id, updateSponsor, (err, sponsors) => {
     if (err) {
