@@ -58,14 +58,14 @@ export class Profiles extends Component {
                 <div className="form-group">
                     <label htmlFor="company_pic_ic"><span>*</span>Company Person In Charge (PIC) IC Number</label>
                     <input className="form-control" type='text' name='company_pic_ic' id="company_pic_ic"
-                    placeholder='IC Number' required
+                    placeholder='IC Number' required pattern="[0-9]{12}"
                     onChange={inputChange('company_pic_ic')} value={values.company_pic_ic} 
                     />
                 </div>
                 <div className="form-group">
                     <label htmlFor="company_contact"><span>*</span>Contact Number</label>
                     <input className="form-control" type='text' name='company_contact' id="company_contact"
-                    placeholder='Company contact number' required
+                    placeholder='Company contact number' required pattern="[0-9]{10,11}"
                     onChange={inputChange('company_contact')} value={values.company_contact} 
                     />
                 </div>

@@ -42,6 +42,7 @@ export class Confirm extends Component {
                 postcode: postcode,
                 city: city,
                 state: state,
+                country: country,
                 gender:gender,
                 phone_no:phone_no
             };
