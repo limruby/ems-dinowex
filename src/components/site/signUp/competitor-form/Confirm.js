@@ -89,11 +89,17 @@ export class Confirm extends Component {
         };
 
     render() {
-        const { 
-            values: {email, password, confirmPassword, role, category , name, ic_passport_selection, ic_passport_number, affiliation, address, gender
-            ,phone_no}
-        } = this.props;
+        const { values, inputChange } = this.props;        
 
+
+
+        var full_address = 
+            values.address_1 + "," +
+            values.address_2 + "," +
+            values.postcode + "," +
+            values.city + "," +
+            values.state+ "," +
+            values.country
 
         return (
             <section className="section-container" style={{marginBottom:"5%"}}>
@@ -101,14 +107,14 @@ export class Confirm extends Component {
                 <h1>Confirmation</h1>
 
                 <ul class="list-group">
-                    <li class="list-group-item">Name: {name}</li>
-                    <li class="list-group-item">Email: {email}</li>
-                    <li class="list-group-item">Contact Number: {phone_no}</li>
-                    <li class="list-group-item">Affiliation: {affiliation}</li>
-                    <li class="list-group-item">NRIC/Passport Number: {ic_passport_number}</li>                    
-                    <li class="list-group-item">Address: {address}</li>
-                    <li class="list-group-item">Gender: {gender}</li>
-                    <li class="list-group-item">Selected Category: {category}</li>
+                    <li class="list-group-item">Name: {values.name}</li>
+                    <li class="list-group-item">Email: {values.email}</li>
+                    <li class="list-group-item">Contact Number: {values.phone_no}</li>
+                    <li class="list-group-item">Affiliation: {values.affiliation}</li>
+                    <li class="list-group-item">NRIC/Passport Number: {values.ic_passport_number}</li>                    
+                    <li class="list-group-item">Address:{full_address} </li>
+                    <li class="list-group-item">Gender: {values.gender}</li>
+                    <li class="list-group-item">Selected Category: {values.category}</li>
                 </ul>
 
 

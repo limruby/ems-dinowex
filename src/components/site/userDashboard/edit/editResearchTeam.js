@@ -172,9 +172,9 @@ const inputChange = (element, index) => e => {
             <form onSubmit={handleForm}>
       <div className="form-container">
                 <h5>Team Members</h5>
-                
+                  <br/>
                  {displayMembers()} 
-                               
+                                   
               
 
                 <div className="col-4 btn-group">

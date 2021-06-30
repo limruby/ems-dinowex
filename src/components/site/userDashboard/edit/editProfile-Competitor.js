@@ -17,14 +17,14 @@ const handleForm=(e)=>{
     if (data.name === "" ||
         data.affiliation === "" ||
         data.nric_passport_selection === "" ||
-        data.nric_passport_no === null ||
+        data.nric_passport_no === "" ||
         data.address_1 === "" ||
         data.address_2 === "" ||
-        data.postcode === null ||
+        data.postcode === "" ||
         data.city === "" ||
         data.state === "" ||
         data.gender === "" ||
-        data.phone_no === null){
+        data.phone_no === ""){
         alert("Form not fill");
     }
     else{
@@ -36,17 +36,17 @@ const handleForm=(e)=>{
                 nric_passport_selection : data.nric_passport_selection,
                 nric_passport_no : data.nric_passport_no,                
                 gender : data.gender,
-                address_1: data.address_1 === "",
-                address_2: data.address_2 === "",
-                postcode: data.postcode === "",
-                city: data.city === "",
-                state: data.state === "",
+                address_1: data.address_1,
+                address_2: data.address_2,
+                postcode: data.postcode,
+                city: data.city,
+                state: data.state,
                 phone_no: data.phone_no
             }
 
             axiosInstance.post("/api/competitors/update", postData)
             .then(function(response) {
-                window.location.href = '/user_dashboard';
+                // window.location.href = '/user_dashboard';
             }).catch(function(error) {
                 console.log(error);
             })
@@ -122,7 +122,7 @@ const handleForm=(e)=>{
                     </div>
                     <div className="form-group">
                         <label htmlFor="postcode"><span>*</span>Postcode</label>
-                        <input className="form-control" type="number" id="postcode"
+                        <input className="form-control" type="text" id="postcode"
                             onChange={inputChange('postcode')} value={data.postcode} placeholder="postcode" required
                         />
                     </div>

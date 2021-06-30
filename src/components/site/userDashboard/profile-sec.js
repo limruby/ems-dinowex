@@ -35,7 +35,13 @@ const Profiles = ({user,role}) =>  {
             <p> {user.nric_passport_selection}: {user.nric_passport_no}</p>
           </li>
           <li>
-            <p> Address: {user.address}</p>
+            <p> Address: 
+              {user.address_1},  
+              {user.address_2},
+              {user.postcode},
+              {user.city},
+              {user.state}, 
+              {user.country}   </p>
           </li>
         </ul>
       </div>

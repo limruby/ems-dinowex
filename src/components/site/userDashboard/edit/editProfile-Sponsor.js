@@ -172,7 +172,7 @@ function displayLogo(){
                 </div>
                 <div className="form-group">
                   <label htmlFor="postcode"><span>*</span>Postcode</label>
-                  <input className="form-control" type="number" id="postcode"
+                  <input className="form-control" type="text" id="postcode"
                       onChange={inputChange('postcode')} value={data.postcode} placeholder="postcode" required
                   />
                 </div>
@@ -183,7 +183,7 @@ function displayLogo(){
                   />
                 </div>
                 <div className="form-group">
-                   onChange<label htmlFor="state"><span>*</span>State</label>
+                   <label htmlFor="state"><span>*</span>State</label>
                    <select className="form-control" id="state" required
                       onChange={inputChange('state')} value={data.state} >
                         <option value="">Please select</option>
