@@ -56,9 +56,14 @@ class EditorSec extends Component {
                 ,
                 bookChapter : this.props.bookChapter_data
             }
-            if(postData.bookChapter==null||postData.bookChapter[0]===undefined||postData.bookChapter[0]['content']==null){
-                postData.bookChapter.push({'content':data})
-            }else{
+            if(postData.bookChapter==null){                
+                if(postData.bookChapter[0]===undefined){
+                   if(postData.bookChapter[0]['content']===null){
+                        postData.bookChapter.push({'content':data})
+                   }
+                }
+            }
+            else{
                 postData.bookChapter[0]['content'] = data;
             }       
         }
@@ -81,11 +86,16 @@ class EditorSec extends Component {
                             bookChapter : this.props.bookChapter_data
                         }
 
-                        if(postData.bookChapter==null||postData.bookChapter[0]===undefined||postData.bookChapter[0]['content']==null){
-                            postData.bookChapter.push({'content':data})
-                        }else{
-                            postData.bookChapter[0]['content'] = data;
+                        if(postData.bookChapter==null){                
+                            if(postData.bookChapter[0]===undefined){
+                               if(postData.bookChapter[0]['content']===null){
+                                    postData.bookChapter.push({'content':data})
+                               }
+                            }
                         }
+                        else{
+                            postData.bookChapter[0]['content'] = data;
+                        } 
                    
                 } }
                     
