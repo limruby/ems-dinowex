@@ -6,7 +6,7 @@ import Editor from './editor';
 import axiosInstance from '../../../../utils/axiosConfig.js';
 
 function EditBookChapter({ data, setData }) {
-
+	localStorage.setItem("activeKeys", "Abstract");
 
 	const inputChange = input => e => {
 

@@ -3,6 +3,7 @@ import {Link, useLocation} from 'react-router-dom';
 import axiosInstance from '../../../../utils/axiosConfig.js';
 
 function EditProfile() {
+    localStorage.setItem("activeKeys", "Competitor")
     const [data, setData] = useState({
         name:'',
         affiliation:'',
@@ -10,7 +11,7 @@ function EditProfile() {
         nric_passport_no:'',
         address:'',
         gender:'',
-        category:''
+        category:'',
     });
 
     const location = useLocation();
@@ -38,8 +39,11 @@ function EditProfile() {
     const handleForm=(e)=>{
         e.preventDefault();
     // perform all neccassary validations
-        if (data.name ===""||data.affiliation===""||data.nric_passport_selection===""||data.nric_passport_no===""
-            ||data.address===""||data.gender===""){
+        if (data.name === "" ||
+            data.affiliation === "" ||
+            data.nric_passport_selection === "" ||
+            data.nric_passport_no === ""||
+            data.gender === "") {
             alert("Form not fill");
         }
         else{
@@ -52,7 +56,7 @@ function EditProfile() {
                 nric_passport_no : data.nric_passport_no,
                 address : data.address,
                 gender : data.gender,
-                category: data.category
+                category: data.category,               
             }
 
 
@@ -108,7 +112,7 @@ function EditProfile() {
                     placeholder='NRIC / Passport Number' required
                     onChange={inputChange('nric_passport_no')} value={data.nric_passport_no} />
                 </div>
-        
+                             
 
                 <br />
 

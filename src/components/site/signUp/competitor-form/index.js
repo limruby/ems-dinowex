@@ -19,7 +19,12 @@ export class CompetitorForm extends Component {
         ic_passport_selection:'',
         ic_passport_number: '',
         affiliation:'',
-        address: '',
+        address_1: '',
+        address_2:'',
+        postcode:'',
+        city:'',
+        state:'',
+        country:'',
         gender: '',
         phone_no:''
     };
@@ -42,9 +47,21 @@ export class CompetitorForm extends Component {
 
     render() {
         const { step } = this.state;
-        const { email, password, confirmPassword, role, category,  name, phone_no, ic_passport_selection, ic_passport_number, affiliation, address, gender
+        const { email, password, confirmPassword, role, category,  name, phone_no, ic_passport_selection, ic_passport_number, affiliation, address_1,
+            address_2,
+            postcode,
+            city,
+            state,
+            country, 
+            gender
             } = this.state;
-        const values = { email, password, confirmPassword, role, category , name, phone_no,ic_passport_selection, ic_passport_number, affiliation, address, gender
+        const values = { email, password, confirmPassword, role, category , name, phone_no,ic_passport_selection, ic_passport_number, affiliation, address_1,
+            address_2,
+            postcode,
+            city,
+            state,
+            country, 
+            gender
             };
 
         switch (step) {

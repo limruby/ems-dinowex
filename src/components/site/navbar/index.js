@@ -5,7 +5,7 @@ import logo from "../../../assets/img/Dinowex.png";
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
-import './navbar.css';
+import '../../../assets/css/agency.min.css';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { IconContext } from 'react-icons/lib';
 import {isAuth, isAdmin} from '../../../utils/isAuth'

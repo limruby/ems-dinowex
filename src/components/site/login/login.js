@@ -37,7 +37,7 @@ function Login()
                             localStorage.setItem('token', res.data.token); 
                             localStorage.setItem('user_id', JSON.stringify(res.data.result._id));
 
-                            redirect();
+                            window.location.href = '/user_dashboard';
                         }
                         else{
                             localStorage.setItem("competitor_id", JSON.stringify(response.data.data._id));                            
@@ -66,7 +66,7 @@ function Login()
                         if(response.data.data.bill_status === "true"){
                             localStorage.setItem('token', res.data.token); 
                             localStorage.setItem('user_id', JSON.stringify(res.data.result._id));                              
-                            redirect();
+                            window.location.href = '/user_dashboard';
                         }
                         else{
                             localStorage.setItem("sponsor_id", JSON.stringify(response.data.data._id));
@@ -94,9 +94,7 @@ function Login()
         });   
     }
 
-    const redirect=()=>{
-        window.location.href = '/user_dashboard';
-    }
+   
 
     return (
     <>

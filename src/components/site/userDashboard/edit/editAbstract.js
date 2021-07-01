@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import { FaTrashAlt } from 'react-icons/fa';
-
 import axiosInstance from '../../../../utils/axiosConfig.js';
 
 function EditAbstract({data, setData}) {
+
+    localStorage.setItem("activeKeys", "Abstract");
 
     const inputChange = input => e => {
 

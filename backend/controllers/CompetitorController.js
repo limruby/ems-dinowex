@@ -17,8 +17,13 @@ const create = (req, res, next)=>{
   const nric_passport_selection = req.body.nric_passport_selection;
   const nric_passport_no = req.body.nric_passport_no;
   const gender = req.body.gender;
-  const address = req.body.address;
-
+  const address_1 = req.body.address_1;  
+  const address_2 = req.body.address_2;
+  const postcode = req.body.postcode;
+  const city = req.body.city;
+  const state = req.body.state;
+  const country = req.body.country;
+  const receipt = req.body.receipt;
 
   const newCompetitor = new Competitor({
     account_id, 
@@ -27,9 +32,15 @@ const create = (req, res, next)=>{
     affiliation,
     nric_passport_selection,
     nric_passport_no,
-    address,
+    address_1,
+    address_2,
+    postcode,
+    city,
+    state,
+    country,
     gender,
-    phone_no
+    phone_no, 
+    receipt
   });
 
   newCompetitor.save()
@@ -81,8 +92,26 @@ const update = (req, res, next)=>{
     updateCompetitor['phone_no'] = req.body.phone_no;
   }
 
-  if(req.body.address){
-    updateCompetitor['address'] = req.body.address;
+  if(req.body.address_1){
+    updateCompetitor['address_1'] = req.body.address_1;
+  }
+
+  if(req.body.address_2){
+    updateCompetitor['address_2'] = req.body.address_2;
+  }
+
+  if(req.body.postcode){
+    updateCompetitor['postcode'] = req.body.postcode;
+  }
+
+  if(req.body.city){
+    updateCompetitor['city'] = req.body.city;
+  }
+  if(req.body.state){
+    updateCompetitor['state'] = req.body.state;
+  }
+  if(req.body.country){
+    updateCompetitor['country'] = req.body.country;
   }
 
   if(req.body.members){
@@ -112,6 +141,9 @@ const update = (req, res, next)=>{
   }
   if(req.body.category){
     updateCompetitor['category'] = req.body.category;
+  }
+  if(req.body.receipt){
+    updateCompetitor['receipt'] = req.body.receipt;
   }
 
 
