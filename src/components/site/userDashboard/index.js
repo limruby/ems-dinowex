@@ -8,6 +8,7 @@ import CompetitionMaterial from './competition-material-sec';
 import Abstract from './abstract-sec';
 import BookChapter from './book-chapter-sec';
 import ResearchTeam from './research-team-sec';
+import Receipt from './receipt-sec'
 
 import PdfAbstract from './pdf-abstract-bookChapter';
 import Preview from './preview-sec'; import 'bootstrap/dist/css/bootstrap.min.css';
@@ -78,7 +79,7 @@ function UserDashboard() {  ////////////////////get login user info (REPLACE THI
               <Nav.Link eventKey="Promo-Content"><BsFiles size={20} /> Promotional Content</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="Receipt"><FaReceipt size={20}/> Receipt</Nav.Link>
+              <Nav.Link eventKey="Receipt"><FaReceipt size={20} /> Receipt</Nav.Link>
             </Nav.Item>
             <Nav.Item>
               <Nav.Link eventKey="Cert"><FaCertificate size={20} /> Certificate</Nav.Link>
@@ -101,7 +102,7 @@ function UserDashboard() {  ////////////////////get login user info (REPLACE THI
               <Nav.Link eventKey="Research-Team"><FaRegBookmark size={20} /> Research Team</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="Receipt"><FaReceipt size={20}/> Receipt</Nav.Link>
+              <Nav.Link eventKey="Receipt"><FaReceipt size={20} /> Receipt</Nav.Link>
             </Nav.Item>
             <Nav.Item>
               <Nav.Link eventKey="Cert"><FaCertificate size={20} /> Certificate</Nav.Link>
@@ -112,46 +113,62 @@ function UserDashboard() {  ////////////////////get login user info (REPLACE THI
         return '';
     }
   }
+  var activeKeys = ""
+  if(localStorage.getItem("activeKeys")){
+    activeKeys = localStorage.getItem("activeKeys");
+    localStorage.removeItem("activeKeys")
+  } 
+  else {
+    activeKeys = "Account-Profiles"
+  }
+
   return (
     <>
 
       {welcome(account.role)}
 
       <div className="wrapper">
-        <Tab.Container id="left-tabs-example" defaultActiveKey="Account-Profiles">
+        
+        <Tab.Container id="left-tabs-example" defaultActiveKey={activeKeys}>
           <Row>
-            <Col sm={3} className="sidebar-wrapper">                {TabTitles(account.role)}              </Col>
+            <Col sm={3} className="sidebar-wrapper">
+              {TabTitles(account.role)}
+            </Col>
             <Col sm={9}>
-              <Tab.Content>                  <Tab.Pane eventKey="Account-Profiles">                    <Card>
-                <Card.Body>
-                  <div className="sec-container">
-                    <Link to='/user_dashboard/edit_account'>
-                      <a className="edit" href="/user_dashboard/edit_account"><FaEdit /> Edit Email</a>
-                    </Link>
-                    <h2> Account Details</h2>
-                    <ul>
-                      <li>
-                        <p> Email: {account.email} </p>
-                      </li>
-                      <li>
-                        <Link to='/user_dashboard/edit_password'>
-                          <button className="edit-button"><FaEdit /> Edit Password</button>
+              <Tab.Content>
+                <Tab.Pane eventKey="Account-Profiles">
+                  <Card>
+                    <Card.Body>
+                      <div className="sec-container">
+                        <Link to='/user_dashboard/edit_account'>
+                          <a className="edit" href="/user_dashboard/edit_account"><FaEdit /> Edit Email</a>
                         </Link>
-                      </li>
-                    </ul>
-                  </div>
-                </Card.Body>
-              </Card>                    <p />                    <Card>
-                  <Card.Body>
-                    <div className="sec-container">
-                      <Link to='/user_dashboard/edit_profile'>
-                        <a className="edit" href="/user_dashboard/edit_profile"><FaEdit /> Edit</a>
-                      </Link>
-                      <h2> Profile </h2>
-                      <Profile user={user} role={account.role} />
-                    </div>
-                  </Card.Body>
-                </Card>                  </Tab.Pane>                  <Tab.Pane eventKey="Promo-Content">
+                        <h2> Account Details</h2>
+                        <ul>
+                          <li>
+                            <p> Email: {account.email} </p>
+                          </li>
+                          <li>
+                            <Link to='/user_dashboard/edit_password'>
+                              <button className="edit-button"><FaEdit /> Edit Password</button>
+                            </Link>
+                          </li>
+                        </ul>
+                      </div>
+                    </Card.Body>
+                  </Card>                    <p />                    <Card>
+                    <Card.Body>
+                      <div className="sec-container">
+                        <Link to='/user_dashboard/edit_profile'>
+                          <a className="edit" href="/user_dashboard/edit_profile"><FaEdit /> Edit</a>
+                        </Link>
+                        <h2> Profile </h2>
+                        <Profile user={user} role={account.role} />
+                      </div>
+                    </Card.Body>
+                  </Card>
+                </Tab.Pane>
+                <Tab.Pane eventKey="Promo-Content">
                   <Card>
                     <Card.Body>
                       <div className="sec-container">
@@ -163,7 +180,8 @@ function UserDashboard() {  ////////////////////get login user info (REPLACE THI
                       </div>
                     </Card.Body>
                   </Card>
-                </Tab.Pane>                  <Tab.Pane eventKey="Competition-Material">
+                </Tab.Pane>
+                <Tab.Pane eventKey="Competition-Material">
                   <Card>
                     <Card.Body>
                       <div className="sec-container">
@@ -219,7 +237,17 @@ function UserDashboard() {  ////////////////////get login user info (REPLACE THI
                     </div>
                   </Card.Body>
                 </Card>
-                </Tab.Pane>                  
+                </Tab.Pane>
+                <Tab.Pane eventKey="Receipt">
+                  <Card>
+                    <Card.Body>
+                      <div className="sec-container">
+                        <h2> Download Receipt</h2>
+                        <Receipt user={user} role={account.role} />
+                      </div>
+                    </Card.Body>
+                  </Card>
+                </Tab.Pane>
                 <Tab.Pane eventKey="Cert">
                   <Card>
                     <Card.Body>

@@ -5,6 +5,7 @@ import { FaTrashAlt } from 'react-icons/fa';
 
 function EditCompMaterial({data, setData}) {
 
+  localStorage.setItem("activeKeys", "Competition-Material");
 
   const [tempData, setTemp] = useState({
     tempPoster:[],
@@ -317,7 +318,7 @@ const handleForm=(e)=>{
                 <br />
                
                 <div className="btn-group">
-                    <Link to="/user_dashboard">
+                    <Link to="/user_dashboard#material">
                         <button className="btn btn-danger back-btn">Back</button>
                     </Link>
                     <input className="btn btn-primary" type="submit" value="Update" />

@@ -4,7 +4,7 @@ import axiosInstance from '../../../../utils/axiosConfig.js';
 import { FaTrashAlt } from 'react-icons/fa';
 
 function EditPromoContent({data, setData}) {
-
+  localStorage.setItem("activeKeys", "Promo-Content")
   const showUpload=(e)=>{
     e.preventDefault();
     if(data.video.length < 5){

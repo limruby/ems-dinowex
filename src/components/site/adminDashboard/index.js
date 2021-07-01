@@ -1,7 +1,7 @@
 import React from 'react';
-import {Tab, Nav, Row, Col,Card} from "react-bootstrap";
-import {FaCertificate} from 'react-icons/fa';
-import {BsPeopleCircle,BsFiles} from "react-icons/bs";
+import { Tab, Nav, Row, Col, Card } from "react-bootstrap";
+import { FaCertificate } from 'react-icons/fa';
+import { BsPeopleCircle, BsFiles } from "react-icons/bs";
 
 import Account from './account';
 import Competitor from './competitor-sec';
@@ -10,30 +10,37 @@ import './table.css'
 
 function AdminDashboard() {
 
-	function TabTitles(){
-		return(   
+	function TabTitles() {
+		return (
 			<Nav variant="pills" className="flex-column">
-			<Nav.Item>
-			<Nav.Link eventKey="Account"><BsPeopleCircle size={20}/> Account </Nav.Link>
-			</Nav.Item>
-			<Nav.Item>
-			<Nav.Link eventKey="Competitor"><BsFiles size={20}/> Competitor</Nav.Link>
-			</Nav.Item>
-			<Nav.Item>
-			<Nav.Link eventKey="Sponsor"><FaCertificate size={20}/> Sponsor</Nav.Link>
-			</Nav.Item>
+				<Nav.Item>
+					<Nav.Link eventKey="Account"><BsPeopleCircle size={20} /> Account </Nav.Link>
+				</Nav.Item>
+				<Nav.Item>
+					<Nav.Link eventKey="Competitor"><BsFiles size={20} /> Competitor</Nav.Link>
+				</Nav.Item>
+				<Nav.Item>
+					<Nav.Link eventKey="Sponsor"><FaCertificate size={20} /> Sponsor</Nav.Link>
+				</Nav.Item>
 			</Nav>
-			);
+		);
 
-		}
+	}
 
-
+	var activeKeys = ""
+	if (localStorage.getItem("activeKeys")) {
+		activeKeys = localStorage.getItem("activeKeys");
+		localStorage.removeItem("activeKeys")
+	}
+	else {
+		activeKeys = "Account-Profiles"
+	}
 	return (
 
 		<div>
-    <div className="welcome-box"><h1>Welcome Admin!</h1></div>
+			<div className="welcome-box"><h1>Welcome Admin!</h1></div>
 			<div className="wrapper">
-				<Tab.Container id="left-tabs-example" defaultActiveKey="Account">
+				<Tab.Container id="left-tabs-example" defaultActiveKey={activeKeys}>
 					<Row>
 						<Col sm={3} className="sidebar-wrapper">
 							{TabTitles()}
@@ -45,36 +52,36 @@ function AdminDashboard() {
 								<Tab.Pane eventKey="Account">
 									<Card>
 										<Card.Body>
-											<div className="sec-container">			                   
-												<h2> Account </h2>    
+											<div className="sec-container">
+												<h2> Account </h2>
 												<Account />
-											</div> 
+											</div>
 										</Card.Body>
-									</Card>					
+									</Card>
 								</Tab.Pane>
 
 
 								<Tab.Pane eventKey="Competitor">
 									<Card>
 										<Card.Body>
-											<div className="sec-container">			                   
-												<h2> Competitor Profile </h2>    
+											<div className="sec-container">
+												<h2> Competitor Profile </h2>
 												<Competitor />
-											</div> 
+											</div>
 										</Card.Body>
-									</Card>					
+									</Card>
 								</Tab.Pane>
 
 
 								<Tab.Pane eventKey="Sponsor">
 									<Card>
 										<Card.Body>
-											<div className="sec-container">			                   
-												<h2> Sponsor Profile</h2>    
-												<Sponsor/>
-											</div> 
+											<div className="sec-container">
+												<h2> Sponsor Profile</h2>
+												<Sponsor />
+											</div>
 										</Card.Body>
-										</Card>					
+									</Card>
 								</Tab.Pane>
 
 
@@ -83,10 +90,10 @@ function AdminDashboard() {
 					</Row>
 				</Tab.Container>
 			</div>
-		</div>  
+		</div>
 	);
 
-	}
+}
 
-	export default AdminDashboard;
+export default AdminDashboard;
 
