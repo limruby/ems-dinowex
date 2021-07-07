@@ -46,7 +46,7 @@ const handleForm=(e)=>{
 
             axiosInstance.post("/api/competitors/update", postData)
             .then(function(response) {
-                // window.location.href = '/user_dashboard';
+                 window.location.href = '/user_dashboard';
             }).catch(function(error) {
                 console.log(error);
             })
@@ -96,6 +96,12 @@ const handleForm=(e)=>{
                     placeholder='Full Name (as per IC / Passport)' required                    
                     onChange={inputChange('name')} value={data.name} />
                 </div>
+                <div className="form-group">
+                        <label htmlFor="phone_no"><span>*</span>Contact Number</label>
+                        <input type="text" className="form-control" name="phone_no" id="phone_no"
+                            placeholder='Contact Number' required
+                            onChange={inputChange('phone_no')} value={data.phone_no} />
+                    </div>
                 <div className="form-group">
                     <label htmlFor="affiliation"><span>*</span>Affiliation</label>
                     <input className="form-control" type='text'name='affiliation' id="affiliation"

@@ -1,6 +1,7 @@
 import React,{useState, useEffect} from 'react';
 import { useHistory, Link } from 'react-router-dom';
 import logo from "../../../assets/img/Dinowex.png";
+import logoUitm from "../../../assets/img/IIIDentEx2021 Logo-white-01.webp";
 
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -55,6 +56,7 @@ if (isAdmin() === true){
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Navbar.Brand href="#home"> <Link to='/' className="navbar-logo" onClick={closeMobileMenu}>
            <img src={logo} height="50px" width="200px" alt="" />
+           <img src={logoUitm} height="50px" width="200px" alt="" />
         </Link></Navbar.Brand>
       <Nav className="ml-auto">    
            
@@ -99,6 +101,7 @@ if (isAdmin() === true){
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Navbar.Brand href="#home"> <Link to='/' className="navbar-logo" onClick={closeMobileMenu}>
            <img src={logo} height="50px" width="200px" alt="" />
+           <img src={logoUitm} height="50px" width="200px" alt="" />
         </Link></Navbar.Brand>
       <Nav className="ml-auto">    
            
@@ -142,6 +145,7 @@ if (isAdmin() === true){
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Navbar.Brand href="#home"> <Link to='/' className="navbar-logo" onClick={closeMobileMenu}>
            <img src={logo} height="50px" width="200px" alt="" />
+           <img src={logoUitm} height="50px" width="auto" alt="" />
         </Link></Navbar.Brand>
       <Nav className="ml-auto">    
            

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import "../../../assets/css/agency.min.css";
+import compBooth from "../../../assets/img/featured_sponsor.jpg";
 
 function LandingPage() {
 
@@ -21,166 +22,53 @@ function LandingPage() {
           </div>
         </div>
       </header>
-
-	 
-
       <section className="page-section" id="competition">
         <div className="container">
           <div className="row">
             <div className="col-lg-12 text-center">
-              <h2 className="section-heading text-uppercase">Competition</h2>
+              <h2 className="section-heading text-uppercase">Participant Booth</h2>
               <h3 className="section-subheading text-muted">
-                3 category
-				
               </h3>
-			 
             </div>
           </div>
           <div className="row text-center">
-
-            <div className="col-lg-4">
-			<div className="card mb-5 mb-lg-0">
-			<div className="card-body">
-				
-				<h1 className="card-price text-center">Professional</h1>
-				<hr></hr>
-				<p>Professionals from the relevant industry or staff of higher education institutions including private and public universities including polytechnic, community colleges, SME industries</p>
-				<hr></hr>
-				<p>Registration Fee : RM280</p>
-				<hr></hr>
-        <Link to="/sign_up">
-				  <div className="text-center"><a className="btn btn-primary text-uppercase js-scroll-trigger" href="/sign_up">Register</a></div>
-			  </Link>
-      </div>
-			</div>
-			</div>
-		
-
-            <div className="col-lg-4">
-			<div className="card mb-5 mb-lg-0">
-			<div className="card-body">
-				<h1 className="card-price text-center">Young Innovator</h1>
-				<hr></hr>
-				<p>Students from all HEI including public and private universities, polytechnic, industrial learning colleges, IKM MARA, and international student participation</p>
-				<br/>
-        <hr></hr>
-				<p>Registration Fee : RM230</p>
-				<hr></hr>
-        <Link to="/sign_up">
-				  <div className="text-center"><a className="btn btn-primary text-uppercase js-scroll-trigger" href="/sign_up">Register</a></div>
-			  </Link>
-      </div>
-			</div>
-			</div>
-
-            <div className="col-lg-4">
-			<div className="card mb-5 mb-lg-0">
-			<div className="card-body">
-				{/* <h5 className="card-title text-muted text-uppercase text-center">Junior Inventor/ Innovator</h5> */}
-				<h1 className="card-price text-center">Junior Innovator</h1>
-				<hr></hr>
-				<p>Schools students (Age 17 and below) from government and private school including MRSM, Vocational Colleges</p>
-				<br/><br/>
-        <hr></hr>
-				<p>Registration Fee : RM180</p>
-				<hr></hr>
-        <Link to="/sign_up">
-				  <div className="text-center"><a className="btn btn-primary text-uppercase js-scroll-trigger" href="/sign_up">Register</a></div>
-			  </Link>
-      </div>
-			</div>
-			</div>
-
+            <img src={compBooth} alt="sample-booth" width="500px" height="auto" />
+            {/* <div className="col-lg-4">
+              <div className="card mb-5 mb-lg-0">
+                <div className="card-body">
+                   <h5 className="card-title text-muted text-uppercase text-center">Junior Inventor/ Innovator</h5> 
+                  <h1 className="card-price text-center">Junior Innovator</h1>
+                  <hr></hr>
+                  <p>Schools students (Age 17 and below) from government and private school including MRSM, Vocational Colleges</p>
+                  <br /><br />
+                  <hr></hr>
+                  <p>Registration Fee : RM180</p>
+                  <hr></hr>
+                  <Link to="/sign_up">
+                    <div className="text-center"><a className="btn btn-primary text-uppercase js-scroll-trigger" href="/sign_up">Register</a></div>
+                  </Link>
+                </div>
+              </div>
+            </div> */}
           </div>
         </div>
       </section>
 
-	  <section className="bg-light page-section" id="sponsorship">
+      <section className="bg-light page-section" id="sponsorship">
         <div className="container">
           <div className="row">
             <div className="col-lg-12 text-center">
-              <h2 className="section-heading text-uppercase">Sponsorship</h2>
+              <h2 className="section-heading text-uppercase">Sponsor Booth</h2>
               <h3 className="section-subheading text-muted">
-                Contact : <a href="mailto:sponsor_dinowex-list@um.edu.my">sponsor_dinowex-list@um.edu.my</a>
-				
               </h3>
-			 
+
             </div>
           </div>
           <div className="row text-center">
-
-            <div className="col-lg-4">
-			<div className="card mb-5 mb-lg-0">
-			<div className="card-body">
-				<h5 className="card-title text-muted text-uppercase text-center">BRONZE PACKAGE</h5>
-				<h3 className="card-price text-center">RM500 - RM999</h3>
-				<hr></hr>
-				<span>
-				<ul className="fa-ul">
-				<li><span className="fa-li"><i className="fa fa-check"></i></span><p>Logo in promotional material</p></li>
-				<li className="text-muted"><span className="fa-li"><i className="fa fa-times"></i></span><p>Materials on event platform</p></li>
-				<li className="text-muted"><span className="fa-li"><i className="fa fa-times"></i></span><p>Personal booth and interaction with participants</p></li>
-				</ul>
-				</span>
-				<hr></hr>
-        <Link to="/sign_up">
-				  <div className="text-center"><a className="btn btn-primary text-uppercase js-scroll-trigger" href="/sign_up">Sponsor Now</a></div>
-			  </Link>
-      </div>
-			</div>
-			</div>
-		
-
-            <div className="col-lg-4">
-			<div className="card mb-5 mb-lg-0">
-			<div className="card-body">
-				<h5 className="card-title text-muted text-uppercase text-center">SILVER PACKAGE</h5>
-				<h3 className="card-price text-center">RM1000 - RM2999</h3>
-				<hr></hr>
-				<span>
-				<ul className="fa-ul">
-				<li><span className="fa-li"><i className="fa fa-check"></i></span><p>Logo in promotional material</p></li>
-				<li><span className="fa-li"><i className="fa fa-check"></i></span><p>Materials on event platform</p></li>
-				<li className="text-muted"><span className="fa-li"><i className="fa fa-times"></i></span><p>Personal booth and interaction with participants</p></li>
-				</ul>
-				</span>
-				<hr></hr>
-        <Link to="/sign_up">
-				  <div className="text-center"><a className="btn btn-primary text-uppercase js-scroll-trigger" href="/sign_up">Sponsor Now</a></div>
-			  </Link>
-      </div>
-			</div>
-			</div>
-
-            <div className="col-lg-4">
-			<div className="card mb-5 mb-lg-0">
-			<div className="card-body">
-				<h5 className="card-title text-muted text-uppercase text-center">GOLD PACKAGE</h5>
-				<h3 className="card-price text-center">RM3000 and above</h3>
-				<hr></hr>
-				<span>
-				<ul className="fa-ul">
-				<li><span className="fa-li"><i className="fa fa-check"></i></span><p>Logo in promotional material</p></li>
-				<li><span className="fa-li"><i className="fa fa-check"></i></span><p>Materials on event platform</p></li>
-				<li><span className="fa-li"><i className="fa fa-check"></i></span><p>Personal booth and interaction with participants</p></li>
-				</ul>
-				</span>
-				<hr></hr>
-        <Link to="/sign_up">
-				  <div className="text-center"><a className="btn btn-primary text-uppercase js-scroll-trigger" href="/sign_up">Sponsor Now</a></div>
-			  </Link>
-      </div>
-			</div>
-			</div>
-
+            <img src={compBooth} alt="sample-booth" width="500px" height="auto" />
           </div>
         </div>
       </section>
-
-
-
-      
-
       {/* <section className="page-section" id="contact">
         <div className="container">
           <div className="row">
@@ -259,8 +147,6 @@ function LandingPage() {
           </div>
         </div>
       </section> */}
-
-
     </div>
   );
 }
