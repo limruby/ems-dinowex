@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import "../../../assets/css/agency.min.css";
-import compBooth from "../../../assets/img/featured_sponsor.jpg";
+import compBooth from "../../../assets/img/competitor_booth.jpeg";
+import sponsorBooth from "../../../assets/img/sponsor_booth.jpeg"
 
 function LandingPage() {
 
@@ -31,8 +32,8 @@ function LandingPage() {
               </h3>
             </div>
           </div>
-          <div className="row text-center">
-            <img src={compBooth} alt="sample-booth" width="500px" height="auto" />
+          <div className="row text-center" style={{display:"block"}}>
+            <img src={compBooth} alt="sample-booth" width="70%" height="auto" />
             {/* <div className="col-lg-4">
               <div className="card mb-5 mb-lg-0">
                 <div className="card-body">
@@ -64,8 +65,8 @@ function LandingPage() {
 
             </div>
           </div>
-          <div className="row text-center">
-            <img src={compBooth} alt="sample-booth" width="500px" height="auto" />
+          <div className="row text-center" style={{display:"block"}}>
+            <img src={sponsorBooth} alt="sample-booth" width="70%" height="auto" />
           </div>
         </div>
       </section>
