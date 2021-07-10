@@ -41,7 +41,7 @@ const Navigationbar = props => {
 
   const logout = () => {
     localStorage.clear();
-    window.location.href = '/iiidentex_uitm';
+    window.location.href = '/';
   };
 
   window.addEventListener('resize', showButton);
@@ -80,11 +80,11 @@ const Navigationbar = props => {
                 <Link to='/admin_dashboard'>AdminDashboard</Link>
               </li>
               <li className="nav-item">
-                <Link onClick={logout}>Log Out</Link>
+                <Link to ='' onClick={logout}>Log Out</Link>
               </li>
               <li>
-              {/* <a href="http://localhost:3000/iiidentex_uitm" className="nav-href"><p>To Dinowex</p></a> */}
-              <a href="http://localhost:3000/iiidentex_uitm"><img src={logoUitm} height="50px" width="auto" alt="Dinowex" title="Dinowex 2021" style={{marginLeft:"20px"}} /></a>
+              {/* <a href="http://vexs.fsktm.um.edu.my/iiidentex_uitm" className="nav-href"><p>To Dinowex</p></a> */}
+              <a href="http://vexs.fsktm.um.edu.my/iiidentex_uitm"><img src={logoUitm} height="50px" width="auto" alt="Dinowex" title="IIIDentEx 2021" style={{marginLeft:"20px"}} /></a>
               </li>            
             </ul>
 
@@ -128,10 +128,10 @@ const Navigationbar = props => {
                 <Link to='user_dashboard'>UserDashboard</Link>
               </li>
               <li className="nav-item">
-                <Link onClick={logout}>Log Out</Link>
+                <Link to='' onClick={logout}>Log Out</Link>
               </li>
               <li>
-              <a href="http://localhost:3000/iiidentex_uitm"><img src={logoUitm} height="50px" width="auto" alt="Dinowex" title="Dinowex 2021" style={{marginLeft:"20px"}} /></a>
+              <a href="http://vexs.fsktm.um.edu.my/iiidentex_uitm"><img src={logoUitm} height="50px" width="auto" alt="Dinowex" title="IIIDentEx 2021" style={{marginLeft:"20px"}} /></a>
               </li>
             </ul>
 
@@ -177,7 +177,7 @@ const Navigationbar = props => {
                 <Link to='/sign_in'>Sign In</Link>
               </li>
               <li>
-              <a href="http://localhost:3000/iiidentex_uitm"><img src={logoUitm} height="50px" width="auto" alt="Dinowex" title="Dinowex 2021" style={{marginLeft:"20px"}} /></a>
+              <a href="http://vexs.fsktm.um.edu.my/iiidentex_uitm"><img src={logoUitm} height="50px" width="auto" alt="Dinowex" title="IIIDentEx 2021" style={{marginLeft:"20px"}} /></a>
               </li>
             </ul>
 
