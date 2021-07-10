@@ -80,7 +80,7 @@ const Navigationbar = props => {
                 <Link to='/admin_dashboard'>AdminDashboard</Link>
               </li>
               <li className="nav-item">
-                <Link onClick={logout}>Log Out</Link>
+                <Link to ='' onClick={logout}>Log Out</Link>
               </li>
               <li>
               {/* <a href="http://vexs.fsktm.um.edu.my/iiidentex_uitm" className="nav-href"><p>To Dinowex</p></a> */}
@@ -128,7 +128,7 @@ const Navigationbar = props => {
                 <Link to='user_dashboard'>UserDashboard</Link>
               </li>
               <li className="nav-item">
-                <Link onClick={logout}>Log Out</Link>
+                <Link to='' onClick={logout}>Log Out</Link>
               </li>
               <li>
               <a href="http://vexs.fsktm.um.edu.my/iiidentex_uitm"><img src={logoUitm} height="50px" width="auto" alt="Dinowex" title="IIIDentEx 2021" style={{marginLeft:"20px"}} /></a>
