@@ -33,7 +33,7 @@ function AdminDashboard() {
 		localStorage.removeItem("activeKeys")
 	}
 	else {
-		activeKeys = "Account-Profiles"
+		activeKeys = "Account"
 	}
 	return (
 

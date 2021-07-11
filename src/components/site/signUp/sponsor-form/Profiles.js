@@ -65,7 +65,7 @@ export class Profiles extends Component {
                 <div className="form-group">
                     <label htmlFor="company_contact"><span>*</span>Contact Number</label>
                     <input className="form-control" type='text' name='company_contact' id="company_contact"
-                    placeholder='Company contact number' required pattern="[0-9]{10,11}"
+                    placeholder='Company contact number' required 
                     onChange={inputChange('company_contact')} value={values.company_contact} 
                     />
                 </div>

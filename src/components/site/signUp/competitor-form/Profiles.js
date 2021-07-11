@@ -110,7 +110,7 @@ export class Profiles extends Component {
 				<div className="form-group">
                     <label htmlFor="phone_no"><span>*</span>Phone Number</label>
                     <input className="form-control" type='text'name='phone_no' id="phone_no"
-                    placeholder='Phone Number' required pattern="[0-9]{10,11}"
+                    placeholder='Phone Number' required 
                     onChange={inputChange('phone_no')} value={values.phone_no} 
                     />
                 </div>
