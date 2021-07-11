@@ -2,13 +2,13 @@ import React from 'react';
 import html2pdf from "html2pdf.js";
 
 const PdfDownloader = ({rootElementId , downloadFileName}) => {
-    function addScript(url) {
-        var script = document.createElement('script');
-        script.type = 'application/javascript';
-        script.src = url;
-        document.head.appendChild(script);
-    }
-    addScript('https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js');
+    // function addScript(url) {
+    //     var script = document.createElement('script');
+    //     script.type = 'application/javascript';
+    //     script.src = url;
+    //     document.head.appendChild(script);
+    // }
+    // addScript('https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js');
     const submitHandler = (e) => {
         window.scrollTo(0, 0);
         var element = document.getElementById(rootElementId);

@@ -32,6 +32,9 @@ const Profiles = ({user,role}) =>  {
             <p> Affiliation: {user.affiliation}</p>
           </li>
           <li>
+            <p> Contact Number: {user.phone_no}</p>
+          </li>
+          <li>
             <p> {user.nric_passport_selection}: {user.nric_passport_no}</p>
           </li>
           <li>
