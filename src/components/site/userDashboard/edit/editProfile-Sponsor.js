@@ -146,7 +146,7 @@ function displayLogo(){
                 <div className="form-group">
                     <label htmlFor="company_pic_ic"><span>*</span>IC of Person In Charge (PIC)</label>
                     <input className="form-control" type='text' name='company_pic_ic' id="company_pic_ic"
-                    placeholder='Full Name of PIC' required
+                    placeholder='Full Name of PIC' required pattern ="[0-9]{12}"
                     onChange={inputChange('company_pic_ic')} value={data.company_pic_ic} 
                     />
                 </div>
