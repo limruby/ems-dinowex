@@ -64,7 +64,7 @@ const handleForm=(e)=>{
                         required
                         pattern="[0-9]{12}"
                         onChange={
-                            inputChange('ic_passport_no')}
+                            inputChange('nric_passport_no')}
                         value={data.nric_passport_no} />)
         }
         else if(data.nric_passport_selection==="PASSPORT NUMBER"){
