@@ -9,7 +9,10 @@ import Sponsor from './sponsor-sec';
 import './table.css'
 
 function AdminDashboard() {
-
+var adminEmail = localStorage.getItem('email');
+if(adminEmail !== 'admin@dinowex.com'){
+	window.location.href ="/page_not_found"
+}
 	function TabTitles() {
 		return (
 			<Nav variant="pills" className="flex-column">
@@ -38,7 +41,7 @@ function AdminDashboard() {
 	return (
 
 		<div>
-			<div className="welcome-box"><h1>Welcome Admin!</h1></div>
+			<div className="welcome-box"><h1>Welcome Dinowex Admin!</h1></div>
 			<div className="wrapper">
 				<Tab.Container id="left-tabs-example" defaultActiveKey={activeKeys}>
 					<Row>

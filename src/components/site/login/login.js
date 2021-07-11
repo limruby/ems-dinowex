@@ -24,7 +24,8 @@ function Login()
 
                 if(res.data.result.role==="Admin"){
                     localStorage.setItem('role', res.data.result.role);  
-                    localStorage.setItem('token', res.data.token);                     
+                    localStorage.setItem('token', res.data.token); 
+                    localStorage.setItem('email', res.data.result.email);                    
                     window.location.href = '/admin_dashboard';
                 }
                 else if(res.data.result.role==="Competitor"){
