@@ -16,7 +16,7 @@ services:
       - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo-js:ro
     container_name: mongodb_prod
   
-  backend_prod:
+  vexs_backend_prod:
     # build: .
     depends_on:
       - mongodb_prod
@@ -43,7 +43,7 @@ services:
       - traefik.http.routers.vexs_backend_prod-unsecured.rule=Host(`vexs.fsktm.um.edu.my`)
       - traefik.http.routers.vexs_backend_prod-unsecured.entrypoints=http
       # - traefik.http.routers.vexs_backend_prod-unsecured.middlewares=redirect@file # uncomment to enable ssl when 443 is ready
-    container_name: backend_prod
+    container_name: vexs_backend_prod
 
 networks:
   server:
