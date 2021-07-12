@@ -7,7 +7,7 @@ rm -r ./build
 
 # build server
 cd ./backend
-sudo docker build -t vexs/backend . 
+sudo docker build -t vexs/backend_prod . 
 
 # deploy
 sudo docker-compose -f docker-compose-fsktm-prod.yaml up -d
