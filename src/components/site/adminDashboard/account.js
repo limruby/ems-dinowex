@@ -64,7 +64,7 @@ function Account() {
           
           <button className="btn btn-danger" 
             type="button" 
-            onClick={() => {deleteAccount(data.row.original._id)}}
+            onClick={() => {window.confirm("Are you sure you wish to delete this item?") && deleteAccount(data.row.original._id)}}
           >
           Delete
           </button>
