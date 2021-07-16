@@ -9,6 +9,7 @@ router.get('/read', AccountController.read);
 router.get('/readAll', AccountController.readAll); 
 router.post('/update', authenticate, AccountController.update); 
 router.get('/readAdmin', AccountController.readAdmin); 
+router.get('/deleteOne', AccountController.deleteOne); 
 
 
 module.exports = router;

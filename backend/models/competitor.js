@@ -143,16 +143,9 @@ const competitorSchema = new Schema({
 
   members:[memberSchema]
 
-
-
 }, {
   timestamps: true,
 });
-
-
-
-
-
 
 const Competitor = mongoose.model('Competitor', competitorSchema);
 

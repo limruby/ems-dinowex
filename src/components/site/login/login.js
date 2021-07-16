@@ -40,6 +40,13 @@ function Login()
 
                             window.location.href = '/user_dashboard';
                         }
+                        else if(response.data.data.email === "demo@competitor.com"){
+                            console.log(response.data.data.email)
+                            localStorage.setItem('token', res.data.token); 
+                            localStorage.setItem('user_id', JSON.stringify(res.data.result._id));
+
+                            window.location.href = '/user_dashboard';
+                        }
                         else{
                             localStorage.setItem("competitor_id", JSON.stringify(response.data.data._id));                            
                             var url=""
@@ -67,6 +74,13 @@ function Login()
                         if(response.data.data.bill_status === "true"){
                             localStorage.setItem('token', res.data.token); 
                             localStorage.setItem('user_id', JSON.stringify(res.data.result._id));                              
+                            window.location.href = '/user_dashboard';
+                        }
+                        else if(response.data.data.email === "demo@sponsor.com"){
+                            console.log(response.data.data.email)
+                            localStorage.setItem('token', res.data.token); 
+                            localStorage.setItem('user_id', JSON.stringify(res.data.result._id));
+
                             window.location.href = '/user_dashboard';
                         }
                         else{
