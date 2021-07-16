@@ -62,7 +62,7 @@ function Account() {
         accessor: 'delete',
         Cell: data => (
           
-          <button className="btn btn-success" 
+          <button className="btn btn-danger" 
             type="button" 
             onClick={() => {deleteAccount(data.row.original._id)}}
           >
