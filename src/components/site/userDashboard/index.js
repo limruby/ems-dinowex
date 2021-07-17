@@ -9,6 +9,7 @@ import Abstract from './abstract-sec';
 import BookChapter from './book-chapter-sec';
 import ResearchTeam from './research-team-sec';
 import Receipt from './receipt-sec'
+import Cart from './cart'
 
 import PdfAbstract from './pdf-abstract-bookChapter';
 import Preview from './preview-sec'; import 'bootstrap/dist/css/bootstrap.min.css';
@@ -263,7 +264,7 @@ function UserDashboard() {  ////////////////////get login user info (REPLACE THI
                   <Card>
                     <Card.Body>
                       <div className="sec-container">
-                        <form>
+                        {/* <form>
                           <h2>Medal</h2>
                             <input type="number" min="1"></input>
                               <p></p>
@@ -271,7 +272,8 @@ function UserDashboard() {  ////////////////////get login user info (REPLACE THI
                             <input type="number" min="1"></input>
                               <p></p>
                           <button className="btn btn-primary">Confirm Purchase</button> 
-                        </form>
+                        </form> */}
+                        <Cart/>
                       </div>
                     </Card.Body>
                   </Card>
