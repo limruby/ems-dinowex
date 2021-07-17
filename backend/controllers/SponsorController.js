@@ -23,6 +23,7 @@ const create = (req, res, next)=>{
   const company_website = req.body.company_website;
   const company_logo = req.body.company_logo;
   const receipt = req.body.receipt;
+  const bill_status = req.body.bill_status;
 
   const newSponsor = new Sponsor({
     account_id, 
@@ -40,6 +41,7 @@ const create = (req, res, next)=>{
     city,
     state,
     country,
+    bill_status,
   });
 
   newSponsor.save()
