@@ -1194,6 +1194,9 @@ h3 {
 .download-paper:hover{
   color: black !important;;
 }
+.justify-text{
+  text-align: justify;
+}
 /*End of competitor booth*/
 
 

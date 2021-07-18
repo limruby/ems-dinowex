@@ -30,7 +30,7 @@ const history = useHistory();
                 <iframe width="100%" height="100%" src={`https://www.youtube.com/embed/lzGlJHj1mAc`} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen title="Embedded youtube"/>	
             </div>
         <p></p>
-            <div className="competitor-booth-container col-lg-12">
+            <div className="competitor-booth-container col-lg-12 justify-text">
                 <h3 className="sponsor_title"><strong>Abstract</strong></h3>
                 <a className="download-paper" href="https://www.google.com">Download Full Paper Here</a>
                 <p></p>
