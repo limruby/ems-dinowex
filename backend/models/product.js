@@ -12,12 +12,8 @@ const productSchema = new Schema({
     },
     quantity: {
         type: Number,
-        required: true
-    },
-    discount:{
-        type: Boolean,
         required: false
-    }
+    },
 }, {
     timestamps: true,
 });
@@ -26,7 +22,7 @@ const Product = mongoose.model('Product', productSchema);
 
 productSchema.insertMany([
     { name: 'Medal', price:50 },
-    { name: 'Bookchapter', price:100 },
+    { name: 'Bookchapter', price:70 },
 ],
     { ordered: false }
 
