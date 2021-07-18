@@ -1,59 +1,53 @@
 import { useState } from "react";
 
-
 function Cart() {
-    const [product, setProduct] = useState({
-        medalQuantity: 0,
-        bookQuantity: 0,
-        total_price: 0
-    })
+    const [cart, setCart] = useState([])
     const [medalQuantity, setMedal] = useState(0)
     const [bookQuantity, setBook] = useState(0)
+    const [product] = useState([
+        {
+            id: 1,
+            name:'Medal',
+            price:'RM50',
+        },
+        {
+            id:2,
+            name:'Bookchapter',
+            price:'RM70',
+        },
+    ])
+    const addToCart = (product) => {
+        console.log("added" + JSON.stringify(cart))
+        setCart([...cart, {...product}])
+    }
+    const removeCart = (e) =>{
+        console.log("removed"+JSON.stringify(cart))
+//         var array = [...this.state.cart]; // make a separate copy of the array
+//   var index = array.indexOf(e.target.value)
+//   if (index !== -1) {
+//     array.splice(index, 1);
+//     this.setState({cart: array});
+setCart(
+    cart.filter((product) => product !== e)
+)
+  }
+  function count (arr, id){
+ 
+  }
 
-   const addMedalQuantity = (e) => {
-        e.preventDefault()
-        setMedal({
-           medalQuantity : medalQuantity + 1
-        })
-      
-    }
-    const addBookQuantity = (e) => {
-       
-        setBook({
-           bookQuantity : bookQuantity + 1
-        })
-        totalPrice()
-    }
-    const minusMedalQuantity = input => e => {
-        e.preventDefault()
-        setMedal({
-            medalQuantity : medalQuantity - 1
-         })
-        totalPrice()
-    }
-    const minusBookQuantity = input => e => {
-        e.preventDefault()
-        setBook({
-            bookQuantity : bookQuantity - 1
-         })
-        totalPrice()
-    }
     function totalPrice(){
         var medalPrice = 50;
         var bookPrice = 70;
-        var medalTotalprice = product.medalQuantity*medalPrice
-        var bookTotalprice = product.bookQuantity*bookPrice
+        var medalTotalprice = medalQuantity*medalPrice
+        var bookTotalprice = bookQuantity*bookPrice
         var total_price = medalTotalprice + bookTotalprice
-        setProduct({
-            ...product,
-            'totalPrice': total_price
-        })
+       
     }
     const handleForm = (e) => {
         e.preventDefault();
         var postData = {
             _id: localStorage.getItem('user_id'),
-            product: product,
+           
         }
     }
 
@@ -69,44 +63,38 @@ function Cart() {
                 </thead>
                 {/* Start New Row */}
                 <tbody>
-                    <tr>
-                        <td>
-                            <div className="cart-info">
-                                Medal
-                            </div>
-                        </td>
-                        <td>
-                        <button onClick={(e)=>{minusMedalQuantity()}}>-</button>
-                        <p>{medalQuantity}</p>
-                        <button type="button" onClick={addMedalQuantity()}>+</button> 
-                        </td>
-                        <td>RM 50</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div className="cart-info">
-                                Bookchapter
-                            </div>
-                        </td>
-                        <button onClick={(e)=>{minusBookQuantity('bookQuantity')}}>-</button>
-                        <p>{bookQuantity}</p>
-                    <button onClick={(e)=>{addBookQuantity('bookQuantity')}}>+</button>
-                        <td>
-                        </td>
-                        <td>RM 70</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div className="cart-info">
-                               Total Price
-                            </div>
-                        </td>
+                         <tr>
+                         <td>
+                             <div className="cart-info">
+                                 {product[0].name}
+                             </div>
+                         </td>
+                         <button class="btn btn-primary" onClick={()=>addToCart(product[0])}>+</button>
+                         <p>{JSON.stringify(cart) }</p>
+                         <button class="btn btn-danger"onClick={()=>setMedal(medalQuantity - 1)}>-</button>
+                         <td>
                         
-                        <td>
-                        </td>
-                        <td>RM {product.total_price}</td>
-                    </tr>
-                </tbody></table>
+                         </td>
+                         <td>{product[0].price}</td>
+                     </tr>  
+                     <tr>
+                         <td>
+                             <div className="cart-info">
+                             {product[1].name}
+                             </div>
+                         </td>
+                         <button class="btn btn-primary" onClick={()=>addToCart(product[1])}>+</button>
+                         <p></p>
+                         <button class="btn btn-danger" onClick={()=>setBook(bookQuantity - 1)}>-</button>
+                         <td>
+                        
+                         </td>
+                         <td>{product[1].price}</td>
+                     </tr> 
+                    
+                                   
+                </tbody>
+                </table>
         </div>
     )
 
