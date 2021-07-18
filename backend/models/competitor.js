@@ -129,6 +129,10 @@ const competitorSchema = new Schema({
   bill_status: {
     type:String,
   },
+  first_purchase: {
+    type:Boolean,
+    default:true
+  },
   receipt:[subSchema],
   poster:[subSchema],
   achievements:[subSchema],

@@ -266,7 +266,7 @@ function UserDashboard() {  ////////////////////get login user info (REPLACE THI
                   <Card>
                     <Card.Body>
                       <div className="sec-container">                                     
-                          <Cart/>
+                          <Cart data={user} setData={setUser}/>
                       </div>
                     </Card.Body>
                   </Card>

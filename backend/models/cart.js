@@ -6,9 +6,13 @@ const cartSchema = new Schema({
         type: [{ type: Schema.Types.ObjectId, ref: 'Account' }],
         required: true
     },
-    product: {
-        type: [{ type: Array, default:[] }],
-        required: true
+    nedalQuantity:{
+        type:Number,
+        required:true
+    },
+    bookQuantity:{
+        type:Number,
+        required:true
     },
     total_price:{
         type:Number,
