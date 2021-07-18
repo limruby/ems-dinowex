@@ -12,6 +12,7 @@ const cartSchema = new Schema({
     },
     total_price:{
         type:Number,
+        required: true
     },
     bill_id: {
         type: String,

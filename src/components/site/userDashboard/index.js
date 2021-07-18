@@ -9,6 +9,7 @@ import Abstract from './abstract-sec';
 import BookChapter from './book-chapter-sec';
 import ResearchTeam from './research-team-sec';
 import Receipt from './receipt-sec'
+import Cart from './cart-sec'
 
 import PdfAbstract from './pdf-abstract-bookChapter';
 import Preview from './preview-sec'; import 'bootstrap/dist/css/bootstrap.min.css';
@@ -108,7 +109,7 @@ function UserDashboard() {  ////////////////////get login user info (REPLACE THI
               <Nav.Link eventKey="Cert"><FaCertificate size={20} /> Certificate</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="Products"><FaMedal size={20} /> Products</Nav.Link>
+              <Nav.Link eventKey="Cart"><FaMedal size={20} /> Products</Nav.Link>
             </Nav.Item>
           </Nav>
         );
@@ -246,7 +247,7 @@ function UserDashboard() {  ////////////////////get login user info (REPLACE THI
                     <Card.Body>
                       <div className="sec-container">
                         <h2> Download Receipt</h2>
-                        <Receipt user={user} role={account.role} />
+                        <Receipt user={user}/>
                       </div>
                     </Card.Body>
                   </Card>
@@ -260,19 +261,12 @@ function UserDashboard() {  ////////////////////get login user info (REPLACE THI
                       </div>
                     </Card.Body>
                   </Card>
-                </Tab.Pane><Tab.Pane eventKey="Products">
+                </Tab.Pane>
+                <Tab.Pane eventKey="Cart">
                   <Card>
                     <Card.Body>
-                      <div className="sec-container">
-                        <form>
-                          <h2>Medal</h2>
-                          <input type="number" min="1"></input>
-                          <p></p>
-                          <h2>Book Chapter</h2>
-                          <input type="number" min="1"></input>
-                          <p></p>
-                          <button className="btn btn-primary">Confirm Purchase</button>
-                        </form>
+                      <div className="sec-container">                                     
+                          <Cart/>
                       </div>
                     </Card.Body>
                   </Card>
