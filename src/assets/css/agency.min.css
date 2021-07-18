@@ -1134,4 +1134,68 @@ h3 {
     rgb(140 140 140 / 50%) 0px 4px 0px, #787878 0px 0px 0px,
     rgb(0 0 0 / 50%) 0px 5px 10px;
 }
+
+/*Start of sponsor booth*/
+.center{
+  text-align: center;
+}
+
+.sponsor-name{
+  font-size: 4vw;
+  font-weight: bold;
+  padding:3%
+}
+
+.sponsor-booth-container{
+    width: 50%;
+    min-height: 100%;
+    height: fit-content;
+    background: rgb(255, 255,255, 0.7);
+    padding: 2%;
+    border-radius: 10px;
+}
+
+.sponsor-tab{
+  color:black!important;
+}
+.sponsor-tab:hover{
+  color:white!important;
+}
+/*End of sponsor booth*/
+
+/*Start of competitor booth*/
+.competitor-category{
+  font-size: 4vw;
+  font-weight: bold;
+  padding:2%
+}
+
+.project-title{
+  font-size: 3vw;
+  font-weight: bold;
+  padding:1%
+}
+
+.competitor-booth-container{
+    width: 50%;
+    height: fit-content;
+    background: rgb(255, 255,255, 0.7);
+    padding: 2%;
+    border-radius: 10px;
+}
+
+.vertical-center{
+  align-self: center;
+}
+
+.download-paper{
+  color: blue !important;;
+}
+.download-paper:hover{
+  color: black !important;;
+}
+/*End of competitor booth*/
+
+
+
  

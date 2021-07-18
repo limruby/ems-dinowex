@@ -7,13 +7,13 @@ function Page() {
     {
       id: 1,
       name: "Book Chapter",
-      price: 50,
+      price: 100,
       quantity: 1
     },
     {
       id: 2,
       name: "Medal",
-      price: 70,
+      price: 50,
       quantity: 1
     },
     
@@ -50,17 +50,17 @@ function Cart() {
         {items.map((item) => (
           <li key={item.id}>
             {item.quantity} x {item.name} x RM{item.price} &mdash;
-            <button
+            <button className="btn btn-primary"
               onClick={() => updateItemQuantity(item.id, item.quantity - 1)}
             >
               -
             </button>
-            <button
+            <button className="btn btn-primary"
               onClick={() => updateItemQuantity(item.id, item.quantity + 1)}
             >
               +
             </button>
-            <button onClick={() => removeItem(item.id)}>&times;</button>
+            <button className="btn btn-danger" onClick={() => removeItem(item.id)}>&times;</button>
           </li>
         ))}
       </ul>
