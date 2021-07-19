@@ -6,17 +6,22 @@ const cartSchema = new Schema({
         type: [{ type: Schema.Types.ObjectId, ref: 'Account' }],
         required: true
     },
-    nedalQuantity:{
+    email:{
+        type: String,
+        required: true
+    },
+    name:{
+        type: String,
+        required: true
+    },
+    medalQuantity:{
         type:Number,
-        required:true
     },
     bookQuantity:{
         type:Number,
-        required:true
     },
     total_price:{
-        type:Number,
-        required: true
+        type:Number,       
     },
     bill_id: {
         type: String,

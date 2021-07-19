@@ -1,4 +1,3 @@
-const Competitor = require('../models/competitor');
 const Cart = require('../models/cart')
 const mongoose = require('mongoose');
 var ObjectId = require('mongodb').ObjectId;
@@ -7,17 +6,40 @@ require('dotenv').config();
 
 const addToCart = (req, res, next)=>{
     const account_id = req.body.account_id
-    const product = req.body.product;
-    const total_price = req.body.totalPrice;  
+    const medalQuantity = req.body.medalQuantity;
+    const bookQuantity = req.body.bookQuantity;
+    const total_price = req.body.total_price;
+    const email = req.body.email;  
+    const name = req.body.name;
     
     const newCart = new Cart({
       account_id,
-      product, 
+      medalQuantity,
+      bookQuantity, 
       total_price,
+      email,
+      name
     });
     newCart.save()
     .then(() => res.json(newCart))
     .catch(err => res.status(400).json('Error: ' + err));
+}
+const updateCart = (req, res, next)=>{
+  var updateCart= {};
+  if(req.body.bill_status){
+    updateCart['bill_status'] = req.body.bill_status;
+  }
+  if(req.body.bill_id){
+    updateCart['bill_id'] = req.body.bill_id;
+  }
+  Cart.findByIdAndUpdate(req.body._id, updateCart, (err, carts) => {
+    if (err) {
+      return res.status(400).json({ success: false, error: err, data:req.body })
+    }
+    if(carts){
+      return res.status(200).json({ success: true, data: req.body })
+    }
+  }).catch(err => console.log(err))
 }
 
 const cancelCart = (req, res, next)=>{
@@ -47,4 +69,4 @@ const readCart = (req, res, next)=>{
   }).catch(err => console.log(err))
 };
 
-module.exports = {addToCart, cancelCart, readCart}
+module.exports = {addToCart, cancelCart, readCart, updateCart}

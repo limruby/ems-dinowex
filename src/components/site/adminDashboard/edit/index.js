@@ -6,6 +6,7 @@ import EditAccount from './editAccount.js';
 import EditPassword from './editPassword.js';
 import EditProfile_C from './editCompetitor.js';
 import EditProfile_S from './editSponsor.js';
+import EditPaymentStatus from './editPaymentStatus.js';
 import CreateProfile from './createAccount.js';
 import UploadReceiptCompetitor  from './upload_receipt_competitor.js';
 import UploadReceiptSponsor  from './upload_receipt_sponsor.js';
@@ -17,22 +18,18 @@ const location = useLocation();
 const thePath = location.pathname;
 const lastPath = thePath.substring(thePath.lastIndexOf('/') + 1);
 
-
 	if(lastPath === 'edit_account'){
 		return( 
 		    <section className="section-container">
 				<EditAccount />
 				</section>
-
 		)
 	}
 	else if(lastPath === 'edit_password'){
 		return( 
-
 			<section className="section-container">
 				<EditPassword/>
 			</section>
-
 		)
 	}
 	else if (lastPath === 'edit_profile_sponsor'){
@@ -74,6 +71,13 @@ const lastPath = thePath.substring(thePath.lastIndexOf('/') + 1);
 				<UploadReceiptSponsor/>
 			</section>
 
+		)			
+	}
+	else if (lastPath === 'edit_order_status'){		
+		return( 
+			<section className="section-container">
+				<EditPaymentStatus/>
+			</section>
 		)			
 	}
 	else{

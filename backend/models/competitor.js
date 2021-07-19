@@ -130,8 +130,7 @@ const competitorSchema = new Schema({
     type:String,
   },
   first_purchase: {
-    type:Boolean,
-    default:true
+    type:String,
   },
   receipt:[subSchema],
   poster:[subSchema],
