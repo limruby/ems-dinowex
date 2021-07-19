@@ -5,12 +5,24 @@ function Cart({data, setData}) {
     const [bookQuantity, setBook] = useState(0)
     const [price, setPrice] = useState(0)
  
-    const addMedal =(e) => {
-        this.setMedal((medalQuantity + 1), () =>
-        {console.log(this.state.medalQuantity)}
-    )
-    }
-    const totalPrice =(e) => {
+    useEffect(() => {
+        if (medalQuantity > 0 || bookQuantity > 0) {
+            var medalPrice = 50;
+            var bookPrice = 70;
+            var total = 0
+            var firstpurchase = 0
+            if(data.first_purchase === true && bookQuantity > 0){
+                firstpurchase = 30
+            }
+            total = medalQuantity*medalPrice + bookQuantity*bookPrice + firstpurchase
+            setPrice(total)
+            console.log("Medal Quantity:" + medalQuantity + "Price" + price)
+        } else {
+             console.log("Empty")
+        }
+      }, [bookQuantity, data.first_purchase, medalQuantity, price]);
+
+    function totalPrice() {
         var medalPrice = 50
         var bookPrice = 70
         var total = 0
@@ -19,9 +31,8 @@ function Cart({data, setData}) {
             firstpurchase = 30
         }
         total = medalQuantity*medalPrice + bookQuantity*bookPrice + firstpurchase
-        this.setPrice({total}, () =>
-        {console.log(this.state.price)}
-    )
+        setPrice(total)
+    
         console.log("quantity"+medalQuantity+ "   total"+ total )
     }
 
@@ -53,9 +64,9 @@ function Cart({data, setData}) {
                                  Medal
                              </div>
                          </td>
-                         <button class="btn btn-primary" onClick={()=>{addMedal(); totalPrice()}}>+</button>
+                         <button class="btn btn-primary" onClick={()=>setMedal(medalQuantity + 1)}>+</button>
                          <p>{medalQuantity}</p>
-                         <button class="btn btn-danger"onClick={()=>{setMedal(medalQuantity - 1); totalPrice()}}>-</button>
+                         <button class="btn btn-danger"onClick={()=>setMedal(medalQuantity - 1)}>-</button>
                          <td>
                         
                          </td>
@@ -68,9 +79,9 @@ function Cart({data, setData}) {
                              BookChapter
                              </div>
                          </td>
-                         <button class="btn btn-primary" onClick={()=>{setBook(bookQuantity + 1); totalPrice()}}>+</button>
+                         <button class="btn btn-primary" onClick={()=>setBook(bookQuantity + 1)}>+</button>
                          <p>{bookQuantity}</p>
-                         <button class="btn btn-danger" onClick={()=>{setBook(bookQuantity - 1); totalPrice()}}>-</button>
+                         <button class="btn btn-danger" onClick={()=>setBook(bookQuantity - 1)}>-</button>
                          <td>
                         
                          </td>
