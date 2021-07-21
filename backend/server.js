@@ -31,6 +31,9 @@ app.use('/api/competitors', competitorsRouter)
 const sponsorsRouter = require('./routes/sponsors');
 app.use('/api/sponsors', sponsorsRouter)
 
+const cartRouter = require('./routes/cart');
+app.use('/api/cart', cartRouter)
+
 app.use(express.static(__dirname + "/public"));
 
 app.use((req, res, next) => {
