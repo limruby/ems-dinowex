@@ -9,12 +9,12 @@ import Abstract from './abstract-sec';
 import BookChapter from './book-chapter-sec';
 import ResearchTeam from './research-team-sec';
 import Receipt from './receipt-sec'
-import Cart from './cart'
+import Cart from './cart-sec'
 
 import PdfAbstract from './pdf-abstract-bookChapter';
 import Preview from './preview-sec'; import 'bootstrap/dist/css/bootstrap.min.css';
 import { Tab, Nav, Row, Col, Card } from "react-bootstrap";
-import { FaEdit, FaCertificate, FaBook, FaRegBookmark, FaReceipt,FaMedal } from 'react-icons/fa';
+import { FaEdit, FaCertificate, FaBook, FaRegBookmark, FaReceipt, FaMedal } from 'react-icons/fa';
 import { BsPeopleCircle, BsFiles, BsBookHalf } from "react-icons/bs";
 
 function UserDashboard() {  ////////////////////get login user info (REPLACE THIS)  /////////////////////
@@ -109,7 +109,7 @@ function UserDashboard() {  ////////////////////get login user info (REPLACE THI
               <Nav.Link eventKey="Cert"><FaCertificate size={20} /> Certificate</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="Products"><FaMedal size={20} /> Products</Nav.Link>
+              <Nav.Link eventKey="Cart"><FaMedal size={20} /> Products</Nav.Link>
             </Nav.Item>
           </Nav>
         );
@@ -118,10 +118,10 @@ function UserDashboard() {  ////////////////////get login user info (REPLACE THI
     }
   }
   var activeKeys = ""
-  if(localStorage.getItem("activeKeys")){
+  if (localStorage.getItem("activeKeys")) {
     activeKeys = localStorage.getItem("activeKeys");
     localStorage.removeItem("activeKeys")
-  } 
+  }
   else {
     activeKeys = "Account-Profiles"
   }
@@ -132,7 +132,7 @@ function UserDashboard() {  ////////////////////get login user info (REPLACE THI
       {welcome(account.role)}
 
       <div className="wrapper">
-        
+
         <Tab.Container id="left-tabs-example" defaultActiveKey={activeKeys}>
           <Row>
             <Col sm={3} className="sidebar-wrapper">
@@ -247,7 +247,7 @@ function UserDashboard() {  ////////////////////get login user info (REPLACE THI
                     <Card.Body>
                       <div className="sec-container">
                         <h2> Download Receipt</h2>
-                        <Receipt user={user} role={account.role} />
+                        <Receipt user={user}/>
                       </div>
                     </Card.Body>
                   </Card>
@@ -256,31 +256,26 @@ function UserDashboard() {  ////////////////////get login user info (REPLACE THI
                   <Card>
                     <Card.Body>
                       <div className="sec-container">
-                        <h2> Download Certification</h2>                          <h5>Coming Soon</h5>                        </div>
-                    </Card.Body>
-                  </Card>
-                </Tab.Pane>
-                <Tab.Pane eventKey="Products">
-                  <Card>
-                    <Card.Body>
-                      <div className="sec-container">
-                        {/* <form>
-                          <h2>Medal</h2>
-                            <input type="number" min="1"></input>
-                              <p></p>
-                          <h2>Book Chapter</h2>
-                            <input type="number" min="1"></input>
-                              <p></p>
-                          <button className="btn btn-primary">Confirm Purchase</button> 
-                        </form> */}
-                        <Cart/>
+                        <h2> Download Certification</h2>
+                        <h5>Coming Soon</h5>
                       </div>
                     </Card.Body>
                   </Card>
-                </Tab.Pane>                </Tab.Content>
-            </Col>            </Row>
-        </Tab.Container>       </div>
+                </Tab.Pane>
+                <Tab.Pane eventKey="Cart">
+                  <Card>
+                    <Card.Body>
+                      <div className="sec-container">                                     
+                          <Cart data={user} setData={setUser} user={account}/>
+                      </div>
+                    </Card.Body>
+                  </Card>
+                </Tab.Pane>
+              </Tab.Content>
+            </Col>
+          </Row>
+        </Tab.Container>
+      </div>
     </>
   );
 } export default UserDashboard;
-
