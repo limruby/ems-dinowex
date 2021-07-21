@@ -23,6 +23,9 @@ const cartSchema = new Schema({
     total_price:{
         type:Number,       
     },
+    order_date:{
+        type:String,
+    },
     bill_id: {
         type: String,
     },

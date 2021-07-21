@@ -11,6 +11,8 @@ const addToCart = (req, res, next)=>{
     const total_price = req.body.total_price;
     const email = req.body.email;  
     const name = req.body.name;
+    const order_date = req.body.order_date;
+    const bill_status = req.body.bill_status;
     
     const newCart = new Cart({
       account_id,
@@ -18,7 +20,9 @@ const addToCart = (req, res, next)=>{
       bookQuantity, 
       total_price,
       email,
-      name
+      name,
+      order_date,
+      bill_status
     });
     newCart.save()
     .then(() => res.json(newCart))

@@ -64,8 +64,8 @@ function Cart({ data, setData, user }) {
                                 console.log(error);
                             })
                     }
-                    alert("Order confirmed, please wait for the billing invoice.")
-                     window.location.href = '/user_dashboard';
+                    //alert("Order confirmed, please wait for the billing invoice.")
+                     //window.location.href = '/user_dashboard';
                 }).catch(function (error) {
                     console.log(error);
                 })
