@@ -4,6 +4,8 @@ import axiosInstance from '../../../../utils/axiosConfig.js';
 
 function EditPaymentStatus() {
     localStorage.setItem("activeKeys", "Order")
+    const account_id = localStorage.getItem('user_id');
+    
     const [data, setData] = useState({
         bill_status: 'N/A',
         bill_id: ''
@@ -12,14 +14,15 @@ function EditPaymentStatus() {
     const thePath = location.pathname;
     const cart_id = thePath.substring(thePath.indexOf('/', 2) + 1, thePath.lastIndexOf('/'));
     const string = '"'+ cart_id +'"'
-    
+
     useEffect(() => {
-        axiosInstance.get("/api/cart/readCart", {params:{_id:string}})
-        .then(function(response) {
-          setData(response.data.data);
-        }).catch(function(error) {
-          console.log(error); })
-    }, [string])
+        axiosInstance.get("/api/cart/userReadCart", { params: { account_id:string} })
+            .then(function (response) {
+                setData(response.data.data);
+            }).catch(function (error) {
+                console.log(error);
+            })
+    }, [string]);
 
     const inputChange = input => e => {
         setData({
@@ -48,13 +51,14 @@ function EditPaymentStatus() {
                 <div className="edit-form-container">
                 <div className="form-group">
                     <label htmlFor="bill_status"><span>*</span>Payment Verify</label>
+                    <p>{data.bill_id}</p>
                     <select className="form-control" id="bill_status" required
-                        onChange={inputChange('bill_status')} value={data.bill_status} >
+                        onChange={inputChange('bill_status')} value={data.bill_status} >         
                         <option value="">Please select</option>
                         <option value="N/A">N/A</option>
-                        <option value="fail">Payment Fail</option>
-                        <option value="pending">Pending</option>
-                        <option value="success">Payment Success</option>
+                        <option value="Fail">Payment Fail</option>
+                        <option value="Pending">Payment Pending</option>
+                        <option value="Success">Payment Success</option>
                     </select>
                 </div>
                 <div className="form-group">

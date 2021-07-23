@@ -1044,7 +1044,29 @@ h3 {
 .hide {
   display: none;
 }
- 
+/*Start of Cart section in user dashboard*/
+.table-center-text{
+  text-align: center;
+}
+.cart-quantity{
+  display:flex;
+}
+
+.cart-selected-quantity{
+  align-self: center;
+}
+
+.cart-button{
+  margin: 20px;
+}
+
+.cart-total{
+  text-align: right;
+}
+
+.order-btn{
+  text-align: -webkit-center;
+}
 /*Start of Edit Dashboard*/
  
 .edit-form-container {
