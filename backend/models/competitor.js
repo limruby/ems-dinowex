@@ -129,6 +129,9 @@ const competitorSchema = new Schema({
   bill_status: {
     type:String,
   },
+  first_purchase: {
+    type:String,
+  },
   receipt:[subSchema],
   poster:[subSchema],
   achievements:[subSchema],
@@ -143,16 +146,9 @@ const competitorSchema = new Schema({
 
   members:[memberSchema]
 
-
-
 }, {
   timestamps: true,
 });
-
-
-
-
-
 
 const Competitor = mongoose.model('Competitor', competitorSchema);
 

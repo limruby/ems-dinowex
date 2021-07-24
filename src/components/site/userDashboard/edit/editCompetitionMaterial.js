@@ -284,7 +284,7 @@ const handleForm=(e)=>{
       <div className="edit-form-container" style={{marginTop:"5%", marginBottom:"5%"}}>
                 <h1 className="mb-5">Edit Competition Material</h1>
  
-                <h5>Poster<i className="caution"> (*Max 1)</i></h5>    
+                <h5>Poster<i className="caution"> (*Max 1) Recommended size: 1587px x 2245px </i></h5>    
                            
                 {displayPosterForm()}
                                
