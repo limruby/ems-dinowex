@@ -145,8 +145,6 @@ const readAdmin = (req, res, next)=>{
   }).catch(err => console.log(err))
 };
 
-
-
 const readAll = (req, res, next)=>{
   Account.find({}, (err, accounts) => {
     if (err) {
