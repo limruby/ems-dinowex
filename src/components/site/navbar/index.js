@@ -83,8 +83,8 @@ const Navigationbar = props => {
                 <Link className="btn" to ='' onClick={logout}>Log Out</Link>
               </li>
               <li>
-              {/* <a href="https://vexs.fsktm.um.edu.my/iiidentex_uitm" className="nav-href"><p>To Dinowex</p></a> */}
-              <a href="https://vexs.fsktm.um.edu.my/iiidentex_uitm"><img src={logoUitm} height="50px" width="auto" alt="Dinowex" title="IIIDentEx 2021" style={{marginLeft:"20px"}} /></a>
+              {/* <a href="http://vexs.fsktm.um.edu.my/iiidentex_uitm" className="nav-href"><p>To Dinowex</p></a> */}
+              <a href="http://vexs.fsktm.um.edu.my/iiidentex_uitm"><img src={logoUitm} height="50px" width="auto" alt="Dinowex" title="IIIDentEx 2021" style={{marginLeft:"20px"}} /></a>
               </li>            
             </ul>
 
@@ -132,7 +132,7 @@ const Navigationbar = props => {
                 <Link className="btn" to='' onClick={logout}>Log Out</Link>
               </li>
               <li>
-              <a href="https://vexs.fsktm.um.edu.my/iiidentex_uitm"><img src={logoUitm} height="50px" width="auto" alt="Dinowex" title="IIIDentEx 2021" style={{marginLeft:"20px"}} /></a>
+              <a href="http://vexs.fsktm.um.edu.my/iiidentex_uitm"><img src={logoUitm} height="50px" width="auto" alt="Dinowex" title="IIIDentEx 2021" style={{marginLeft:"20px"}} /></a>
               </li>
             </ul>
 
@@ -179,7 +179,7 @@ const Navigationbar = props => {
                 <Link className="btn"to='/sign_in'>Sign In</Link>
               </li>
               <li>
-              <a href="https://vexs.fsktm.um.edu.my/iiidentex_uitm"><img src={logoUitm} height="50px" width="auto" alt="Dinowex" title="IIIDentEx 2021" style={{marginLeft:"20px"}} /></a>
+              <a href="http://vexs.fsktm.um.edu.my/iiidentex_uitm"><img src={logoUitm} height="50px" width="auto" alt="Dinowex" title="IIIDentEx 2021" style={{marginLeft:"20px"}} /></a>
               </li>
             </ul>
 
