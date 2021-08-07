@@ -1,16 +1,13 @@
 import React,{useState, useEffect} from "react";
 import { useHistory,Link } from 'react-router-dom';
 import "../../../assets/css/agency.min.css";
-import Footer from './../footer';
 import './eventLobby.css';
 import sponsor_hall from "../../../assets/img/sponsor_hall.jpg";
 import competition_hall from "../../../assets/img/competition_hall.jpg";
-import {Image} from 'react-bootstrap';
-
-
-
+import {Image} from 'react-bootstrap'; 
 
 function EventLobby() {
+
 const history = useHistory();
   return (
     <div className="eventLobby">

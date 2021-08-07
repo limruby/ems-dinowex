@@ -13,6 +13,7 @@ import EditUserDetails from './components/site/userDashboard/edit';
 import eventLobby from './components/site/eventLobby/eventLobby';
 import sponsor_hall from './components/site/eventLobby/sponsor_hall/sponsor_hall';
 import competition_hall from './components/site/eventLobby/competition_hall/competition_hall';
+import competition_booth from './components/site/eventLobby/competition_hall/comp_booth'
 import Navbar from './components/site/navbar';
 import Footer from './components/site/footer';
 import AdminDashboard from './components/site/adminDashboard';
@@ -76,6 +77,7 @@ function App() {
         <Route exact path='/eventLobby'  component={eventLobby}/>  
         <Route exact path='/sponsor_hall'  component={sponsor_hall}/> 
         <Route exact path='/competition_hall'  component={competition_hall}/>
+        <Route exact path='/competition_booth/:id'  component={competition_booth}/>
         <Route exact path='/payment_success'  component={Payment_Success}/>
         <Route exact path='/payment_fail'  component={Payment_Fail}/>
         <Route component={PageNotFound} />
