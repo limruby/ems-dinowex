@@ -310,7 +310,7 @@ const handleForm=(e)=>{
                    {displayGrantForm()}
                  </div>
                        <hr/>        
-                 <h5>Video<i className="caution"> (*Max 1)</i></h5>
+                 <h5>Video<i className="caution"> (*Max 1) Format:"https://www.youtube.com/watch?v=XXXXXXXXXXX"</i></h5>
                  {displayVideoForm()}
                                
            

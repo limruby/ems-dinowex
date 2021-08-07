@@ -188,12 +188,12 @@ function displayPosterForm(){
                 <h1 className="mb-5">Edit Promotional content</h1>
  
                 <h5>Poster<i className="caution"> (*Max 1) Recommended size: 1587px x 2245px</i></h5>    
-                           
                 {displayPosterForm()}
                                
                 <hr/>
  
-                 <h5>Video<i className="caution"> (*Max 5)</i></h5>
+                 <h5>Video<i className="caution"> (*Max 5) Format:"https://www.youtube.com/watch?v=XXXXXXXXXXX"</i></h5>
+                 <i className="caution">Only the first video will be embedded, the remaining will be in list form. </i>    
                  {displayVideoForm()}
                
                 <br />
