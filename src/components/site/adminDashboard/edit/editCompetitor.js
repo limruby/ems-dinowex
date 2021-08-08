@@ -12,6 +12,7 @@ function EditProfile() {
         address:'',
         gender:'',
         category:'',
+        first_purchase:'',
     });
 
     const location = useLocation();
@@ -56,7 +57,8 @@ function EditProfile() {
                 nric_passport_no : data.nric_passport_no,
                 address : data.address,
                 gender : data.gender,
-                category: data.category,               
+                category: data.category,  
+                first_purchase: data.first_purchase             
             }
 
 
@@ -112,7 +114,15 @@ function EditProfile() {
                     placeholder='NRIC / Passport Number' required
                     onChange={inputChange('nric_passport_no')} value={data.nric_passport_no} />
                 </div>
-                             
+                <div className="form-group">
+                        <label htmlFor="first_purchase"><span>*</span>Bookchapter First Purchase<span> True:RM150, False:RM70</span></label>
+                        <select className="form-control" id="first_purchase" required
+                            onChange={inputChange('first_purchase')} value={data.first_purchase} >
+                            <option value="">Please select</option>
+                            <option value="true">True</option>
+                            <option value="false">False</option>
+                        </select>
+                    </div>        
 
                 <br />
 

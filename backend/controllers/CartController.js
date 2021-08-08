@@ -46,7 +46,7 @@ const updateCart = (req, res, next)=>{
   }).catch(err => console.log(err))
 }
 
-const cancelCart = (req, res, next)=>{
+const deleteOrder = (req, res, next)=>{
   var _id = req.query._id;
 
   Cart.findByIdAndDelete(_id,function (err) {
@@ -102,4 +102,4 @@ const readOrder = (req, res, next)=>{
   }).catch(err => console.log(err))
 };
 
-module.exports = {addToCart, cancelCart, readCart, updateCart, userReadCart, readOrder}
+module.exports = {addToCart, deleteOrder, readCart, updateCart, userReadCart, readOrder}
