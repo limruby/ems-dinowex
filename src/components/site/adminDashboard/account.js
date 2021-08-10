@@ -64,7 +64,11 @@ function Account() {
           
           <button className="btn btn-danger" 
             type="button" 
+<<<<<<< HEAD
             onClick={() => {window.confirm("Are you sure you wish to delete this item?") && deleteAccount(data.row.original._id)}}
+=======
+            onClick={() => {window.confirm("Are you sure you want to delete this account?") && deleteAccount(data.row.original._id)}}
+>>>>>>> booth
           >
           Delete
           </button>

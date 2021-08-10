@@ -145,8 +145,6 @@ const readAdmin = (req, res, next)=>{
   }).catch(err => console.log(err))
 };
 
-
-
 const readAll = (req, res, next)=>{
   Account.find({}, (err, accounts) => {
     if (err) {
@@ -160,7 +158,10 @@ const readAll = (req, res, next)=>{
     return res.status(200).json({ success: true, data: accounts })
   }).catch(err => console.log(err))
 };
+<<<<<<< HEAD
 
+=======
+>>>>>>> booth
 const deleteOne = (req, res, next)=>{
   var account_id = req.query.account_id;
 
@@ -194,5 +195,9 @@ const deleteOne = (req, res, next)=>{
 });
 }
 
+<<<<<<< HEAD
 
 module.exports = {register, login, read, update, readAdmin, readAll, deleteOne}
+=======
+module.exports = {register, login, read, update, readAdmin, readAll, deleteOne}
+>>>>>>> booth

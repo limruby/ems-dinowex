@@ -1044,7 +1044,11 @@ h3 {
 .hide {
   display: none;
 }
+<<<<<<< HEAD
 
+=======
+/*Start of Cart section in user dashboard*/
+>>>>>>> booth
 .table-center-text{
   text-align: center;
 }
@@ -1067,7 +1071,10 @@ h3 {
 .order-btn{
   text-align: -webkit-center;
 }
+<<<<<<< HEAD
  
+=======
+>>>>>>> booth
 /*Start of Edit Dashboard*/
  
 .edit-form-container {

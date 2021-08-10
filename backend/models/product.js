@@ -32,4 +32,8 @@ productSchema.insertMany([
     console.log(error)      // Failure
 });
 
+<<<<<<< HEAD
 module.exports = Product;
+=======
+module.exports = Product;
+>>>>>>> booth

@@ -21,32 +21,31 @@ function Login()
 
             localStorage.clear();
             if(res.data.auth===true){
-
+                localStorage.setItem('email', res.data.result.email);
                 if(res.data.result.role==="Admin"){
                     localStorage.setItem('role', res.data.result.role);  
-                    localStorage.setItem('token', res.data.token); 
-                    localStorage.setItem('email', res.data.result.email);                    
+                    localStorage.setItem('token', res.data.token);                   
                     window.location.href = '/admin_dashboard';
                 }
                 else if(res.data.result.role==="Competitor"){
 
                     var account_id = JSON.stringify(res.data.result._id)
-
                     axiosInstance.get("/api/competitors/read", {params:{account_id:account_id}})
                     .then(function(response) {
+                        localStorage.setItem('name', response.data.data.name);
                         if(response.data.data.bill_status === "true"){
                             localStorage.setItem('token', res.data.token); 
-                            localStorage.setItem('user_id', JSON.stringify(res.data.result._id));
+                            localStorage.setItem('user_id', JSON.stringify(res.data.result._id));                          
 
                             window.location.href = '/user_dashboard';
                         }
-                        else if(response.data.data.email === "demo@competitor.com"){
-                            console.log(response.data.data.email)
-                            localStorage.setItem('token', res.data.token); 
-                            localStorage.setItem('user_id', JSON.stringify(res.data.result._id));
+                        // else if(response.data.data.email === "demo@competitor.com"){
+                        //     console.log(response.data.data.email)
+                        //     localStorage.setItem('token', res.data.token); 
+                        //     localStorage.setItem('user_id', JSON.stringify(res.data.result._id));
 
-                            window.location.href = '/user_dashboard';
-                        }
+                        //     window.location.href = '/user_dashboard';
+                        // }
                         else{
                             localStorage.setItem("competitor_id", JSON.stringify(response.data.data._id));                            
                             var url=""
@@ -71,6 +70,7 @@ function Login()
 
                     axiosInstance.get("/api/sponsors/read", {params:{account_id:sponsor_id}})
                     .then(function(response) {
+                        localStorage.setItem('name', response.data.data.name);
                         if(response.data.data.bill_status === "true"){
                             localStorage.setItem('token', res.data.token); 
                             localStorage.setItem('user_id', JSON.stringify(res.data.result._id));                              

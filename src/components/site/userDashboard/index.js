@@ -259,6 +259,7 @@ function UserDashboard() {  ////////////////////get login user info (REPLACE THI
                         <h2> Download Certification</h2>
                         <h5>Coming Soon</h5>
                       </div>
+<<<<<<< HEAD
                     </Card.Body>
                   </Card>
                 </Tab.Pane>
@@ -271,6 +272,20 @@ function UserDashboard() {  ////////////////////get login user info (REPLACE THI
                     </Card.Body>
                   </Card>
                 </Tab.Pane>
+=======
+                    </Card.Body>
+                  </Card>
+                </Tab.Pane>
+                <Tab.Pane eventKey="Cart">
+                  <Card>
+                    <Card.Body>
+                      <div className="sec-container">                                     
+                          <Cart data={user} setData={setUser} user={account}/>
+                      </div>
+                    </Card.Body>
+                  </Card>
+                </Tab.Pane>
+>>>>>>> booth
               </Tab.Content>
             </Col>
           </Row>

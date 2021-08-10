@@ -14,7 +14,11 @@ import eventLobby from './components/site/eventLobby/eventLobby';
 import sponsor_hall from './components/site/eventLobby/sponsor_hall/sponsor_hall';
 import sponsor_booth from './components/site/eventLobby/sponsor_hall/sponsor_booth';
 import competition_hall from './components/site/eventLobby/competition_hall/competition_hall';
+<<<<<<< HEAD
 import competitor_booth from './components/site/eventLobby/competition_hall/competitor_booth';
+=======
+import competition_booth from './components/site/eventLobby/competition_hall/comp_booth'
+>>>>>>> booth
 import Navbar from './components/site/navbar';
 import Footer from './components/site/footer';
 import AdminDashboard from './components/site/adminDashboard';
@@ -79,7 +83,11 @@ function App() {
         <Route exact path='/sponsor_hall'  component={sponsor_hall}/> 
         <Route exact path='/sponsor_hall/sponsor_booth'  component={sponsor_booth}/> 
         <Route exact path='/competition_hall'  component={competition_hall}/>
+<<<<<<< HEAD
         <Route exact path='/competition_hall/competitor_booth'  component={competitor_booth}/>
+=======
+        <Route exact path='/competition_booth/:id'  component={competition_booth}/>
+>>>>>>> booth
         <Route exact path='/payment_success'  component={Payment_Success}/>
         <Route exact path='/payment_fail'  component={Payment_Fail}/>
         <Route component={PageNotFound} />
