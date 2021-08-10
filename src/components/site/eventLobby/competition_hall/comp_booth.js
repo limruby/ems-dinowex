@@ -53,7 +53,8 @@ function Competition_hall() {
       var section = [];
       for (var i = 0; i < data.abstract.length; i++) {
         section.push(
-          <h1>{data.abstract[0].title}</h1>
+          <div>{data.abstract[0].title}</div>
+          
         );
       }
       return section;
@@ -65,9 +66,9 @@ function Competition_hall() {
     if (data.abstract != null) {
       for (var i = 0; i < data.abstract.length; i++) {
         section.push(
-          <p>
+          <div>
             <b>Content</b>: {data.abstract[0].content}
-          </p>
+          </div>
         );
       }
     }
@@ -82,7 +83,9 @@ function Competition_hall() {
         for (var i = 0; i < data.poster.length; i++) {
           const imageBuffer = Buffer.from(data.poster[0].source.data);
           section.push(
+            <div>
             <embed src={`${imageBuffer}#toolbar=0&navpanes=0&scrollbar=0`} width="40%" height="500px" />
+            </div>
           );
         }
       }
@@ -90,7 +93,9 @@ function Competition_hall() {
         for (var i = 0; i < data.poster.length; i++) {
           const imageBuffer = Buffer.from(data.poster[0].source.data);
           section.push(
+            <div>
             <img src={imageBuffer} alt={data.poster[0].name} />
+            </div>
           );
         }
       }
@@ -104,7 +109,9 @@ function Competition_hall() {
       console.log(url)
       for (var i = 0; i < data.video.length; i++) {
         section.push(
+          <div>
           <iframe width="420" height="315" src={`https://www.youtube.com/embed/${url}`} title="cincai"></iframe>
+          </div>
         );
       }
     }
@@ -114,6 +121,7 @@ function Competition_hall() {
     var section = []
     section.push(
       <form onSubmit={handleForm}>
+        <br></br>
         <textarea
           className="form-control"
           type='text'
@@ -123,9 +131,11 @@ function Competition_hall() {
           required
           onChange={inputChange}
           value={comment} />
-        <div className="col-6 text-right">
+          <br></br>
+        <div>
           <input className="btn btn-primary" type="submit" value="Post" />
         </div>
+        <br></br>
       </form>
     );
     return section;
@@ -135,7 +145,7 @@ function Competition_hall() {
     for(var i = 0; i < forum.length; i++){
     section.push(
       <div>
-        <p>{forum[i].comment}</p>
+        {forum[i].comment}
       </div>
        );
    
@@ -143,16 +153,54 @@ function Competition_hall() {
     return section;
   }
   return (
-    <div className="Competition_hall">
-      {displayTitle()}
-      {displayContent()}
-      {displayPoster()}
-      {displayVideo()}
-      {displayForumForm()}
-      {displayForum()}
+<header className="masthead comp-background">
+        <div className="container">
+          <div className="intro-text">
+            <div className="intro-lead-in">
+              <br></br>
+            </div>
+            <div className="row col-xl-12">
+            <div className="intro-heading col-xl-12">
+            {displayTitle()}
+            </div>
+            </div>
+          </div>
+        </div>
 
+        <div className="row">
+            <div className="display column col-xl-6">
+              <div className="display-content col-xl-12">
+                {displayContent()}
+              </div>
+              <div className="display-video col-xl-12">
+                {displayVideo()}
+              </div>
+              <div className="display-members col-xl-12">
+                <div>Research members</div>
+              </div>
+              <div className="display-awards col-xl-12">
+                <div>Awards</div>
+              </div>
+              <div className="display-grants col-xl-12">
+                <div>Grants</div>
+              </div>
+            </div>
 
-    </div>
+            <div className="column display col-xl-6">
+              <div className="display-poster col-xl-12">
+                {displayPoster()}
+              </div>
+              <div className="display-forum col-xl-12">
+                {displayForum()}
+              </div>
+              <div className="display-forum-form col-xl-12">
+                {displayForumForm()}
+              </div>
+            </div>
+        </div>
+        <br></br>
+  </header>
+ 
   );
 }
 

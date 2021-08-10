@@ -4,11 +4,7 @@ import {Link} from 'react-router-dom';
 import axiosInstance from '../../../utils/axiosConfig';
 
 function Order(){
-<<<<<<< HEAD
-
-=======
   localStorage.setItem("activeKeys", "Order")
->>>>>>> booth
   const [data, setData]=useState([]);
   useEffect(() => { 
     axiosInstance.get("/api/cart/readCart")
@@ -19,9 +15,6 @@ function Order(){
     })
 
   }, []);
-<<<<<<< HEAD
-  
-=======
   function deleteOrder(cart_id) {
 
     axiosInstance.get("/api/cart/deleteOrder",  { params: { _id: cart_id } })
@@ -31,7 +24,6 @@ function Order(){
       console.log(error);
     })
   }
->>>>>>> booth
 
   const columns = React.useMemo(
     () => [
@@ -78,9 +70,6 @@ function Order(){
           },
         ],
       },
-<<<<<<< HEAD
-
-=======
       {
         Header: 'Delete',
         Cell: data => (
@@ -92,7 +81,6 @@ function Order(){
           </button>
         )
       },
->>>>>>> booth
       
       ],
       []

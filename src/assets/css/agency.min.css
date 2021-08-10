@@ -1044,11 +1044,7 @@ h3 {
 .hide {
   display: none;
 }
-<<<<<<< HEAD
-
-=======
 /*Start of Cart section in user dashboard*/
->>>>>>> booth
 .table-center-text{
   text-align: center;
 }
@@ -1071,10 +1067,6 @@ h3 {
 .order-btn{
   text-align: -webkit-center;
 }
-<<<<<<< HEAD
- 
-=======
->>>>>>> booth
 /*Start of Edit Dashboard*/
  
 .edit-form-container {
@@ -1226,6 +1218,55 @@ h3 {
 }
 .justify-text{
   text-align: justify;
+}
+.comp-background{
+  background-size: contain !important;
+}
+
+.display{
+  text-shadow: none !important;
+  padding-left: 0% !important;
+  padding-right: 0% !important;
+  padding-top: 0% !important;
+  padding-bottom: 0% !important;
+  margin-left: 0% !important;
+  margin-right: 0% !important;
+  margin-top: 0% !important;
+  margin-bottom: 0% !important;
+  margin: 0% !important;
+}
+
+.display-content{
+  background-color: green;
+  text-shadow: none !important;
+}
+.display-video{
+  background-color: blue;
+  text-shadow: none !important;
+}
+.display-members{
+  background-color: yellow;
+  text-shadow: none !important;
+}
+.display-awards{
+  background-color: black;
+  text-shadow: none !important;
+}
+.display-grants{
+  background-color: purple;
+  text-shadow: none !important;
+}
+.display-poster{
+  background-color: red;
+  text-shadow: none !important;
+}
+.display-forum{
+  background-color: orange;
+  text-shadow: none !important;
+}
+.display-forum-form{
+  background-color: green;
+  text-shadow: none !important;
 }
 /*End of competitor booth*/
 
