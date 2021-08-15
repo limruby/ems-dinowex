@@ -1237,35 +1237,61 @@ h3 {
 }
 
 .display-content{
-  background-color: green;
+  background-color: #43ba7a;
   text-shadow: none !important;
 }
 .display-video{
-  background-color: blue;
+  background-color:#7e7ebc;
   text-shadow: none !important;
+  padding-left: 0% !important;
+  padding-right: 0% !important;
+  padding-top: 0% !important;
+  padding-bottom: 0% !important;
+  margin-left: 0% !important;
+  margin-right: 0% !important;
+  margin-top: 0% !important;
+  margin-bottom: 0% !important;
+}
+.video_iframe{
+  width: fit-content !important;
+  min-width:fill-available;
+  padding-left: 40px !important;
+  padding-right: 40px !important;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  
 }
 .display-members{
-  background-color: yellow;
+  background-color: #7e7ebc;
   text-shadow: none !important;
 }
 .display-awards{
-  background-color: black;
+  background-color: #f7b13e;
   text-shadow: none !important;
 }
 .display-grants{
-  background-color: purple;
+  background-color: #7e7ebc;
   text-shadow: none !important;
 }
 .display-poster{
   background-color: red;
   text-shadow: none !important;
+  padding-left: 0% !important;
+  padding-right: 0% !important;
+  padding-bottom: 0% !important;
+  padding-top: 0% !important;
+}
+.poster_image{
+  width: fit-content !important;
+  min-width:fill-available;
 }
 .display-forum{
-  background-color: orange;
+  background-color: white;
+  color: grey;
   text-shadow: none !important;
 }
 .display-forum-form{
-  background-color: green;
+  background-color: #43ba7a;
   text-shadow: none !important;
 }
 /*End of competitor booth*/

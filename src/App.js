@@ -77,7 +77,7 @@ function App() {
 
         <Route exact path='/eventLobby'  component={eventLobby}/>  
         <Route exact path='/sponsor_hall'  component={sponsor_hall}/> 
-        <Route exact path='/sponsor_hall/sponsor_booth'  component={sponsor_booth}/> 
+        <Route exact path='/sponsor_booth/:id'  component={sponsor_booth}/> 
         <Route exact path='/competition_hall'  component={competition_hall}/>
         <Route exact path='/competition_booth/:id'  component={competition_booth}/>
         <Route exact path='/payment_success'  component={Payment_Success}/>

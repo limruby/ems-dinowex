@@ -3,84 +3,218 @@ import { useHistory,Link } from 'react-router-dom';
 import {Image} from 'react-bootstrap';
 import featured_sponsor from "./../../../../assets/img/featured_sponsor.jpg";
 import { Tab, Tabs, Nav, Row} from "react-bootstrap";
+import axiosInstance from '../../../../utils/axiosConfig';
+import { useLocation } from "react-router-dom";
 
 
 
 
 
-function SponsorBooth() {
-const history = useHistory();
-  return (
-    <div className="column">
-        <div className="row">
-            <h1 className="center sponsor-name">Sponsor Name</h1>
-                <div className="row justify-content-center">
-
-                    <div className="col-md-4">
-                        <div className="sponsor-booth-container col-lg-12">
-                            <h3 className="sponsor_title"><strong>Poster</strong></h3>
-					            <Image src={featured_sponsor} height="100%" width="100%" alt="" rounded responsive/>	
-                        </div>
-                    </div>
-
-                    <div className="col-md-3">
-                        <div className="sponsor-booth-container col-lg-12">
-                            <h3 className="sponsor_title"><strong>Youtube Video</strong></h3>
-                                <iframe width="100%" height="100%" src={`https://www.youtube.com/embed/lzGlJHj1mAc`} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen title="Embedded youtube"/>	
-                        </div>
-                    </div>
-
-                    <div className="col-md-4">
-                        <div className="sponsor-booth-container col-lg-12">
-                            <h3 className="sponsor_title"><strong>Poster</strong></h3>
-					            <Image src={featured_sponsor} height="100%" width="100%" alt="" rounded responsive/>	
-                        </div>
-                    </div>
-
-                    
+function Sponsor_booth() {
+    const [data, setData] = useState([]);
+    const [forum, setForum] = useState([])
+    const [comment, setComment] = useState("");
+    const location = useLocation();
+    const thePath = location.pathname;
+    const user_id = thePath.substring(thePath.lastIndexOf('/') + 1);
+    const string = '"' + user_id + '"'
+    useEffect(() => {
+      axiosInstance.get("/api/sponsors/read", { params: { account_id: string } })
+        .then(function (response) {
+          setData(response.data.data);
+        }).catch(function (error) {
+          console.log(error);
+        })
+        axiosInstance.get("/api/forum/read", { params: { booth_id: string } })
+        .then(function (response) {
+          console.log(response.data.data)
+          setForum(response.data.data);
+        }).catch(function (error) {
+          console.log(error);
+        })
+    }, [string])
+  
+    const inputChange = e => {
+      setComment(e.target.value)
+    };
+  
+    const handleForm = (e) => {
+      var postData = {
+        booth_id: string,
+        account_id: localStorage.getItem("user_id"),
+        email: localStorage.getItem("email"),
+        name: localStorage.getItem("name"),
+        comment: comment
+      }
+      if (comment !== null) {
+        axiosInstance.post("/api/forum/create", postData)
+          .then(function (response) {
+          //  window.location.href = '/competition_booth/:id';
+          }).catch(function (error) {
+            console.log(error);
+          })
+      }
+    }
+    
+    function displayLogo() {
+        var section = [];
+        if (data.company_logo && data.company_logo[0]) {
+          const imageFormat = data.company_logo[0].name.substring(data.company_logo[0].name.lastIndexOf('.') + 1);
+          if (imageFormat === "pdf") {
+            for (var i = 0; i < data.company_logo.length; i++) {
+              const imageBuffer = Buffer.from(data.company_logo[0].source.data);
+              section.push(
+                <div>
+                <embed src={`${imageBuffer}#toolbar=0&navpanes=0&scrollbar=0`} width="40%" height="500px" />
                 </div>
+              );
+            }
+          }
+          else {
+            for (var i = 0; i < data.company_logo.length; i++) {
+              const imageBuffer = Buffer.from(data.company_logo[0].source.data);
+              section.push(
+                <div>
+                <img src={imageBuffer} alt={data.company_logo[0].name} width="500px" height="500px"/>
+                </div>
+              );
+            }
+          }
+        }
+        return section;
+      }
+
+    function displayPoster() {
+      var section = [];
+      if (data.poster && data.poster[0]) {
+        const imageFormat = data.poster[0].name.substring(data.poster[0].name.lastIndexOf('.') + 1);
+        if (imageFormat === "pdf") {
+          for (var i = 0; i < data.poster.length; i++) {
+            const imageBuffer = Buffer.from(data.poster[0].source.data);
+            section.push(
+              <div>
+              <embed className="poster_image"src={`${imageBuffer}#toolbar=0&navpanes=0&scrollbar=0`}/>
+              </div>
+            );
+          }
+        }
+        else {
+          for (var i = 0; i < data.poster.length; i++) {
+            const imageBuffer = Buffer.from(data.poster[0].source.data);
+            section.push(
+              <div>
+              <img className="poster_image" src={imageBuffer} alt={data.poster[0].name} />
+              </div>
+            );
+          }
+        }
+      }
+      return section;
+    }
+    function displayVideo() {
+      var section = []
+      if (data.video != null) {
+        const url = data.video[0].source.substring(data.video[0].source.lastIndexOf('/') + 1);
+        console.log(url)
+        for (var i = 0; i < data.video.length; i++) {
+          section.push(  
+            <iframe className="video_iframe" height="400" src={`https://www.youtube.com/embed/${url}`} title="cincai"></iframe>
+          );
+        }
+      }
+      return section;
+    }
+    function displayForumForm() {
+      var section = []
+      section.push(
+        <form onSubmit={handleForm}>
+          <br></br>
+          <textarea
+            className="form-control"
+            type='text'
+            name='comment'
+            id="comment"
+            placeholder='comment'
+            required
+            onChange={inputChange}
+            value={comment} />
+            <br></br>
+          <div>
+            <input className="btn btn-primary" type="submit" value="Post" />
+          </div>
+          <br></br>
+        </form>
+      );
+      return section;
+    }
+    function displayForum() {
+      var section = []
+      for(var i = 0; i < forum.length; i++){
+      section.push(
+        <div>
+          {forum[i].comment}
         </div>
-        
+         );
+     
+    }
+      return section;
+    }
+    return (
+  <header className="masthead comp-background">
+          <div className="container">
+            <div className="intro-text">
+              <div className="row col-xl-12">
+              <div className="intro-heading col-xl-12">
+              {displayLogo()}
+              </div>
+              </div>
+            </div>
+          </div>
 
-        <div className="row">
-           <p></p>
-                <div className="row justify-content-center">
-                    <div className="col-md-4">
-                        <div className="sponsor-booth-container col-lg-12">
-                            <h3 className="sponsor_title"><strong>Live Chat</strong></h3>
-					            <Image src={featured_sponsor} height="100%" width="100%" alt="" rounded responsive/>	
-                        </div>
-                    </div>
+          <div className="row">
+            <div className="display-poster col-xl-12">
+                {displayPoster()}
+            </div>
 
+            <div className="display-video col-xl-12">
+                {displayVideo()}
+            </div>
+          </div>
+
+          <div className="row">
+              <div className="display column col-xl-6">
+                <div className="display-content col-xl-12">
+                    <div>Company Profile</div>
+                    <div>Company Profile</div>
+                    <div>Company Profile</div>
+                    <div>Company Profile</div>
+                </div>
                 
-
-                    <div className="col-md-4">
-                        <div className="sponsor-booth-container col-lg-12">
-
-                        <Tabs className="btn btn-primary sponsor-tab" defaultActiveKey="Account-Profiles" id="uncontrolled-tab-example" className="mb-3">
-                            <Tab eventKey="Account-Profiles" title="Company Profiles">
-                                <h5>Company Name: Dinowex</h5>
-                                <h5>Address: Kuala Lumpur</h5>
-                                <h5>Company PIC: Miss Tan</h5>
-                                <h5>Company Website: dinowex.com</h5>
-                            </Tab>
-                            <Tab eventKey="Promo-Content" title="Promotional Content">
-                                <h5>Watch video to know us better!</h5>
-                            </Tab>
-                            <Tab eventKey="Contact-Us" title="Contact Us">
-                                <h5>Tel: 012-346789</h5>
-                                <h5>Email: info@dinowex.com.my</h5>
-                                <h5>Location: Google Map</h5>
-                            </Tab>
-                        </Tabs>
-                            
-                        </div>
-                    </div>
+                <div className="display-members col-xl-12">
+                  <div>Promotional Content</div>
+                  <div>Promotional Content</div>
+                  <div>Promotional Content</div>
+                  <div>Promotional Content</div>
                 </div>
-        </div>
-        <p></p>
-    </div>
-  );
-}
+                <div className="display-awards col-xl-12">
+                  <div>Contact Us</div>
+                  <div>Contact Us</div>
+                </div>
+              </div>
+  
+              <div className="column display col-xl-6">
+                <div className="display-forum col-xl-12">
+                  {displayForum()}
+                </div>
+                <div className="display-forum-form col-xl-12">
+                  {displayForumForm()}
+                </div>
+              </div>
+          </div>
+          <br></br>
+    </header>
+   
+    );
+  }
 
-export default SponsorBooth;
+export default Sponsor_booth;

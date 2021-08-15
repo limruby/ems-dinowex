@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import "./../../../../assets/css/agency.min.css";
 import axiosInstance from '../../../../utils/axiosConfig';
 
-function Competition_hall() {
+function Competition_booth() {
   const [data, setData] = useState([]);
   const [forum, setForum] = useState([])
   const [comment, setComment] = useState("");
@@ -84,7 +84,7 @@ function Competition_hall() {
           const imageBuffer = Buffer.from(data.poster[0].source.data);
           section.push(
             <div>
-            <embed src={`${imageBuffer}#toolbar=0&navpanes=0&scrollbar=0`} width="40%" height="500px" />
+            <embed className="poster_image" src={`${imageBuffer}#toolbar=0&navpanes=0&scrollbar=0`} />
             </div>
           );
         }
@@ -94,7 +94,7 @@ function Competition_hall() {
           const imageBuffer = Buffer.from(data.poster[0].source.data);
           section.push(
             <div>
-            <img src={imageBuffer} alt={data.poster[0].name} />
+            <img className="poster_image" src={imageBuffer} alt={data.poster[0].name} />
             </div>
           );
         }
@@ -109,9 +109,7 @@ function Competition_hall() {
       console.log(url)
       for (var i = 0; i < data.video.length; i++) {
         section.push(
-          <div>
-          <iframe width="420" height="315" src={`https://www.youtube.com/embed/${url}`} title="cincai"></iframe>
-          </div>
+          <iframe className="video_iframe"  height="400" src={`https://www.youtube.com/embed/${url}`} title="cincai"></iframe>
         );
       }
     }
@@ -171,17 +169,67 @@ function Competition_hall() {
             <div className="display column col-xl-6">
               <div className="display-content col-xl-12">
                 {displayContent()}
+                {displayContent()}
+                {displayContent()}
+                {displayContent()}
+                {displayContent()}
+                {displayContent()}
+                {displayContent()}
+                {displayContent()}
+                {displayContent()}
+                {displayContent()}
+                {displayContent()}
+                {displayContent()}
+                {displayContent()}
+                {displayContent()}
+                {displayContent()}
+                {displayContent()}
+                {displayContent()}
+                {displayContent()}
+                {displayContent()}
+                {displayContent()}
+                {displayContent()}
+                {displayContent()}
+                {displayContent()}
+                {displayContent()}
+                {displayContent()}
+                {displayContent()}
+                {displayContent()}
+                {displayContent()}
+                {displayContent()}
+                {displayContent()}
+                {displayContent()}
               </div>
               <div className="display-video col-xl-12">
                 {displayVideo()}
               </div>
               <div className="display-members col-xl-12">
                 <div>Research members</div>
+                <div>Research members</div>
+                <div>Research members</div>
+                <div>Research members</div>
+                <div>Research members</div>
+                <div>Research members</div>
+                <div>Research members</div>
+                <div>Research members</div>
               </div>
               <div className="display-awards col-xl-12">
                 <div>Awards</div>
+                <div>Awards</div>
+                <div>Awards</div>
+                <div>Awards</div>
+                <div>Awards</div>
+                <div>Awards</div>
+                <div>Awards</div>
+                <div>Awards</div>
               </div>
               <div className="display-grants col-xl-12">
+                <div>Grants</div>
+                <div>Grants</div>
+                <div>Grants</div>
+                <div>Grants</div>
+                <div>Grants</div>
+                <div>Grants</div>
                 <div>Grants</div>
               </div>
             </div>
@@ -204,4 +252,4 @@ function Competition_hall() {
   );
 }
 
-export default Competition_hall;
+export default Competition_booth;
