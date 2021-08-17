@@ -5,6 +5,7 @@ import featured_sponsor from "./../../../../assets/img/featured_sponsor.jpg";
 import { Tab, Tabs, Nav, Row} from "react-bootstrap";
 import axiosInstance from '../../../../utils/axiosConfig';
 import { useLocation } from "react-router-dom";
+import { BsPeopleCircle } from "react-icons/bs";
 
 
 
@@ -134,7 +135,7 @@ function Sponsor_booth() {
             type='text'
             name='comment'
             id="comment"
-            placeholder='comment'
+            placeholder='Type your message...'
             required
             onChange={inputChange}
             value={comment} />
@@ -152,8 +153,9 @@ function Sponsor_booth() {
       for(var i = 0; i < forum.length; i++){
       section.push(
         <div>
-          {forum[i].comment}
-        </div>
+        <b className="forum-name"><BsPeopleCircle className="forum-avatar"></BsPeopleCircle> {forum[i].name}</b>
+        <p className="forum-comment">{forum[i].comment}</p>
+      </div>
          );
      
     }
@@ -183,26 +185,43 @@ function Sponsor_booth() {
 
           <div className="row">
               <div className="display column col-xl-6">
-                <div className="display-content col-xl-12">
-                    <div>Company Profile</div>
-                    <div>Company Profile</div>
-                    <div>Company Profile</div>
-                    <div>Company Profile</div>
+                <div className="display-profile col-xl-12">
+                <div className="title">
+                  <b>COMPANY PROFILE</b>
+                </div>
+                <div className="profile">
+                  <div>Company Name: Dinowex</div>
+                  <div>Company Address: Kuala Lumpur</div>
+                  <div>Company PIC: Miss Tan</div>
+                  <div>Company Website: dinowex.com</div>
+                </div>
                 </div>
                 
-                <div className="display-members col-xl-12">
-                  <div>Promotional Content</div>
-                  <div>Promotional Content</div>
-                  <div>Promotional Content</div>
-                  <div>Promotional Content</div>
+                <div className="display-promotional-content col-xl-12">
+                <div className="title">
+                  <b>PROMOTIONAL CONTENT</b>
+                </div>
+                <div className="promotional-content">
+                  <div>Our Company Products</div>
+                  <div>Company Vision and Mission</div>
+                </div>
                 </div>
                 <div className="display-awards col-xl-12">
-                  <div>Contact Us</div>
-                  <div>Contact Us</div>
+                <div className="title">
+                  <b>CONTACT US</b>
+                </div>
+                <div className="contact-us">
+                  <div>Tel: 012-346789</div>
+                  <div>Email: info@dinowex.com.my</div>
+                  <div>Location: Google Map</div>
+                </div>
                 </div>
               </div>
   
               <div className="column display col-xl-6">
+              <div className="forum-title">
+                  <b>FORUM CHAT</b>
+                </div>
                 <div className="display-forum col-xl-12">
                   {displayForum()}
                 </div>

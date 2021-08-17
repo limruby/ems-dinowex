@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import "./../../../../assets/css/agency.min.css";
 import axiosInstance from '../../../../utils/axiosConfig';
+import { BsPeopleCircle } from "react-icons/bs";
 
 function Competition_booth() {
   const [data, setData] = useState([]);
@@ -67,7 +68,7 @@ function Competition_booth() {
       for (var i = 0; i < data.abstract.length; i++) {
         section.push(
           <div>
-            <b>Content</b>: {data.abstract[0].content}
+            <b>ContentContentContentContentContentContentContentContentContentCo ntentCConten tContent ontent</b>: {data.abstract[0].content}
           </div>
         );
       }
@@ -125,7 +126,7 @@ function Competition_booth() {
           type='text'
           name='comment'
           id="comment"
-          placeholder='comment'
+          placeholder='Type your message...'
           required
           onChange={inputChange}
           value={comment} />
@@ -143,7 +144,8 @@ function Competition_booth() {
     for(var i = 0; i < forum.length; i++){
     section.push(
       <div>
-        {forum[i].comment}
+        <b className="forum-name"><BsPeopleCircle className="forum-avatar"></BsPeopleCircle> {forum[i].name}</b>
+        <p className="forum-comment">{forum[i].comment}</p>
       </div>
        );
    
@@ -168,6 +170,10 @@ function Competition_booth() {
         <div className="row">
             <div className="display column col-xl-6">
               <div className="display-content col-xl-12">
+                <div className="title">
+                  <b>ABSTRACT</b>
+                </div>
+                <div className="abstract-content">
                 {displayContent()}
                 {displayContent()}
                 {displayContent()}
@@ -182,55 +188,40 @@ function Competition_booth() {
                 {displayContent()}
                 {displayContent()}
                 {displayContent()}
-                {displayContent()}
-                {displayContent()}
-                {displayContent()}
-                {displayContent()}
-                {displayContent()}
-                {displayContent()}
-                {displayContent()}
-                {displayContent()}
-                {displayContent()}
-                {displayContent()}
-                {displayContent()}
-                {displayContent()}
-                {displayContent()}
-                {displayContent()}
-                {displayContent()}
-                {displayContent()}
-                {displayContent()}
+                </div>
               </div>
               <div className="display-video col-xl-12">
                 {displayVideo()}
               </div>
               <div className="display-members col-xl-12">
-                <div>Research members</div>
-                <div>Research members</div>
-                <div>Research members</div>
-                <div>Research members</div>
-                <div>Research members</div>
-                <div>Research members</div>
-                <div>Research members</div>
-                <div>Research members</div>
+                <div className="title">
+                  <b>RESEARCH MEMBERS</b>
+                </div>
+                <div className="members-name">
+                <div>JOHN SMITH</div>
+                <div>TAYLOR SWIFT</div>
+                <div>SABRINA CLAUDIO</div>
+                <div>RAVEENA</div>
+                </div>
               </div>
               <div className="display-awards col-xl-12">
-                <div>Awards</div>
-                <div>Awards</div>
-                <div>Awards</div>
-                <div>Awards</div>
-                <div>Awards</div>
-                <div>Awards</div>
-                <div>Awards</div>
-                <div>Awards</div>
+              <div className="title">
+                  <b>AWARDS</b>
+                </div>
+                <div className="awards-name">
+                <div>The Best Research Paper</div>
+                  <div className="awards-year">2014 - UM</div>
+                <div>The Best Research Paper</div>
+                  <div className="awards-year">2014 - UM</div>
+                </div>
               </div>
               <div className="display-grants col-xl-12">
-                <div>Grants</div>
-                <div>Grants</div>
-                <div>Grants</div>
-                <div>Grants</div>
-                <div>Grants</div>
-                <div>Grants</div>
-                <div>Grants</div>
+              <div className="title">
+                  <b>GRANTS</b>
+                </div>
+                <div className="grants-name">
+                <div>RM 10,000</div>
+                </div>
               </div>
             </div>
 
@@ -238,6 +229,9 @@ function Competition_booth() {
               <div className="display-poster col-xl-12">
                 {displayPoster()}
               </div>
+              <div className="forum-title">
+                  <b>FORUM CHAT</b>
+                </div>
               <div className="display-forum col-xl-12">
                 {displayForum()}
               </div>
