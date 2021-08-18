@@ -1186,6 +1186,13 @@ h3 {
 /*End of sponsor booth*/
 
 /*Start of competitor booth*/
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .competitor-category{
   font-size: 4vw;
   font-weight: bold;
@@ -1346,7 +1353,7 @@ h3 {
 }
 
 .display-poster{
-  background-color: red;
+  background-color: #f7b13e;
   max-width: 100%;
   max-height: 100%;
 }
