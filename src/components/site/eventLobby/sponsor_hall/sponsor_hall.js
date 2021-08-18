@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import "./../../../../assets/css/agency.min.css";
 import Footer from './../../footer';
 import {Image} from 'react-bootstrap';
-import sponsor_hall from "./../../../../assets/img/sponsor_hall.jpg";
+import header_bg from "./../../../../assets/img/header-bg.png";
 import featured_sponsor from "./../../../../assets/img/featured_sponsor.jpg";
 import './sponsor_hall.css';
 import EmblaCarousel from "./EmblaCarousel";
@@ -15,9 +15,9 @@ const slides = Array.from(Array(SLIDE_COUNT).keys());
 function Sponsor_hall() {
 
   return (
-    <div className="sponsor_hall">
-  
-		<div className="sponsorhall-main-container row justify-content-center">
+      <header className="masthead">
+        
+      <div className="sponsorhall-main-container row justify-content-center">
             <div className="sponsorhall-container col-lg-8">
                     <h3 className="sponsor_title"><strong>Featured Sponsor</strong></h3>
 					<Image className="featured_sponsor_background" src={featured_sponsor} height="100%" width="100%" alt="" rounded responsive/>
@@ -44,12 +44,8 @@ function Sponsor_hall() {
 					<EmblaCarousel slides={slides} />			
             </div>
 
-        </div>
-		
-
-
-
-    </div>
+        </div>  
+      </header>
   );
 }
 
