@@ -13,16 +13,6 @@
     border-radius: 10px;
 }
 
-.sponsor_hall {
-    background: url('/src/assets/img/sponsor_hall.jpg');
-    height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    align-items: center;
-}
-
 .featured_sponsor_background {
     opacity:0.8;
 }

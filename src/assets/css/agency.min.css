@@ -256,7 +256,7 @@ header.masthead .intro-text .intro-lead-in {
  
 header.masthead .intro-text .intro-heading {
   width: max-content;
-  padding-right: 500px;
+  
   font-size: 50px;
   font-weight: 700;
   line-height: 50px;
@@ -1156,4 +1156,245 @@ h3 {
     rgb(140 140 140 / 50%) 0px 4px 0px, #787878 0px 0px 0px,
     rgb(0 0 0 / 50%) 0px 5px 10px;
 }
- 
+
+/*Start of sponsor booth*/
+.center{
+  text-align: center;
+}
+
+.sponsor-name{
+  font-size: 4vw;
+  font-weight: bold;
+  padding:3%
+}
+
+.sponsor-booth-container{
+    width: 50%;
+    min-height: 100%;
+    height: fit-content;
+    background: rgb(255, 255,255, 0.7);
+    padding: 2%;
+    border-radius: 10px;
+}
+
+.sponsor-tab{
+  color:black!important;
+}
+.sponsor-tab:hover{
+  color:white!important;
+}
+/*End of sponsor booth*/
+
+/*Start of competitor booth*/
+.competitor-category{
+  font-size: 4vw;
+  font-weight: bold;
+  padding:2%
+}
+
+.project-title{
+  font-size: 3vw;
+  font-weight: bold;
+  padding:1%
+}
+
+.competitor-booth-container{
+    width: 50%;
+    height: fit-content;
+    background: rgb(255, 255,255, 0.7);
+    padding: 2%;
+    border-radius: 10px;
+}
+
+.vertical-center{
+  align-self: center;
+}
+
+.download-paper{
+  color: blue !important;;
+}
+.download-paper:hover{
+  color: black !important;;
+}
+.justify-text{
+  text-align: justify;
+}
+.comp-background{
+  background-size: contain !important;
+}
+
+.title{
+  padding-top: 5%;
+  padding-bottom: 5%;
+  padding-left: 10%;
+  font-size: 25px;
+  text-align: left !important;
+}
+
+.abstract-content{
+  padding-left: 10%;
+  padding-right: 10%;
+  text-align: left !important;
+}
+
+.display{
+  text-shadow: none !important;
+  padding-left: 0% !important;
+  padding-right: 0% !important;
+  padding-top: 0% !important;
+  padding-bottom: 0% !important;
+  margin-left: 0% !important;
+  margin-right: 0% !important;
+  margin-top: 0% !important;
+  margin-bottom: 0% !important;
+  margin: 0% !important;
+}
+
+.display-content{
+  background-color: #43ba7a;
+  text-shadow: none !important;
+  padding-bottom: 5%;
+}
+.display-profile{
+  background-color: #43ba7a;
+  text-shadow: none !important;
+  padding-bottom: 5%;
+}
+
+.display-promotional-content{
+  background-color: #7e7ebc;
+  text-shadow: none !important;
+  padding-bottom: 5%;
+}
+.display-video{
+  background-color:#7e7ebc;
+  text-shadow: none !important;
+  padding-left: 0% !important;
+  padding-right: 0% !important;
+  padding-top: 5% !important;
+  padding-bottom: 5% !important;
+  margin-left: 0% !important;
+  margin-right: 0% !important;
+  margin-top: 0% !important;
+  margin-bottom: 0% !important;
+}
+.video_iframe{
+  width: fit-content !important;
+  min-width:fill-available;
+  padding-left: 40px !important;
+  padding-right: 40px !important;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  
+}
+.display-members{
+  background-color: #43ba7a;
+  text-shadow: none !important;
+  padding-bottom: 5%;
+}
+
+.members-name{
+  text-align: left;
+  font-size: 20px;
+  padding-top: 2%;
+  padding-left: 10%;
+}
+.display-awards{
+  background-color: #f7b13e;
+  text-shadow: none !important;
+  padding-bottom: 5%;
+}
+
+.awards-name{
+  text-shadow: none !important;
+  text-align: left;
+  padding-left: 15%;
+  font-size: 50px;
+  font-weight: bold;
+}
+.awards-name a{
+  color: #fff;
+}
+
+.display-grants{
+  background-color: #7e7ebc;
+  text-shadow: none !important;
+  padding-bottom: 5%;
+}
+
+.profile{
+  text-shadow: none !important;
+  text-align: left;
+  padding-left: 15%;
+  font-size: 25px;
+  font-weight: bold;
+}
+.promotional-content{
+  text-shadow: none !important;
+  text-align: left;
+  padding-left: 15%;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.contact-us{
+  text-shadow: none !important;
+  text-align: left;
+  padding-left: 15%;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.display-poster{
+  background-color: red;
+  max-width: 100%;
+  max-height: 100%;
+}
+.display-poster img{
+  width: 100%;
+  height: auto;
+}
+.display-poster embed{
+  width: 100%;
+  min-height: 100vh;
+}
+.forum-title{
+  background-color: #f7b13e;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  padding-left: 10%;
+  font-size: 25px;
+  text-align: left !important;
+  color: white;
+}
+.display-forum{
+  background-color: white;
+  color: grey;
+  text-shadow: none !important;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  text-align: left !important;
+  width: 100%;
+  min-height: 700px;
+  max-height: 1150px;
+  overflow: auto;
+}
+.forum-avatar{
+  font-size: 50px;
+  margin-left: 1%;
+  margin-right: 1%;
+  margin-bottom: 1%;
+}
+.forum-name{
+  padding-left: 10%;
+  text-align: left !important;
+}
+.forum-comment{
+  padding-left: 20%;
+  text-align: left !important;
+}
+.display-forum-form{
+  background-color: #43ba7a;
+  text-shadow: none !important;
+}
+/*End of competitor booth*/
