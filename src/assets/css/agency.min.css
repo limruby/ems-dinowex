@@ -1186,6 +1186,13 @@ h3 {
 /*End of sponsor booth*/
 
 /*Start of competitor booth*/
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .competitor-category{
   font-size: 4vw;
   font-weight: bold;
@@ -1294,11 +1301,10 @@ h3 {
 }
 
 .members-name{
-  text-shadow: none !important;
   text-align: left;
-  padding-left: 15%;
-  font-size: 50px;
-  font-weight: bold;
+  font-size: 20px;
+  padding-top: 2%;
+  padding-left: 10%;
 }
 .display-awards{
   background-color: #f7b13e;
@@ -1313,22 +1319,14 @@ h3 {
   font-size: 50px;
   font-weight: bold;
 }
-.awards-year{
-  text-shadow: none !important;
-  text-align: left;
-  font-size: 20px;
+.awards-name a{
+  color: #fff;
 }
+
 .display-grants{
   background-color: #7e7ebc;
   text-shadow: none !important;
   padding-bottom: 5%;
-}
-.grants-name{
-  text-shadow: none !important;
-  text-align: left;
-  padding-left: 15%;
-  font-size: 50px;
-  font-weight: bold;
 }
 
 .profile{
@@ -1355,16 +1353,17 @@ h3 {
 }
 
 .display-poster{
-  background-color: red;
-  text-shadow: none !important;
-  padding-left: 0% !important;
-  padding-right: 0% !important;
-  padding-bottom: 0% !important;
-  padding-top: 0% !important;
+  background-color: #f7b13e;
+  max-width: 100%;
+  max-height: 100%;
 }
-.poster_image{
-  width: fit-content !important;
-  min-width:fill-available;
+.display-poster img{
+  width: 100%;
+  height: auto;
+}
+.display-poster embed{
+  width: 100%;
+  min-height: 100vh;
 }
 .forum-title{
   background-color: #f7b13e;
@@ -1382,6 +1381,10 @@ h3 {
   padding-top: 5%;
   padding-bottom: 5%;
   text-align: left !important;
+  width: 100%;
+  min-height: 700px;
+  max-height: 1150px;
+  overflow: auto;
 }
 .forum-avatar{
   font-size: 50px;
@@ -1402,7 +1405,3 @@ h3 {
   text-shadow: none !important;
 }
 /*End of competitor booth*/
-
-
-
- 

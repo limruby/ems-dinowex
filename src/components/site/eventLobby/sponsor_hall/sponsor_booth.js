@@ -7,10 +7,6 @@ import axiosInstance from '../../../../utils/axiosConfig';
 import { useLocation } from "react-router-dom";
 import { BsPeopleCircle } from "react-icons/bs";
 
-
-
-
-
 function Sponsor_booth() {
     const [data, setData] = useState([]);
     const [forum, setForum] = useState([])
