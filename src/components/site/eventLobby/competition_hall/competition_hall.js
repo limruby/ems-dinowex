@@ -19,19 +19,20 @@ function Competition_hall() {
     var section = [];
     data.map((competitor, index) => (
       section.push(
-        <div className="col-md-4" style={{backgroundColor:"blue"}}>
-          <img src ={booth} alt="booth"/>
-          <div className="centered">
-            <Link to={`/competition_booth/${competitor.account_id}`}>
+        <Link className="col-md-4" to={`/competition_booth/${competitor.account_id}`}>
+          <img height="400px" width="400px" src ={booth} alt="booth"/>
+          <div className="booth-name">{competitor.name}</div>
+          <div className="booth-number">
+            <Link className="btn btn-primary" to={`/competition_booth/${competitor.account_id}`}>
               <h3> Booth {index + 1} </h3></Link></div>
-          </div>
+          </Link>
       ))
     );
     return section;
   }
 
   return (
-    <section className="section-container">
+   
       <header className="masthead">
         <div className="intro-text">
           <div className="intro-lead-in">
@@ -43,28 +44,14 @@ function Competition_hall() {
             </div>
           </div>
         </div>
-      </header>
-      <div className="container">
+
+      
       <div className="row" style={{ backgroundColor: "#fff" }}>
         {displayBooth()}
       </div>
-      {/* To be removed */}
-      <h2>Example row and column</h2>
-      <div className="row" style={{ backgroundColor: "#fff" }}>     
-      <div className="col-md-4" style={{backgroundColor:"blue"}}>
-      <img src ={booth} alt="booth"/>
-      </div>
-      <div className="col-md-4" style={{backgroundColor:"blue"}}>
-      <img src ={booth} alt="booth"/>
-      </div>
-      <div className="col-md-4" style={{backgroundColor:"blue"}}>
-      <img src ={booth} alt="booth"/>
-      </div>
-      </div>
-       {/* To be removed */}
-      </div>
-
-    </section>
+      <br></br>
+      
+      </header> 
   );
 }
 
