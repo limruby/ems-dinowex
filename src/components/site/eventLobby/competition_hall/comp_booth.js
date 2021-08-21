@@ -188,10 +188,13 @@ function Competition_booth() {
     for (var i = 0; i < forum.length; i++) {
       section.push(
         <div>
-          <b className="forum-name"><BsPeopleCircle className="forum-avatar"></BsPeopleCircle> {forum[i].name}</b>
-          <p className="forum-comment">{forum[i].comment}</p>
-          <p>{forum[i].comment_date}</p>
+          <div className="row">
+        <b className="forum-name col-xl-8"><BsPeopleCircle className="forum-avatar"></BsPeopleCircle> {forum[i].name}</b>
+        <p className="comment-date col-xl-3">{forum[i].comment_date}</p>
         </div>
+        <p className="forum-comment">{forum[i].comment}</p>
+        
+      </div>
       );
 
     }
