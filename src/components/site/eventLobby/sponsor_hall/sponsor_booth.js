@@ -114,9 +114,23 @@ function Sponsor_booth() {
       if (data.video != null) {
         const url = data.video[0].source.substring(data.video[0].source.lastIndexOf('/') + 9);
         console.log(url)
-        for (var i = 0; i < data.video.length; i++) {
+        
           section.push(  
             <iframe className="video_iframe" height="400" src={`https://www.youtube.com/embed/${url}`} title={data.video[0].name}></iframe>
+          );
+        
+      }
+      return section;
+    }
+    function displayComp_video() {
+      var section = []
+      if (data.video) {
+        for (var i = 0; i < data.video.length; i++) {
+          const url = data.video[i].source.substring(data.video[i].source.lastIndexOf('/') + 9);
+          section.push(  
+            <div className="video-name">
+            <a href={`https://www.youtube.com/embed/${url}`} >{data.video[i].name}</a>
+            </div>
           );
         }
       }
@@ -279,8 +293,7 @@ function Sponsor_booth() {
                   <b>PROMOTIONAL CONTENT</b>
                 </div>
                 <div className="promotional-content">
-                  <div>Our Company Products</div>
-                  <div>Company Vision and Mission</div>
+                    {displayComp_video()}
                 </div>
                 </div>
                 <div className="display-awards col-xl-12">

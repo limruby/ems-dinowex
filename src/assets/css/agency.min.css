@@ -1183,6 +1183,9 @@ h3 {
 .sponsor-tab:hover{
   color:white!important;
 }
+.video-name a{
+  color: white !important;
+}
 /*End of sponsor booth*/
 
 /*Start of competitor booth*/
