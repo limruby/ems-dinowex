@@ -41,7 +41,8 @@ function Sponsor_booth() {
         account_id: localStorage.getItem("user_id"),
         email: localStorage.getItem("email"),
         name: localStorage.getItem("name"),
-        comment: comment
+        comment: comment,
+        comment_date: new Date().getFullYear() + '-' + (new Date().getMonth() + 1) + '-' + new Date().getDate()
       }
       if (comment !== null) {
         axiosInstance.post("/api/forum/create", postData)
@@ -111,11 +112,11 @@ function Sponsor_booth() {
     function displayVideo() {
       var section = []
       if (data.video != null) {
-        const url = data.video[0].source.substring(data.video[0].source.lastIndexOf('/') + 1);
+        const url = data.video[0].source.substring(data.video[0].source.lastIndexOf('/') + 9);
         console.log(url)
         for (var i = 0; i < data.video.length; i++) {
           section.push(  
-            <iframe className="video_iframe" height="400" src={`https://www.youtube.com/embed/${url}`} title="cincai"></iframe>
+            <iframe className="video_iframe" height="400" src={`https://www.youtube.com/embed/${url}`} title={data.video[0].name}></iframe>
           );
         }
       }
@@ -149,12 +150,92 @@ function Sponsor_booth() {
       for(var i = 0; i < forum.length; i++){
       section.push(
         <div>
-        <b className="forum-name"><BsPeopleCircle className="forum-avatar"></BsPeopleCircle> {forum[i].name}</b>
+          <div className="row">
+        <b className="forum-name col-xl-8"><BsPeopleCircle className="forum-avatar"></BsPeopleCircle> {forum[i].name}</b>
+        <p className="col-xl-4">{forum[i].comment_date}</p>
+        </div>
         <p className="forum-comment">{forum[i].comment}</p>
+        
       </div>
          );
      
     }
+      return section;
+    }
+    function displayComp_name() {
+      var section = []
+      if (data.company_name) {
+        section.push(
+          <div>
+            Company Name: {data.company_name}
+          </div>
+        );
+      }
+      return section;
+    }
+    function displayComp_address() {
+      var section = []
+      if (data.address_1&&data.address_2&&data.postcode&&data.city&&data.state&&data.country) {
+        section.push(
+          <div>
+            Company Address: {data.address_1+" "+data.address_2+" "+data.postcode+" "+data.city+", "+data.state+", "+data.country}
+          </div>
+        );
+      }else if(data.address_1&&data.postcode&&data.city&&data.state&&data.country){
+        section.push(
+          <div>
+            Company Address: {data.address_1+" "+data.postcode+" "+data.city+", "+data.state+", "+data.country}
+          </div>
+        );
+      }
+      return section;
+    }
+    function displayComp_PIC() {
+      var section = []
+      if (data.company_pic_name) {
+        section.push(
+          <div>
+            Company PIC: {data.company_pic_name}
+          </div>
+        );
+      }
+      return section;
+    }
+    function displayComp_website() {
+      var section = []
+      if (data.company_website) {
+        section.push(
+          <div>
+            Company Website: {data.company_website}
+          </div>
+        );
+      }
+      return section;
+    }
+    function displayContent() {
+      var section = []
+      if (data.members != null) {
+        for (var i = 0; i < data.members.length; i++) {
+          section.push(
+            <div className="members-name">
+              <p><b>{data.members[i].name}</b></p>
+              <p>{data.members[i].affiliation}</p>
+              <p>{data.members[i].email}</p>
+            </div>
+          );
+        }
+      }
+      return section;
+    }
+    function displayContact() {
+      var section = []
+      if (data.company_contact) {
+        section.push(
+          <div>
+            Tel: {data.company_contact}
+          </div>
+        );
+      }
       return section;
     }
     return (
@@ -186,10 +267,10 @@ function Sponsor_booth() {
                   <b>COMPANY PROFILE</b>
                 </div>
                 <div className="profile">
-                  <div>Company Name: Dinowex</div>
-                  <div>Company Address: Kuala Lumpur</div>
-                  <div>Company PIC: Miss Tan</div>
-                  <div>Company Website: dinowex.com</div>
+                  {displayComp_name()}
+                  {displayComp_address()}
+                  {displayComp_PIC()}
+                  {displayComp_website()}
                 </div>
                 </div>
                 
@@ -207,9 +288,8 @@ function Sponsor_booth() {
                   <b>CONTACT US</b>
                 </div>
                 <div className="contact-us">
-                  <div>Tel: 012-346789</div>
-                  <div>Email: info@dinowex.com.my</div>
-                  <div>Location: Google Map</div>
+                  {displayContact()}
+                  
                 </div>
                 </div>
               </div>

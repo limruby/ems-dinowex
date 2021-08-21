@@ -22,6 +22,10 @@ const forumSchema = new Schema({
         type: String,
         required: true
     },
+    comment_date:{
+        type: String,
+        required: true
+    },
 }, {
     timestamps: true,
 });

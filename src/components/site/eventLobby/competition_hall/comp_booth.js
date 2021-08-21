@@ -39,7 +39,8 @@ function Competition_booth() {
       account_id: localStorage.getItem("user_id"),
       email: localStorage.getItem("email"),
       name: localStorage.getItem("name"),
-      comment: comment
+      comment: comment,
+      comment_date: new Date().getFullYear() + '-' + (new Date().getMonth() + 1) + '-' + new Date().getDate()
     }
     if (comment !== null) {
       axiosInstance.post("/api/forum/create", postData)
@@ -56,7 +57,6 @@ function Competition_booth() {
       for (var i = 0; i < data.abstract.length; i++) {
         section.push(
           <div>{data.abstract[0].title}</div>
-
         );
       }
       return section;
@@ -188,9 +188,12 @@ function Competition_booth() {
     for (var i = 0; i < forum.length; i++) {
       section.push(
         <div>
-          <b className="forum-name"><BsPeopleCircle className="forum-avatar"></BsPeopleCircle> {forum[i].name}</b>
-          <p className="forum-comment">{forum[i].comment}</p>
+          <div className="row">
+        <b className="forum-name col-xl-8"><BsPeopleCircle className="forum-avatar"></BsPeopleCircle> {forum[i].name}</b>
+        <p className="col-xl-4">{forum[i].comment_date}</p>
         </div>
+        <p className="forum-comment">{forum[i].comment}</p>
+      </div>
       );
 
     }
@@ -257,7 +260,7 @@ function Competition_booth() {
           <div className="forum-title">
             <b>FORUM CHAT</b>
           </div>
-          <div className="display-forum">
+          <div className="display-forum col-xl-12">
             {displayForum()}
           </div>
           <div className="display-forum-form">

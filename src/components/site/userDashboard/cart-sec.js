@@ -58,7 +58,6 @@ function Cart({ data, setData, user }) {
                         }
                         axiosInstance.post("/api/competitors/update", status)
                             .then(function (response) {
-
                             }).catch(function (error) {
                                 console.log(error);
                             })

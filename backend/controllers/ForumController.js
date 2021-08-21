@@ -8,13 +8,15 @@ const create = (req, res, next) => {
     const email = req.body.email;
     const name = req.body.name;
     const comment = req.body.comment;
+    const comment_date = req.body.comment_date;
 
     const newForum = new Forum({
         booth_id,
         account_id,
         email,
         name, 
-        comment
+        comment,
+        comment_date
     })
     newForum.save()
   .then(() => res.json(newForum))
