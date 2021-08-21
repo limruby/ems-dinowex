@@ -152,7 +152,7 @@ function Sponsor_booth() {
         <div>
           <div className="row">
         <b className="forum-name col-xl-8"><BsPeopleCircle className="forum-avatar"></BsPeopleCircle> {forum[i].name}</b>
-        <p className="comment-date col-xl-3">{forum[i].comment_date}</p>
+        <p className="col-xl-4">{forum[i].comment_date}</p>
         </div>
         <p className="forum-comment">{forum[i].comment}</p>
         
