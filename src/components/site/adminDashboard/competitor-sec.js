@@ -1,16 +1,35 @@
 import React, { useState, useEffect } from "react";
 import Table from './Table.js';
 import { Link } from 'react-router-dom';
+import { CSVLink } from 'react-csv';
 import axiosInstance from '../../../utils/axiosConfig';
+import { ReportBase } from "istanbul-lib-report";
 
 function Competitor() {
 
   const [data, setData] = useState([]);
-
-
+  const headers = [
+    {label:'Full Name', key: 'name'},
+    {label:'Gender', key: 'gender'},
+    {label:'Phone Number', key: 'phone_no'},
+    {label:'Category', key: 'category'},
+    {label:'Affiliation', key: 'affiliation'},
+    {label:'NRIC/Passport', key: 'nric_passport_no'},
+    {label:'Address_1', key: 'address_1'},
+    {label:'Address_2', key: 'address_2'},
+    {label:'Postcode', key: 'postcode'},
+    {label:'City', key: 'city'},
+    {label:'State', key: 'state'},
+    {label:'Country', key: 'country'},
+    {label:'Payment', key: 'bill_status'},
+  ]
+  const csvReport = {
+    filename: 'Dinowex_Competitor_List.csv',
+    headers: headers,
+    data: data
+  }
+    
   useEffect(() => {
-
-
     axiosInstance.get("/api/competitors/readAll")
       .then(function (response) {
         setData(response.data.data);
@@ -80,8 +99,10 @@ function Competitor() {
   )
 
     return (
-      <div className="App">    
+      <div className="App">  
         <Table columns={columns} data={data} />
+        <CSVLink {...csvReport}>
+      <button className="btn btn-success" >Export to CSV</button></CSVLink>  
       </div>
     );
 
