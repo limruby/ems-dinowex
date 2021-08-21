@@ -39,7 +39,8 @@ function Competition_booth() {
       account_id: localStorage.getItem("user_id"),
       email: localStorage.getItem("email"),
       name: localStorage.getItem("name"),
-      comment: comment
+      comment: comment,
+      comment_date: new Date().getFullYear() + '-' + (new Date().getMonth() + 1) + '-' + new Date().getDate()
     }
     if (comment !== null) {
       axiosInstance.post("/api/forum/create", postData)
@@ -189,6 +190,7 @@ function Competition_booth() {
         <div>
           <b className="forum-name"><BsPeopleCircle className="forum-avatar"></BsPeopleCircle> {forum[i].name}</b>
           <p className="forum-comment">{forum[i].comment}</p>
+          <p>{forum[i].comment_date}</p>
         </div>
       );
 

@@ -41,7 +41,8 @@ function Sponsor_booth() {
         account_id: localStorage.getItem("user_id"),
         email: localStorage.getItem("email"),
         name: localStorage.getItem("name"),
-        comment: comment
+        comment: comment,
+        comment_date: new Date().getFullYear() + '-' + (new Date().getMonth() + 1) + '-' + new Date().getDate()
       }
       if (comment !== null) {
         axiosInstance.post("/api/forum/create", postData)
@@ -149,8 +150,12 @@ function Sponsor_booth() {
       for(var i = 0; i < forum.length; i++){
       section.push(
         <div>
-        <b className="forum-name"><BsPeopleCircle className="forum-avatar"></BsPeopleCircle> {forum[i].name}</b>
+          <div className="row">
+        <b className="forum-name col-xl-8"><BsPeopleCircle className="forum-avatar"></BsPeopleCircle> {forum[i].name}</b>
+        <p className="comment-date col-xl-3">{forum[i].comment_date}</p>
+        </div>
         <p className="forum-comment">{forum[i].comment}</p>
+        
       </div>
          );
      
