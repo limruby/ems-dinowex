@@ -63,7 +63,7 @@ function Sponsor_booth() {
               const imageBuffer = Buffer.from(data.company_logo[0].source.data);
               section.push(
                 <div>
-                <embed src={`${imageBuffer}#toolbar=0&navpanes=0&scrollbar=0`} width="40%" height="500px" />
+                <embed src={`${imageBuffer}#toolbar=0&navpanes=0&scrollbar=0`} width="100%" height="auto" />
                 </div>
               );
             }
@@ -73,7 +73,7 @@ function Sponsor_booth() {
               const imageBuffer = Buffer.from(data.company_logo[0].source.data);
               section.push(
                 <div>
-                <img src={imageBuffer} alt={data.company_logo[0].name} width="500px" height="500px"/>
+                <img src={imageBuffer} alt={data.company_logo[0].name} width="100%" height="auto"/>
                 </div>
               );
             }
@@ -111,7 +111,8 @@ function Sponsor_booth() {
     }
     function displayVideo() {
       var section = []
-      if (data.video != null) {
+      if(data.video){
+      if (data.video.length!=0) {
         const url = data.video[0].source.substring(data.video[0].source.lastIndexOf('/') + 9);
         console.log(url)
         
@@ -120,6 +121,7 @@ function Sponsor_booth() {
           );
         
       }
+    }
       return section;
     }
     function displayComp_video() {

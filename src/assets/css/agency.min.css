@@ -1427,3 +1427,24 @@ h3 {
   text-shadow: none !important;
 }
 /*End of competitor booth*/
+
+/*Start of competitor hall*/
+.silver-sponsor{
+  display: flex;
+  justify-content: center;
+}
+.bronze-sponsor{
+  display: flex;
+  justify-content: center;
+}
+.sponsor{
+  background-color: white;
+  font-size: 30px !important;
+  font-weight: bold;
+  height: 70px;
+  color: #f7b13e;
+  text-shadow: none !important;
+  padding-top: 5% !important;
+  padding-bottom: 5% !important;
+}
+/*End of competitor hall*/
