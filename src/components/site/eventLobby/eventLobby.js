@@ -6,6 +6,7 @@ import dinowex from "../../../assets/img/Dinowex.png";
 import iiidentex from "../../../assets/img/IIIDentEx2021 Logo-white-01.webp";
 import sponsor_hall from "../../../assets/img/sponsor_hall.jpg";
 import competition_hall from "../../../assets/img/competition_hall.jpg";
+import eventlobby from "../../../assets/img/event-lobby.png";
 import { Image } from 'react-bootstrap';
 
 function EventLobby() {
@@ -26,46 +27,35 @@ function EventLobby() {
                 <Image src={dinowex} height="70%" width="100%" alt="" rounded responsive />
               </div>
               <div className="col-lg-3 justify-content-center">
-                <Image src={iiidentex} height="70%" width="100%" alt="" rounded responsive />
+                <Image className="row" src={iiidentex} height="70%" width="100%" alt="" rounded responsive/>
               </div>
-            </div>
-          </div>
-          <div className="row">
-            <div className="row col-lg-4 justify-content-center">
-              <h3>COMPETITORS HALL</h3>
-              <p />
-              <div onClick={() => history.push("/competition_hall")} className="eventLobby-container col-lg-6 zoom">
-                <Image src={sponsor_hall} height="100%" width="100%" alt="" rounded responsive />
-                <p/>
-                <h5>DINOWEX 2021</h5>
-              </div>
-              <div onClick={() => history.push("/competition_hall")} className="eventLobby-container col-lg-6 zoom">
-                <Image src={competition_hall} height="100%" width="100%" alt="" rounded responsive />
-                <p />
-                <h5>IIIDENTEX 2021</h5>
-              </div>
-            </div>
-            <div className="row col-lg-4 justify-content-center">
-              <h3>SPONSOR HALL</h3>
-              <p/>
-              <div onClick={() => history.push("/sponsor_hall")} className="eventLobby-container col-lg-6 zoom">
-                <Image src={competition_hall} height="100%" width="100%" alt="" rounded responsive />
-                <p/>
-              </div>
-            </div>
-            <div className="row col-lg-4 justify-content-center">
-              <div className="eventLobby-container col-lg-12 zoom">
-                <a href="https://www.google.com">
-                  <Image src={sponsor_hall} height="100%" width="100%" alt="" rounded responsive />
-                </a>
-                <p />
-                <h5>YOUTUBE VIDEO TO LIVE EVENT ON 5 & 6 OCT 2021</h5>
-              </div>
-              <p/>
             </div>
           </div>
        </div>
+       
       </header>
+
+      <div>
+        <div className="img-container">
+            <div onClick={() => history.push("/sponsor_hall")} className="sponsors-hall">
+                SPONSORS HALL<span className="sponsors-arrow"></span>
+            </div>
+
+
+            <div onClick={() => history.push("/speakers")} className="speakers">
+            <span className="speakers-arrow"></span>SPEAKERS
+            </div>
+
+            <div onClick={() => history.push("/competition_hall")} className="competitors-hall">
+                COMPETITORS HALL<span className="competitors-arrow"></span>
+            </div>
+
+            <a href="https://www.google.com" className="youtube-event">
+            <span className="youtube-event-arrow"></span>YOUTUBE - EVENT
+            </a>
+            <Image src={eventlobby} height="100%" width="100%" alt="" responsive />
+        </div>
+      </div>
     </div>
   );
 }
