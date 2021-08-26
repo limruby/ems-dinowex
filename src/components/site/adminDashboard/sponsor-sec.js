@@ -1,12 +1,33 @@
 import React, { useState, useEffect } from "react";
 import Table from './Table.js';
 import {Link} from 'react-router-dom';
+import { CSVLink } from 'react-csv';
 import axiosInstance from '../../../utils/axiosConfig';
 
 function Sponsor(){
 
   const [data, setData]=useState([]);
-  
+  const headers = [
+    {label:'Company Name', key: 'Company Name'},
+    {label:'Company PIC Name', key: 'company_pic_name'},
+    {label:'Company PIC IC', key: 'company_pic_ic'},
+    {label:'Category', key: 'category'},
+    {label:'Company Name', key: 'company_contact'},
+    {label:'Company Website', key: 'company_website'},
+    {label:'Address_1', key: 'address_1'},
+    {label:'Address_2', key: 'address_2'},
+    {label:'Postcode', key: 'postcode'},
+    {label:'City', key: 'city'},
+    {label:'State', key: 'state'},
+    {label:'Country', key: 'country'},
+    {label:'Payment', key: 'bill_status'},
+    {label:'Sponsor Amount', key: 'amount'},
+  ]
+  const csvReport = {
+    filename: 'Dinowex_Sponsor_List.csv',
+    headers: headers,
+    data: data
+  }
   
   useEffect(() => {
     
@@ -85,9 +106,11 @@ function Sponsor(){
       
 
   return (
-    <div className="App">    
+    <div className="App">  
       <Table columns={columns} data={data} />
-    </div>
+      <CSVLink {...csvReport}>
+      <button className="btn btn-success" >Export to CSV</button></CSVLink>  
+      </div>
   );
 
     }

@@ -63,7 +63,7 @@ function Sponsor_booth() {
               const imageBuffer = Buffer.from(data.company_logo[0].source.data);
               section.push(
                 <div>
-                <embed src={`${imageBuffer}#toolbar=0&navpanes=0&scrollbar=0`} width="40%" height="500px" />
+                <embed src={`${imageBuffer}#toolbar=0&navpanes=0&scrollbar=0`} width="100%" height="auto" />
                 </div>
               );
             }
@@ -73,7 +73,7 @@ function Sponsor_booth() {
               const imageBuffer = Buffer.from(data.company_logo[0].source.data);
               section.push(
                 <div>
-                <img src={imageBuffer} alt={data.company_logo[0].name} width="500px" height="500px"/>
+                <img src={imageBuffer} alt={data.company_logo[0].name} width="100%" height="auto"/>
                 </div>
               );
             }
@@ -111,12 +111,28 @@ function Sponsor_booth() {
     }
     function displayVideo() {
       var section = []
-      if (data.video != null) {
+      if(data.video){
+      if (data.video.length!=0) {
         const url = data.video[0].source.substring(data.video[0].source.lastIndexOf('/') + 9);
         console.log(url)
-        for (var i = 0; i < data.video.length; i++) {
+        
           section.push(  
             <iframe className="video_iframe" height="400" src={`https://www.youtube.com/embed/${url}`} title={data.video[0].name}></iframe>
+          );
+        
+      }
+    }
+      return section;
+    }
+    function displayComp_video() {
+      var section = []
+      if (data.video) {
+        for (var i = 0; i < data.video.length; i++) {
+          const url = data.video[i].source.substring(data.video[i].source.lastIndexOf('/') + 9);
+          section.push(  
+            <div className="video-name">
+            <a href={`https://www.youtube.com/embed/${url}`} >{data.video[i].name}</a>
+            </div>
           );
         }
       }
@@ -279,8 +295,7 @@ function Sponsor_booth() {
                   <b>PROMOTIONAL CONTENT</b>
                 </div>
                 <div className="promotional-content">
-                  <div>Our Company Products</div>
-                  <div>Company Vision and Mission</div>
+                    {displayComp_video()}
                 </div>
                 </div>
                 <div className="display-awards col-xl-12">

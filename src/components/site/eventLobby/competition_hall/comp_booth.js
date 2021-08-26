@@ -101,7 +101,8 @@ function Competition_booth() {
   }
   function displayVideo() {
     var section = []
-    if (data.video != null) {
+    if (data.video) {
+      if (data.video.length!=0) {
       const url = data.video[0].source.substring(data.video[0].source.lastIndexOf('/') + 9);
       // console.log(url)
       for (var i = 0; i < data.video.length; i++) {
@@ -109,6 +110,7 @@ function Competition_booth() {
           <iframe className="video_iframe" height="400" src={`https://www.youtube.com/embed/${url}`} title={data.video[0].name}></iframe>
         );
       }
+    }
     }
     return section;
   }
