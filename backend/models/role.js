@@ -17,7 +17,8 @@ const Role = mongoose.model('Role', roleSchema);
 Role.insertMany([
     { name: 'Competitor'},
     { name: 'Sponsor'},
-    { name: 'Visitor'}
+    { name: 'Visitor'},
+    { name: 'Judge'},
     ],
     { ordered: false}
     
