@@ -4,6 +4,22 @@ import axiosInstance from '../../../../utils/axiosConfig.js';
 
 function CreateAccount() {
     localStorage.setItem("activeKeys", "Account")
+
+    var judgeData = {
+        account_id: '',
+        title: 'default',
+        name: 'default',
+        affiliation: 'default',
+        phone_no: '0123456789',
+        email:'',
+        address_1: 'default',
+        address_2: 'default',
+        postcode: 12345,
+        city: 'default',
+        state: 'default',
+        country: 'default',
+    }
+    
     var compData = {
         account_id: '',
         category: 'default',
@@ -163,6 +179,15 @@ function CreateAccount() {
                                 console.log(error)
                             })
                     }
+                    else if (data.role === "Judge") {
+                        judgeData["account_id"] = response.data._id
+                        axiosInstance.post("/api/judge/create", judgeData)
+                            .then(function (response) {
+                                window.location.href = '/admin_dashboard';
+                            }).catch(function (error) {
+                                console.log(error)
+                            })
+                    }
                 }).catch(function (error) {
                     console.log(error);
                 })
@@ -197,8 +222,9 @@ function CreateAccount() {
                         <option value="">Please select</option>
                         <option value="Competitor">Competitor</option>
                         <option value="Sponsor">Sponsor</option>
+                        <option value="Judge">Judge</option>
                         {/* <option value="Speaker">Speaker</option>
-                        <option value="Judge">Judge</option> */}
+                         */}
                     </select>
                 </div>
                 {displayCategory()}

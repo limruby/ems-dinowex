@@ -31,6 +31,9 @@ app.use('/api/competitors', competitorsRouter)
 const sponsorsRouter = require('./routes/sponsors');
 app.use('/api/sponsors', sponsorsRouter)
 
+const judgeRouter = require('./routes/judge');
+app.use('/api/judge', judgeRouter)
+
 const cartRouter = require('./routes/cart');
 app.use('/api/cart', cartRouter)
 
