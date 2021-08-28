@@ -33,12 +33,26 @@ function Competition_booth() {
     setComment(e.target.value)
   };
 
-  const handleForm = (e) => {
+  const handleForm = (e) => {    
+    var defaultName;
+
+    if(!localStorage.getItem("user_id")){
+      if(localStorage.getItem("temp_name")){
+        defaultName = localStorage.getItem("temp_name");        
+      }
+      else{
+        defaultName = "Visitor"+ (Math.floor(Math.random()*90000) + 10000);
+        localStorage.setItem("temp_name", defaultName);
+      }
+    }
+   
+    console.log(string);
     var postData = {
       booth_id: string,
       account_id: localStorage.getItem("user_id"),
-      email: localStorage.getItem("email"),
-      name: localStorage.getItem("name"),
+      email: localStorage.getItem("email")||"n/a",
+      name: localStorage.getItem("name")||defaultName,
+      role: localStorage.getItem("role")||"n/a",
       comment: comment,
       comment_date: new Date().getFullYear() + '-' + (new Date().getMonth() + 1) + '-' + new Date().getDate()
     }
@@ -187,17 +201,16 @@ function Competition_booth() {
   }
   function displayForum() {
     var section = []
-    for (var i = 0; i < forum.length; i++) {
+    for (var i = 0; i < forum.length; i++) {      
       section.push(
-        <div>
+        <div style={{color: `${JSON.stringify(forum[i].booth_id)==JSON.stringify(forum[i].account_id) ? 'red' : 'blue'}`}}>
           <div className="row">
-        <b className="forum-name col-xl-8"><BsPeopleCircle className="forum-avatar"></BsPeopleCircle> {forum[i].name}</b>
-        <p className="col-xl-4">{forum[i].comment_date}</p>
+        <b className="forum-name col-xl-8"><BsPeopleCircle className="forum-avatar"></BsPeopleCircle> {forum[i].name} ({forum[i].role}) </b>
+        <p className="col-xl-4">{forum[i].comment_date}</p>        
         </div>
         <p className="forum-comment">{forum[i].comment}</p>
       </div>
       );
-
     }
     return section;
   }

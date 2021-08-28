@@ -7,14 +7,16 @@ const forumSchema = new Schema({
         required: true 
     },
     account_id: {
-        type: [{ type: Schema.Types.ObjectId, ref: 'Account' }],
-        required: true
+        type: [{ type: Schema.Types.ObjectId, ref: 'Account' }],        
     },
     email: {
+        type: String,        
+    },
+    name:{
         type: String,
         required: true
     },
-    name:{
+    role:{
         type: String,
         required: true
     },

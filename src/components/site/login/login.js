@@ -22,8 +22,8 @@ function Login()
             localStorage.clear();
             if(res.data.auth===true){
                 localStorage.setItem('email', res.data.result.email);
-                if(res.data.result.role==="Admin"){
-                    localStorage.setItem('role', res.data.result.role);  
+                localStorage.setItem('role', res.data.result.role); 
+                if(res.data.result.role==="Admin"){                     
                     localStorage.setItem('token', res.data.token);                   
                     window.location.href = '/admin_dashboard';
                 }

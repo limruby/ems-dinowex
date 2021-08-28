@@ -7,6 +7,7 @@ const create = (req, res, next) => {
     const account_id = JSON.parse(req.body.account_id);
     const email = req.body.email;
     const name = req.body.name;
+    const role = req.body.role;
     const comment = req.body.comment;
     const comment_date = req.body.comment_date;
 
@@ -15,6 +16,7 @@ const create = (req, res, next) => {
         account_id,
         email,
         name, 
+        role, 
         comment,
         comment_date
     })
