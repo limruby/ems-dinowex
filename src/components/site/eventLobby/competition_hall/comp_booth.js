@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./../../../../assets/css/agency.min.css";
 import "./../../../../assets/css/bootstrap.min.css";
 import axiosInstance from '../../../../utils/axiosConfig';
@@ -22,7 +22,6 @@ function Competition_booth() {
       })
     axiosInstance.get("/api/forum/read", { params: { booth_id: string } })
       .then(function (response) {
-        console.log(response.data.data)
         setForum(response.data.data);
       }).catch(function (error) {
         console.log(error);
@@ -33,26 +32,26 @@ function Competition_booth() {
     setComment(e.target.value)
   };
 
-  const handleForm = (e) => {    
+  const handleForm = (e) => {
     var defaultName;
 
-    if(!localStorage.getItem("user_id")){
-      if(localStorage.getItem("temp_name")){
-        defaultName = localStorage.getItem("temp_name");        
+    if (!localStorage.getItem("user_id")) {
+      if (localStorage.getItem("temp_name")) {
+        defaultName = localStorage.getItem("temp_name");
       }
-      else{
-        defaultName = "Visitor"+ (Math.floor(Math.random()*90000) + 10000);
+      else {
+        defaultName = "Visitor" + (Math.floor(Math.random() * 90000) + 10000);
         localStorage.setItem("temp_name", defaultName);
       }
     }
-   
+
     console.log(string);
     var postData = {
       booth_id: string,
       account_id: localStorage.getItem("user_id"),
-      email: localStorage.getItem("email")||"n/a",
-      name: localStorage.getItem("name")||defaultName,
-      role: localStorage.getItem("role")||"n/a",
+      email: localStorage.getItem("email") || "n/a",
+      name: localStorage.getItem("name") || defaultName,
+      role: localStorage.getItem("role") || "n/a",
       comment: comment,
       comment_date: new Date().getFullYear() + '-' + (new Date().getMonth() + 1) + '-' + new Date().getDate()
     }
@@ -82,7 +81,7 @@ function Competition_booth() {
     if (data.abstract != null) {
       for (var i = 0; i < data.abstract.length; i++) {
         section.push(
-          <div>
+          <div style={{marginBottom:"2%"}}>
             {data.abstract[0].content}
           </div>
         );
@@ -98,15 +97,15 @@ function Competition_booth() {
         for (var i = 0; i < data.poster.length; i++) {
           const imageBuffer = Buffer.from(data.poster[0].source.data);
           section.push(
-              <embed className="display-poster" src={`${imageBuffer}#toolbar=0&navpanes=0&scrollbar=0`} width="100%" height="auto" />
+            <embed className="display-poster" src={`${imageBuffer}#toolbar=0&navpanes=0&scrollbar=0`} width="100%" height="auto" />
           );
         }
       }
       else {
         for (var i = 0; i < data.poster.length; i++) {
           const imageBuffer = Buffer.from(data.poster[0].source.data);
-          section.push(            
-              <img src={imageBuffer} alt={data.poster[0].name} />
+          section.push(
+            <img src={imageBuffer} alt={data.poster[0].name} />
           );
         }
       }
@@ -116,15 +115,15 @@ function Competition_booth() {
   function displayVideo() {
     var section = []
     if (data.video) {
-      if (data.video.length!=0) {
-      const url = data.video[0].source.substring(data.video[0].source.lastIndexOf('/') + 9);
-      // console.log(url)
-      for (var i = 0; i < data.video.length; i++) {
-        section.push(
-          <iframe className="video_iframe" height="400" src={`https://www.youtube.com/embed/${url}`} title={data.video[0].name}></iframe>
-        );
+      if (data.video.length !== 0) {
+        const url = data.video[0].source.substring(data.video[0].source.lastIndexOf('/') + 9);
+        // console.log(url)
+        for (var i = 0; i < data.video.length; i++) {
+          section.push(
+            <iframe className="video_iframe" height="400" src={`https://www.youtube.com/embed/${url}`} title={data.video[0].name}></iframe>
+          );
+        }
       }
-    }
     }
     return section;
   }
@@ -144,42 +143,50 @@ function Competition_booth() {
     return section;
   }
   function displayAwards() {
-    var section =[];
-    if(data.achievements){
-    
-        for (var i=0; i<data.achievements.length; i++){
-        const imageBuffer = Buffer.from(data.achievements[i].source.data); 
-            section.push(
-              <div className="awards-name">
-              <a download={data.achievements[i].name} href={imageBuffer} title={data.achievements[i].name}>{data.achievements[i].name}</a>
-              </div>
-            );
-        }
-        }else{
-        console.log("no data");       
-        }
-        return section; 
+    var section = [];
+    if (data.achievements) {
+
+      for (var i = 0; i < data.achievements.length; i++) {
+        const imageBuffer = Buffer.from(data.achievements[i].source.data);
+        section.push(
+          <div className="awards-name">
+            <a download={data.achievements[i].name} href={imageBuffer} title={data.achievements[i].name}>{data.achievements[i].name}</a>
+          </div>
+        );
       }
+    } else {
+      section.push(
+        <div className="awards-name">
+         <p>N/A</p>
+        </div>
+      );
+    }
+    return section;
+  }
   function displayGrants() {
     var section = [];
-    if(data.grants){   
-      for (var i=0; i<data.grants.length; i++){
-      const imageBuffer = Buffer.from(data.grants[i].source.data); 
-          section.push(
-            <div className="awards-name">
+    if (data.grants) {
+      for (var i = 0; i < data.grants.length; i++) {
+        const imageBuffer = Buffer.from(data.grants[i].source.data);
+        section.push(
+          <div className="awards-name">
             <a download={data.grants[i].name} href={imageBuffer} title={data.grants[i].name}>{data.grants[i].name}</a>
-            </div>
-          );
+          </div>
+        );
       }
-      }else{
-      console.log("no data");       
-      }
-      return section; 
+    } else {
+      section.push(
+        <div className="awards-name">
+         <p>N/A</p>
+        </div>
+      );
     }
+    return section;
+  }
   function displayForumForm() {
     var section = []
     section.push(
-      <form onSubmit={handleForm} style={{padding: "2%"}}>
+      <form onSubmit={handleForm} style={{ padding: "2%" }}>
         <br></br>
         <textarea
           className="form-control"
@@ -201,15 +208,15 @@ function Competition_booth() {
   }
   function displayForum() {
     var section = []
-    for (var i = 0; i < forum.length; i++) {      
+    for (var i = 0; i < forum.length; i++) {
       section.push(
-        <div style={{color: `${JSON.stringify(forum[i].booth_id)==JSON.stringify(forum[i].account_id) ? 'red' : 'blue'}`}}>
+        <div style={{ color: `${JSON.stringify(forum[i].booth_id) === JSON.stringify(forum[i].account_id) ? '#7e7ebc' : '#f7b13e'}` }}>
           <div className="row">
-        <b className="forum-name col-xl-8"><BsPeopleCircle className="forum-avatar"></BsPeopleCircle> {forum[i].name} ({forum[i].role}) </b>
-        <p className="col-xl-4">{forum[i].comment_date}</p>        
+            <b className="forum-name col-xl-8"><BsPeopleCircle className="forum-avatar"></BsPeopleCircle> {forum[i].name} ({forum[i].role}) </b>
+            <p className="col-xl-4">{forum[i].comment_date}</p>
+          </div>
+          <p className="forum-comment">{forum[i].comment}</p>
         </div>
-        <p className="forum-comment">{forum[i].comment}</p>
-      </div>
       );
     }
     return section;
@@ -228,15 +235,21 @@ function Competition_booth() {
           </div>
         </div>
       </div>
-      <div className="row" style={{padding: "0px 10px"}}>
-        <div className="col-xl-6" style={{padding: "0%" , backgroundColor:"#7e7ebc"}}>
+      <div className="row" style={{ padding: "0px 10px" }}>
+        <div className="col-xl-6" style={{ padding: "0%", backgroundColor: "#7e7ebc" }}>
           <div className="display-content">
             <div className="title">
               <b>ABSTRACT</b>
             </div>
             <div className="abstract-content">
               {displayContent()}
-             
+              <Link className="btn btn-primary"
+              to={{
+                pathname: '/report',
+                state: {data}
+              }}>
+              Read Full Report
+            </Link>
             </div>
           </div>
           <div className="display-video">
@@ -247,18 +260,18 @@ function Competition_booth() {
               <b>RESEARCH MEMBERS</b>
             </div>
             <div className="members-name">
-            <p><b>{data.name}</b></p>
-            <p>{data.affiliation}</p>
-            <p>{localStorage.getItem("email")}</p>
+              <p><b>{data.name}</b></p>
+              <p>{data.affiliation}</p>
+              <p>{localStorage.getItem("email")}</p>
             </div>
-              {displayMembers()}
-            
+            {displayMembers()}
+
           </div>
           <div className="display-awards">
             <div className="title">
               <b>AWARDS</b>
-            </div>           
-              {displayAwards()}
+            </div>
+            {displayAwards()}
           </div>
           <div className="display-grants">
             <div className="title">
@@ -268,7 +281,7 @@ function Competition_booth() {
           </div>
         </div>
 
-        <div className="col-xl-6" style={{padding: "0%", backgroundColor:"#43ba7a"}}>
+        <div className="col-xl-6" style={{ padding: "0%", backgroundColor: "#43ba7a" }}>
           <div className="display-poster">
             {displayPoster()}
           </div>
@@ -281,8 +294,8 @@ function Competition_booth() {
           <div className="display-forum-form">
             {displayForumForm()}
           </div>
-          </div>
         </div>
+      </div>
       <br></br>
     </header>
   );
