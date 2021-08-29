@@ -44,8 +44,7 @@ function Competition_booth() {
         localStorage.setItem("temp_name", defaultName);
       }
     }
-
-    console.log(string);
+   
     var postData = {
       booth_id: string,
       account_id: localStorage.getItem("user_id"),
@@ -58,7 +57,7 @@ function Competition_booth() {
     if (comment !== null) {
       axiosInstance.post("/api/forum/create", postData)
         .then(function (response) {
-          //  window.location.href = '/competition_booth/:id';
+           window.location.href = '/competition_booth/:id';
         }).catch(function (error) {
           console.log(error);
         })
@@ -208,16 +207,41 @@ function Competition_booth() {
   }
   function displayForum() {
     var section = []
-    for (var i = 0; i < forum.length; i++) {
-      section.push(
-        <div style={{ color: `${JSON.stringify(forum[i].booth_id) === JSON.stringify(forum[i].account_id) ? '#7e7ebc' : '#f7b13e'}` }}>
-          <div className="row">
-            <b className="forum-name col-xl-8"><BsPeopleCircle className="forum-avatar"></BsPeopleCircle> {forum[i].name} ({forum[i].role}) </b>
-            <p className="col-xl-4">{forum[i].comment_date}</p>
-          </div>
-          <p className="forum-comment">{forum[i].comment}</p>
-        </div>
-      );
+    for (var i = 0; i < forum.length; i++) {  
+
+      if(forum[i].role==="n/a"){
+        section.push(
+          <div>
+            <div className="row">
+              <b className="forum-name col-xl-8"><BsPeopleCircle className="forum-avatar"></BsPeopleCircle> {forum[i].name}</b>
+              <p className="col-xl-4">{forum[i].comment_date}</p>        
+            </div>
+            <p className="forum-comment">{forum[i].comment}</p>
+          </div>     
+        );
+      }
+      else if(forum[i].role==="judge"){
+        section.push(
+          <div style={{color: `${JSON.stringify(forum[i].booth_id)===JSON.stringify(forum[i].account_id) ? '#7e7ebc' : ''}`}}>
+            <div className="row">
+              <b className="forum-name col-xl-8"><BsPeopleCircle className="forum-avatar"></BsPeopleCircle> {forum[i].name} ({forum[i].role}) </b>
+              <p className="col-xl-4">{forum[i].comment_date}</p>        
+            </div>
+            <p className="forum-comment">{forum[i].comment}</p>
+          </div>     
+        );
+      }
+      else{
+        section.push(
+          <div style={{color: `${JSON.stringify(forum[i].booth_id)===JSON.stringify(forum[i].account_id) ? '#f7b13e' : ''}`}}>
+            <div className="row">
+              <b className="forum-name col-xl-8"><BsPeopleCircle className="forum-avatar"></BsPeopleCircle> {forum[i].name} ({forum[i].role}) </b>
+              <p className="col-xl-4">{forum[i].comment_date}</p>        
+            </div>
+            <p className="forum-comment">{forum[i].comment}</p>
+          </div>     
+        );
+      }
     }
     return section;
   }
