@@ -17,7 +17,7 @@ function CreateAccount() {
         postcode: 12345,
         city: 'default',
         state: 'default',
-        country: 'default',
+        country: 'Malaysia',
     }
     
     var compData = {

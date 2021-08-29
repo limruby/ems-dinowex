@@ -3,7 +3,10 @@ import axiosInstance from '../../../../src/utils/axiosConfig.js';
 import OrderHistory from './order-history-sec.js'
 
 function Cart({ data, setData, user }) {
-    localStorage.setItem("activeKeys", "Cart")
+    if(user.role=="Competitor"){
+        localStorage.setItem("activeKeys", "Cart")
+    }
+    
     const [medalQuantity, setMedal] = useState(0)
     const [bookQuantity, setBook] = useState(0)
     const [medalSubtotal, setMedalSubtotal] = useState(0)

@@ -16,6 +16,23 @@ const Profiles = ({user,role}) =>  {
     }
     return section;
   }
+
+  function displayJudge(){
+    var section =[];
+    if(user.poster){
+
+      for (var i=0; i<user.poster.length; i++){
+        const imageBuffer = Buffer.from(user.poster[0].source.data); 
+        section.push(
+          <li>
+          <img src={imageBuffer} alt={user.poster[0].name}/>
+
+          </li>
+        );
+      }
+    }
+    return section;
+  }
    
   if(role === 'Competitor'){
     return ( 
@@ -74,6 +91,30 @@ const Profiles = ({user,role}) =>  {
             <p> Company Website URL: <a href={user.company_website}>{user.company_website}</a></p>
           </li>
         </ul>
+      </div>
+    );
+  }
+  else if(role === 'Judge'){
+    return (       
+      <div>
+        <ul>
+          <li>
+            <p>Name: {user.title} {user.name} </p>
+          </li>
+          <li>
+            <p> Affiliation: {user.affiliation}</p>
+          </li>
+          <li>
+            <p>Contact number: {user.phone_no}</p>
+          </li>
+          <li>
+            <p> Company Address: {user.address_1}, {user.address_2}, {user.postcode}, {user.city}, {user.state}, {user.country}  </p>         
+          </li>
+          <li>
+            <p> Photo: </p>
+              {displayJudge()}
+          </li>
+          </ul>
       </div>
     );
   }
