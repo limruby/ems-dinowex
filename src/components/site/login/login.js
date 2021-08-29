@@ -101,6 +101,15 @@ function Login()
                     }).catch(function(error) {
                         console.log(error);
                     });
+                }else if(res.data.result.role==="Judge"){
+                    var judge_id = JSON.stringify(res.data.result._id) 
+                    axiosInstance.get("/api/judge/read", {params:{account_id:judge_id}})
+                    .then(function(response) {
+                        localStorage.setItem('name', response.data.data.name);
+                        localStorage.setItem('token', res.data.token); 
+                        localStorage.setItem('user_id', JSON.stringify(res.data.result._id));                              
+                        window.location.href = '/user_dashboard';
+                    })
                 }                           
             }
             else{

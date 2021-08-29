@@ -7,6 +7,7 @@ import EditAccount from './editAccount.js';
 import EditPassword from './editPassword.js';
 import EditProfile_C from './editProfile-Competitor.js';
 import EditProfile_S from './editProfile-Sponsor.js';
+import EditProfile_J from './editProfile-Judge.js';
 import EditResearchTeam from './editResearchTeam.js';
 import EditPromoContent from './editPromoContent.js';
 import EditCompetitionMaterial from './editCompetitionMaterial.js';
@@ -30,6 +31,12 @@ useEffect(() => {
 		console.log(error);
 	});
 	axiosInstance.get("/api/sponsors/read", {params:{account_id:account_id}})
+	.then(function(response) {
+		setUser(response.data.data);
+	}).catch(function(error) {
+		console.log(error);
+	});
+	axiosInstance.get("/api/judge/read", {params:{account_id:account_id}})
 	.then(function(response) {
 		setUser(response.data.data);
 	}).catch(function(error) {
@@ -87,6 +94,21 @@ const lastPath = thePath.substring(thePath.lastIndexOf('/') + 1);
 					</section>
 				)
 			break;
+
+			default:
+			
+		}
+	}
+	else if (account.role === 'Judge'){
+		switch(lastPath){
+			case 'edit_profile':
+				return( 
+					<div className="form-main-container">
+						<EditProfile_J data={user} setData={setUser}/>
+					</div>
+				)
+			break;
+
 
 			default:
 			
