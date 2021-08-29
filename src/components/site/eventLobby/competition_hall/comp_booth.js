@@ -13,6 +13,7 @@ function Competition_booth() {
   const thePath = location.pathname;
   const user_id = thePath.substring(thePath.lastIndexOf('/') + 1);
   const string = '"' + user_id + '"'
+  document.addEventListener('contextmenu', event => event.preventDefault());
   useEffect(() => {
     axiosInstance.get("/api/competitors/read", { params: { account_id: string } })
       .then(function (response) {
