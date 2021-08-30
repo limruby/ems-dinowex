@@ -66,7 +66,14 @@ const handleForm=(e)=>{
                         <select className="form-control" id="title" required
                             onChange={inputChange('title')} value={data.title} >
                             <option value="">Please select</option>
-                            <option value="Tun">Tun</option>
+                            <option value="Mr">Mr</option>
+                            <option value="Mdm">Mdm</option>
+                            <option value="Ms">Ms</option>
+                            <option value="Dr">Dr</option>
+                            <option value="Assoc Prof">Assoc Prof</option>
+                            <option value="Prof">Prof</option>
+                            <option value="Datin">Datin</option>
+                            <option value="Datuk">Datuk</option>
                         </select>
                     </div>
                 <div className="form-group">
