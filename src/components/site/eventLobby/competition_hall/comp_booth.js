@@ -13,6 +13,7 @@ function Competition_booth() {
   const thePath = location.pathname;
   const user_id = thePath.substring(thePath.lastIndexOf('/') + 1);
   const string = '"' + user_id + '"'
+
   document.addEventListener('contextmenu', event => event.preventDefault());
   useEffect(() => {
     axiosInstance.get("/api/competitors/read", { params: { account_id: string } })
@@ -45,7 +46,7 @@ function Competition_booth() {
         localStorage.setItem("temp_name", defaultName);
       }
     }
-   
+
     var postData = {
       booth_id: string,
       account_id: localStorage.getItem("user_id"),
@@ -58,7 +59,9 @@ function Competition_booth() {
     if (comment !== null) {
       axiosInstance.post("/api/forum/create", postData)
         .then(function (response) {
-           window.location.href = '/competition_booth/:id';
+          //  window.location.href = '/competition_booth/:id';
+          location.reload(true);
+
         }).catch(function (error) {
           console.log(error);
         })
@@ -81,7 +84,7 @@ function Competition_booth() {
     if (data.abstract != null) {
       for (var i = 0; i < data.abstract.length; i++) {
         section.push(
-          <div style={{marginBottom:"2%"}}>
+          <div style={{ marginBottom: "2%" }}>
             {data.abstract[0].content}
           </div>
         );
@@ -117,7 +120,6 @@ function Competition_booth() {
     if (data.video) {
       if (data.video.length !== 0) {
         const url = data.video[0].source.substring(data.video[0].source.lastIndexOf('/') + 9);
-        // console.log(url)
         for (var i = 0; i < data.video.length; i++) {
           section.push(
             <iframe className="video_iframe" height="400" src={`https://www.youtube.com/embed/${url}`} title={data.video[0].name}></iframe>
@@ -157,7 +159,7 @@ function Competition_booth() {
     } else {
       section.push(
         <div className="awards-name">
-         <p>N/A</p>
+          <p>N/A</p>
         </div>
       );
     }
@@ -177,7 +179,7 @@ function Competition_booth() {
     } else {
       section.push(
         <div className="awards-name">
-         <p>N/A</p>
+          <p>N/A</p>
         </div>
       );
     }
@@ -208,39 +210,72 @@ function Competition_booth() {
   }
   function displayForum() {
     var section = []
-    for (var i = 0; i < forum.length; i++) {  
+    for (var i = 0; i < forum.length; i++) {
 
-      if(forum[i].role==="n/a"){
+      if (forum[i].role === "n/a") {
         section.push(
           <div>
             <div className="row">
               <b className="forum-name col-xl-8"><BsPeopleCircle className="forum-avatar"></BsPeopleCircle> {forum[i].name}</b>
-              <p className="col-xl-4">{forum[i].comment_date}</p>        
+              <p className="col-xl-4">{forum[i].comment_date}</p>
             </div>
             <p className="forum-comment">{forum[i].comment}</p>
-          </div>     
+          </div>
         );
       }
-      else if(forum[i].role==="judge"){
+      else if (forum[i].role === "Judge") {
         section.push(
-          <div style={{color: `${JSON.stringify(forum[i].booth_id)===JSON.stringify(forum[i].account_id) ? '#7e7ebc' : ''}`}}>
+          <div style={{ color: 'blue' }}>
             <div className="row">
               <b className="forum-name col-xl-8"><BsPeopleCircle className="forum-avatar"></BsPeopleCircle> {forum[i].name} ({forum[i].role}) </b>
-              <p className="col-xl-4">{forum[i].comment_date}</p>        
+              <p className="col-xl-4">{forum[i].comment_date}</p>
             </div>
             <p className="forum-comment">{forum[i].comment}</p>
-          </div>     
+          </div>
         );
       }
-      else{
+      else if (forum[i].role === "Sponsor") {
         section.push(
-          <div style={{color: `${JSON.stringify(forum[i].booth_id)===JSON.stringify(forum[i].account_id) ? '#f7b13e' : ''}`}}>
+          <div style={{ color: '#7e7ebc' }}>
             <div className="row">
               <b className="forum-name col-xl-8"><BsPeopleCircle className="forum-avatar"></BsPeopleCircle> {forum[i].name} ({forum[i].role}) </b>
-              <p className="col-xl-4">{forum[i].comment_date}</p>        
+              <p className="col-xl-4">{forum[i].comment_date}</p>
             </div>
             <p className="forum-comment">{forum[i].comment}</p>
-          </div>     
+          </div>
+        );
+      }
+      else if (forum[i].role === "Admin") {
+        section.push(
+          <div style={{ color: 'black' }}>
+            <div className="row">
+              <b className="forum-name col-xl-8"><BsPeopleCircle className="forum-avatar"></BsPeopleCircle> {forum[i].role}</b>
+              <p className="col-xl-4">{forum[i].comment_date}</p>
+            </div>
+            <p className="forum-comment">{forum[i].comment}</p>
+          </div>
+        );
+      }
+      else if (JSON.stringify(forum[i].booth_id) === JSON.stringify(forum[i].account_id)) {
+        section.push(
+          <div style={{ color: 'red' }}>
+            <div className="row">
+              <b className="forum-name col-xl-8"><BsPeopleCircle className="forum-avatar"></BsPeopleCircle> {forum[i].name} (Booth Owner) </b>
+              <p className="col-xl-4">{forum[i].comment_date}</p>
+            </div>
+            <p className="forum-comment">{forum[i].comment}</p>
+          </div>
+        );
+      }
+      else {
+        section.push(
+          <div style={{ color: '#f7b13e' }}>
+            <div className="row">
+              <b className="forum-name col-xl-8"><BsPeopleCircle className="forum-avatar"></BsPeopleCircle> {forum[i].name} ({forum[i].role}) </b>
+              <p className="col-xl-4">{forum[i].comment_date}</p>
+            </div>
+            <p className="forum-comment">{forum[i].comment}</p>
+          </div>
         );
       }
     }
@@ -260,7 +295,7 @@ function Competition_booth() {
           </div>
         </div>
       </div>
-      <div className="row" style={{ padding: "0px 10px" }}>
+      <div className="row" style={{ padding: "0px 10px", height:"100%" }}>
         <div className="col-xl-6" style={{ padding: "0%", backgroundColor: "#7e7ebc" }}>
           <div className="display-content">
             <div className="title">
@@ -269,12 +304,12 @@ function Competition_booth() {
             <div className="abstract-content">
               {displayContent()}
               <Link className="btn btn-primary"
-              to={{
-                pathname: '/report',
-                state: {data}
-              }}>
-              Read Full Report
-            </Link>
+                to={{
+                  pathname: '/report',
+                  state: { data }
+                }}>
+                Read Full Report
+              </Link>
             </div>
           </div>
           <div className="display-video">
@@ -321,7 +356,6 @@ function Competition_booth() {
           </div>
         </div>
       </div>
-      <br></br>
     </header>
   );
 }

@@ -3,10 +3,6 @@ import axiosInstance from '../../../../src/utils/axiosConfig.js';
 import OrderHistory from './order-history-sec.js'
 
 function Cart({ data, setData, user }) {
-    if(user.role=="Competitor"){
-        localStorage.setItem("activeKeys", "Cart")
-    }
-    
     const [medalQuantity, setMedal] = useState(0)
     const [bookQuantity, setBook] = useState(0)
     const [medalSubtotal, setMedalSubtotal] = useState(0)
@@ -26,8 +22,8 @@ function Cart({ data, setData, user }) {
             setBookSubtotal(bookQuantity * bookPrice + firstpurchase)
             total = medalQuantity * medalPrice + bookQuantity * bookPrice + firstpurchase
             setPrice(total)
-            console.log("Medal Quantity:" + medalQuantity + "Total Price" + price)
-            console.log("Book Quantity:" + bookQuantity + "Total Price" + price)
+            // console.log("Medal Quantity:" + medalQuantity + "Total Price" + price)
+            // console.log("Book Quantity:" + bookQuantity + "Total Price" + price)
         } else {
             setMedal(0)
             setBook(0)
@@ -66,6 +62,7 @@ function Cart({ data, setData, user }) {
                             })
                     }
                     alert("Order confirmed, please wait for the billing invoice.")
+                    localStorage.setItem("activeKeys", "Cart")
                     window.location.href = '/user_dashboard';
                 }).catch(function (error) {
                     console.log(error);
