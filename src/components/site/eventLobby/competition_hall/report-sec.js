@@ -2,7 +2,7 @@ import React from 'react';
 import parse from 'html-react-parser';
 import '../../userDashboard/preview-sec.css';
 import '../../../../assets/css/agency.min.css'
-import { useLocation, useEffect, withRouter } from 'react-router-dom'
+import { useLocation, Link } from 'react-router-dom'
 
 import PdfDownloader from '../../../PdfDownloader';
 

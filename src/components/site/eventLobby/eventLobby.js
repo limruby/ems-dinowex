@@ -21,16 +21,15 @@ function EventLobby() {
               <div className="intro-heading col-lg-6">
                 Event Lobby
               </div>
-          <div className="col-lg-3 justify-content-center">
-                <Image src={dinowex} height="70%" width="100%" alt="" rounded responsive />
+              <div className="col-lg-3 justify-content-center">
+                <Image src={dinowex} height="auto" width="100%" alt="" rounded responsive />
               </div>
               <div className="col-lg-3 justify-content-center">
-                <Image className="row" src={iiidentex} height="70%" width="100%" alt="" rounded responsive/>
+                <Image className="row" src={iiidentex} height="auto" width="100%" alt="" rounded responsive />
               </div>
             </div>
           </div>
-       </div>
-       
+        </div>
       </header>
 
       <div>

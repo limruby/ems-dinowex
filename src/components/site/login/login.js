@@ -70,7 +70,7 @@ function Login()
 
                     axiosInstance.get("/api/sponsors/read", {params:{account_id:sponsor_id}})
                     .then(function(response) {
-                        localStorage.setItem('name', response.data.data.name);
+                        localStorage.setItem('name', response.data.data.company_name);
                         if(response.data.data.bill_status === "true"){
                             localStorage.setItem('token', res.data.token); 
                             localStorage.setItem('user_id', JSON.stringify(res.data.result._id));                              
@@ -105,7 +105,7 @@ function Login()
                     var judge_id = JSON.stringify(res.data.result._id) 
                     axiosInstance.get("/api/judge/read", {params:{account_id:judge_id}})
                     .then(function(response) {
-                        localStorage.setItem('name', response.data.data.name);
+                        localStorage.setItem('name', response.data.data.title + " " + response.data.data.name);
                         localStorage.setItem('token', res.data.token); 
                         localStorage.setItem('user_id', JSON.stringify(res.data.result._id));                              
                         window.location.href = '/user_dashboard';

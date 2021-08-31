@@ -1268,14 +1268,7 @@ h3 {
 
 .display{
   text-shadow: none !important;
-  padding-left: 0% !important;
-  padding-right: 0% !important;
-  padding-top: 0% !important;
-  padding-bottom: 0% !important;
-  margin-left: 0% !important;
-  margin-right: 0% !important;
-  margin-top: 0% !important;
-  margin-bottom: 0% !important;
+  padding: 0% !important;
   margin: 0% !important;
 }
 
@@ -1298,23 +1291,13 @@ h3 {
 .display-video{
   background-color:#7e7ebc;
   text-shadow: none !important;
-  padding-left: 0% !important;
-  padding-right: 0% !important;
-  padding-top: 5% !important;
-  padding-bottom: 5% !important;
-  margin-left: 0% !important;
-  margin-right: 0% !important;
-  margin-top: 0% !important;
-  margin-bottom: 0% !important;
+  padding: 5% 0%;
+  margin: 0%;
 }
 .video_iframe{
   width: fit-content !important;
   min-width:fill-available;
-  padding-left: 40px !important;
-  padding-right: 40px !important;
-  padding-top: 10px !important;
-  padding-bottom: 10px !important;
-  
+  padding: 10px 40px;
 }
 .display-members{
   background-color: #43ba7a;
@@ -1356,7 +1339,6 @@ h3 {
   text-align: left;
   padding-left: 15%;
   font-size: 25px;
-  font-weight: bold;
 }
 .promotional-content{
   text-shadow: none !important;
@@ -1373,11 +1355,8 @@ h3 {
   font-size: 25px;
   font-weight: bold;
 }
-
 .display-poster{
   background-color: #f7b13e;
-  max-width: 100%;
-  max-height: 100%;
 }
 .display-poster img{
   width: 100%;
@@ -1385,13 +1364,11 @@ h3 {
 }
 .display-poster embed{
   width: 100%;
-  min-height: 100vh;
+  min-height: 160vh;
 }
 .forum-title{
   background-color: #f7b13e;
-  padding-top: 5%;
-  padding-bottom: 5%;
-  padding-left: 10%;
+  padding: 5%;
   font-size: 25px;
   text-align: left !important;
   color: white;
@@ -1423,31 +1400,69 @@ h3 {
   text-align: left !important;
 }
 .display-forum-form{
-  background-color: #43ba7a;
+  /* background-color: #43ba7a; */
+  background-color: #f7b13e;
   text-shadow: none !important;
 }
 /*End of competitor booth*/
 
-/*Start of competitor hall*/
-.silver-sponsor{
-  display: flex;
-  justify-content: center;
+/*Start of sponsor hall*/
+.sponsorhall-main-container {
+  padding: 5%;
+  min-height: 420px;
 }
-.bronze-sponsor{
-  display: flex;
-  justify-content: center;
+
+.sponsorhall-container {
+  margin: 0 20px 0 20px;
+  width: 50%;
+  min-height: 100%;
+  height: fit-content;
+  background: rgb(255, 255,255, 0.7);
+  padding: 2%;
+  border-radius: 10px;
 }
-.sponsor{
-  background-color: white;
-  font-size: 30px !important;
+
+.featured_sponsor_background {
+  opacity:0.8;
+}
+
+.sponsor_title {
+  color: black;
+  font-size: 2vw;
   font-weight: bold;
-  height: 70px;
+}
+
+.featured_sponsor_info {
+  margin-bottom: -12%;
+  position: relative;
+  transform: translateY(-220%);
+  text-align: center;
+}
+
+.featured_sponsor_text {
+  color: white;
+  font-size: 4vw;
+  font-weight: bold;
+}
+
+.featured_sponsor_about_us {
+  margin-top: 2%;
+  position: relative;
+  
+}
+.sponsor-category{
+  display: flex;
+  justify-content: center;
+}
+
+.sponsor h1{
+  font-size: 30px;
+  font-weight: bold;
   color: #f7b13e;
   text-shadow: none !important;
-  padding-top: 5% !important;
-  padding-bottom: 5% !important;
+  padding: 5% 0%;
 }
-/*End of competitor hall*/
+/*End of sponsor hall*/
 
 
 /*start of event lobby*/
@@ -1749,5 +1764,24 @@ h3 {
 
 
 
-/*end dof event lobby*/
+/*end of event lobby*/
 
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: red;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+#myBtn:hover {
+  background-color: #555;
+}
