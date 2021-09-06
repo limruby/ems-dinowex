@@ -14,28 +14,24 @@ const subSchema = new Schema({
   }
 });
 
-const videoSchema = new Schema({
-  name: {
-    type: String,
-    required: false
-  },
-  source: {
-    type: String,
-    required: false
-  }
-
-})
-
-const sponsorSchema = new Schema({
+const visitorSchema = new Schema({
   account_id:{
     type: [{ type: Schema.Types.ObjectId, ref: 'Account'}],
     required: true
   },
-  category: {
+  name: {
     type: String,
     required: true
   }, 
-  company_name: {
+  nric_passport_selection: {
+    type: String,
+    required: true
+  }, 
+  nric_passport_no: {
+    type: String,
+    required: true
+  }, 
+  contact: {
     type: String,
     required: true
   }, 
@@ -60,50 +56,33 @@ const sponsorSchema = new Schema({
     required: true
   },
   country:{
-    type:String,
-    required: true
-  },
-  company_pic_name: {
-    type: String,
-    required: true
-  }, 
-  company_contact: {
-    type: String,
-    required: true
-  }, 
-  company_website: {
-    type: String,
-    required: true
-  }, 
-  company_pic_ic:{
     type: String,
     required: true
   },
-  bill_id:{
-    type: String, 
+  receipt_no:{
+    type:String
   },
-  bill_paid_at:{
-    type: String,  
-  },
-  bill_status: {
+  amount:{
     type:String,
+    required: true
   },
-  payment_verify: {
+  bill_verify: {
     type:String,
+    default: 'pending'
   },
-  amount: {
-    type:String,
+  trans_date:{
+    type:String
+  },
+  status:{
+    type:String
   },
   receipt:[subSchema],
   certificate:[subSchema],
-  company_logo:[subSchema],
-  poster:[subSchema],
-  video:[videoSchema],
-
+  
 }, {
   timestamps: true,
 });
 
-const Sponsor = mongoose.model('Sponsor', sponsorSchema);
+const Visitor = mongoose.model('Visitor', visitorSchema);
 
-module.exports = Sponsor;
+module.exports = Visitor;

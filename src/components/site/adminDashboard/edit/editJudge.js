@@ -1,81 +1,44 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import axiosInstance from '../../../../utils/axiosConfig.js';
-import { FaTrashAlt } from 'react-icons/fa';
 
-function EditProfile({ data, setData }) {
-    localStorage.setItem("activeKeys", "Account-Profiles");
+function EditJudge() {
+    localStorage.setItem("activeKeys", "Judge");
+    const [data, setData] = useState({
+        title:'',
+        name: '',
+        affiliation: '',
+        email:'',
+        phone_no: '',
+        country : '',
+        address_1 : '',
+        address_2 : '',
+        postcode : '',
+        city : '',
+        state: ''
+    });
+    const location = useLocation();
+    const thePath = location.pathname;
+    const user_id = thePath.substring(thePath.indexOf('/', 2) + 1, thePath.lastIndexOf('/'));
+    const string = '"' + user_id + '"'
+
+    useEffect(() => {
+        axiosInstance.get("/api/judge/read", { params: { account_id: string } })
+            .then(function (response) {
+                setData(response.data.data);
+            }).catch(function (error) {
+                console.log(error);
+            })
+    }, [string])
+    
     const inputChange = input => e => {
+
         setData({
             ...data,
             [input]: e.target.value
         });
     };
-    const uploadPhotoHandler = (element, index) => e => {
-        if (element === 'poster') {
-            let selectedFile = e.target.files;
-            let file = null;
-            let fileName = "";
-            //Check File is not Empty
-            if (selectedFile.length > 0) {
-                // Select the very first file from list
-                let fileToLoad = selectedFile[0];
-                fileName = fileToLoad.name;
-                // FileReader function for read the file.
-                let fileReader = new FileReader();
-                // Onload of file read the file content
-                fileReader.onload = function (fileLoadedEvent) {
-                    file = fileLoadedEvent.target.result;
-                    data.poster = {
-                        'name': fileName,
-                        'source': fileReader.result
-                    }
-                };
-                // Convert data to base64
-                var baseFile = fileReader.readAsDataURL(fileToLoad);
-            }
-        }
-    }
-    var obj = [];
-    const deleteFile = (element, index) => e => {
-        if (element === 'poster') {
-            let obj = data.poster;
-            obj.splice(index, 1);
-        }
 
-        setData({
-            ...data,
-        });
-
-    }
-    ///////Display photo//////
-    function displayPhoto() {
-        var section = [];
-        if (data.poster == null || data.poster[0] == null) {
-            section.push(
-                <div className="form-group">
-                    <input type="file" onChange={uploadPhotoHandler('poster', 0)} />
-                </div>
-            );
-        }
-        else {
-
-            const imageBuffer = Buffer.from(data.poster[0].source.data);
-
-            section.push(
-                <div>
-                    <img src={imageBuffer} alt={data.poster[0].name} width="150" height="150" responsive />
-
-                    <p>
-                        {data.poster[0].name}
-                        <button className="deleteBtn " type="button" onClick={deleteFile('poster', 0)}><FaTrashAlt /></button>
-                    </p>
-
-                </div>
-            )
-        }
-        return section;
-    }
     const handleForm = (e) => {
         console.log(data);
         e.preventDefault();
@@ -113,7 +76,7 @@ function EditProfile({ data, setData }) {
 
             axiosInstance.post("/api/judge/update", postData)
                 .then(function (response) {
-                    window.location.href = '/user_dashboard';
+                    window.location.href = '/admin_dashboard';
                 }).catch(function (error) {
                     console.log(error);
                 })
@@ -147,10 +110,6 @@ function EditProfile({ data, setData }) {
                         <input type="text" className="form-control" name="name" id="name"
                             placeholder='Name' required
                             onChange={inputChange('name')} value={data.name} />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="poster"><span>*</span>Photo</label><br />
-                        {displayPhoto()}
                     </div>
                     <div className="form-group">
                         <label htmlFor="phone_no"><span>*</span>Contact Number</label>
@@ -244,4 +203,4 @@ function EditProfile({ data, setData }) {
 
 }
 
-export default EditProfile;
+export default EditJudge;

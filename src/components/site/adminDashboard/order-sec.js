@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom';
 import axiosInstance from '../../../utils/axiosConfig';
 
 function Order(){
-  localStorage.setItem("activeKeys", "Order")
   const [data, setData]=useState([]);
   useEffect(() => { 
     axiosInstance.get("/api/cart/readCart")
@@ -19,6 +18,7 @@ function Order(){
 
     axiosInstance.get("/api/cart/deleteOrder",  { params: { _id: cart_id } })
     .then(function (response) {
+      localStorage.setItem("activeKeys", "Order")
        window.location.reload();
     }).catch(function (error) {
       console.log(error);
