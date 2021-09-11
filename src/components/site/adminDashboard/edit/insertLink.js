@@ -6,14 +6,16 @@ import { FaTrashAlt } from 'react-icons/fa';
 function InsertLink() {
     localStorage.setItem("activeKeys", "Judge")
     const [data, setData] = useState({
-        evaluation_form:''
+        evaluation_form: '',
+        youtube_form: '',
+        poster_form: ''
     })
     const [link, setLink] = useState([])
 
     useEffect(() => {
         axiosInstance.get("/api/formLink/read")
             .then(function (response) {
-                setLink(response.data.data);               
+                setLink(response.data.data);
             }).catch(function (error) {
                 console.log(error);
             })
@@ -29,67 +31,184 @@ function InsertLink() {
     //One link only
     function displayLink() {
         var section = []
-        if (link.length === 0) {
+        if (link.length == 0) { //all blank
+
             section.push(
                 <div className="form-group">
                     <label htmlFor="evaluation_form"><span>*</span>Evalution Form</label>
                     <input className="form-control" type="text" id="evaluation_form"
-                        onChange={inputChange('evaluation_form')} placeholder="Insert form link" required
+                        onChange={inputChange('evaluation_form')} placeholder="Insert form link"
                     />
                 </div>
             )
-        }
-        else {
-            const formlinks = link.map((link) =>
-            <p>{link.evaluation_form}</p>
-        );
-            section.push(
-                <div className="member-box">
-                    <p>{formlinks}</p>
-                    <button className="deleteBtn" type="button" onClick={() => {window.confirm("Are you sure you want to remove the link?") && removeLink(link[0]._id)}}> <FaTrashAlt /></button>
-                </div>
-            )
+
+        } else { //something existed but this empty
+            if (link[0].evaluation_form ==" " || link[0].evaluation_form =="") {
+                section.push(
+                    <div className="form-group">
+                        <label htmlFor="evaluation_form"><span>*</span>Evalution Form</label>
+                        <input className="form-control" type="text" id="evaluation_form"
+                            onChange={inputChange('evaluation_form')} placeholder="Insert form link"
+                        />
+                    </div>
+                )
+            } else {
+                section.push(
+                    <div className="member-box">
+                        <p>{link[0].evaluation_form}</p>
+                        <button className="deleteBtn" type="button" onClick={() => { window.confirm("Are you sure you want to remove the link?") && removeLink("evaluation_form") }}> <FaTrashAlt /></button>
+                    </div>
+                )
+            }
         }
 
         return section
 
     }
-    function removeLink(_id) {
-        axiosInstance.get("/api/formLink/remove",  { params: { _id: _id } })
-        .then(function (response) {
-            window.location.reload();
-        }).catch(function (error) {
-          console.log(error);
-        })
-      }
+
+    function displayYoutubeLink() {
+        var section = []
+        if (link.length == 0) { //all blank
+
+            section.push(
+                <div className="form-group">
+                    <label htmlFor="youtube_form"><span>*</span>Youtube Form</label>
+                    <input className="form-control" type="text" id="youtube_form"
+                        onChange={inputChange('youtube_form')} placeholder="Insert form link"
+                    />
+                </div>
+            )
+
+        } else { //something existed but this empty
+            if (link[0].youtube_form === " "||link[0].youtube_form =="") {
+                section.push(
+                    <div className="form-group">
+                        <label htmlFor="youtube_form"><span>*</span>Evalution Form</label>
+                        <input className="form-control" type="text" id="youtube_form"
+                            onChange={inputChange('youtube_form')} placeholder="Insert form link"
+                        />
+                    </div>
+                )
+            } else {
+                section.push(
+                    <div className="member-box">
+                        <p>{link[0].youtube_form}</p>
+                        <button className="deleteBtn" type="button" onClick={() => { window.confirm("Are you sure you want to remove the link?") && removeLink("youtube_form") }}> <FaTrashAlt /></button>
+                    </div>
+                )
+            }
+        }
+
+        return section
+
+    }
+
+    function displayPosterLink() {
+        var section = []
+        if (link.length == 0) { //all blank
+
+            section.push(
+                <div className="form-group">
+                    <label htmlFor="poster_form"><span>*</span>Youtube Form</label>
+                    <input className="form-control" type="text" id="poster_form"
+                        onChange={inputChange('poster_form')} placeholder="Insert form link"
+                    />
+                </div>
+            )
+
+        } else { //something existed but this empty
+            if (link[0].poster_form == " "||link[0].poster_form =="") {
+                section.push(
+                    <div className="form-group">
+                        <label htmlFor="poster_form"><span>*</span>Poster Form</label>
+                        <input className="form-control" type="text" id="poster_form"
+                            onChange={inputChange('poster_form')} placeholder="Insert form link"
+                        />
+                    </div>
+                )
+            } else {
+                section.push(
+                    <div className="member-box">
+                        <p>{link[0].poster_form}</p>
+                        <button className="deleteBtn" type="button" onClick={() => { window.confirm("Are you sure you want to remove the link?") && removeLink("poster_form") }}> <FaTrashAlt /></button>
+                    </div>
+                )
+            }
+        }
+
+        return section
+
+    }
+
+    function removeLink(form) {
+
+        if(form=="evaluation_form"){
+            var postData = {
+                _id: link[0]._id,
+                evaluation_form: " ", 
+                youtube_form: link[0].youtube_form,
+                poster_form: link[0].poster_form,    
+            }
+        }else if(form=="youtube_form"){
+            var postData = {
+                _id: link[0]._id,
+                evaluation_form: link[0].evaluation_form,
+                youtube_form: " ",  
+                poster_form: link[0].poster_form,  
+            }
+        }else if(form=="poster_form"){
+            var postData = {
+                _id: link[0]._id,
+                evaluation_form: link[0].evaluation_form,
+                youtube_form: link[0].youtube_form,
+                poster_form: " ",                              
+            }
+        }
+        
+        axiosInstance.post("/api/formLink/update",postData)
+            .then(function (response) {
+                window.location.reload();
+            }).catch(function (error) {
+                console.log(error);
+            })
+    }
 
     const handleForm = (e) => {
         e.preventDefault();
         // perform all neccassary validations
-        if (data.evaluation_form === null) {
-            alert("Please insert link!");
+
+
+        ///////update to db /////////////           
+        var postData = {
+            evaluation_form: data.evaluation_form,
+            youtube_form: data.youtube_form,
+            poster_form: data.poster_form,
         }
-        else {
-            ///////update to db /////////////           
-            var postData = {
-                evaluation_form: data.evaluation_form,
-            }
-            if (data._id !== null || data._id !== undefined) {
+        if(link.length==0){
+            
                 axiosInstance.post("/api/formLink/create", postData)
                     .then(function (response) {
                         window.location.href = '/admin_dashboard';
                     }).catch(function (error) {
                         console.log(error);
                     })
-            } else {
-                axiosInstance.post("/api/formLink/update", postData)
-                    .then(function (response) {
-                        window.location.href = '/admin_dashboard';
-                    }).catch(function (error) {
-                        console.log(error);
-                    })
-            }
+            
         }
+         else {
+            var postData = {
+                _id: link[0]._id,
+                evaluation_form: data.evaluation_form,
+                youtube_form: data.youtube_form,
+                poster_form: data.poster_form,
+            }
+            axiosInstance.post("/api/formLink/update", postData)
+                .then(function (response) {
+                    window.location.href = '/admin_dashboard';
+                }).catch(function (error) {
+                    console.log(error);
+                })
+        }
+
     }
     return (
         <>
@@ -98,6 +217,8 @@ function InsertLink() {
                     <h1 className="mb-5">Insert Link</h1>
 
                     {displayLink()}
+                    {displayYoutubeLink()}
+                    {displayPosterLink()}
 
                     <div className="btn-group">
                         <Link to="/admin_dashboard">
