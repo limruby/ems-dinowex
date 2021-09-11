@@ -40,11 +40,21 @@ function Evaluation_Form() {
         )
     }
     else {
-        section.push(
-            <div className="member-box">
-                <a href={link[0].evaluation_form}>Visit Evaluation Form</a>
-            </div>
-        )
+      for(var i =0; i<link.length; i++){
+        if(link[i].evaluation_form!=""){
+          if(link[i].evaluation_form!=" "){
+            section.push(
+              <li style={{listStyle:"none"}}><a href={link[i].evaluation_form}> Evaluation Form</a></li>     
+          )}
+        }
+
+        if(link[i].poster_form!=""){
+          if(link[i].poster_form!=" "){
+            section.push(
+              <li style={{listStyle:"none"}}><a href={link[i].poster_form}> Ideation Poster Competition</a></li>        
+          )}
+        } 
+      }
     }
 
     return section
@@ -56,8 +66,8 @@ function Evaluation_Form() {
         Header: 'Assigned Competitor',
         columns: [
           {
-            Header: 'Competitor Name',
-            accessor: 'competitor_name'
+            Header: 'Project Title',
+            accessor: 'project_title'
           },
           {
             Header: 'Booth',
@@ -76,7 +86,7 @@ function Evaluation_Form() {
 
   return (
     <div>
-      {displayLink()}
+      <div className="member-box">{displayLink()}</div>
       <div>
         <Table columns={columns} data={assigned} />
       </div>

@@ -4,9 +4,13 @@ require('dotenv').config();
 const create = (req, res, next)=>{
 
   const evaluation_form = req.body.evaluation_form;
+  const youtube_form = req.body.youtube_form;
+  const poster_form = req.body.poster_form;
 
   const newLink = new Link({
-    evaluation_form
+    evaluation_form,
+    youtube_form,
+    poster_form
   });
 
   newLink.save()
@@ -52,7 +56,13 @@ const update = (req, res, next)=>{
   if(req.body.evaluation_form){
     updateLink['evaluation_form'] = req.body.evaluation_form;
   }
-
+  if(req.body.youtube_form){
+    updateLink['youtube_form'] = req.body.youtube_form;
+  }
+  if(req.body.poster_form){
+    updateLink['poster_form'] = req.body.poster_form;
+  }
+  
   Link.findByIdAndUpdate(req.body._id, updateLink, (err, link) => {
     if (err) {
       return res.status(400).json({ success: false, error: err, data:req.body })
@@ -63,18 +73,6 @@ const update = (req, res, next)=>{
   }).catch(err => console.log(err))
 };
 
-const remove = (req, res, next) => {
-    var _id = req.query._id;
   
-    Link.findByIdAndDelete(_id, function (err) {
-      if (err) {
-        return res.status(400).json({ success: false, error: err })
-      }
-      else {
-        return res.status(200).json({ success: true })
-      }
-    });
-  }
-  
-module.exports = {create, read, readAll, update, remove}
+module.exports = {create, read, readAll, update}
 

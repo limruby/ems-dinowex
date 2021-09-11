@@ -26,10 +26,29 @@ function Judge() {
   function displayLink(){
     var section = []
     for(var i =0; i<link.length; i++){
-      section.push(
-        <a href={link[i].evaluation_form}> Evaluation Form</a>
-      )
-    }
+        if(link[i].evaluation_form!=""){
+          if(link[i].evaluation_form!=" "){
+            section.push(
+              <li><a href={link[i].evaluation_form}> Evaluation Form</a></li>     
+          )}
+        }
+
+        if(link[i].youtube_form!=""){
+          if(link[i].youtube_form!=" "){
+            section.push(
+              <li><a href={link[i].youtube_form}> Youtube Form</a></li>       
+          )}
+        }
+
+        if(link[i].poster_form!=""){
+          if(link[i].poster_form!=" "){
+            section.push(
+              <li><a href={link[i].poster_form}> Poster Form</a></li>        
+          )}
+        } 
+      }
+      
+    
     return section;
   }
   const columns = React.useMemo(
