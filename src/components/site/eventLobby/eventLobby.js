@@ -42,12 +42,14 @@ function EventLobby() {
             </div>
         </div>
         
+
             <div className="speakers-dropdown speakers">
             <span className="speakers-arrow"></span>SPEAKERS
             <div className="speakers-dropdown-content">
 
                 {/* <span className="speakers-dropdown-arrow"></span>DINOWEX */}
                 <span className="speakers-dropdown-arrow"></span>N/A
+
 
             </div>
             </div>
@@ -68,6 +70,7 @@ function EventLobby() {
                 <span className="youtube-dropdown-arrow"></span>N/A
             </div>
             </div>           
+
             <Image src={eventlobby} height="100%" width="100%" alt="" responsive />
         </div>
       </div>
