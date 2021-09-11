@@ -9,6 +9,7 @@ import Abstract from './abstract-sec';
 import BookChapter from './book-chapter-sec';
 import ResearchTeam from './research-team-sec';
 import Receipt from './receipt-sec'
+import Certificate from './cert-sec.js';
 import Cart from './cart-sec'
 import EvaluationForm from './evaluation-form-sec'
 
@@ -282,8 +283,8 @@ function UserDashboard() {  ////////////////////get login user info (REPLACE THI
                   <Card>
                     <Card.Body>
                       <div className="sec-container">
-                        <h2> Download Certification</h2>
-                        <h5>Coming Soon</h5>
+                      <h2> Download Certification</h2>
+                        <Certificate user={user} role={account.role} />
                       </div>
                     </Card.Body>
                   </Card>

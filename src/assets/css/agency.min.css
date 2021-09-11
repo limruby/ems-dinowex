@@ -1583,6 +1583,50 @@ h3 {
   display: block;
 }
 
+.img-container a{
+  color: #fff;
+  font-style: normal;
+}
+.sponsors-dropdown {
+  display: inline-block;
+}
+
+.sponsors-dropdown-content {
+  display: none;  
+  position: absolute;
+  background-color: #43ba7a;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding-left: 0;
+  min-width: 100%;
+  left:0%;
+  text-align: end;
+  border-color: white;
+  border-left-width: 0.2em;
+  border-left-style: solid;
+}
+
+.sponsors-dropdown:hover .sponsors-dropdown-content {
+  display: block;
+  cursor: pointer;
+}
+.sponsors-dropdown-arrow {
+  border-style: dashed;
+  border-color: transparent;
+  border-width: 0.20em;
+  display: -moz-inline-box;
+  display: inline-block;
+  /* Use font-size to control the size of the arrow. */
+  font-size: 120px;
+  height: 0;
+  line-height: 0;
+  position: relative;
+  vertical-align: middle;
+  width: 0; /* change background color acc to bg color */ 
+  border-left-width: 0.2em;
+  border-left-style: solid;
+  border-left-color: #43ba7a;
+  left: 21%;
+}
 .speakers{
   position: absolute;
   right: 23%;
@@ -1593,6 +1637,47 @@ h3 {
   font-weight: bold;
   line-height: 18px;
   padding-right: 20px;
+}
+.speakers-dropdown-arrow{
+  border-style: dashed;
+  border-color: transparent;
+  border-width: 0.20em;
+  display: -moz-inline-box;
+  display: inline-block;
+  /* Use font-size to control the size of the arrow. */
+  font-size: 120px;
+  height: 0;
+  line-height: 0;
+  position: relative;
+  vertical-align: middle;
+  width: 0; /* change background color acc to bg color */ 
+  border-right-width: 0.2em;
+  border-right-style: solid;
+  border-right-color: #43ba7a;
+  right:29%;
+}
+
+.speakers-dropdown {
+  display: inline-block;
+}
+
+.speakers-dropdown-content {
+  display: none;  
+  position: absolute;
+  background-color: #43ba7a;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding-left: 0;
+  min-width: 100%;
+  left:0%;
+  text-align: start;
+  border-color: white;
+  border-right-width: 0.2em;
+  border-right-style: solid;
+}
+
+.speakers-dropdown:hover .speakers-dropdown-content {
+  display: block;
+  /* cursor: pointer; */
 }
 .competitors-hall{
   position: absolute;
@@ -1626,6 +1711,8 @@ h3 {
 
 .competitors-dropdown:hover .competitors-dropdown-content {
   display: block;
+  cursor: pointer;
+
 }
 
 .competitors-dropdown-arrow {
@@ -1646,7 +1733,6 @@ h3 {
   border-left-color: #43ba7a;
   left: 39%;
 }
-
 .youtube-event{
   position: absolute;
   right: 11%;
@@ -1658,7 +1744,6 @@ h3 {
   line-height: 18px;
   padding-right: 20px;
 }
-
 .youtube-dropdown-arrow{
   border-style: dashed;
   border-color: transparent;
@@ -1680,6 +1765,31 @@ h3 {
 
 .youtube-dropdown {
   display: inline-block;
+}
+
+.youtube-dropdown-content {
+  display: none;  
+  position: absolute;
+  background-color: #43ba7a;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding-left: 30%;
+  min-width: 100%;
+  left:0%;
+  text-align: start;
+  border-color: white;
+  border-right-width: 0.2em;
+  border-right-style: solid;
+}
+
+.youtube-dropdown:hover .youtube-dropdown-content {
+  display: block;
+  /* cursor: pointer; */
+}
+.text {
+  background-color:#43ba7a;
+  color:#fff;
+  display:inline-block;
+  padding-left:4px;
 }
 
 .youtube-dropdown-content {
@@ -1783,23 +1893,3 @@ h3 {
 
 
 /*end of event lobby*/
-
-#myBtn {
-  display: none;
-  position: fixed;
-  bottom: 20px;
-  right: 30px;
-  z-index: 99;
-  font-size: 18px;
-  border: none;
-  outline: none;
-  background-color: red;
-  color: white;
-  cursor: pointer;
-  padding: 15px;
-  border-radius: 4px;
-}
-
-#myBtn:hover {
-  background-color: #555;
-}

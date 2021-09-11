@@ -1,11 +1,12 @@
 import React from 'react';
 import { Tab, Nav, Row, Col, Card } from "react-bootstrap";
-import { FaCertificate, FaMedal } from 'react-icons/fa';
+import { FaCertificate, FaMedal, FaMarker } from 'react-icons/fa';
 import { BsPeopleCircle, BsFiles } from "react-icons/bs";
 
 import Account from './account';
 import Competitor from './competitor-sec';
 import Sponsor from './sponsor-sec';
+import Judge from './judge-sec';
 import Order from './order-sec';
 import './table.css'
 
@@ -25,6 +26,9 @@ if(adminEmail !== 'admin@dinowex.com'){
 				</Nav.Item>
 				<Nav.Item>
 					<Nav.Link eventKey="Sponsor"><FaCertificate size={20} /> Sponsor</Nav.Link>
+				</Nav.Item>
+				<Nav.Item>
+					<Nav.Link eventKey="Judge"><FaMarker size={20} /> Judge</Nav.Link>
 				</Nav.Item>
 				<Nav.Item>
 					<Nav.Link eventKey="Order"><FaMedal size={20} /> Order</Nav.Link>
@@ -86,6 +90,16 @@ if(adminEmail !== 'admin@dinowex.com'){
 											<div className="sec-container">
 												<h2> Sponsor Profile</h2>
 												<Sponsor />
+											</div>
+										</Card.Body>
+									</Card>
+								</Tab.Pane>
+								<Tab.Pane eventKey="Judge">
+									<Card>
+										<Card.Body>
+											<div className="sec-container">
+												<h2>List of Judges</h2>
+												<Judge />
 											</div>
 										</Card.Body>
 									</Card>

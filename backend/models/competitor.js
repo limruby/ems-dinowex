@@ -133,6 +133,7 @@ const competitorSchema = new Schema({
     type:String,
   },
   receipt:[subSchema],
+  certificate:[subSchema],
   poster:[subSchema],
   achievements:[subSchema],
   publications:[subSchema],
