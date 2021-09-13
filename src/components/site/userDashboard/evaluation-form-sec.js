@@ -34,31 +34,35 @@ function Evaluation_Form() {
     var section = []
     if (link.length === 0) {
         section.push(
-            <div className="member-box">
                <p>Evaluation Form Coming Soon</p>
-            </div>
         )
+    }
+    else if(link.length >= 1) {
+      for(var i =0; i<link.length; i++){
+        if(link[i].evaluation_form!=="" && link[i].poster_form!==""){        
+            section.push(
+            <p>Evaluation Form Coming Soon</p>
+            )         
+        }
+      }
     }
     else {
       for(var i =0; i<link.length; i++){
-        if(link[i].evaluation_form!=""){
-          if(link[i].evaluation_form!=" "){
+        if(link[i].evaluation_form!==""){
+          if(link[i].evaluation_form!==" "){
             section.push(
               <li style={{listStyle:"none"}}><a href={link[i].evaluation_form}> Evaluation Form</a></li>     
           )}
         }
-
-        if(link[i].poster_form!=""){
-          if(link[i].poster_form!=" "){
+        if(link[i].poster_form!==""){
+          if(link[i].poster_form!==" "){
             section.push(
               <li style={{listStyle:"none"}}><a href={link[i].poster_form}> Ideation Poster Competition</a></li>        
           )}
         } 
       }
     }
-
     return section
-
 }
   const columns = React.useMemo(
     () => [
@@ -83,16 +87,16 @@ function Evaluation_Form() {
     ],
     []
   )
-
   return (
     <div>
-      <div className="member-box">{displayLink()}</div>
+      <div className="member-box">
+      {displayLink()}
+      </div>
       <div>
         <Table columns={columns} data={assigned} />
       </div>
     </div>
   );
-
 }
 
 export default Evaluation_Form;

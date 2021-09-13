@@ -3,7 +3,6 @@ import Table from './Table.js';
 import { Link } from 'react-router-dom';
 import { CSVLink } from 'react-csv';
 import axiosInstance from '../../../utils/axiosConfig';
-import { ReportBase } from "istanbul-lib-report";
 
 function Competitor() {
 
@@ -73,7 +72,6 @@ function Competitor() {
                 <button className="btn btn-success" >
                   Edit
                 </button></Link>
-
             )
           },
           {

@@ -1,20 +1,23 @@
 import React from 'react';
 import { Tab, Nav, Row, Col, Card } from "react-bootstrap";
-import { FaCertificate, FaMedal, FaMarker } from 'react-icons/fa';
+import { FaCertificate, FaMedal, FaMarker, FaLink, FaMicrophone, FaUser } from 'react-icons/fa';
 import { BsPeopleCircle, BsFiles } from "react-icons/bs";
 
 import Account from './account';
 import Competitor from './competitor-sec';
+import Visitor from './visitor-sec'
 import Sponsor from './sponsor-sec';
 import Judge from './judge-sec';
+import Speaker from './speaker-sec';
 import Order from './order-sec';
+import Links from './links-sec';
 import './table.css'
 
 function AdminDashboard() {
-var adminEmail = localStorage.getItem('email');
-if(adminEmail !== 'admin@dinowex.com'){
-	window.location.href ="/page_not_found"
-}
+	var adminEmail = localStorage.getItem('email');
+	if (adminEmail !== 'admin@dinowex.com') {
+		window.location.href = "/page_not_found"
+	}
 	function TabTitles() {
 		return (
 			<Nav variant="pills" className="flex-column">
@@ -31,11 +34,19 @@ if(adminEmail !== 'admin@dinowex.com'){
 					<Nav.Link eventKey="Judge"><FaMarker size={20} /> Judge</Nav.Link>
 				</Nav.Item>
 				<Nav.Item>
+					<Nav.Link eventKey="Visitor"><FaUser size={20} /> Visitor</Nav.Link>
+				</Nav.Item>
+				<Nav.Item>
+					<Nav.Link eventKey="Speaker"><FaMicrophone size={20} /> Speaker </Nav.Link>
+				</Nav.Item>
+				<Nav.Item>
 					<Nav.Link eventKey="Order"><FaMedal size={20} /> Order</Nav.Link>
+				</Nav.Item>
+				<Nav.Item>
+					<Nav.Link eventKey="Link"><FaLink size={20} /> Event Links </Nav.Link>
 				</Nav.Item>
 			</Nav>
 		);
-
 	}
 
 	var activeKeys = ""
@@ -47,7 +58,6 @@ if(adminEmail !== 'admin@dinowex.com'){
 		activeKeys = "Account"
 	}
 	return (
-
 		<div>
 			<div className="welcome-box"><h1>Welcome Dinowex Admin!</h1></div>
 			<div className="wrapper">
@@ -59,7 +69,6 @@ if(adminEmail !== 'admin@dinowex.com'){
 
 						<Col sm={9}>
 							<Tab.Content>
-
 								<Tab.Pane eventKey="Account">
 									<Card>
 										<Card.Body>
@@ -70,8 +79,6 @@ if(adminEmail !== 'admin@dinowex.com'){
 										</Card.Body>
 									</Card>
 								</Tab.Pane>
-
-
 								<Tab.Pane eventKey="Competitor">
 									<Card>
 										<Card.Body>
@@ -114,8 +121,36 @@ if(adminEmail !== 'admin@dinowex.com'){
 										</Card.Body>
 									</Card>
 								</Tab.Pane>
-
-
+								<Tab.Pane eventKey="Link">
+									<Card>
+										<Card.Body>
+											<div className="sec-container">
+												<h2>Event Links</h2>
+												<Links />
+											</div>
+										</Card.Body>
+									</Card>
+								</Tab.Pane>
+								<Tab.Pane eventKey="Speaker">
+									<Card>
+										<Card.Body>
+											<div className="sec-container">
+												<h2>Speakers</h2>
+												<Speaker />
+											</div>
+										</Card.Body>
+									</Card>
+								</Tab.Pane>
+								<Tab.Pane eventKey="Visitor">
+									<Card>
+										<Card.Body>
+											<div className="sec-container">
+												<h2> Visitor Profile</h2>
+												<Visitor />
+											</div>
+										</Card.Body>
+									</Card>
+								</Tab.Pane>
 							</Tab.Content>
 						</Col>
 					</Row>

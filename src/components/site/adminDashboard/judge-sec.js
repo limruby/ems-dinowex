@@ -8,7 +8,6 @@ function Judge() {
   const [link, setLink] = useState([])
 
   useEffect(() => {
-
     axiosInstance.get("/api/judge/readAll")
       .then(function (response) {
         setData(response.data.data);
@@ -23,41 +22,36 @@ function Judge() {
       })
   }, []);
 
-  function displayLink(){
-    var section = []
-    for(var i =0; i<link.length; i++){
-        if(link[i].evaluation_form!=""){
-          if(link[i].evaluation_form!=" "){
-            section.push(
-              <li><a href={link[i].evaluation_form}> Evaluation Form</a></li>     
-          )}
-        }
-
-        if(link[i].youtube_form!=""){
-          if(link[i].youtube_form!=" "){
-            section.push(
-              <li><a href={link[i].youtube_form}> Youtube Form</a></li>       
-          )}
-        }
-
-        if(link[i].poster_form!=""){
-          if(link[i].poster_form!=" "){
-            section.push(
-              <li><a href={link[i].poster_form}> Poster Form</a></li>        
-          )}
-        } 
-      }
-      
-    
-    return section;
-  }
+  // function displayLink(){
+  //   var section = []
+  //   for(var i =0; i<link.length; i++){
+  //       if(link[i].evaluation_form!=""){
+  //         if(link[i].evaluation_form!=" "){
+  //           section.push(
+  //             <li><a href={link[i].evaluation_form}> Evaluation Form</a></li>     
+  //         )}
+  //       }
+  //       if(link[i].youtube_form!=""){
+  //         if(link[i].youtube_form!=" "){
+  //           section.push(
+  //             <li><a href={link[i].youtube_form}> Youtube Form</a></li>       
+  //         )}
+  //       }
+  //       if(link[i].poster_form!=""){
+  //         if(link[i].poster_form!=" "){
+  //           section.push(
+  //             <li><a href={link[i].poster_form}> Poster Form</a></li>        
+  //         )}
+  //       } 
+  //     }  
+  //   return section;
+  // }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const columns = React.useMemo(
     () => [
       {
-
         Header: 'Profile',
         columns: [
-
           {
             Header: 'Judge',
             accessor: 'name',
@@ -77,7 +71,6 @@ function Judge() {
                 <button className="btn btn-success" >
                   Assign
                 </button></Link>
-
             )
           },
           {
@@ -94,15 +87,10 @@ function Judge() {
     ],
     // []
   )
-
   return (
     <div className="App" id="competitor">
-      <button className="btn btn-primary" onClick={() => window.location.href = '/admin_dashboard/insert_evaluation_form_link'}>Add form link</button>
-      <div className="member-box">{displayLink()}</div>
       <Table columns={columns} data={data} />
     </div>
   );
-
 }
-
 export default Judge;

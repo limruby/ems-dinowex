@@ -72,11 +72,14 @@ function App() {
         <AdminRoute exact path='/admin_dashboard/:id/edit_password'  component={AdminEditDetails}/> 
         <AdminRoute exact path='/admin_dashboard/:id/edit_profile_sponsor'  component={AdminEditDetails}/> 
         <AdminRoute exact path='/admin_dashboard/:id/edit_profile_competitor'  component={AdminEditDetails}/> 
+        <AdminRoute exact path='/admin_dashboard/:id/edit_profile_visitor'  component={AdminEditDetails}/> 
         <AdminRoute exact path='/admin_dashboard/:id/edit_profile_judge'  component={AdminEditDetails}/> 
+        <AdminRoute exact path='/admin_dashboard/:id/edit_profile_speaker'  component={AdminEditDetails}/> 
         <AdminRoute exact path='/admin_dashboard/create_profile'  component={AdminEditDetails}/>
         <AdminRoute exact path='/admin_dashboard/insert_evaluation_form_link'  component={AdminEditDetails}/>
         <AdminRoute exact path='/admin_dashboard/:id/upload_receipt_competitor'  component={AdminEditDetails}/>
         <AdminRoute exact path='/admin_dashboard/:id/upload_receipt_sponsor'  component={AdminEditDetails}/>
+        <AdminRoute exact path='/admin_dashboard/:id/upload_receipt_visitor'  component={AdminEditDetails}/>
         <AdminRoute exact path='/admin_dashboard/:id/edit_order_status'  component={AdminEditDetails}/>
 
         <Route exact path='/eventLobby'  component={eventLobby}/>  
