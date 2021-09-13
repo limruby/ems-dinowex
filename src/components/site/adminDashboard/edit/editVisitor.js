@@ -9,7 +9,6 @@ function EditProfile() {
         nric_passport_selection: '',
         nric_passport_no: '',
         contact: '',
-        receipt_no: '',
     });
 
     const location = useLocation();
@@ -51,7 +50,6 @@ function EditProfile() {
                 contact: data.contact,
                 nric_passport_selection: data.nric_passport_selection,
                 nric_passport_no: data.nric_passport_no,
-                receipt_no: data.receipt_no,
             }
             axiosInstance.post("/api/visitors/update", postData)
                 .then(function (response) {
@@ -82,12 +80,6 @@ function EditProfile() {
                             placeholder='Phone Number (Without dash)' required pattern='[0-9]{10,20}'
                             onChange={inputChange('contact')} value={data.contact}
                         />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="receipt_no"><span>*</span>Receipt No</label>
-                        <input type="text" className="form-control" name="receipt_no" id="receipt_no"
-                            placeholder='Receipt Number'
-                            onChange={inputChange('receipt_no')} value={data.receipt_no} />
                     </div>
                     <br />
                     <div className="btn-group">
