@@ -39,6 +39,13 @@ function UserDashboard() {  ////////////////////get login user info (REPLACE THI
         console.log(error);
       });
 
+      axiosInstance.get("/api/visitors/read", { params: { account_id: account_id } })
+      .then(function (response) {
+        setUser(response.data.data);
+      }).catch(function (error) {
+        console.log(error);
+      })
+
       axiosInstance.get("/api/judge/read", { params: { account_id: account_id } })
       .then(function (response) {
         setUser(response.data.data);
@@ -126,6 +133,20 @@ function UserDashboard() {  ////////////////////get login user info (REPLACE THI
             </Nav.Item>
             <Nav.Item>
               <Nav.Link eventKey="Cart"><FaMedal size={20} /> Products</Nav.Link>
+            </Nav.Item>
+          </Nav>
+        );
+        case 'Visitor':
+        return (
+          <Nav variant="pills" className="flex-column">
+            <Nav.Item>
+              <Nav.Link eventKey="Account-Profiles"><BsPeopleCircle size={20} /> Profiles</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="Receipt"><FaReceipt size={20} /> Receipt</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="Cert"><FaCertificate size={20} /> Certificate</Nav.Link>
             </Nav.Item>
           </Nav>
         );

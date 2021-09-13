@@ -148,9 +148,9 @@ function CreateAccount() {
                     <select className="form-control" id="category" required
                         onChange={inputChange('category')} value={data.category} >
                         <option value="">Please select</option>
-                        <option value="Professional Innovator">Professional Innovator</option>
-                        <option value="Junior Innovator">Junior Innovator</option>
+                        <option value="Professional Innovator">Professional Innovator</option>                        
                         <option value="Young Innovator">Young Innovator</option>
+                        <option value="International Innovator">International Innovator</option>
                     </select>
                 </div>
             )
@@ -184,6 +184,11 @@ function CreateAccount() {
                     if (data.role === "Competitor") {
                         compData["category"] = data.category;
                         compData["account_id"] = response.data._id
+
+                        if(compData["category"]==="International Innovator"){
+                            compData["bill_status"] = 'true'
+                        }
+
                         axiosInstance.post("/api/competitors/create", compData)
                             .then(function (response) {
                                 window.location.href = '/admin_dashboard';

@@ -55,7 +55,8 @@ app.use('/api/formLink', formLinkRouter)
 app.use(express.static(__dirname + "/public"));
 
 app.use((req, res, next) => {
-	res.sendFile(__dirname + "/public/index.html")})
+	res.sendFile(__dirname + "/public/index.html")
+})
 
 app.listen(port, () => {
 	console.log('Now starting at http://localhost:5000/api/');

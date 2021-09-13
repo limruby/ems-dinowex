@@ -3,6 +3,9 @@ const qs = require('querystring');
 const CryptoJS = require('crypto-js');
 var ObjectId = require('mongodb').ObjectId;
 
+var LocalStorage = require('node-localstorage').LocalStorage,
+localStorage = new LocalStorage('./scratch');
+
 const create = (req, res, next) => {
 
   const account_id = req.body.account_id;
@@ -170,10 +173,10 @@ if(params['billplz[paid]'] === "true" && params['billplz[x_signature]'] === hash
   localStorage.setItem('bill_id',params['billplz[id]'])
   localStorage.setItem('bill_paid_at',params['billplz[paid_at]'])
   localStorage.setItem('bill_status', params['billplz[paid]'])
-  res.redirect('http://vexs.fsktm.um.edu.my/payment_success');
+  res.redirect('http://localhost:3000/payment_success');
 }
 else{
-  res.redirect('http://vexs.fsktm.um.edu.my/payment_fail')
+  res.redirect('http://localhost:3000/payment_fail')
 }
 }
 module.exports = { create, read, update, readAll, pay, updatePayment }

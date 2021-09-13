@@ -1,42 +1,40 @@
-const Profiles = ({user,role}) =>  {
+const Profiles = ({ user, role }) => {
+  function display() {
+    var section = [];
+    if (user.company_logo) {
 
-  function display(){
-    var section =[];
-    if(user.company_logo){
-
-      for (var i=0; i<user.company_logo.length; i++){
-        const imageBuffer = Buffer.from(user.company_logo[0].source.data); 
+      for (var i = 0; i < user.company_logo.length; i++) {
+        const imageBuffer = Buffer.from(user.company_logo[0].source.data);
         section.push(
           <li>
-          <img src={imageBuffer} alt={user.company_logo[0].name}/>
+            <img src={imageBuffer} alt={user.company_logo[0].name} />
 
+          </li>
+        );
+      }
+    } else {
+      console.log("no data");
+    }
+    return section;
+  }
+  function displayJudge() {
+    var section = [];
+    if (user.poster) {
+
+      for (var i = 0; i < user.poster.length; i++) {
+        const imageBuffer = Buffer.from(user.poster[0].source.data);
+        section.push(
+          <li>
+            <img src={imageBuffer} alt={user.poster[0].name} />
           </li>
         );
       }
     }
     return section;
   }
+  if (role === 'Competitor') {
+    return (
 
-  function displayJudge(){
-    var section =[];
-    if(user.poster){
-
-      for (var i=0; i<user.poster.length; i++){
-        const imageBuffer = Buffer.from(user.poster[0].source.data); 
-        section.push(
-          <li>
-          <img src={imageBuffer} alt={user.poster[0].name}/>
-
-          </li>
-        );
-      }
-    }
-    return section;
-  }
-   
-  if(role === 'Competitor'){
-    return ( 
-          
       <div>
         <ul>
           <li>
@@ -49,20 +47,20 @@ const Profiles = ({user,role}) =>  {
             <p> Affiliation: {user.affiliation}</p>
           </li>
           <li>
-            <p> Contact Number: {user.phone_no}</p>
+            <p> {user.nric_passport_selection}: {user.nric_passport_no}</p>
           </li>
           <li>
-            <p> {user.nric_passport_selection}: {user.nric_passport_no}</p>
+            <p> Contact Number: {user.phone_no}</p>
           </li>
           <li>
             <p> Address: {user.address_1}, {user.address_2}, {user.postcode}, {user.city}, {user.state}, {user.country}  </p>
           </li>
         </ul>
       </div>
-     );
-   }
-  else if(role === 'Sponsor'){
-    return (       
+    );
+  }
+  else if (role === 'Sponsor') {
+    return (
       <div>
         <ul>
           <li>
@@ -75,17 +73,14 @@ const Profiles = ({user,role}) =>  {
             <p> Person In Charge's Full Name: {user.company_pic_name} </p>
           </li>
           <li>
-            <p> Person In Charge's IC: {user.company_pic_ic} </p>
-          </li>
-          <li>
             <p> Contact Number: {user.company_contact}</p>
           </li>
           <li>
-            <p> Company Address: {user.address_1}, {user.address_2}, {user.postcode}, {user.city}, {user.state}, {user.country}  </p>         
+            <p> Company Address: {user.address_1}, {user.address_2}, {user.postcode}, {user.city}, {user.state}, {user.country}  </p>
           </li>
           <li>
             <p> Company Logo: </p>
-              {display()}
+            {display()}
           </li>
           <li>
             <p> Company Website URL: <a href={user.company_website}>{user.company_website}</a></p>
@@ -94,8 +89,31 @@ const Profiles = ({user,role}) =>  {
       </div>
     );
   }
-  else if(role === 'Judge'){
-    return (       
+  else if (role === 'Visitor') {
+    return (
+      <div>
+        <ul>
+          <li>
+            <p> Name: {user.name} </p>
+          </li>
+          <li>
+            <p> Gender: {user.gender} </p>
+          </li>
+          <li>
+            <p> {user.nric_passport_selection}: {user.nric_passport_no}</p>
+          </li>
+          <li>
+            <p> Contact Number: {user.contact}</p>
+          </li>
+          <li>
+            <p> Address: {user.address_1}, {user.address_2}, {user.postcode}, {user.city}, {user.state}, {user.country}  </p>
+          </li>
+        </ul>
+      </div>
+    );
+  }
+  else if (role === 'Judge') {
+    return (
       <div>
         <ul>
           <li>
@@ -108,25 +126,28 @@ const Profiles = ({user,role}) =>  {
             <p>Contact number: {user.phone_no}</p>
           </li>
           <li>
-            <p> Company Address: {user.address_1}, {user.address_2}, {user.postcode}, {user.city}, {user.state}, {user.country}  </p>         
+            <p>Contact email: {user.email}</p>
+          </li>
+          <li>
+            <p> Company Address: {user.address_1}, {user.address_2}, {user.postcode}, {user.city}, {user.state}, {user.country}  </p>
           </li>
           <li>
             <p> Photo: </p>
-              {displayJudge()}
+            {displayJudge()}
           </li>
-          </ul>
+        </ul>
       </div>
     );
   }
-  else{
+  else {
     return (
       <div className="empty-container">
-          <p>Error display</p>
-      </div> 
-      
+        <p>Error display</p>
+      </div>
+
     );
   }
- 
+
 }
 
 export default Profiles;

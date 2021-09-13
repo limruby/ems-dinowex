@@ -38,14 +38,7 @@ function Login()
                             localStorage.setItem('user_id', JSON.stringify(res.data.result._id));                          
 
                             window.location.href = '/user_dashboard';
-                        }
-                        // else if(response.data.data.email === "demo@competitor.com"){
-                        //     console.log(response.data.data.email)
-                        //     localStorage.setItem('token', res.data.token); 
-                        //     localStorage.setItem('user_id', JSON.stringify(res.data.result._id));
-
-                        //     window.location.href = '/user_dashboard';
-                        // }
+                        }                        
                         else{
                             localStorage.setItem("competitor_id", JSON.stringify(response.data.data._id));                            
                             var url=""
@@ -109,6 +102,26 @@ function Login()
                         localStorage.setItem('token', res.data.token); 
                         localStorage.setItem('user_id', JSON.stringify(res.data.result._id));                              
                         window.location.href = '/user_dashboard';
+                    })
+                }
+                else if(res.data.result.role==="Visitor"){
+                    var visitor_id = JSON.stringify(res.data.result._id) 
+                    axiosInstance.get("/api/visitors/read", {params:{account_id:visitor_id}})
+                    .then(function(response) {
+                         localStorage.setItem('name', response.data.data.name);
+                        if(response.data.data.bill_status === "true"){
+                            localStorage.setItem('token', res.data.token); 
+                            localStorage.setItem('user_id', JSON.stringify(res.data.result._id));                          
+
+                            window.location.href = '/user_dashboard';
+                        }                        
+                        else{
+                            localStorage.setItem("visitor_id", JSON.stringify(response.data.data._id));                            
+                            
+                            var url = `${process.env.REACT_APP_BILLPLZ_VISITOR}`
+                            
+                            window.open(url,"_self")
+                        }
                     })
                 }                           
             }

@@ -15,7 +15,7 @@ const Success = () => {
         .then(
             res => {"COMPETITOR POST SUCCESS"}
         ).catch(err => {console.log(err)})
-        }
+    }
     else if (localStorage.getItem('sponsor_id')) {
  
             const string = localStorage.getItem('sponsor_id').substring(1, localStorage.getItem('sponsor_id').length-1);            
@@ -25,7 +25,17 @@ const Success = () => {
             .then(
                 res => {"SPONSOR POST SUCCESS"}
             ).catch(err => {console.log(err)})
-            }
+    }
+    else if (localStorage.getItem('visitor_id')) {
+ 
+            const string = localStorage.getItem('visitor_id').substring(1, localStorage.getItem('visitor_id').length-1);            
+            const visitor_id = {visitor_id:string};
+
+            axiosInstance.post('/api/visitors/updatePayment', visitor_id)
+            .then(
+                res => {"VISITOR POST SUCCESS"}
+            ).catch(err => {console.log(err)})
+    }
  
  
   return (
