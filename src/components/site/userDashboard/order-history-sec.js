@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Table from './Table.js';
-import { Link } from 'react-router-dom';
 import axiosInstance from '../../../utils/axiosConfig';
 
 function Order() {
@@ -17,8 +16,17 @@ function Order() {
             })
 
     }, [account_id]);
-
-    //var date = new Date(data.data.createdAt);
+    function displayName(input) {      
+        if(input[0]){ 
+            return input[0].name;
+        }    
+      }
+      function imageBuffer(input) {   
+        if(input[0]){ 
+            const imageBuffer = Buffer.from(input[0].source.data);     
+            return imageBuffer;            
+        }  
+      }
     const columns = React.useMemo(
         () => [
             {
@@ -48,6 +56,11 @@ function Order() {
                         Header: 'Bill ID',
                         accessor: 'bill_id'
                     },
+                    {
+                        Header: 'Receipt',
+                        accessor: 'receipt',
+                        Cell: ({row, value}) => (<a download={displayName(value)} href={imageBuffer(value)} title="Download">Download</a>  )
+                    },
                 ],
             },
         ],
@@ -58,6 +71,5 @@ function Order() {
             <Table columns={columns} data={data} />
         </div>
     );
-
 }
 export default Order;

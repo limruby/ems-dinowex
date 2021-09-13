@@ -4,7 +4,7 @@ import axiosInstance from '../../../../utils/axiosConfig.js';
 import { FaTrashAlt } from 'react-icons/fa';
 
 function InsertLink() {
-    localStorage.setItem("activeKeys", "Judge")
+    localStorage.setItem("activeKeys", "Link")
     const [data, setData] = useState({
         evaluation_form: '',
         youtube_form: '',
@@ -31,8 +31,7 @@ function InsertLink() {
     //One link only
     function displayLink() {
         var section = []
-        if (link.length == 0) { //all blank
-
+        if (link.length === 0) { //all blank
             section.push(
                 <div className="form-group">
                     <label htmlFor="evaluation_form"><span>*</span>Evalution Form</label>
@@ -41,9 +40,8 @@ function InsertLink() {
                     />
                 </div>
             )
-
         } else { //something existed but this empty
-            if (link[0].evaluation_form ==" " || link[0].evaluation_form =="") {
+            if (link[0].evaluation_form === " " || link[0].evaluation_form === "") {
                 section.push(
                     <div className="form-group">
                         <label htmlFor="evaluation_form"><span>*</span>Evalution Form</label>
@@ -61,29 +59,25 @@ function InsertLink() {
                 )
             }
         }
-
         return section
-
     }
 
     function displayYoutubeLink() {
         var section = []
-        if (link.length == 0) { //all blank
-
+        if (link.length === 0) { //all blank
             section.push(
                 <div className="form-group">
-                    <label htmlFor="youtube_form"><span>*</span>Youtube Form</label>
+                    <label htmlFor="youtube_form"><span>*</span>Youtube Live Event</label>
                     <input className="form-control" type="text" id="youtube_form"
                         onChange={inputChange('youtube_form')} placeholder="Insert form link"
                     />
                 </div>
             )
-
         } else { //something existed but this empty
-            if (link[0].youtube_form === " "||link[0].youtube_form =="") {
+            if (link[0].youtube_form === " " || link[0].youtube_form === "") {
                 section.push(
                     <div className="form-group">
-                        <label htmlFor="youtube_form"><span>*</span>Evalution Form</label>
+                        <label htmlFor="youtube_form"><span>*</span>Youtube Live Event</label>
                         <input className="form-control" type="text" id="youtube_form"
                             onChange={inputChange('youtube_form')} placeholder="Insert form link"
                         />
@@ -98,29 +92,25 @@ function InsertLink() {
                 )
             }
         }
-
         return section
-
     }
 
     function displayPosterLink() {
         var section = []
-        if (link.length == 0) { //all blank
-
+        if (link.length === 0) { //all blank
             section.push(
                 <div className="form-group">
-                    <label htmlFor="poster_form"><span>*</span>Youtube Form</label>
+                    <label htmlFor="poster_form"><span>*</span>Ideation Poster Competition</label>
                     <input className="form-control" type="text" id="poster_form"
                         onChange={inputChange('poster_form')} placeholder="Insert form link"
                     />
                 </div>
             )
-
         } else { //something existed but this empty
-            if (link[0].poster_form == " "||link[0].poster_form =="") {
+            if (link[0].poster_form === " " || link[0].poster_form === "") {
                 section.push(
                     <div className="form-group">
-                        <label htmlFor="poster_form"><span>*</span>Poster Form</label>
+                        <label htmlFor="poster_form"><span>*</span>Ideation Poster Competition</label>
                         <input className="form-control" type="text" id="poster_form"
                             onChange={inputChange('poster_form')} placeholder="Insert form link"
                         />
@@ -135,37 +125,34 @@ function InsertLink() {
                 )
             }
         }
-
         return section
-
     }
 
     function removeLink(form) {
 
-        if(form=="evaluation_form"){
+        if (form === "evaluation_form") {
             var postData = {
                 _id: link[0]._id,
-                evaluation_form: " ", 
+                evaluation_form: " ",
                 youtube_form: link[0].youtube_form,
-                poster_form: link[0].poster_form,    
+                poster_form: link[0].poster_form,
             }
-        }else if(form=="youtube_form"){
-            var postData = {
+        } else if (form === "youtube_form") {
+            postData = {
                 _id: link[0]._id,
                 evaluation_form: link[0].evaluation_form,
-                youtube_form: " ",  
-                poster_form: link[0].poster_form,  
+                youtube_form: " ",
+                poster_form: link[0].poster_form,
             }
-        }else if(form=="poster_form"){
-            var postData = {
+        } else if (form === "poster_form") {
+           postData = {
                 _id: link[0]._id,
                 evaluation_form: link[0].evaluation_form,
                 youtube_form: link[0].youtube_form,
-                poster_form: " ",                              
+                poster_form: " ",
             }
         }
-        
-        axiosInstance.post("/api/formLink/update",postData)
+        axiosInstance.post("/api/formLink/update", postData)
             .then(function (response) {
                 window.location.reload();
             }).catch(function (error) {
@@ -176,26 +163,22 @@ function InsertLink() {
     const handleForm = (e) => {
         e.preventDefault();
         // perform all neccassary validations
-
-
         ///////update to db /////////////           
         var postData = {
             evaluation_form: data.evaluation_form,
             youtube_form: data.youtube_form,
             poster_form: data.poster_form,
         }
-        if(link.length==0){
-            
-                axiosInstance.post("/api/formLink/create", postData)
-                    .then(function (response) {
-                        window.location.href = '/admin_dashboard';
-                    }).catch(function (error) {
-                        console.log(error);
-                    })
-            
+        if (link.length === 0) {
+            axiosInstance.post("/api/formLink/create", postData)
+                .then(function (response) {
+                    window.location.href = '/admin_dashboard';
+                }).catch(function (error) {
+                    console.log(error);
+                })
         }
-         else {
-            var postData = {
+        else {
+            postData = {
                 _id: link[0]._id,
                 evaluation_form: data.evaluation_form,
                 youtube_form: data.youtube_form,
@@ -208,18 +191,15 @@ function InsertLink() {
                     console.log(error);
                 })
         }
-
     }
     return (
         <>
             <form onSubmit={handleForm}>
                 <div className="edit-form-container" style={{ marginTop: "5%", marginBottom: "5%" }}>
                     <h1 className="mb-5">Insert Link</h1>
-
                     {displayLink()}
                     {displayYoutubeLink()}
                     {displayPosterLink()}
-
                     <div className="btn-group">
                         <Link to="/admin_dashboard">
                             <button className="btn btn-danger back-btn">Back</button>

@@ -37,6 +37,9 @@ app.use('/api/visitors', visitorsRouter)
 const judgeRouter = require('./routes/judge');
 app.use('/api/judge', judgeRouter)
 
+const speakerRouter = require('./routes/speaker');
+app.use('/api/speaker', speakerRouter)
+
 const cartRouter = require('./routes/cart');
 app.use('/api/cart', cartRouter)
 

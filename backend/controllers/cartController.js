@@ -13,6 +13,7 @@ const addToCart = (req, res, next)=>{
     const name = req.body.name;
     const order_date = req.body.order_date;
     const bill_status = req.body.bill_status;
+    const receipt = req.body.receipt;
     
     const newCart = new Cart({
       account_id,
@@ -22,7 +23,8 @@ const addToCart = (req, res, next)=>{
       email,
       name,
       order_date,
-      bill_status
+      bill_status,
+      receipt
     });
     newCart.save()
     .then(() => res.json(newCart))
@@ -36,6 +38,9 @@ const updateCart = (req, res, next)=>{
   if(req.body.bill_id){
     updateCart['bill_id'] = req.body.bill_id;
   }
+  if(req.body.receipt){
+    updateCart['receipt'] = req.body.receipt;
+  }
   Cart.findByIdAndUpdate(req.body._id, updateCart, (err, carts) => {
     if (err) {
       return res.status(400).json({ success: false, error: err, data:req.body })
@@ -48,7 +53,6 @@ const updateCart = (req, res, next)=>{
 
 const deleteOrder = (req, res, next)=>{
   var _id = req.query._id;
-
   Cart.findByIdAndDelete(_id,function (err) {
     if(err)  {
         return res.status(400).json({ success: false, error: err })

@@ -4,37 +4,41 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const subSchema = new Schema({
-  name: {
-    type: String,
-    required: false
-  },
-  source: {
-    type: Buffer,
-    required: false
-  }
-});
+    name: {
+      type: String,
+      required: false
+    },
+    source: {
+      type: Buffer,
+      required: false
+    }
+  });
 
-const visitorSchema = new Schema({
+const speakerSchema = new Schema({
   account_id:{
     type: [{ type: Schema.Types.ObjectId, ref: 'Account'}],
     required: true
   },
+  title: {
+    type: String,
+    required: true
+  }, 
   name: {
     type: String,
     required: true
   }, 
-  nric_passport_selection: {
+  affiliation: {
     type: String,
-    required: true
+    required: false
   }, 
-  nric_passport_no: {
+  email: {
     type: String,
-    required: true
-  }, 
-  contact: {
-    type: String,
-    required: true
-  }, 
+    required: false
+  },
+  phone_no:{
+    type:String,
+    required:true
+  },
   address_1: {
     type: String,
     required: true
@@ -56,29 +60,14 @@ const visitorSchema = new Schema({
     required: true
   },
   country:{
-    type: String,
-    required: true
-  },
-  gender: {
-    type: String,
-    required: true
-  },
-  bill_id:{
-    type: String, 
-  },
-  bill_paid_at:{
-    type: String,  
-  },
-  bill_status: {
     type:String,
+    required: true
   },
-  receipt:[subSchema],
-  certificate:[subSchema],
-  
+  photo:[subSchema],
 }, {
   timestamps: true,
 });
 
-const Visitor = mongoose.model('Visitor', visitorSchema);
+const Speaker = mongoose.model('Speaker', speakerSchema);
 
-module.exports = Visitor;
+module.exports = Speaker;
