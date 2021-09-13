@@ -48,11 +48,11 @@ services:
       - traefik.http.routers.vexs_backend.entrypoints=https
       - traefik.http.routers.vexs_backend.tls.certresolver=mytlschallenge
       ### Not Secure ###
-      # - traefik.http.routers.vexs_backend-unsecured.service=vexs_backend
-      # - traefik.http.routers.vexs_backend-unsecured.rule=Host(`vexsdev.fsktm.um.edu.my`) && PathPrefix(`/api/`)
+      - traefik.http.routers.vexs_backend-unsecured.service=vexs_backend
+      - traefik.http.routers.vexs_backend-unsecured.rule=Host(`vexsdev.fsktm.um.edu.my`) && PathPrefix(`/api/`)
       - traefik.http.routers.vexs_backend-unsecured.rule=Host(`vexsdev.fsktm.um.edu.my`)
       - traefik.http.routers.vexs_backend-unsecured.entrypoints=http
-      - traefik.http.routers.vexs_backend-unsecured.middlewares=redirect@file # uncomment to enable ssl when 443 is ready
+      # - traefik.http.routers.vexs_backend-unsecured.middlewares=redirect@file # uncomment to enable ssl when 443 is ready
     container_name: vexs_backend
 
 networks:
