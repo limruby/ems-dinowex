@@ -75,10 +75,20 @@ function EventLobby() {
       <div>
         <div className="img-container">
         <div className="sponsors-dropdown sponsors-hall">
-          SPONSORS HALL<span className="sponsors-arrow"></span>
-            <div className="sponsors-dropdown-content">            
-                <a href="/sponsor_hall">DINOWEX</a><span className="sponsors-dropdown-arrow"></span>
-                <a href="/iiidentex_uitm/sponsor_hall">IIIDENTEX</a><span className="sponsors-dropdown-arrow"></span>             
+          SPONSORS HALL<span className="sponsors-arrow "></span>
+            <div className="sponsors-dropdown-content"> 
+
+                <div className="sponsors-sub-dropdown">
+                  <a>DINOWEX</a><span className="sponsors-dropdown-arrow"></span>
+                    <div className="sponsors-sub-dropdown-content sub-dropdown">         
+                        <a href="/sponsor_hall">MAIN HALL</a><span className="sponsors-sub-dropdown-arrow"></span>
+                        <a href="">MERCHANT HALL</a><span className="sponsors-sub-dropdown-arrow"></span>             
+                    </div>
+                </div>
+
+                <div>
+                  <a href="/iiidentex_uitm/sponsor_hall">IIIDENTEX</a><span className="sponsors-dropdown-arrow"></span> 
+                </div>            
             </div>
         </div>
             <div className="speakers-dropdown speakers">
