@@ -1,30 +1,41 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+const subSchema = new Schema({
+    name: {
+        type: String,
+        required: false
+    },
+    source: {
+        type: Buffer,
+        required: false
+    }
+});
+
 const cartSchema = new Schema({
     account_id: {
         type: [{ type: Schema.Types.ObjectId, ref: 'Account' }],
         required: true
     },
-    email:{
+    email: {
         type: String,
         required: true
     },
-    name:{
+    name: {
         type: String,
         required: true
     },
-    medalQuantity:{
-        type:Number,
+    medalQuantity: {
+        type: Number,
     },
-    bookQuantity:{
-        type:Number,
+    bookQuantity: {
+        type: Number,
     },
-    total_price:{
-        type:Number,       
+    total_price: {
+        type: Number,
     },
-    order_date:{
-        type:String,
+    order_date: {
+        type: String,
     },
     bill_id: {
         type: String,
@@ -35,7 +46,7 @@ const cartSchema = new Schema({
     bill_status: {
         type: String,
     },
-
+    receipt: [subSchema],
 }, {
     timestamps: true,
 });

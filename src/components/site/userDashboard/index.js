@@ -9,7 +9,9 @@ import Abstract from './abstract-sec';
 import BookChapter from './book-chapter-sec';
 import ResearchTeam from './research-team-sec';
 import Receipt from './receipt-sec'
+import Certificate from './cert-sec.js';
 import Cart from './cart-sec'
+import EvaluationForm from './evaluation-form-sec'
 
 import PdfAbstract from './pdf-abstract-bookChapter';
 import Preview from './preview-sec'; import 'bootstrap/dist/css/bootstrap.min.css';
@@ -31,6 +33,20 @@ function UserDashboard() {  ////////////////////get login user info (REPLACE THI
       });
 
     axiosInstance.get("/api/sponsors/read", { params: { account_id: account_id } })
+      .then(function (response) {
+        setUser(response.data.data);
+      }).catch(function (error) {
+        console.log(error);
+      });
+
+      axiosInstance.get("/api/visitors/read", { params: { account_id: account_id } })
+      .then(function (response) {
+        setUser(response.data.data);
+      }).catch(function (error) {
+        console.log(error);
+      })
+
+      axiosInstance.get("/api/judge/read", { params: { account_id: account_id } })
       .then(function (response) {
         setUser(response.data.data);
       }).catch(function (error) {
@@ -60,6 +76,13 @@ function UserDashboard() {  ////////////////////get login user info (REPLACE THI
           <div className="row-username">
             <p>Welcome {user.name}</p>
           </div>);
+
+      case 'Judge':
+        return (
+          <div className="row-username">
+            <p>Welcome {user.name}</p>
+          </div>);
+
       default:
         return (
           <div className="row-username">
@@ -110,6 +133,31 @@ function UserDashboard() {  ////////////////////get login user info (REPLACE THI
             </Nav.Item>
             <Nav.Item>
               <Nav.Link eventKey="Cart"><FaMedal size={20} /> Products</Nav.Link>
+            </Nav.Item>
+          </Nav>
+        );
+        case 'Visitor':
+        return (
+          <Nav variant="pills" className="flex-column">
+            <Nav.Item>
+              <Nav.Link eventKey="Account-Profiles"><BsPeopleCircle size={20} /> Profiles</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="Receipt"><FaReceipt size={20} /> Receipt</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="Cert"><FaCertificate size={20} /> Certificate</Nav.Link>
+            </Nav.Item>
+          </Nav>
+        );
+        case 'Judge':
+        return (
+          <Nav variant="pills" className="flex-column">
+            <Nav.Item>
+              <Nav.Link eventKey="Account-Profiles"><BsPeopleCircle size={20} /> Profiles</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="Evaluation-Table"><FaBook size={20} /> Evaluation Table</Nav.Link>
             </Nav.Item>
           </Nav>
         );
@@ -256,8 +304,8 @@ function UserDashboard() {  ////////////////////get login user info (REPLACE THI
                   <Card>
                     <Card.Body>
                       <div className="sec-container">
-                        <h2> Download Certification</h2>
-                        <h5>Coming Soon</h5>
+                      <h2> Download Certification</h2>
+                        <Certificate user={user} role={account.role} />
                       </div>
                     </Card.Body>
                   </Card>
@@ -271,6 +319,19 @@ function UserDashboard() {  ////////////////////get login user info (REPLACE THI
                     </Card.Body>
                   </Card>
                 </Tab.Pane>
+                <Tab.Pane eventKey="Evaluation-Table">
+                  <Card>
+                    <Card.Body>
+                    <div className="sec-container">
+                      <Link to='/user_dashboard/evaluation_form'>
+                        <a className="edit" href=""><FaEdit /> Edit</a>
+                      </Link>
+                      <h2> Evaluation Form</h2>
+                      <EvaluationForm  />
+                    </div>
+                    </Card.Body>
+                  </Card>
+                </Tab.Pane>
               </Tab.Content>
             </Col>
           </Row>
@@ -279,4 +340,3 @@ function UserDashboard() {  ////////////////////get login user info (REPLACE THI
     </>
   );
 } export default UserDashboard;
-
