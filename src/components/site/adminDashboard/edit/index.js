@@ -4,12 +4,18 @@ import '../../../../assets/css/agency.min.css';
 
 import EditAccount from './editAccount.js';
 import EditPassword from './editPassword.js';
-import EditProfile_C from './editCompetitor.js';
-import EditProfile_S from './editSponsor.js';
+import EditProfileComp from './editCompetitor.js';
+import EditProfileVisitor from './editVisitor';
+import EditProfileSponsor from './editSponsor.js';
+import EditProfileJudge from './editJudge.js';
+import EditProfileSpeaker from './editSpeaker.js';
+import InsertLink from './insertLink';
 import EditPaymentStatus from './editPaymentStatus.js';
+import AssignProject from './assignProject.js';
 import CreateProfile from './createAccount.js';
 import UploadReceiptCompetitor  from './upload_receipt_competitor.js';
 import UploadReceiptSponsor  from './upload_receipt_sponsor.js';
+import UploadReceiptVisitor from './upload_receipt_visitor';
 
 function FormNavigator() {
 
@@ -35,20 +41,40 @@ const lastPath = thePath.substring(thePath.lastIndexOf('/') + 1);
 	else if (lastPath === 'edit_profile_sponsor'){
 		return( 
 		<div className="form-main-container">
-			<EditProfile_S/>
+			<EditProfileSponsor/>
 		</div>
 		)
 	}
 	else if (lastPath === 'edit_profile_competitor'){
 		return( 
 		<div className="form-main-container">
-			<EditProfile_C/>
+			<EditProfileComp/>
 		</div>
+		)			
+	}
+	else if (lastPath === 'edit_profile_visitor'){		
+		return( 
+			<section className="section-container">
+				<EditProfileVisitor/>
+			</section>
+		)			
+	}
+	else if (lastPath === 'edit_profile_judge'){		
+		return( 
+			<section className="section-container">
+				<EditProfileJudge/>
+			</section>
+		)			
+	}
+	else if (lastPath === 'edit_profile_speaker'){		
+		return( 
+			<section className="section-container">
+				<EditProfileSpeaker/>
+			</section>
 		)			
 	}
 	else if (lastPath === 'create_profile'){		
 		return( 
-
 			<section className="section-container">
 				<CreateProfile/>
 			</section>
@@ -66,17 +92,36 @@ const lastPath = thePath.substring(thePath.lastIndexOf('/') + 1);
 	}
 	else if (lastPath === 'upload_receipt_sponsor'){		
 		return( 
-
 			<section className="section-container">
 				<UploadReceiptSponsor/>
 			</section>
-
+		)			
+	}
+	else if (lastPath === 'upload_receipt_visitor'){		
+		return( 
+			<section className="section-container">
+				<UploadReceiptVisitor/>
+			</section>
 		)			
 	}
 	else if (lastPath === 'edit_order_status'){		
 		return( 
 			<section className="section-container">
 				<EditPaymentStatus/>
+			</section>
+		)			
+	}
+	else if (lastPath === 'assign_project_title'){		
+		return( 
+			<section className="section-container">
+				<AssignProject/>
+			</section>
+		)			
+	}
+	else if (lastPath === 'insert_evaluation_form_link'){		
+		return( 
+			<section className="section-container">
+				<InsertLink/>
 			</section>
 		)			
 	}

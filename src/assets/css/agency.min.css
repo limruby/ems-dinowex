@@ -256,7 +256,7 @@ header.masthead .intro-text .intro-lead-in {
  
 header.masthead .intro-text .intro-heading {
   width: max-content;
-  padding-right: 500px;
+  
   font-size: 50px;
   font-weight: 700;
   line-height: 50px;
@@ -722,7 +722,6 @@ ul.social-buttons li a:hover {
 }
 
 .nav-item {
-  height: 100%;
   padding: 0 20px 0 20px;
   border-bottom: 2px solid transparent;
 }
@@ -1156,4 +1155,785 @@ h3 {
     rgb(140 140 140 / 50%) 0px 4px 0px, #787878 0px 0px 0px,
     rgb(0 0 0 / 50%) 0px 5px 10px;
 }
- 
+
+/*Start of sponsor booth*/
+.center{
+  text-align: center;
+}
+
+.sponsor-name{
+  font-size: 4vw;
+  font-weight: bold;
+  padding:3%
+}
+
+.sponsor-booth-container{
+    width: 50%;
+    min-height: 100%;
+    height: fit-content;
+    background: rgb(255, 255,255, 0.7);
+    padding: 2%;
+    border-radius: 10px;
+}
+
+.sponsor-tab{
+  color:black!important;
+}
+.sponsor-tab:hover{
+  color:white!important;
+}
+.video-name a{
+  color: white !important;
+}
+/*End of sponsor booth*/
+
+/*Start of competitor booth*/
+.booth-name {
+  position: absolute;
+  top: 9%;
+  left: 48%;
+  transform: translate(-50%, -50%);
+  text-shadow: none !important;
+  color: white;
+  font-size: 20px;
+  border-color: #43ba7a;
+  border-style: solid;
+  border-radius: 5px;
+  width: 300px;
+  background-color: #43ba7a;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.booth-title{
+  position: absolute;
+  top: 40%;
+  left: 48%;
+  transform: translate(-50%, -50%);
+  text-shadow: none !important;
+  color: black;
+  font-size: 15px;
+  width: 220px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.booth-number {
+  position: absolute;
+  top: 78%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-shadow: none !important;
+  
+}
+.booth-display-number{
+  background-color: #000 !important;
+}
+
+.competitor-category{
+  font-size: 4vw;
+  font-weight: bold;
+  padding:2%
+}
+
+.project-title{
+  font-size: 3vw;
+  font-weight: bold;
+  padding:1%
+}
+
+.competitor-booth-container{
+    width: 50%;
+    height: fit-content;
+    background: rgb(255, 255,255, 0.7);
+    padding: 2%;
+    border-radius: 10px;
+}
+
+.vertical-center{
+  align-self: center;
+}
+
+.download-paper{
+  color: blue !important;;
+}
+.download-paper:hover{
+  color: black !important;;
+}
+.justify-text{
+  text-align: justify;
+}
+.comp-background{
+  background-size: contain !important;
+}
+
+.title{
+  padding-top: 5%;
+  padding-bottom: 5%;
+  padding-left: 10%;
+  font-size: 25px;
+  text-align: left !important;
+}
+
+.abstract-content{
+  padding-left: 10%;
+  padding-right: 10%;
+  text-align: left !important;
+}
+
+.display{
+  text-shadow: none !important;
+  padding: 0% !important;
+  margin: 0% !important;
+}
+
+.display-content{
+  background-color: #43ba7a;
+  text-shadow: none !important;
+  padding-bottom: 5%;
+}
+.display-profile{
+  background-color: #43ba7a;
+  text-shadow: none !important;
+  padding-bottom: 5%;
+}
+
+.display-promotional-content{
+  background-color: #7e7ebc;
+  text-shadow: none !important;
+  padding-bottom: 5%;
+}
+.display-video{
+  background-color:#7e7ebc;
+  text-shadow: none !important;
+  padding: 5% 0%;
+  margin: 0%;
+}
+.video_iframe{
+  width: fit-content !important;
+  min-width:fill-available;
+  padding: 10px 40px;
+}
+.display-members{
+  background-color: #43ba7a;
+  text-shadow: none !important;
+  padding-bottom: 5%;
+}
+
+.members-name{
+  text-align: left;
+  font-size: 20px;
+  padding-top: 2%;
+  padding-left: 10%;
+}
+.display-awards{
+  background-color: #f7b13e;
+  text-shadow: none !important;
+  padding-bottom: 5%;
+}
+
+.awards-name{
+  text-shadow: none !important;
+  text-align: left;
+  padding-left: 15%;
+  font-size: 50px;
+  font-weight: bold;
+}
+.awards-name a{
+  color: #fff;
+}
+
+.display-grants{
+  background-color: #7e7ebc;
+  text-shadow: none !important;
+  padding-bottom: 5%;
+}
+
+.profile{
+  text-shadow: none !important;
+  text-align: left;
+  padding-left: 15%;
+  font-size: 25px;
+}
+.promotional-content{
+  text-shadow: none !important;
+  text-align: left;
+  padding-left: 15%;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.contact-us{
+  text-shadow: none !important;
+  text-align: left;
+  padding-left: 15%;
+  font-size: 25px;
+  font-weight: bold;
+}
+.display-poster{
+  background-color: #f7b13e;
+}
+.display-poster img{
+  width: 100%;
+  height: auto;
+}
+.display-poster embed{
+  width: 100%;
+  min-height: 160vh;
+}
+.forum-title{
+  background-color: #f7b13e;
+  padding: 5%;
+  font-size: 25px;
+  text-align: left !important;
+  color: white;
+}
+.display-forum{
+  background-color: white;
+  color: grey;
+  text-shadow: none !important;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  text-align: left !important;
+  width: 100%;
+  min-height: 700px;
+  max-height: 1150px;
+  overflow: auto;
+}
+.forum-avatar{
+  font-size: 50px;
+  margin-left: 1%;
+  margin-right: 1%;
+  margin-bottom: 1%;
+}
+.forum-name{
+  padding-left: 10% !important;
+  text-align: left !important;
+}
+.forum-comment{
+  padding-left: 18% !important;
+  text-align: left !important;
+}
+.display-forum-form{
+  /* background-color: #43ba7a; */
+  background-color: #f7b13e;
+  text-shadow: none !important;
+}
+/*End of competitor booth*/
+
+/*Start of sponsor hall*/
+.sponsorhall-main-container {
+  padding: 5%;
+  min-height: 420px;
+}
+
+.sponsorhall-container {
+  margin: 0 20px 0 20px;
+  width: 50%;
+  min-height: 100%;
+  height: fit-content;
+  background: rgb(255, 255,255, 0.7);
+  padding: 2%;
+  border-radius: 10px;
+}
+
+.featured_sponsor_background {
+  opacity:0.8;
+}
+
+.sponsor_title {
+  color: black;
+  font-size: 2vw;
+  font-weight: bold;
+}
+
+.featured_sponsor_info {
+  margin-bottom: -12%;
+  position: relative;
+  transform: translateY(-220%);
+  text-align: center;
+}
+
+.featured_sponsor_text {
+  color: white;
+  font-size: 4vw;
+  font-weight: bold;
+}
+
+.featured_sponsor_about_us {
+  margin-top: 2%;
+  position: relative;
+  
+}
+.sponsor-category{
+  display: flex;
+  justify-content: center;
+}
+
+.sponsor h1{
+  font-size: 30px;
+  font-weight: bold;
+  color: #f7b13e;
+  text-shadow: none !important;
+  padding: 5% 0%;
+}
+/*End of sponsor hall*/
+
+
+/*start of event lobby*/
+.img-container {
+  display: inline-block;
+  position: relative;
+}
+.sponsors-dropdown {
+  display: inline-block;
+}
+
+.sponsors-dropdown-content {
+  display: none;  
+  position: absolute;
+  background-color: #43ba7a;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding-left: 0;
+  min-width: 100%;
+  left:0%;
+  text-align: end;
+  border-color: white;
+  border-left-width: 0.2em;
+  border-left-style: solid;
+}
+
+.sponsors-dropdown:hover .sponsors-dropdown-content {
+  display: block;
+}
+
+.sponsors-dropdown-arrow {
+  border-style: dashed;
+  border-color: transparent;
+  border-width: 0.20em;
+  display: -moz-inline-box;
+  display: inline-block;
+  /* Use font-size to control the size of the arrow. */
+  font-size: 120px;
+  height: 0;
+  line-height: 0;
+  position: relative;
+  vertical-align: middle;
+  width: 0; /* change background color acc to bg color */ 
+  border-left-width: 0.2em;
+  border-left-style: solid;
+  border-left-color: #43ba7a;
+  left: 30%;
+}
+
+.sponsors-sub-dropdown {
+  display: inline-block;
+}
+
+.sponsors-sub-dropdown-content {
+  display: none;  
+  position: absolute;
+  background-color: #43ba7a;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding-left: 0px;
+  min-width: 110%;
+  left:0%;
+  text-align: end;
+  border-left-width: 0.2em;
+  border-left-style: solid;
+  border-left-color: white;
+}
+
+.sponsors-sub-dropdown:hover .sponsors-sub-dropdown-content {
+  display: block;
+}
+
+.sponsors-sub-dropdown-arrow {
+  border-style: dashed;
+  border-color: transparent;
+  border-width: 0.20em;
+  display: -moz-inline-box;
+  display: inline-block;
+  /* Use font-size to control the size of the arrow. */
+  font-size: 120px;
+  height: 0;
+  line-height: 0;
+  position: relative;
+  vertical-align: middle;
+  width: 0; /* change background color acc to bg color */ 
+  border-left-width: 0.2em;
+  border-left-style: solid;
+  border-left-color: #43ba7a;
+  left: 20%;
+}
+
+.sponsors-hall{
+  position: absolute;
+  right: 70%;
+  bottom: 85%;
+  background-color: #43ba7a;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 18px;
+  padding-left: 1%;
+}
+
+
+
+.speakers-dropdown-arrow{
+  border-style: dashed;
+  border-color: transparent;
+  border-width: 0.20em;
+  display: -moz-inline-box;
+  display: inline-block;
+  /* Use font-size to control the size of the arrow. */
+  font-size: 120px;
+  height: 0;
+  line-height: 0;
+  position: relative;
+  vertical-align: middle;
+  width: 0; /* change background color acc to bg color */ 
+  border-right-width: 0.2em;
+  border-right-style: solid;
+  border-right-color: #43ba7a;
+  right:29%;
+}
+
+.speakers-dropdown {
+  display: inline-block;
+}
+
+.speakers-dropdown-content {
+  display: none;  
+  position: absolute;
+  background-color: #43ba7a;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding-left: 0;
+  min-width: 100%;
+  left:0%;
+  text-align: start;
+  border-color: white;
+  border-right-width: 0.2em;
+  border-right-style: solid;
+}
+
+.speakers-dropdown:hover .speakers-dropdown-content {
+  display: block;
+}
+
+.img-container a{
+  color: #fff;
+  font-style: normal;
+}
+.sponsors-dropdown {
+  display: inline-block;
+}
+
+.sponsors-dropdown-content {
+  display: none;  
+  position: absolute;
+  background-color: #43ba7a;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding-left: 0;
+  min-width: 100%;
+  left:0%;
+  text-align: end;
+  border-color: white;
+  border-left-width: 0.2em;
+  border-left-style: solid;
+}
+
+.sponsors-dropdown:hover .sponsors-dropdown-content {
+  display: block;
+  cursor: pointer;
+}
+.sponsors-dropdown-arrow {
+  border-style: dashed;
+  border-color: transparent;
+  border-width: 0.20em;
+  display: -moz-inline-box;
+  display: inline-block;
+  /* Use font-size to control the size of the arrow. */
+  font-size: 120px;
+  height: 0;
+  line-height: 0;
+  position: relative;
+  vertical-align: middle;
+  width: 0; /* change background color acc to bg color */ 
+  border-left-width: 0.2em;
+  border-left-style: solid;
+  border-left-color: transparent;
+  left: 21%;
+}
+.speakers{
+  position: absolute;
+  right: 23%;
+  bottom: 54%;
+  background-color: #43ba7a;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 18px;
+  padding-right: 20px;
+}
+.speakers-dropdown-arrow{
+  border-style: dashed;
+  border-color: transparent;
+  border-width: 0.20em;
+  display: -moz-inline-box;
+  display: inline-block;
+  /* Use font-size to control the size of the arrow. */
+  font-size: 120px;
+  height: 0;
+  line-height: 0;
+  position: relative;
+  vertical-align: middle;
+  width: 0; /* change background color acc to bg color */ 
+  border-right-width: 0.2em;
+  border-right-style: solid;
+  border-right-color: #43ba7a;
+  right:29%;
+}
+
+.speakers-dropdown {
+  display: inline-block;
+}
+
+.speakers-dropdown-content {
+  display: none;  
+  position: absolute;
+  background-color: #43ba7a;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding-left: 0;
+  min-width: 100%;
+  left:0%;
+  text-align: start;
+  border-color: white;
+  border-right-width: 0.2em;
+  border-right-style: solid;
+}
+
+.speakers-dropdown:hover .speakers-dropdown-content {
+  display: block;
+  /* cursor: pointer; */
+}
+.competitors-hall{
+  position: absolute;
+  right: 80%;
+  bottom: 30%;
+  background-color: #43ba7a;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 18px;
+  padding-left: 20px;
+}
+
+.competitors-dropdown {
+  display: inline-block;
+}
+
+.competitors-dropdown-content {
+  display: none;  
+  position: absolute;
+  background-color: #43ba7a;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding-left: 10%;
+  min-width: 100%;
+  left:0%;
+  text-align: center;
+  border-color: white;
+  border-left-width: 0.2em;
+  border-left-style: solid;
+}
+
+.competitors-dropdown:hover .competitors-dropdown-content {
+  display: block;
+  cursor: pointer;
+
+}
+
+.competitors-dropdown-arrow {
+  border-style: dashed;
+  border-color: transparent;
+  border-width: 0.20em;
+  display: -moz-inline-box;
+  display: inline-block;
+  /* Use font-size to control the size of the arrow. */
+  font-size: 120px;
+  height: 0;
+  line-height: 0;
+  position: relative;
+  vertical-align: middle;
+  width: 0; /* change background color acc to bg color */ 
+  border-left-width: 0.2em;
+  border-left-style: solid;
+  border-left-color: #43ba7a;
+  left: 39%;
+}
+.youtube-event{
+  position: absolute;
+  right: 11%;
+  bottom: 15%;
+  background-color: #43ba7a;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 18px;
+  padding-right: 20px;
+}
+.youtube-dropdown-arrow{
+  border-style: dashed;
+  border-color: transparent;
+  border-width: 0.20em;
+  display: -moz-inline-box;
+  display: inline-block;
+  /* Use font-size to control the size of the arrow. */
+  font-size: 120px;
+  height: 0;
+  line-height: 0;
+  position: relative;
+  vertical-align: middle;
+  width: 0; /* change background color acc to bg color */ 
+  border-right-width: 0.2em;
+  border-right-style: solid;
+  border-right-color: #43ba7a;
+  right:70%;
+}
+
+.youtube-dropdown {
+  display: inline-block;
+}
+
+.youtube-dropdown-content {
+  display: none;  
+  position: absolute;
+  background-color: #43ba7a;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding-left: 30%;
+  min-width: 100%;
+  left:0%;
+  text-align: start;
+  border-color: white;
+  border-right-width: 0.2em;
+  border-right-style: solid;
+}
+
+.youtube-dropdown:hover .youtube-dropdown-content {
+  display: block;
+  /* cursor: pointer; */
+}
+.text {
+  background-color:#43ba7a;
+  color:#fff;
+  display:inline-block;
+  padding-left:4px;
+}
+
+.youtube-dropdown-content {
+  display: none;  
+  position: absolute;
+  background-color: #43ba7a;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding-left: 30%;
+  min-width: 100%;
+  left:0%;
+  text-align: start;
+  border-color: white;
+  border-right-width: 0.2em;
+  border-right-style: solid;
+}
+
+.youtube-dropdown:hover .youtube-dropdown-content {
+  display: block;
+}
+
+.sponsors-arrow {
+  border-style: dashed;
+  border-color: transparent;
+  border-width: 0.20em;
+  display: -moz-inline-box;
+  display: inline-block;
+  /* Use font-size to control the size of the arrow. */
+  font-size: 120px;
+  height: 0;
+  line-height: 0;
+  position: relative;
+  vertical-align: middle;
+  width: 0; /* change background color acc to bg color */ 
+  border-left-width: 0.2em;
+  border-left-style: solid;
+  border-left-color: #43ba7a;
+  left:23%;
+}
+
+.sub-dropdown{
+  left:100%;
+  top: 0;
+}
+
+.competitors-arrow {
+  border-style: dashed;
+  border-color: transparent;
+  border-width: 0.20em;
+  display: -moz-inline-box;
+  display: inline-block;
+  /* Use font-size to control the size of the arrow. */
+  font-size: 120px;
+  height: 0;
+  line-height: 0;
+  position: relative;
+  vertical-align: middle;
+  width: 0; /* change background color acc to bg color */ 
+  border-left-width: 0.2em;
+  border-left-style: solid;
+  border-left-color: #43ba7a;
+  left:19.5%;
+}
+
+.speakers-arrow {
+  border-style: dashed;
+  border-color: transparent;
+  border-width: 0.20em;
+  display: -moz-inline-box;
+  display: inline-block;
+  /* Use font-size to control the size of the arrow. */
+  font-size: 120px;
+  height: 0;
+  line-height: 0;
+  position: relative;
+  vertical-align: middle;
+  width: 0; /* change background color acc to bg color */ 
+  border-right-width: 0.2em;
+  border-right-style: solid;
+  border-right-color: #43ba7a;
+  right:33%;
+}
+
+.youtube-event-arrow {
+  border-style: dashed;
+  border-color: transparent;
+  border-width: 0.20em;
+  display: -moz-inline-box;
+  display: inline-block;
+  /* Use font-size to control the size of the arrow. */
+  font-size: 120px;
+  height: 0;
+  line-height: 0;
+  position: relative;
+  vertical-align: middle;
+  width: 0; /* change background color acc to bg color */ 
+  border-right-width: 0.2em;
+  border-right-style: solid;
+  border-right-color: #43ba7a;
+  right:21%;
+}
+
+
+
+
+
+/*end of event lobby*/

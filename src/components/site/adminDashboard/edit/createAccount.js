@@ -4,6 +4,35 @@ import axiosInstance from '../../../../utils/axiosConfig.js';
 
 function CreateAccount() {
     localStorage.setItem("activeKeys", "Account")
+
+    var judgeData = {
+        account_id: '',
+        title: 'default',
+        name: 'default',
+        affiliation: 'default',
+        phone_no: '0123456789',
+        email: '',
+        address_1: 'default',
+        address_2: 'default',
+        postcode: 12345,
+        city: 'default',
+        state: 'default',
+        country: 'Malaysia',
+    }
+    var speakerData = {
+        account_id: '',
+        title: 'default',
+        name: 'default',
+        affiliation: 'default',
+        phone_no: '0123456789',
+        email: '',
+        address_1: 'default',
+        address_2: 'default',
+        postcode: 12345,
+        city: 'default',
+        state: 'default',
+        country: 'Malaysia',
+    }
     var compData = {
         account_id: '',
         category: 'default',
@@ -21,7 +50,6 @@ function CreateAccount() {
         country: 'default',
         bill_status: 'false',
     }
-
     var sponsorData = {
         account_id: '',
         category: 'default',
@@ -38,13 +66,28 @@ function CreateAccount() {
         country: 'default',
         bill_status: 'false'
     }
+    var visitorData = {
+        account_id: '',
+        name: 'default',
+        gender : 'male',
+        nric_passport_selection: 'NRIC',
+        nric_passport_no: 123456789,
+        contact: '0123456789',
+        address_1: 'default',
+        address_2: 'default',
+        postcode: 12345,
+        city: 'default',
+        state: 'default',
+        country: 'default',
+        bill_status: 'false',
+    }
     const [data, setData] = useState({
         email: '',
         password: '',
         role: '',
         category: ''
     });
-    if (data.email === "demo@competitor.com" && data.password ==="democompetitor") {
+    if (data.email === "demo@competitor.com" && data.password === "democompetitor") {
         compData = {
             account_id: '',
             category: 'default',
@@ -63,7 +106,7 @@ function CreateAccount() {
             bill_status: 'true',
         }
     }
-    else if (data.email === "demo@sponsor.com" && data.password ==="demosponsor") {
+    else if (data.email === "demo@sponsor.com" && data.password === "demosponsor") {
         sponsorData = {
             account_id: '',
             category: 'default',
@@ -83,12 +126,10 @@ function CreateAccount() {
     }
 
     const inputChange = input => e => {
-
         setData({
             ...data,
             [input]: e.target.value
         });
-
         if (input === "role") {
             setData({
                 ...data,
@@ -96,8 +137,6 @@ function CreateAccount() {
                 'category': ""
             });
         }
-
-
     };
 
     function displayCategory() {
@@ -109,9 +148,9 @@ function CreateAccount() {
                     <select className="form-control" id="category" required
                         onChange={inputChange('category')} value={data.category} >
                         <option value="">Please select</option>
-                        <option value="Professional Innovator">Professional Innovator</option>
-                        <option value="Junior Innovator">Junior Innovator</option>
+                        <option value="Professional Innovator">Professional Innovator</option>                        
                         <option value="Young Innovator">Young Innovator</option>
+                        <option value="International Innovator">International Innovator</option>
                     </select>
                 </div>
             )
@@ -138,7 +177,6 @@ function CreateAccount() {
             alert("Form Incomplete!");
         }
 
-
         else {
             ///////update to db /////////////
             axiosInstance.post("/api/accounts/signUp", data)
@@ -146,6 +184,11 @@ function CreateAccount() {
                     if (data.role === "Competitor") {
                         compData["category"] = data.category;
                         compData["account_id"] = response.data._id
+
+                        if(compData["category"]==="International Innovator"){
+                            compData["bill_status"] = 'true'
+                        }
+
                         axiosInstance.post("/api/competitors/create", compData)
                             .then(function (response) {
                                 window.location.href = '/admin_dashboard';
@@ -163,12 +206,38 @@ function CreateAccount() {
                                 console.log(error)
                             })
                     }
+                    else if (data.role === "Judge") {
+                        judgeData["account_id"] = response.data._id
+                        axiosInstance.post("/api/judge/create", judgeData)
+                            .then(function (response) {
+                                window.location.href = '/admin_dashboard';
+                            }).catch(function (error) {
+                                console.log(error)
+                            })
+                    }
+                    else if (data.role === "Speaker") {
+                        speakerData["account_id"] = response.data._id
+                        axiosInstance.post("/api/speaker/create", speakerData)
+                            .then(function (response) {
+                                window.location.href = '/admin_dashboard';
+                            }).catch(function (error) {
+                                console.log(error)
+                            })
+                    }
+                    else if (data.role === "Visitor") {
+                        visitorData["account_id"] = response.data._id
+                        axiosInstance.post("/api/visitors/create", visitorData)
+                            .then(function (response) {
+                                window.location.href = '/admin_dashboard';
+                            }).catch(function (error) {
+                                console.log(error)
+                            })
+                    }
                 }).catch(function (error) {
                     console.log(error);
                 })
         }
     }
-
     /////////////////////////////////////////////////////////////
 
     return (
@@ -197,15 +266,13 @@ function CreateAccount() {
                         <option value="">Please select</option>
                         <option value="Competitor">Competitor</option>
                         <option value="Sponsor">Sponsor</option>
-                        {/* <option value="Speaker">Speaker</option>
-                        <option value="Judge">Judge</option> */}
+                        <option value="Judge">Judge</option>
+                        <option value="Speaker">Speaker</option>
+                        <option value="Visitor">Visitor</option>
                     </select>
                 </div>
                 {displayCategory()}
-
-
                 <br />
-
                 <div className="row">
                     <div className="col-6">
                         <Link to="/admin_dashboard">
@@ -218,9 +285,6 @@ function CreateAccount() {
                 </div>
             </form>
         </div>
-
     )
-
 }
-
 export default CreateAccount;

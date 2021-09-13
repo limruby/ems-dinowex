@@ -1,6 +1,7 @@
 import React,  {useState}  from 'react';
 import CompetitionSection from '../../site/signUp/competitor-form';
 import SponsorshipSection from '../../site/signUp/sponsor-form';
+import VisitorSection from '../../site/signUp/visitor-form';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 
@@ -23,6 +24,11 @@ const SectionChange = () =>  {
         <SponsorshipSection /> 
         );
     }
+    else if (value === 'Visitor') {
+      return (
+        <VisitorSection />
+      );
+    }
     else{
       return (
         <div>
@@ -41,6 +47,7 @@ const SectionChange = () =>  {
           >
             <Dropdown.Item eventKey="Competitor">Competitor</Dropdown.Item>
             <Dropdown.Item eventKey="Sponsor">Sponsor</Dropdown.Item>
+            <Dropdown.Item eventKey="Visitor">Visitor</Dropdown.Item>
           </DropdownButton>
         </div>
         <div className="spacer">

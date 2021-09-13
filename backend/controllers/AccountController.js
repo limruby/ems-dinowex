@@ -1,6 +1,9 @@
 const Account = require('../models/account');
 const Competitor = require('../models/competitor');
 const Sponsor = require('../models/sponsor');
+const Judge = require('../models/judge');
+const Speaker = require('../models/speaker');
+const Visitor = require('../models/visitor')
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const mongoose = require('mongoose');
@@ -167,7 +170,7 @@ const deleteOne = (req, res, next)=>{
       }
     else{
 
-      if(account.role == "Competitor"){
+      if(account.role === "Competitor"){
         Competitor.findOneAndDelete({account_id:ObjectId(account_id)}, function (err) {
           if(err)  {
             return res.status(400).json({ success: false, error: err })
@@ -177,8 +180,38 @@ const deleteOne = (req, res, next)=>{
           }
         });
       }
-      else if(account.role == "Sponsor"){
+      else if(account.role === "Sponsor"){
         Sponsor.findOneAndDelete({account_id:ObjectId(account_id)}, function (err) {
+          if(err)  {
+            return res.status(400).json({ success: false, error: err })
+          }
+          else{
+            return res.status(200).json({ success: true })
+          }
+        });
+      }
+      else if(account.role === "Judge"){
+        Judge.findOneAndDelete({account_id:ObjectId(account_id)}, function (err) {
+          if(err)  {
+            return res.status(400).json({ success: false, error: err })
+          }
+          else{
+            return res.status(200).json({ success: true })
+          }
+        });
+      }
+      else if(account.role === "Speaker"){
+        Speaker.findOneAndDelete({account_id:ObjectId(account_id)}, function (err) {
+          if(err)  {
+            return res.status(400).json({ success: false, error: err })
+          }
+          else{
+            return res.status(200).json({ success: true })
+          }
+        });
+      }
+      else if(account.role === "Visitor"){
+        Visitor.findOneAndDelete({account_id:ObjectId(account_id)}, function (err) {
           if(err)  {
             return res.status(400).json({ success: false, error: err })
           }

@@ -5,6 +5,7 @@ import logo from "../../../assets/img/Dinowex.png";
 import "../../../assets/css/agency.min.css";
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import { NavDropdown } from 'react-bootstrap';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { IconContext } from 'react-icons/lib';
 import { isAuth, isAdmin } from '../../../utils/isAuth'
@@ -52,11 +53,11 @@ const Navigationbar = props => {
       <IconContext.Provider value={{ color: '#000' }}>
 
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-          <Navbar.Brand href="#home"> 
-          <Link to='/' className="navbar-logo" onClick={closeMobileMenu}>
-            <img src={logo} height="50px" width="200px" alt="" />
-          </Link>
-         </Navbar.Brand>
+          <Navbar.Brand href="#home">
+            <Link to='/' className="navbar-logo" onClick={closeMobileMenu}>
+              <img src={logo} height="50px" width="200px" alt="" />
+            </Link>
+          </Navbar.Brand>
           <Nav className="ml-auto">
 
             <div className="menu-icon" onClick={handleClick}>
@@ -67,25 +68,25 @@ const Navigationbar = props => {
               <li className="nav-item">
                 <Link className="btn" to='/'>Home</Link>
               </li>
-              {/* <li className="nav-item">
-                <NavDropdown title="Event Lobby" id="basic-nav-dropdown" onToggle={() => { window.location.href = '/eventLobby'}}
-                show={show}
-                onMouseEnter={showDropdown}
-                onMouseLeave={hideDropdown}>
+              <li className="nav-item">
+                <NavDropdown className="btn" title="Event Lobby"  onToggle={() => { window.location.href = '/eventLobby' }}
+                  show={show}
+                  onMouseEnter={showDropdown}
+                  onMouseLeave={hideDropdown}>
                   <NavDropdown.Item href="/sponsor_hall" >Sponsor Hall</NavDropdown.Item>
                   <NavDropdown.Item href="/competition_hall">Competition Hall</NavDropdown.Item>
                 </NavDropdown>
-            </li> */}
+              </li>
               <li className="nav-item">
                 <Link className="btn" to='/admin_dashboard'>AdminDashboard</Link>
               </li>
               <li className="nav-item">
-                <Link className="btn" to ='' onClick={logout}>Log Out</Link>
+                <Link className="btn" to='' onClick={logout}>Log Out</Link>
               </li>
               <li>
-              {/* <a href="http://vexs.fsktm.um.edu.my/iiidentex_uitm" className="nav-href"><p>To Dinowex</p></a> */}
-              <a href="http://vexs.fsktm.um.edu.my/iiidentex_uitm"><img src={logoUitm} height="50px" width="auto" alt="Dinowex" title="IIIDentEx 2021" style={{marginLeft:"20px"}} /></a>
-              </li>            
+                {/* <a href="http://vexs.fsktm.um.edu.my/iiidentex_uitm" className="nav-href"><p>To Dinowex</p></a> */}
+                <a href="http://vexs.fsktm.um.edu.my/iiidentex_uitm"><img src={logoUitm} height="50px" width="auto" alt="Dinowex" title="IIIDentEx 2021" style={{ marginLeft: "20px" }} /></a>
+              </li>
             </ul>
 
           </Nav>
@@ -102,10 +103,10 @@ const Navigationbar = props => {
       <IconContext.Provider value={{ color: '#000' }}>
 
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-          <Navbar.Brand href="#home"> 
-          <Link to='/' className="navbar-logo" onClick={closeMobileMenu}>
-            <img src={logo} height="50px" width="200px" alt="" />
-          </Link></Navbar.Brand>
+          <Navbar.Brand href="#home">
+            <Link to='/' className="navbar-logo" onClick={closeMobileMenu}>
+              <img src={logo} height="50px" width="200px" alt="" />
+            </Link></Navbar.Brand>
           <Nav className="ml-auto">
 
             <div className="menu-icon" onClick={handleClick}>
@@ -132,7 +133,7 @@ const Navigationbar = props => {
                 <Link className="btn" to='' onClick={logout}>Log Out</Link>
               </li>
               <li>
-              <a href="http://vexs.fsktm.um.edu.my/iiidentex_uitm"><img src={logoUitm} height="50px" width="auto" alt="Dinowex" title="IIIDentEx 2021" style={{marginLeft:"20px"}} /></a>
+                <a href="http://vexs.fsktm.um.edu.my/iiidentex_uitm"><img src={logoUitm} height="50px" width="auto" alt="Dinowex" title="IIIDentEx 2021" style={{ marginLeft: "20px" }} /></a>
               </li>
             </ul>
 
@@ -149,10 +150,10 @@ const Navigationbar = props => {
       <IconContext.Provider value={{ color: '#000' }}>
 
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-          <Navbar.Brand href="#home"> 
-          <Link to='/' className="navbar-logo" onClick={closeMobileMenu}>
-            <img src={logo} height="50px" width="200px" alt="" />
-          </Link></Navbar.Brand>
+          <Navbar.Brand href="#home">
+            <Link to='/' className="navbar-logo" onClick={closeMobileMenu}>
+              <img src={logo} height="50px" width="200px" alt="" />
+            </Link></Navbar.Brand>
           <Nav className="ml-auto">
 
             <div className="menu-icon" onClick={handleClick}>
@@ -176,10 +177,10 @@ const Navigationbar = props => {
                 <Link className="btn" to='/sign_up'>Registration</Link>
               </li>
               <li className="nav-item">
-                <Link className="btn"to='/sign_in'>Sign In</Link>
+                <Link className="btn" to='/sign_in'>Sign In</Link>
               </li>
               <li>
-              <a href="http://vexs.fsktm.um.edu.my/iiidentex_uitm"><img src={logoUitm} height="50px" width="auto" alt="Dinowex" title="IIIDentEx 2021" style={{marginLeft:"20px"}} /></a>
+                <a href="http://vexs.fsktm.um.edu.my/iiidentex_uitm"><img src={logoUitm} height="50px" width="auto" alt="Dinowex" title="IIIDentEx 2021" style={{ marginLeft: "20px" }} /></a>
               </li>
             </ul>
 
