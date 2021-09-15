@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/static/css/main.85fd53f1.chunk.css",
+    "main.js": "/static/js/main.efa2f20a.chunk.js",
+    "main.js.map": "/static/js/main.efa2f20a.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.cc85cbe0.js",
+    "runtime-main.js.map": "/static/js/runtime-main.cc85cbe0.js.map",
+    "static/css/2.61b4cb56.chunk.css": "/static/css/2.61b4cb56.chunk.css",
+    "static/js/2.18fa96f2.chunk.js": "/static/js/2.18fa96f2.chunk.js",
+    "static/js/2.18fa96f2.chunk.js.map": "/static/js/2.18fa96f2.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.61b4cb56.chunk.css.map": "/static/css/2.61b4cb56.chunk.css.map",
+    "static/css/main.85fd53f1.chunk.css.map": "/static/css/main.85fd53f1.chunk.css.map",
+    "static/js/2.18fa96f2.chunk.js.LICENSE.txt": "/static/js/2.18fa96f2.chunk.js.LICENSE.txt",
+    "static/js/main.efa2f20a.chunk.js.LICENSE.txt": "/static/js/main.efa2f20a.chunk.js.LICENSE.txt",
+    "static/media/Dinowex.59745fe5.png": "/static/media/Dinowex.59745fe5.png",
+    "static/media/IIIDentEx2021 Logo-white-01.0064cc90.webp": "/static/media/IIIDentEx2021 Logo-white-01.0064cc90.webp",
+    "static/media/booth.6868479d.PNG": "/static/media/booth.6868479d.PNG",
+    "static/media/competitor_booth.2af19306.jpeg": "/static/media/competitor_booth.2af19306.jpeg",
+    "static/media/event-lobby.47c8f2cd.png": "/static/media/event-lobby.47c8f2cd.png",
+    "static/media/agency.min.css": "/static/media/header-bg.2c8d35aa.png",
+    "static/media/sponsor_booth.1048c917.jpeg": "/static/media/sponsor_booth.1048c917.jpeg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.cc85cbe0.js",
+    "static/css/2.61b4cb56.chunk.css",
+    "static/js/2.18fa96f2.chunk.js",
+    "static/css/main.85fd53f1.chunk.css",
+    "static/js/main.efa2f20a.chunk.js"
+  ]
+}
