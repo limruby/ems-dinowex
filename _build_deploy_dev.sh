@@ -1,9 +1,9 @@
 # build web
-rm -r ./backend/public
-npm install
-npm run build
-cp -r build ./backend/public
-rm -r ./build
+# rm -r ./backend/public
+# npm install
+# npm run build
+# cp -r build ./backend/public
+# rm -r ./build
 
 # build server
 cd ./backend
