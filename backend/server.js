@@ -52,11 +52,10 @@ app.use('/api/evaluation', evaluationRouter)
 const formLinkRouter = require('./routes/formLink');
 app.use('/api/formLink', formLinkRouter)
 
-app.use('/', express.static(__dirname + "/public"));
+app.use(express.static(__dirname + "/public"));
 
-app.use('/', (req, res, next) => {
-	res.sendFile(__dirname + "/public/index.html")
-});
+app.use((req, res, next) => {
+	res.sendFile(__dirname + "/public/index.html")})
 
 app.listen(port, () => {
 	console.log('Now starting at https://vexsdev.fsktm.um.edu.my/api/hello');
