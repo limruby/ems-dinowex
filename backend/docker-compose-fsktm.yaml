@@ -53,8 +53,8 @@ services:
       - traefik.http.routers.vexs_backend-unsecured.rule=Host(`vexsdev.fsktm.um.edu.my`)
       - traefik.http.routers.vexs_backend-unsecured.entrypoints=http
       # - traefik.http.routers.vexs_backend-unsecured.middlewares=redirect@file # uncomment to enable ssl when 443 is ready
-      - traefik.http.middlewares.autodetect.contenttype.autodetect=true
-      - traefik.http.routers.vexs_backend-unsecured.middlewares=autodetect@docker
+      # - traefik.http.middlewares.autodetect.contenttype.autodetect=true
+      # - traefik.http.routers.vexs_backend-unsecured.middlewares=autodetect@docker
     container_name: vexs_backend
 
 networks:
