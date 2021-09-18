@@ -91,7 +91,7 @@ function EditProfile() {
                         <option value="">Please select</option>
                         <option value="Professional Innovator">Professional Innovator</option>
                         <option value="Young Innovator">Young Innovator</option>
-                        <option value="International Innovator">International Innovator</option>
+                        <option value="Other Innovator">Other Innovator</option>
                     </select> 
                 </div>
                 <div className="form-group">

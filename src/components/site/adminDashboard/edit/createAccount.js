@@ -150,7 +150,7 @@ function CreateAccount() {
                         <option value="">Please select</option>
                         <option value="Professional Innovator">Professional Innovator</option>                        
                         <option value="Young Innovator">Young Innovator</option>
-                        <option value="International Innovator">International Innovator</option>
+                        <option value="Other Innovator">Other Innovator</option>
                     </select>
                 </div>
             )
@@ -185,7 +185,7 @@ function CreateAccount() {
                         compData["category"] = data.category;
                         compData["account_id"] = response.data._id
 
-                        if(compData["category"]==="International Innovator"){
+                        if(compData["category"]==="Other Innovator"){
                             compData["bill_status"] = 'true'
                         }
 
