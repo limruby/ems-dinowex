@@ -41,7 +41,17 @@ function InsertLink() {
                 </div>
             )
         } else { //something existed but this empty
-            if (link[0].evaluation_form === " " || link[0].evaluation_form === "") {
+            if(!link[0].evaluation_form){
+                section.push(
+                    <div className="form-group">
+                        <label htmlFor="evaluation_form"><span>*</span>Evalution Form</label>
+                        <input className="form-control" type="text" id="evaluation_form"
+                            onChange={inputChange('evaluation_form')} placeholder="Insert form link"
+                        />
+                    </div>
+                )
+            }
+            else if (link[0].evaluation_form === " " || link[0].evaluation_form === "") {
                 section.push(
                     <div className="form-group">
                         <label htmlFor="evaluation_form"><span>*</span>Evalution Form</label>
@@ -74,7 +84,17 @@ function InsertLink() {
                 </div>
             )
         } else { //something existed but this empty
-            if (link[0].youtube_form === " " || link[0].youtube_form === "") {
+            if(!link[0].youtube_form){
+                section.push(
+                    <div className="form-group">
+                        <label htmlFor="youtube_form"><span>*</span>Youtube Live Event</label>
+                        <input className="form-control" type="text" id="youtube_form"
+                            onChange={inputChange('youtube_form')} placeholder="Insert form link"
+                        />
+                    </div>
+                )
+            }
+            else if (link[0].youtube_form === " " || link[0].youtube_form === "") {
                 section.push(
                     <div className="form-group">
                         <label htmlFor="youtube_form"><span>*</span>Youtube Live Event</label>
@@ -107,7 +127,17 @@ function InsertLink() {
                 </div>
             )
         } else { //something existed but this empty
-            if (link[0].poster_form === " " || link[0].poster_form === "") {
+            if(!link[0].poster_form){
+                section.push(
+                    <div className="form-group">
+                        <label htmlFor="poster_form"><span>*</span>Ideation Poster Competition</label>
+                        <input className="form-control" type="text" id="poster_form"
+                            onChange={inputChange('poster_form')} placeholder="Insert form link"
+                        />
+                    </div>
+                )
+            }
+            else if (link[0].poster_form === " " || link[0].poster_form === "") {
                 section.push(
                     <div className="form-group">
                         <label htmlFor="poster_form"><span>*</span>Ideation Poster Competition</label>
