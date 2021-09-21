@@ -15,7 +15,7 @@ function Competition_hall() {
       }).catch(function (error) {
         console.log(error);
       })
-  }, [data]);
+  }, []);
   function displayBooth() {
     var section = [];
     data.map((competitor, index) => {
