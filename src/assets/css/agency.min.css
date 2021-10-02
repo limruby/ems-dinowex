@@ -278,6 +278,58 @@ header.masthead .intro-text .intro-subheading {
     "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol", "Noto Color Emoji";
 }
+
+header.sponsor-masthead{
+  min-height: 100%;
+  text-align: center;
+  color: #ffffff;
+  text-shadow: #c8c8c8 1px 1px 0px, #b4b4b4 0px 2px 0px, #a0a0a0 0px 3px 0px,
+    rgb(140 140 140 / 50%) 0px 4px 0px, #787878 0px 0px 0px,
+    rgb(0 0 0 / 50%) 0px 5px 10px;
+  background-image: url("/src/assets/img/bankrakyat-building.jpg");
+  background-position: auto;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+  align-items: center;
+
+}
+
+header.sponsor-masthead .intro-text {
+  padding-top: 150px;
+  padding-bottom: 150px;
+}
+ 
+header.sponsor-masthead .intro-text .intro-lead-in {
+  padding-right: 800px;
+  padding-top: 150px;
+}
+ 
+header.sponsor-masthead .intro-text .intro-heading {
+  width: max-content;
+  
+  font-size: 100px;
+  font-weight: 700;
+  line-height: 50px;
+  margin-bottom: 50px;
+  font-family: Montserrat, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+}
+ 
+header.sponsor-masthead .intro-text .intro-subheading {
+  width: max-content;
+  color: white;
+  padding-right: 500px;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 50px;
+  margin-bottom: 80px;
+  font-family: Montserrat, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+}
+
  
 @media (min-width: 768px) {
   header.masthead .intro-text {
@@ -304,6 +356,35 @@ header.masthead .intro-text .intro-subheading {
   }
 }
  
+
+header.sponsor-masthead .intro-text {
+  padding-top: 100px;
+}
+header.sponsor-masthead .intro-text .intro-lead-in {
+  font-size: 40px;
+  font-style: italic;
+  line-height: 40px;
+  margin-bottom: 25px;
+  font-family: "Droid Serif", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+header.sponsor-masthead .intro-text .intro-heading {
+  font-size: 75px;
+  font-weight: 700;
+  line-height: 75px;
+  margin-bottom: 25px;
+  font-family: Montserrat, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.sponsor-details{
+  font-size: 20px;
+  margin: 10%;
+  text-shadow: none !important;
+  text-align: left !important;
+}
 .service-heading {
   margin: 15px 0;
   text-transform: none;
@@ -1470,6 +1551,11 @@ h3 {
 .sponsor-category{
   display: flex;
   justify-content: center;
+}
+
+.sponsor-logo{
+  background-color: #0066b2
+  ;
 }
 
 .sponsor h1{
