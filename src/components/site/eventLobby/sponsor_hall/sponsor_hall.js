@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import "./../../../../assets/css/agency.min.css";
 import axiosInstance from '../../../../utils/axiosConfig';
+import logo from "../../../../assets/img/bankrakyat-logo.png";
+import { Image } from 'react-bootstrap';
 
 function Sponsor_hall() {
   const [data, setData] = useState([]);
@@ -120,36 +122,47 @@ function Sponsor_hall() {
   }
 
   return (
-    <header className="masthead comp-background">
+    <header className="sponsor-masthead">
       <div className="intro-text">
         <div className="intro-lead-in">
           <br></br>
         </div>
         <div className="row">
           <div className="intro-heading col-xl-12">
-            Sponsor Hall
+            MAIN SPONSOR
           </div>
         </div>
       </div>
 
       <div className="row" style={{ backgroundColor: "#fff" }}>
-        <div className="sponsor">
-          <h1>Featured Sponsor</h1>
-          <div>{displayGoldSponsor()}</div>
+        <div className="sponsor-logo">
+        <Image src={logo} height="auto" width="50%" alt="" responsive />
         </div>
-
-
-        <div className="sponsor">
-          <h1>Silver Sponsor</h1>
-          <div className="sponsor-category">{displaySilverSponsor()}</div>
-        </div>
-
-        <div className="sponsor" style={{ marginBottom: "5%" }}>
-          <h1>Bronze Sponsor</h1>
-          <div className="sponsor-category">{displayBronzeSponsor()}</div>
-        </div>
-
       </div>
+
+        <div className="row">
+          <div className="col-xl-6" style={{ backgroundColor: "#7e7ebc" }}>
+            <div className="sponsor-details">
+            <p>The Biggest Islamic Coopetative Bank In Malaysia</p>
+            <p>Consumer Banking, Commercial Financing, Savings And Investments And Financial Planning Products</p>
+            <p>147 Branches, More Than 990 Automated Teller Machines (ATMs) And Cash Deposit Machines (CDM), And 183 Ar-Rahnu X'Change Nationwide</p>
+            </div>
+          </div>
+
+          <div className="col-xl-6" style={{ backgroundColor: "#43ba7a" }}>
+            <div className="sponsor-details">
+              <p>MISSION</p>
+              <h4>Malaysia's No. 1 Progressive Islamic Coopetative Bank.</h4>
+            </div>
+
+            <div className="sponsor-details">
+              <p>VISION</p>
+              <h4>Enhancing Economic Well-Being Of Our Members, Customers And Nation.</h4>
+            </div>
+            
+          </div>
+        </div>
+
     </header>
   );
 }

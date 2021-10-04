@@ -95,7 +95,7 @@ function EventLobby() {
             <span className="speakers-arrow"></span>SPEAKERS
             <div className="speakers-dropdown-content">
                 {/* <span className="speakers-dropdown-arrow"></span>DINOWEX */}
-                <span className="speakers-dropdown-arrow"></span>N/A
+                <a href="/speakers"><span className="speakers-dropdown-arrow"></span>DINOWEX</a>
             </div>
             </div>
             <div className="competitors-dropdown competitors-hall">
