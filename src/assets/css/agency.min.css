@@ -2023,3 +2023,36 @@ h3 {
 
 
 /*end of event lobby*/
+
+/*speaker page*/
+.speaker{
+  text-align: -webkit-center !important;
+}
+
+.speakers-name{
+  font-size: 30px !important;
+  text-shadow: none !important;
+  font-weight: bold;
+}
+.speakers-organization{
+  font-size: 30px !important;
+  text-shadow: none !important;
+}
+
+.speakers-speech-title{
+  font-size: 25px !important;
+  text-shadow: none !important;
+  font-weight: bold;
+}
+
+.speakers-speech-time{
+  font-size: 25px !important;
+  text-shadow: none !important;
+  font-weight: bold;
+}
+
+.center-line{
+  text-align: -webkit-center !important;
+  text-shadow: none !important;
+}
+/*end of speaker page*/

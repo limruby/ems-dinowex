@@ -21,6 +21,7 @@ import Footer from './components/site/footer';
 import AdminDashboard from './components/site/adminDashboard';
 import AdminEditDetails from './components/site/adminDashboard/edit';
 import PageNotFound from './components/PageNotFound.js';
+import speakers from './components/site/speakers.js'
 
 
 import { QueryClient, QueryClientProvider } from 'react-query'
@@ -87,6 +88,7 @@ function App() {
         <Route exact path='/sponsor_booth/:id'  component={sponsor_booth}/> 
         <Route exact path='/competition_hall'  component={competition_hall}/>
         <Route exact path='/competition_booth/:id'  component={competition_booth}/>
+        <Route exact path='/speakers'  component={speakers}/> 
         <Route exact path='/report'  component={report}/>
         <Route exact path='/payment_success'  component={Payment_Success}/>
         <Route exact path='/payment_fail'  component={Payment_Fail}/>
