@@ -16,6 +16,8 @@ const create = (req, res, next)=>{
   const city = req.body.city;
   const state = req.body.state;
   const country = req.body.country;
+  const speech_title = req.body.speech_title;
+  const speech_time = req.body.speech_time;
   
   const newSpeaker = new Speaker({
     account_id, 
@@ -30,6 +32,8 @@ const create = (req, res, next)=>{
     city,
     state,
     country,
+    speech_title,
+    speech_time
   });
   newSpeaker.save()
   .then(() => res.json(newSpeaker))
@@ -102,6 +106,12 @@ const update = (req, res, next)=>{
   }
   if(req.body.photo){
     updateSpeaker['photo'] = req.body.photo;
+  }
+  if(req.body.speech_title){
+    updateSpeaker['speech_title'] = req.body.speech_title;
+  }
+  if(req.body.speech_time){
+    updateSpeaker['speech_time'] = req.body.speech_time;
   }
 
   Speaker.findByIdAndUpdate(req.body._id, updateSpeaker, (err, speaker) => {

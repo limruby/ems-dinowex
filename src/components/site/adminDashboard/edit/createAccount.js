@@ -32,6 +32,8 @@ function CreateAccount() {
         city: 'default',
         state: 'default',
         country: 'Malaysia',
+        speech_title:'default',
+        speech_time:'default'
     }
     var compData = {
         account_id: '',

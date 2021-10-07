@@ -2025,6 +2025,9 @@ h3 {
 /*end of event lobby*/
 
 /*speaker page*/
+.speaker-header{
+  background-image: none !important;
+}
 .speaker{
   text-align: -webkit-center !important;
 }

@@ -63,6 +63,14 @@ const speakerSchema = new Schema({
     type:String,
     required: true
   },
+  speech_title:{
+    type:String,
+    required: true
+  },
+  speech_time:{
+    type:String,
+    required: true
+  },
   photo:[subSchema],
 }, {
   timestamps: true,
