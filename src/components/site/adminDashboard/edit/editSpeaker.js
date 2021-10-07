@@ -17,7 +17,9 @@ function EditSpeaker() {
         address_2 : '',
         postcode : '',
         city : '',
-        state: ''
+        state: '',
+        speech_title: '',
+        speech_time:''
     });
     const location = useLocation();
     const thePath = location.pathname;
@@ -109,7 +111,9 @@ function EditSpeaker() {
             data.postcode === "" ||
             data.city === "" ||
             data.state === "" ||
-            data.phone_no === "") {
+            data.phone_no === ""||
+            data.speech_title === ""||
+            data.speech_time === "") {
             alert("Form not fill");
         }
         else {
@@ -127,7 +131,9 @@ function EditSpeaker() {
                 city: data.city,
                 state: data.state,
                 phone_no: data.phone_no,
-                photo: data.photo
+                photo: data.photo,
+                speech_title: data.speech_title,
+                speech_time: data.speech_time
             }
             axiosInstance.post("/api/speaker/update", postData)
                 .then(function (response) {
@@ -240,6 +246,18 @@ function EditSpeaker() {
                         <label htmlFor="country"><span>*</span>Country</label>
                         <input className="form-control" type="text" id="country"
                             onChange={inputChange('country')} value={data.country} placeholder="country" required
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="speech_title"><span>*</span>Speech Title</label>
+                        <input className="form-control" type="text" id="speech_title"
+                            onChange={inputChange('speech_title')} value={data.speech_title} placeholder="speech_title" required
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="speech_time"><span>*</span>Speech Time</label>
+                        <input className="form-control" type="text" id="speech_time"
+                            onChange={inputChange('speech_time')} value={data.speech_time} placeholder="speech_time" required
                         />
                     </div>
                     <br />
