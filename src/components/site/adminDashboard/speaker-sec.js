@@ -17,6 +17,8 @@ function Speaker() {
         { label: 'City', key: 'city' },
         { label: 'State', key: 'state' },
         { label: 'Country', key: 'country' },
+        { label: 'Speech_title', key: 'speech_title' },
+        { label: 'Speech_time', key: 'speech_time' },
     ]
     const csvReport = {
         filename: 'Dinowex_Speaker_List.csv',
