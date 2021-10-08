@@ -67,7 +67,7 @@ function Speakers_page() {
       <div className="row justify-content-center" style={{padding:"0 0 5%"}}>
 
       <div className="speaker col-xl-4">
-          <ReactRoundedImage image={ibrahim} roundedSize="0" imageWidth="350" imageHeight="350" />
+          <ReactRoundedImage className="speaker-image" image={ibrahim} roundedSize="0" imageWidth="350" imageHeight="350"/>
             <div className="speakers-name">Dato' Dr Mohamed Ibrahim A. Wahid</div>
               <div className="speakers-organization">Medical Director Beacon Hospital, PJ</div>
                 <hr style={{backgroundColor: '#ffff',height: 1, borderColor : '#ffff', width:"20%",}}/>
@@ -77,7 +77,7 @@ function Speakers_page() {
       </div>
 
       <div className="speaker col-xl-4">
-          <ReactRoundedImage image={peter} roundedSize="0" imageWidth="350" imageHeight="350" />
+          <ReactRoundedImage className="speaker-image" image={peter} roundedSize="0" imageWidth="350" imageHeight="350"/>
             <div className="speakers-name">Dr. Peter Blanchfield</div>
               <div className="speakers-organization">Technical Director IBiT Software Ltd, UK</div>
                 <hr style={{backgroundColor: '#ffff',height: 1, borderColor : '#ffff', width:"20%",}}/>
@@ -98,7 +98,7 @@ function Speakers_page() {
       <div className="row justify-content-center" style={{padding:"0 0 5%"}}>
 
       <div className="speaker col-xl-4">
-          <ReactRoundedImage image={osman} roundedSize="0" imageWidth="350" imageHeight="350" />
+          <ReactRoundedImage className="speaker-image" image={osman} roundedSize="0" imageWidth="350" imageHeight="350"/>
             <div className="speakers-name">Mr. Azran Osman-Rani</div>
               <div className="speakers-organization">CEO & Co-Founder Naluri</div>
                 <hr style={{backgroundColor: '#ffff',height: 1, borderColor : '#ffff', width:"20%",}}/>
@@ -108,7 +108,7 @@ function Speakers_page() {
       </div>
 
       <div className="speaker col-xl-4">
-          <ReactRoundedImage image={hazwan} roundedSize="0" imageWidth="350" imageHeight="350" />
+          <ReactRoundedImage className="speaker-image" image={hazwan} roundedSize="0" imageWidth="350" imageHeight="350"/>
             <div className="speakers-name">Mr. Hazwan Najib</div>
               <div className="speakers-organization">Director & Co-Founder DoctorOnCall.com.my</div>
                 <hr style={{backgroundColor: '#ffff',height: 1, borderColor : '#ffff', width:"20%",}}/>

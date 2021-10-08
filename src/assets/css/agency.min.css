@@ -2032,6 +2032,10 @@ h3 {
   text-align: -webkit-center !important;
 }
 
+.speaker-image{
+  object-fit: cover;
+}
+
 .speakers-name{
   font-size: 30px !important;
   text-shadow: none !important;
