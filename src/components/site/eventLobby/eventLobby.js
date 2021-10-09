@@ -65,9 +65,9 @@ function EventLobby() {
               <div className="col-lg-3 justify-content-center">
                 <Image src={dinowex} height="auto" width="100%" alt="" rounded responsive />
               </div>
-              <div className="col-lg-3 justify-content-center">
+              {/* <div className="col-lg-3 justify-content-center">
                 <Image className="row" src={iiidentex} height="auto" width="100%" alt="" rounded responsive />
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
@@ -86,9 +86,9 @@ function EventLobby() {
                     </div>
                 </div>
 
-                <div>
+                {/* <div>
                   <a href="/iiidentex_uitm/sponsor_hall">IIIDENTEX</a><span className="sponsors-dropdown-arrow"></span> 
-                </div>            
+                </div>             */}
             </div>
         </div>
             <div className="speakers-dropdown speakers">
@@ -102,7 +102,7 @@ function EventLobby() {
                 COMPETITORS HALL<span className="competitors-arrow"></span>
                 <div className="competitors-dropdown-content">            
                 <a href="/competition_hall">DINOWEX</a><span className="competitors-dropdown-arrow"></span>
-                <a href="/iiidentex_uitm/competition_hall">IIIDENTEX</a><span className="competitors-dropdown-arrow"></span>            
+                {/* <a href="/iiidentex_uitm/competition_hall">IIIDENTEX</a><span className="competitors-dropdown-arrow"></span>             */}
                 </div>
             </div>
             {displayLink()}          
