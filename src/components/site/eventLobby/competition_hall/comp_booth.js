@@ -13,7 +13,7 @@ function Competition_booth() {
   const thePath = location.pathname;
   const user_id = thePath.substring(thePath.lastIndexOf('/') + 1);
   const string = '"' + user_id + '"'
-
+  
   document.addEventListener('contextmenu', event => event.preventDefault());
   useEffect(() => {
     axiosInstance.get("/api/competitors/read", { params: { account_id: string } })
@@ -122,7 +122,14 @@ function Competition_booth() {
         const url = data.video[0].source.substring(data.video[0].source.lastIndexOf('/') + 9);
         for (var i = 0; i < data.video.length; i++) {
           section.push(
-            <iframe className="video_iframe" height="400" src={`https://www.youtube.com/embed/${url}`} title={data.video[0].name}></iframe>
+            <iframe 
+            className="video_iframe" 
+            height="400" 
+            src={`https://www.youtube.com/embed/${url}`} 
+            title={data.video[0].name} 
+            allowfullscreen="true" 
+            webkitallowfullscreen="true" 
+            mozallowfullscreen="true"></iframe>
           );
         }
       }
@@ -147,12 +154,13 @@ function Competition_booth() {
   function displayAwards() {
     var section = [];
     if (data.achievements) {
-
       for (var i = 0; i < data.achievements.length; i++) {
         const imageBuffer = Buffer.from(data.achievements[i].source.data);
+        const pdfURL = URL.createObjectURL(imageBuffer);
+        // window.open(pdfURL, '_blank');
         section.push(
           <div className="awards-name">
-            <a download={data.achievements[i].name} href={imageBuffer} title={data.achievements[i].name}>{data.achievements[i].name}</a>
+            <a href={pdfURL} target="_blank" rel="noreferrer" title={data.achievements[i].name}>{data.achievements[i].name}</a>
           </div>
         );
       }
