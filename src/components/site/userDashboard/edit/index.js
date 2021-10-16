@@ -1,124 +1,113 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import axiosInstance from '../../../../utils/axiosConfig.js';
 import '../../../../assets/css/agency.min.css';
-
 import EditAccount from './editAccount.js';
 import EditPassword from './editPassword.js';
-import EditProfile_C from './editProfile-Competitor.js';
-import EditProfile_S from './editProfile-Sponsor.js';
-import EditProfile_V from './editProfile-Visitor.js';
-import EditProfile_J from './editProfile-Judge.js';
+import EditProfileCompetitor from './editProfile-Competitor.js';
+import EditProfileSponsor from './editProfile-Sponsor.js';
+import EditProfileVisitor from './editProfile-Visitor.js';
+import EditProfileJudge from './editProfile-Judge.js';
 import EditResearchTeam from './editResearchTeam.js';
 import EditPromoContent from './editPromoContent.js';
 import EditCompetitionMaterial from './editCompetitionMaterial.js';
 import EditAbstract from './editAbstract.js';
 import EditBookChapter from './editBookChapter.js';
 
-
 function FormNavigator() {
+	////////////////////get login user role /////////////////////
+	const [user, setUser] = useState([]);
+	const [account, setAccount] = useState([]);
+	const account_id = localStorage.getItem('user_id');
+	const role = localStorage.getItem('role');
 
-
-////////////////////get login user role /////////////////////
-const [user, setUser]=useState([]);
-const [account, setAccount]=useState([]);
-const account_id = localStorage.getItem('user_id');
-
-useEffect(() => {
-	axiosInstance.get("/api/competitors/read", {params:{account_id:account_id}})
-	.then(function(response) {
-		setUser(response.data.data);
-	}).catch(function(error) {
-		console.log(error);
-	});
-	axiosInstance.get("/api/sponsors/read", {params:{account_id:account_id}})
-	.then(function(response) {
-		setUser(response.data.data);
-	}).catch(function(error) {
-		console.log(error);
-	});
-	axiosInstance.get("/api/visitors/read", { params: { account_id: account_id } })
+	useEffect(() => {
+		axiosInstance.get("/api/accounts/read", { params: { account_id: account_id } })
+		.then(function (response) {
+			setAccount(response.data.data);
+		}).catch(function (error) {
+			console.log(error);
+		})
+		if(role === "Sponsor"){
+			axiosInstance.get("/api/sponsors/read", { params: { account_id: account_id } })
 			.then(function (response) {
 				setUser(response.data.data);
 			}).catch(function (error) {
 				console.log(error);
 			});
-	axiosInstance.get("/api/judge/read", {params:{account_id:account_id}})
-	.then(function(response) {
-		setUser(response.data.data);
-	}).catch(function(error) {
-		console.log(error);
-	});
+		}
+		else if(role ==="Competitor"){
+		axiosInstance.get("/api/competitors/read", { params: { account_id: account_id } })
+			.then(function (response) {
+				setUser(response.data.data);
+			}).catch(function (error) {
+				console.log(error);
+			});
+		}
+		else if(role ==="Visitors"){
+		axiosInstance.get("/api/visitors/read", { params: { account_id: account_id } })
+			.then(function (response) {
+				setUser(response.data.data);
+			}).catch(function (error) {
+				console.log(error);
+			});
+		}
+		else if(role ==="Judge"){
+		axiosInstance.get("/api/judge/read", { params: { account_id: account_id } })
+			.then(function (response) {
+				setUser(response.data.data);
+			}).catch(function (error) {
+				console.log(error);
+			});
+		}
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
+	//////////////////////////////////////////////////////////////////////////////////
+	const location = useLocation();
+	const thePath = location.pathname;
+	const lastPath = thePath.substring(thePath.lastIndexOf('/') + 1);
 
-	axiosInstance.get("/api/accounts/read", {params:{account_id:account_id}})
-	.then(function(response) {
-		setAccount(response.data.data);
-	}).catch(function(error) {
-		console.log(error);
-	})
-
-},[]);
-//////////////////////////////////////////////////////////////////////////////////
-const location = useLocation();
-const thePath = location.pathname;
-const lastPath = thePath.substring(thePath.lastIndexOf('/') + 1);
-
-
-
-	if(lastPath === 'edit_account'){
-		return( 
+	if (lastPath === 'edit_account') {
+		return (
 			<section className="section-container">
-				<EditAccount data={account} setData={setAccount}/>
-			</section>
-
-		)
-	}
-	else if(lastPath === 'edit_password'){
-		return( 
-
-		    <section className="section-container">
-
-				<EditPassword data={account} setData={setAccount}/>
+				<EditAccount data={account} setData={setAccount} />
 			</section>
 		)
 	}
-	else if (account.role === 'Sponsor'){
-		switch(lastPath){
+	else if (lastPath === 'edit_password') {
+		return (
+			<section className="section-container">
+				<EditPassword data={account} setData={setAccount} />
+			</section>
+		)
+	}
+	else if (account.role === 'Sponsor') {
+		switch (lastPath) {
 			case 'edit_profile':
-				return( 
+				return (
 					<div className="form-main-container">
-						<EditProfile_S data={user} setData={setUser}/>
+						<EditProfileSponsor data={user} setData={setUser} />
 					</div>
 				)
-			break;
-
 			case 'edit_content':
-				return( 
-
+				return (
 					<section className="section-container">
 
-						<EditPromoContent data={user} setData={setUser}/>
+						<EditPromoContent data={user} setData={setUser} />
 					</section>
 				)
-			break;
-
 			default:
-			
 		}
 	}
-	else if (account.role === 'Judge'){
-		switch(lastPath){
+	else if (account.role === 'Judge') {
+		switch (lastPath) {
 			case 'edit_profile':
-				return( 
+				return (
 					<div className="form-main-container">
-						<EditProfile_J data={user} setData={setUser}/>
+						<EditProfileJudge data={user} setData={setUser} />
 					</div>
 				)
-			break;
-
-
 			default:
-			
 		}
 	}
 	else if (account.role === 'Visitor') {
@@ -126,69 +115,52 @@ const lastPath = thePath.substring(thePath.lastIndexOf('/') + 1);
 			case 'edit_profile':
 				return (
 					<div className="form-main-container">
-						<EditProfile_V data={user} setData={setUser} />
+						<EditProfileVisitor data={user} setData={setUser} />
 					</div>
 				)
-				break;
-
 			default:
-
 		}
 	}
-	else if (account.role === 'Competitor'){
-		switch(lastPath){
+	else if (account.role === 'Competitor') {
+		switch (lastPath) {
 			case 'edit_profile':
-				return( 
+				return (
 					<div className="form-main-container">
-						<EditProfile_C data={user} setData={setUser}/>
+						<EditProfileCompetitor data={user} setData={setUser} />
 					</div>
 				)
-			break;
-
 			case 'edit_researchTeam':
-				return( 
+				return (
+					<section className="section-container">
 
-				    <section className="section-container">
-
-						<EditResearchTeam data={user} setData={setUser}/>
+						<EditResearchTeam data={user} setData={setUser} />
 					</section>
 				)
-			break;
-
 			case 'edit_content':
-				return( 
+				return (
 					<div className="form-main-container">
-						<EditCompetitionMaterial data={user} setData={setUser}/>
+						<EditCompetitionMaterial data={user} setData={setUser} />
 					</div>
 				)
-			break;
-
 			case 'edit_abstract':
-				return( 
+				return (
 					<div className="form-main-container">
-						<EditAbstract data={user} setData={setUser}/>
+						<EditAbstract data={user} setData={setUser} />
 					</div>
 				)
-			break;
-
 			case 'edit_book_chapter':
-				return( 
+				return (
 					<div className="form-main-container">
-						<EditBookChapter data={user} setData={setUser}/>
+						<EditBookChapter data={user} setData={setUser} />
 					</div>
 				)
-			break;
-
 			default:
-			
 		}
 	}
-	else{
-		return(
-
+	else {
+		return (
 			<>
 			</>
-
 		)
 	}
 }

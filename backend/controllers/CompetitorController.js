@@ -172,13 +172,10 @@ const update = (req, res, next) => {
 
 const readAll = (req, res, next) => {
   Competitor.find({}, {
-    receipt: 0,
-    certificate: 0,
     poster: 0,
     achievements: 0,
     publications: 0,
     grants: 0,
-    bookChapter: 0,
   }, (err, competitors) => {
     if (err) {
       return res.status(400).json({ success: false, error: err })

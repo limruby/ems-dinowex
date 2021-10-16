@@ -33,7 +33,7 @@ function Order() {
                 Header: 'Order History',
                 columns: [
                     {
-                        Header: 'Order Time',
+                        Header: 'Order Date',
                         accessor: 'order_date'
                     },
                     {
@@ -41,11 +41,11 @@ function Order() {
                         accessor: 'medalQuantity',
                     },
                     {
-                        Header: 'Book Quantity',
-                        accessor: 'bookQuantity',
+                        Header: 'Certificate Quantity',
+                        accessor: 'certQuantity',
                     },
                     {
-                        Header: 'Total Price',
+                        Header: 'Total Price (RM)',
                         accessor: 'total_price',
                     },
                     {

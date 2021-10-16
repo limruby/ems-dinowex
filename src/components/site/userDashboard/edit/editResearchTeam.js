@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Form from 'react-bootstrap/Form';
 import axiosInstance from '../../../../utils/axiosConfig.js';
 import { FaTrashAlt } from 'react-icons/fa';
 
@@ -53,9 +52,7 @@ function EditTeam({ data, setData }) {
     }
     setData({
       ...data,
-
     });
-    console.log(data);
   }
 
   const inputChange = (element, index) => e => {
@@ -72,53 +69,20 @@ function EditTeam({ data, setData }) {
     setTemp({
       ...tempData
     });
-
-    console.log(data);
   };
 
   const handleForm = (e) => {
-    {/* 
-        if(tempData.tempName!==""){
-            if(tempData.tempName===""){
-              alert("Incomplete Form");
-            }
-          }
-          else if(tempData.tempAff!==""){
-            if(tempData.tempAff===""){
-              alert("Incomplete Form");
-            }
-          }
-          else if(tempData.tempEmail!==""){
-            if(tempData.tempEmail===""){
-              alert("Incomplete Form");
-            }
-          }
-          if (tempData.tempName!=="" && tempData.tempAff!=="" && tempData.tempEmail!==""){
-            data.members.push({'name':tempData.tempName,'email':tempData.tempEmail, 'affiliation':tempData.tempAff})
-             
-          }
-          setData({
-              ...data,
-            })
-            */}
-
-
     e.preventDefault();
-
-
     var postData = {
       _id: data._id,
       members: data.members
     }
-
     axiosInstance.post("/api/competitors/update", postData)
       .then(function (response) {
         window.location.href = '/user_dashboard';
       }).catch(function (error) {
         console.log(error);
       })
-
-
   };
 
   ///////display forms//////
@@ -161,11 +125,8 @@ function EditTeam({ data, setData }) {
       }
     }
     return section;
-
   }
-
   /////////////////////////////////////////////////////////////
-
   return (
     <>
       <form onSubmit={handleForm}>
@@ -173,9 +134,6 @@ function EditTeam({ data, setData }) {
           <h5>Team Members</h5>
           <br />
           {displayMembers()}
-
-
-
           <div className="btn-group">
             <Link to="/user_dashboard">
               <button className="btn btn-danger back-btn">Back</button>
@@ -185,9 +143,6 @@ function EditTeam({ data, setData }) {
         </div>
       </form>
     </>
-
   )
-
 }
-
 export default EditTeam;

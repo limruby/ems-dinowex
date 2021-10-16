@@ -41,22 +41,20 @@ function EditPromoContent({data, setData}) {
 //poster form
 function displayPosterForm(){
   var section = [];
-  if(data.poster==null||data.poster[0]==null){
-    section.push(
-      <div className="form-group">                
-      <input type="file" onChange={inputChange('poster', 0)} />
-      </div>
-      );
-    }
-    else{
 
+  if(data.poster!=null){      
+    for(var i=0; i<data.poster.length; i++){  
       section.push(
-      <div>          
-      <p>{data.poster[0].name}
-      <button className="deleteBtn" type="button" onClick={deleteFile('poster',0)}> <FaTrashAlt/></button>
-      </p>
-
-      </div>
+        <p>
+          FileName: {data.poster[i].name}
+          <button className="deleteBtn" type="button" onClick={deleteFile('poster',i)}> <FaTrashAlt/></button>
+        </p>
+      );
+    }      
+  }
+  if(data.poster==null||data.poster.length<5){
+    section.push(    
+      <input type="file" onChange={inputChange('poster')} enable/> 
       )
     }
     return section;
@@ -187,7 +185,7 @@ function displayPosterForm(){
       <div className="edit-form-container">
                 <h1 className="mb-5">Edit Promotional content</h1>
  
-                <h5>Poster<i className="caution"> (*Max 1) Recommended size: 1587px x 2245px</i></h5>    
+                <h5>Poster<i className="caution"> (*Max 5) File size limited to 1MB</i></h5>    
                 {displayPosterForm()}
                                
                 <hr/>

@@ -24,7 +24,7 @@ function Competition_hall() {
           section.push(
             <Link className="col-md-4" to={`/competition_booth/${competitor.account_id}`}>
               <img height="400px" width="400px" src={booth} alt="booth" style={{padding:"5% 0%" }}/>
-              <div className="booth-name">{competitor.affiliation}</div>
+              {/* <div className="booth-name">{competitor.affiliation}</div> */}
               <div className="booth-title">{competitor.abstract[0].title}</div>
               <div className="booth-number">
                 <Link className="btn btn-primary booth-display-number" to={`/competition_booth/${competitor.account_id}`}>
@@ -36,7 +36,7 @@ function Competition_hall() {
           section.push(
             <Link className="col-md-4" to={`/competition_booth/${competitor.account_id}`}>
               <img height="400px" width="400px" src={booth} alt="booth" style={{padding:"5% 0%" }}/>
-              <div className="booth-name">{competitor.name}</div>
+              {/* <div className="booth-name">{competitor.name}</div> */}
               <div className="booth-title">{""}</div>
               <div className="booth-number">
                 <Link className="btn btn-primary booth-display-number" to={`/competition_booth/${competitor.account_id}`}>
@@ -49,9 +49,7 @@ function Competition_hall() {
     );
     return section;
   }
-
   return (
-
     <header className="masthead">
       <div className="intro-text">
         <div className="intro-lead-in">

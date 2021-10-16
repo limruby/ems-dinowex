@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./../../../../assets/css/agency.min.css";
@@ -13,7 +14,7 @@ function Competition_booth() {
   const thePath = location.pathname;
   const user_id = thePath.substring(thePath.lastIndexOf('/') + 1);
   const string = '"' + user_id + '"'
-
+  
   document.addEventListener('contextmenu', event => event.preventDefault());
   useEffect(() => {
     axiosInstance.get("/api/competitors/read", { params: { account_id: string } })
@@ -122,7 +123,14 @@ function Competition_booth() {
         const url = data.video[0].source.substring(data.video[0].source.lastIndexOf('/') + 9);
         for (var i = 0; i < data.video.length; i++) {
           section.push(
-            <iframe className="video_iframe" height="400" src={`https://www.youtube.com/embed/${url}`} title={data.video[0].name}></iframe>
+            <iframe 
+            className="video_iframe" 
+            height="400" 
+            src={`https://www.youtube.com/embed/${url}`} 
+            title={data.video[0].name} 
+            allowfullscreen="true" 
+            webkitallowfullscreen="true" 
+            mozallowfullscreen="true"></iframe>
           );
         }
       }
@@ -147,12 +155,11 @@ function Competition_booth() {
   function displayAwards() {
     var section = [];
     if (data.achievements) {
-
       for (var i = 0; i < data.achievements.length; i++) {
         const imageBuffer = Buffer.from(data.achievements[i].source.data);
         section.push(
-          <div className="awards-name">
-            <a download={data.achievements[i].name} href={imageBuffer} title={data.achievements[i].name}>{data.achievements[i].name}</a>
+          <div className="awards-name">            
+            <a style={{cursor:'pointer'}} onClick={() => {displayPdf(imageBuffer) }}>{data.achievements[i].name}</a>
           </div>
         );
       }
@@ -172,7 +179,7 @@ function Competition_booth() {
         const imageBuffer = Buffer.from(data.grants[i].source.data);
         section.push(
           <div className="awards-name">
-            <a download={data.grants[i].name} href={imageBuffer} title={data.grants[i].name}>{data.grants[i].name}</a>
+            <a style={{cursor:'pointer'}} onClick={() => {displayPdf(imageBuffer) }}>{data.grants[i].name}</a>
           </div>
         );
       }
@@ -185,6 +192,17 @@ function Competition_booth() {
     }
     return section;
   }
+
+  function displayPdf(imageBuffer){
+     var w = window.open('about:blank');
+    setTimeout(function(){
+        w.document.body.appendChild(w.document.createElement('iframe'))
+            .src = imageBuffer;
+            w.document.getElementsByTagName("iframe")[0].style.width = '100%';
+        w.document.getElementsByTagName("iframe")[0].style.height = '100%';
+    }, 0);
+  }
+
   function displayForumForm() {
     var section = []
     section.push(

@@ -77,7 +77,6 @@ function EditProfile({ data, setData }) {
         return section;
     }
     const handleForm = (e) => {
-        console.log(data);
         e.preventDefault();
         // perform all neccassary validations
         if (data.name === "" ||
