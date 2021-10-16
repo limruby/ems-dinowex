@@ -59,10 +59,10 @@ function EventLobby() {
             <div className="intro-lead-in">
             </div>
             <div className="row">
-              <div className="intro-heading col-lg-6">
+              <div className="intro-heading col-lg-6 event-heading">
                 Event Lobby
               </div>
-              <div className="col-lg-3 justify-content-center">
+              <div className="col-lg-6 justify-content-center">
                 <Image src={dinowex} height="auto" width="100%" alt="" rounded responsive />
               </div>
               {/* <div className="col-lg-3 justify-content-center">
@@ -79,11 +79,7 @@ function EventLobby() {
             <div className="sponsors-dropdown-content"> 
 
                 <div className="sponsors-sub-dropdown">
-                  <a>DINOWEX</a><span className="sponsors-dropdown-arrow"></span>
-                    <div className="sponsors-sub-dropdown-content sub-dropdown">         
-                        <a href="/sponsor_hall">MAIN HALL</a><span className="sponsors-sub-dropdown-arrow"></span>
-                        <a href="">MERCHANT HALL</a><span className="sponsors-sub-dropdown-arrow"></span>             
-                    </div>
+                  <a href="/sponsor_hall">DINOWEX</a><span className="sponsors-dropdown-arrow"></span>
                 </div>
 
                 {/* <div>
