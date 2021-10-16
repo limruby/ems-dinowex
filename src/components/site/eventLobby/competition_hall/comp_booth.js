@@ -159,7 +159,7 @@ function Competition_booth() {
         const imageBuffer = Buffer.from(data.achievements[i].source.data);
         section.push(
           <div className="awards-name">            
-            <a onClick={() => {displayPdf(imageBuffer) }}>{data.achievements[i].name}</a>
+            <a style={{cursor:'pointer'}} onClick={() => {displayPdf(imageBuffer) }}>{data.achievements[i].name}</a>
           </div>
         );
       }
@@ -179,7 +179,7 @@ function Competition_booth() {
         const imageBuffer = Buffer.from(data.grants[i].source.data);
         section.push(
           <div className="awards-name">
-            <a onClick={() => {displayPdf(imageBuffer) }}>{data.grants[i].name}</a>
+            <a style={{cursor:'pointer'}} onClick={() => {displayPdf(imageBuffer) }}>{data.grants[i].name}</a>
           </div>
         );
       }
@@ -195,7 +195,6 @@ function Competition_booth() {
 
   function displayPdf(imageBuffer){
      var w = window.open('about:blank');
-
     setTimeout(function(){
         w.document.body.appendChild(w.document.createElement('iframe'))
             .src = imageBuffer;

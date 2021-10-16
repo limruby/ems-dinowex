@@ -1422,6 +1422,9 @@ h3 {
   font-size: 50px;
   font-weight: bold;
 }
+.awards-name:hover{
+  color: #41484f;
+}
 .awards-name a{
   color: #fff;
 }

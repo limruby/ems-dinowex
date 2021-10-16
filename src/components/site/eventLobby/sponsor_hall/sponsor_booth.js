@@ -62,6 +62,15 @@ function Sponsor_booth() {
         })
     }
   }
+  function displayPdf(imageBuffer){
+    var w = window.open('about:blank');
+   setTimeout(function(){
+       w.document.body.appendChild(w.document.createElement('iframe'))
+           .src = imageBuffer;
+           w.document.getElementsByTagName("iframe")[0].style.width = '100%';
+       w.document.getElementsByTagName("iframe")[0].style.height = '100%';
+   }, 0);
+ }
   function displayTitle() {
     if (data.company_name !== undefined) {
       var section = [];
@@ -127,9 +136,15 @@ function Sponsor_booth() {
     if (data.video) {
       if (data.video.length !== 0) {
         const url = data.video[0].source.substring(data.video[0].source.lastIndexOf('/') + 9);
-
         section.push(
-          <iframe className="video_iframe" height="400" src={`https://www.youtube.com/embed/${url}`} title={data.video[0].name}></iframe>
+          <iframe
+            className="video_iframe"
+            height="400"
+            src={`https://www.youtube.com/embed/${url}`}
+            title={data.video[0].name}
+            allowfullscreen="true"
+            webkitallowfullscreen="true"
+            mozallowfullscreen="true"></iframe>
         );
 
       }
@@ -153,7 +168,7 @@ function Sponsor_booth() {
   function displayForumForm() {
     var section = []
     section.push(
-      <form onSubmit={handleForm} style={{padding: "2%"}}>
+      <form onSubmit={handleForm} style={{ padding: "2%" }}>
         <br></br>
         <textarea
           className="form-control"
