@@ -31,7 +31,7 @@ const cartSchema = new Schema({
     bookQuantity: {
         type: Number,
     },
-    physicalCertQuantity:{
+    certQuantity: {
         type: Number,
     },
     total_price: {
