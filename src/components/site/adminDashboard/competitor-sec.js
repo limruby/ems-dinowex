@@ -57,10 +57,10 @@ function Competitor() {
             Header: 'Payment Status',
             accessor: 'bill_status'
           },
-          {
-            Header: 'Bookchapter First Purchase',
-            accessor: 'first_purchase'
-          },
+          // {
+          //   Header: 'Bookchapter First Purchase',
+          //   accessor: 'first_purchase'
+          // },
           {
             Header: 'Bill ID',
             accessor: 'bill_id'
