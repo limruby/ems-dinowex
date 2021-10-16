@@ -8,6 +8,7 @@ const addToCart = (req, res, next)=>{
     const account_id = req.body.account_id
     const medalQuantity = req.body.medalQuantity;
     const bookQuantity = req.body.bookQuantity;
+    const physicalCertQuantity = req.body.physicalCertQuantity;
     const total_price = req.body.total_price;
     const email = req.body.email;  
     const name = req.body.name;
@@ -18,7 +19,8 @@ const addToCart = (req, res, next)=>{
     const newCart = new Cart({
       account_id,
       medalQuantity,
-      bookQuantity, 
+      bookQuantity,
+      physicalCertQuantity, 
       total_price,
       email,
       name,

@@ -162,8 +162,6 @@ function checkExist(element, index){
 		return data.bookChapter[0].conclusion;
 	}  
 }
-
-
 	/////////////////////////////////////////////////////////////
 
 	return (

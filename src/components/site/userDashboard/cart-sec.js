@@ -4,43 +4,43 @@ import OrderHistory from './order-history-sec.js'
 
 function Cart({ data, setData, user }) {
     const [medalQuantity, setMedal] = useState(0)
-    const [bookQuantity, setBook] = useState(0)
+    const [physicalCertQuantity, setPhysicalCert] = useState(0)
     const [medalSubtotal, setMedalSubtotal] = useState(0)
-    const [bookSubtotal, setBookSubtotal] = useState(0)
+    const [physicalCertSubtotal, setPhysicalCertSubtotal] = useState(0)
     const [price, setPrice] = useState(0)
 
     useEffect(() => {
-        if (medalQuantity > 0 || bookQuantity > 0) {
+        if (medalQuantity > 0 || physicalCertQuantity > 0) {
             var medalPrice = 50;
-            var bookPrice = 70;
+            var physicalCertPrice = 10;
             var total = 0
-            var firstpurchase = 0
-            if (data.first_purchase === "true" && bookQuantity > 0) {
-                firstpurchase = 30
-            }
+            // var firstpurchase = 0
+            // if (data.first_purchase === "true" && physicalCertQuantity > 0) {
+            //     firstpurchase = 30
+            // }
             setMedalSubtotal(medalQuantity * medalPrice)
-            setBookSubtotal(bookQuantity * bookPrice + firstpurchase)
-            total = medalQuantity * medalPrice + bookQuantity * bookPrice + firstpurchase
+            setPhysicalCertSubtotal(physicalCertQuantity * physicalCertPrice) //+ firstpurchase)
+            total = medalQuantity * medalPrice + physicalCertQuantity * physicalCertPrice //+ firstpurchase
             setPrice(total)
             // console.log("Medal Quantity:" + medalQuantity + "Total Price" + price)
-            // console.log("Book Quantity:" + bookQuantity + "Total Price" + price)
+            // console.log("physicalCert Quantity:" + physicalCertQuantity + "Total Price" + price)
         } else {
             setMedal(0)
-            setBook(0)
+            setPhysicalCert(0)
             setMedalSubtotal(0)
-            setBookSubtotal(0)
+            setPhysicalCertSubtotal(0)
             total = 0
             setPrice(total)
             console.log("Empty")
         }
-    }, [bookQuantity, data.first_purchase, medalQuantity, price]);
+    }, [physicalCertQuantity, data.first_purchase, medalQuantity, price]);
 
     const handleForm = (e) => {
         e.preventDefault();
         var postData = {
             account_id: user._id,
             medalQuantity: medalQuantity,
-            bookQuantity: bookQuantity,
+            physicalCertQuantity: physicalCertQuantity,
             total_price: price,
             bill_status: 'N/A',
             email: user.email,
@@ -50,7 +50,7 @@ function Cart({ data, setData, user }) {
         if (price > 0) {
             axiosInstance.post("/api/cart/addToCart", postData)
                 .then(function (response) {
-                    if (bookQuantity > 0 && data.first_purchase === "true") {
+                    if (physicalCertQuantity > 0 && data.first_purchase === "true") {
                         var status = {
                             _id: data._id,
                             first_purchase: "false"
@@ -98,24 +98,24 @@ function Cart({ data, setData, user }) {
                                     <button className="btn btn-danger cart-button" onClick={() => setMedal(medalQuantity - 1)}>-</button>
                                 </div>
                             </td>
-                            <td className="table-center-text">RM 50</td>
+                            <td className="table-center-text">RM 50 (each)</td>
                             <td className="table-center-text">RM {medalSubtotal}</td>
                         </tr>
                         <tr>
                             <td>
                                 <div className="cart-info table-center-text">
-                                    BookChapter
+                                    Certificate
                                 </div>
                             </td>
                             <td>
                                 <div className="cart-quantity">
-                                    <button className="btn btn-primary cart-button" onClick={() => setBook(bookQuantity + 1)}>+</button>
-                                    <p className="cart-selected-quantity">{bookQuantity}</p>
-                                    <button className="btn btn-danger cart-button" onClick={() => setBook(bookQuantity - 1)}>-</button>
+                                    <button className="btn btn-primary cart-button" onClick={() => setPhysicalCert(physicalCertQuantity + 1)}>+</button>
+                                    <p className="cart-selected-quantity">{physicalCertQuantity}</p>
+                                    <button className="btn btn-danger cart-button" onClick={() => setPhysicalCert(physicalCertQuantity - 1)}>-</button>
                                 </div>
                             </td>
-                            <td className="table-center-text">RM 100 (First purchase) <br></br>RM 70 (Subsequent purchase)</td>
-                            <td className="table-center-text">RM {bookSubtotal}</td>
+                            <td className="table-center-text">RM 10 (each)</td>
+                            <td className="table-center-text">RM {physicalCertSubtotal}</td>
                         </tr>
                         <tr>
                             <td></td>

@@ -1,9 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import Form from 'react-bootstrap/Form';
 import axiosInstance from '../../../../utils/axiosConfig.js';
-import { FaTrashAlt } from 'react-icons/fa';
-
 
 function EditProfile({ data, setData }) {
   localStorage.setItem("activeKeys", "Account-Profiles");
