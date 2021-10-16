@@ -68,10 +68,10 @@ const read = (req, res, next)=>{
   }).catch(err => console.log(err))
 };
 
-
-
 const readAll = (req, res, next)=>{ 
-  Sponsor.find({}, (err, sponsors) => {
+  Sponsor.find({}, {
+    poster: 0,
+  }, (err, sponsors) => {
     if (err) {
       return res.status(400).json({ success: false, error: err })
     }
@@ -209,10 +209,10 @@ const pay = (req, res, next) => {
       localStorage.setItem('bill_id',params['billplz[id]'])
       localStorage.setItem('bill_paid_at',params['billplz[paid_at]'])
       localStorage.setItem('bill_status', params['billplz[paid]'])
-      res.redirect('http://vexs.fsktm.um.edu.my/payment_success');
+      res.redirect('https://vexs.fsktm.um.edu.my/payment_success');
     }
     else{
-      res.redirect('http://vexs.fsktm.um.edu.my/payment_fail')
+      res.redirect('https://vexs.fsktm.um.edu.my/payment_fail')
     }
   }
 

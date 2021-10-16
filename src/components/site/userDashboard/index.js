@@ -17,49 +17,54 @@ import PdfAbstract from './pdf-abstract-bookChapter';
 import Preview from './preview-sec'; import 'bootstrap/dist/css/bootstrap.min.css';
 import { Tab, Nav, Row, Col, Card } from "react-bootstrap";
 import { FaEdit, FaCertificate, FaBook, FaRegBookmark, FaReceipt, FaMedal } from 'react-icons/fa';
-import { BsPeopleCircle, BsFiles, BsBookHalf } from "react-icons/bs";
+import { BsPeopleCircle, BsFiles} from "react-icons/bs";
 
 function UserDashboard() {  ////////////////////get login user info (REPLACE THIS)  /////////////////////
   const [user, setUser] = useState([]);
   const [account, setAccount] = useState([]);
-
+  const role = localStorage.getItem('role');
   const account_id = localStorage.getItem('user_id');
   useEffect(() => {
-    axiosInstance.get("/api/competitors/read", { params: { account_id: account_id } })
-      .then(function (response) {
-        setUser(response.data.data);
-      }).catch(function (error) {
-        console.log(error);
-      });
-
-    axiosInstance.get("/api/sponsors/read", { params: { account_id: account_id } })
-      .then(function (response) {
-        setUser(response.data.data);
-      }).catch(function (error) {
-        console.log(error);
-      });
-
-      axiosInstance.get("/api/visitors/read", { params: { account_id: account_id } })
-      .then(function (response) {
-        setUser(response.data.data);
-      }).catch(function (error) {
-        console.log(error);
-      })
-
-      axiosInstance.get("/api/judge/read", { params: { account_id: account_id } })
-      .then(function (response) {
-        setUser(response.data.data);
-      }).catch(function (error) {
-        console.log(error);
-      });
-
     axiosInstance.get("/api/accounts/read", { params: { account_id: account_id } })
       .then(function (response) {
         setAccount(response.data.data);
       }).catch(function (error) {
         console.log(error);
       })
-  }, [account_id]);
+    if (role === "Competitor") {
+      axiosInstance.get("/api/competitors/read", { params: { account_id: account_id } })
+        .then(function (response) {
+          setUser(response.data.data);
+        }).catch(function (error) {
+          console.log(error);
+        });
+    }
+    else if (role === "Sponsor") {
+      axiosInstance.get("/api/sponsors/read", { params: { account_id: account_id } })
+        .then(function (response) {
+          setUser(response.data.data);
+        }).catch(function (error) {
+          console.log(error);
+        });
+    }
+    else if (role === "Visitor") {
+      axiosInstance.get("/api/visitors/read", { params: { account_id: account_id } })
+        .then(function (response) {
+          setUser(response.data.data);
+        }).catch(function (error) {
+          console.log(error);
+        })
+    }
+    else if (role === "Judge") {
+      axiosInstance.get("/api/judge/read", { params: { account_id: account_id } })
+        .then(function (response) {
+          setUser(response.data.data);
+        }).catch(function (error) {
+          console.log(error);
+        });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
 
   //////////////////////////////////////////////////////////////////////////////////
@@ -136,7 +141,7 @@ function UserDashboard() {  ////////////////////get login user info (REPLACE THI
             </Nav.Item>
           </Nav>
         );
-        case 'Visitor':
+      case 'Visitor':
         return (
           <Nav variant="pills" className="flex-column">
             <Nav.Item>
@@ -150,7 +155,7 @@ function UserDashboard() {  ////////////////////get login user info (REPLACE THI
             </Nav.Item>
           </Nav>
         );
-        case 'Judge':
+      case 'Judge':
         return (
           <Nav variant="pills" className="flex-column">
             <Nav.Item>
@@ -295,7 +300,7 @@ function UserDashboard() {  ////////////////////get login user info (REPLACE THI
                     <Card.Body>
                       <div className="sec-container">
                         <h2> Download Receipt</h2>
-                        <Receipt user={user}/>
+                        <Receipt user={user} />
                       </div>
                     </Card.Body>
                   </Card>
@@ -304,7 +309,7 @@ function UserDashboard() {  ////////////////////get login user info (REPLACE THI
                   <Card>
                     <Card.Body>
                       <div className="sec-container">
-                      <h2> Download Certification</h2>
+                        <h2> Download Certification</h2>
                         <Certificate user={user} role={account.role} />
                       </div>
                     </Card.Body>
@@ -313,8 +318,8 @@ function UserDashboard() {  ////////////////////get login user info (REPLACE THI
                 <Tab.Pane eventKey="Cart">
                   <Card>
                     <Card.Body>
-                      <div className="sec-container">                                     
-                          <Cart data={user} setData={setUser} user={account}/>
+                      <div className="sec-container">
+                        <Cart data={user} setData={setUser} user={account} />
                       </div>
                     </Card.Body>
                   </Card>
@@ -322,13 +327,13 @@ function UserDashboard() {  ////////////////////get login user info (REPLACE THI
                 <Tab.Pane eventKey="Evaluation-Table">
                   <Card>
                     <Card.Body>
-                    <div className="sec-container">
-                      <Link to='/user_dashboard/evaluation_form'>
-                        <a className="edit" href=""><FaEdit /> Edit</a>
-                      </Link>
-                      <h2> Evaluation Form</h2>
-                      <EvaluationForm  />
-                    </div>
+                      <div className="sec-container">
+                        <Link to='/user_dashboard/evaluation_form'>
+                          <a className="edit" href=""><FaEdit /> Edit</a>
+                        </Link>
+                        <h2> Evaluation Form</h2>
+                        <EvaluationForm />
+                      </div>
                     </Card.Body>
                   </Card>
                 </Tab.Pane>

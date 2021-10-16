@@ -62,15 +62,15 @@ function Sponsor_booth() {
         })
     }
   }
-  function displayPdf(imageBuffer){
-    var w = window.open('about:blank');
-   setTimeout(function(){
-       w.document.body.appendChild(w.document.createElement('iframe'))
-           .src = imageBuffer;
-           w.document.getElementsByTagName("iframe")[0].style.width = '100%';
-       w.document.getElementsByTagName("iframe")[0].style.height = '100%';
-   }, 0);
- }
+  // function displayPdf(imageBuffer) {
+  //   var w = window.open('about:blank');
+  //   setTimeout(function () {
+  //     w.document.body.appendChild(w.document.createElement('iframe'))
+  //       .src = imageBuffer;
+  //     w.document.getElementsByTagName("iframe")[0].style.width = '100%';
+  //     w.document.getElementsByTagName("iframe")[0].style.height = '100%';
+  //   }, 0);
+  // }
   function displayTitle() {
     if (data.company_name !== undefined) {
       var section = [];
@@ -110,21 +110,19 @@ function Sponsor_booth() {
 
   function displayPoster() {
     var section = [];
-    if (data.poster && data.poster[0]) {
-      const imageFormat = data.poster[0].name.substring(data.poster[0].name.lastIndexOf('.') + 1);
-      if (imageFormat === "pdf") {
-        for (var i = 0; i < data.poster.length; i++) {
-          const imageBuffer = Buffer.from(data.poster[0].source.data);
+    if (data.poster && data.poster.length > 0) {
+      for (var i = 0; i < data.poster.length; i++) {
+        const imageFormat = data.poster[i].name.substring(data.poster[i].name.lastIndexOf('.') + 1);
+        if (imageFormat === "pdf") {
+          const imageBuffer = Buffer.from(data.poster[i].source.data);
           section.push(
             <embed className="display-poster" src={`${imageBuffer}#toolbar=0&navpanes=0&scrollbar=0`} width="100%" height="auto" />
           );
         }
-      }
-      else {
-        for (var i = 0; i < data.poster.length; i++) {
-          const imageBuffer = Buffer.from(data.poster[0].source.data);
+        else {
+          const imageBuffer = Buffer.from(data.poster[i].source.data);
           section.push(
-            <img src={imageBuffer} alt={data.poster[0].name} />
+            <img src={imageBuffer} alt={data.poster[i].name} />
           );
         }
       }
@@ -135,18 +133,19 @@ function Sponsor_booth() {
     var section = []
     if (data.video) {
       if (data.video.length !== 0) {
-        const url = data.video[0].source.substring(data.video[0].source.lastIndexOf('/') + 9);
+        for(var i =0; i< data.video.length; i++){
+        const url = data.video[i].source.substring(data.video[i].source.lastIndexOf('/') + 9);
         section.push(
           <iframe
             className="video_iframe"
-            height="400"
+            height="600"
             src={`https://www.youtube.com/embed/${url}`}
             title={data.video[0].name}
             allowfullscreen="true"
             webkitallowfullscreen="true"
             mozallowfullscreen="true"></iframe>
         );
-
+        }
       }
     }
     return section;

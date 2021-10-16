@@ -19,39 +19,49 @@ function FormNavigator() {
 	const [user, setUser] = useState([]);
 	const [account, setAccount] = useState([]);
 	const account_id = localStorage.getItem('user_id');
+	const role = localStorage.getItem('role');
 
 	useEffect(() => {
+		axiosInstance.get("/api/accounts/read", { params: { account_id: account_id } })
+		.then(function (response) {
+			setAccount(response.data.data);
+		}).catch(function (error) {
+			console.log(error);
+		})
+		if(role === "Sponsor"){
+			axiosInstance.get("/api/sponsors/read", { params: { account_id: account_id } })
+			.then(function (response) {
+				setUser(response.data.data);
+			}).catch(function (error) {
+				console.log(error);
+			});
+		}
+		else if(role ==="Competitor"){
 		axiosInstance.get("/api/competitors/read", { params: { account_id: account_id } })
 			.then(function (response) {
 				setUser(response.data.data);
 			}).catch(function (error) {
 				console.log(error);
 			});
-		axiosInstance.get("/api/sponsors/read", { params: { account_id: account_id } })
-			.then(function (response) {
-				setUser(response.data.data);
-			}).catch(function (error) {
-				console.log(error);
-			});
+		}
+		else if(role ==="Visitors"){
 		axiosInstance.get("/api/visitors/read", { params: { account_id: account_id } })
 			.then(function (response) {
 				setUser(response.data.data);
 			}).catch(function (error) {
 				console.log(error);
 			});
+		}
+		else if(role ==="Judge"){
 		axiosInstance.get("/api/judge/read", { params: { account_id: account_id } })
 			.then(function (response) {
 				setUser(response.data.data);
 			}).catch(function (error) {
 				console.log(error);
 			});
-		axiosInstance.get("/api/accounts/read", { params: { account_id: account_id } })
-			.then(function (response) {
-				setAccount(response.data.data);
-			}).catch(function (error) {
-				console.log(error);
-			})
-	});
+		}
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
 	//////////////////////////////////////////////////////////////////////////////////
 	const location = useLocation();
 	const thePath = location.pathname;

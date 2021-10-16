@@ -52,9 +52,7 @@ function EditTeam({ data, setData }) {
     }
     setData({
       ...data,
-
     });
-    console.log(data);
   }
 
   const inputChange = (element, index) => e => {
@@ -71,8 +69,6 @@ function EditTeam({ data, setData }) {
     setTemp({
       ...tempData
     });
-
-    console.log(data);
   };
 
   const handleForm = (e) => {

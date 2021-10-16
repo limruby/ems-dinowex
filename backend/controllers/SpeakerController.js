@@ -58,7 +58,6 @@ const read = (req, res, next)=>{
 const readAll = (req, res, next)=>{ 
   Speaker.find({}, {
     photo : 0,
-
   },(err, speaker) => {
     if (err) {
       return res.status(400).json({ success: false, error: err })

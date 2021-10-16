@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import "./../../../../assets/css/agency.min.css";
@@ -9,25 +10,24 @@ function Sponsor_hall() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
+    // If there is multiple sponsors
     axiosInstance.get("/api/sponsors/readAll")
       .then(function (response) {
         setData(response.data.data);
       }).catch(function (error) {
         console.log(error);
       })
-  }, [data]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  function linkToSponsorBooth(){
-    var section = [];
-    data.map((sponsor, index) => {
-      if (sponsor.category === "Gold Package" && sponsor.company_logo && sponsor.company_logo[0]) {
-        section.push( 
-            <p><a href={`/sponsor_booth/${sponsor.account_id}`} className="btn btn-rakyat">View Booth</a></p>
-        );
-      }
-    });
-    return section;
+  function linkToSponsorBooth() {
+      data.map((sponsor, index) => {
+        if (sponsor.category === "Gold Package" && sponsor.company_logo && sponsor.company_logo[0]) {
+          window.location.href = `/sponsor_booth/${sponsor.account_id}`;
+        }
+      })
   }
+
   function displayGoldSponsor() {
     var section = [];
     data.map((sponsor, index) => {
@@ -140,39 +140,40 @@ function Sponsor_hall() {
         <div className="row">
           <div className="intro-heading col-xl-12">
             MAIN SPONSOR
-            {linkToSponsorBooth()}
+            <br></br>
+            <button onClick={() => { linkToSponsorBooth() }} className="btn btn-rakyat">View Booth</button>
           </div>
         </div>
       </div>
 
       <div className="row" style={{ backgroundColor: "#fff" }}>
         <div className="sponsor-logo">
-        <Image src={logo} height="auto" width="50%" alt="" responsive />
+          <Image src={logo} height="auto" width="50%" alt="" responsive />
         </div>
       </div>
 
-        <div className="row">
-          <div className="col-xl-6" style={{ backgroundColor: "#7e7ebc" }}>
-            <div className="sponsor-details">
+      <div className="row">
+        <div className="col-xl-6" style={{ backgroundColor: "#7e7ebc" }}>
+          <div className="sponsor-details">
             <p>The Biggest Islamic Coopetative Bank In Malaysia</p>
             <p>Consumer Banking, Commercial Financing, Savings And Investments And Financial Planning Products</p>
             <p>147 Branches, More Than 990 Automated Teller Machines (ATMs) And Cash Deposit Machines (CDM), And 183 Ar-Rahnu X'Change Nationwide</p>
-            </div>
-          </div>
-
-          <div className="col-xl-6" style={{ backgroundColor: "#43ba7a" }}>
-            <div className="sponsor-details">
-              <p>MISSION</p>
-              <h4>Malaysia's No. 1 Progressive Islamic Coopetative Bank.</h4>
-            </div>
-
-            <div className="sponsor-details">
-              <p>VISION</p>
-              <h4>Enhancing Economic Well-Being Of Our Members, Customers And Nation.</h4>
-            </div>
-            
           </div>
         </div>
+
+        <div className="col-xl-6" style={{ backgroundColor: "#43ba7a" }}>
+          <div className="sponsor-details">
+            <p>MISSION</p>
+            <h4>Malaysia's No. 1 Progressive Islamic Coopetative Bank.</h4>
+          </div>
+
+          <div className="sponsor-details">
+            <p>VISION</p>
+            <h4>Enhancing Economic Well-Being Of Our Members, Customers And Nation.</h4>
+          </div>
+
+        </div>
+      </div>
 
     </header>
   );

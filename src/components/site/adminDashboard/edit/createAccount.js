@@ -189,7 +189,7 @@ function CreateAccount() {
                         compData["category"] = data.category;
                         compData["account_id"] = response.data._id
 
-                        if(compData["category"]==="Other Innovator"){
+                        if(compData["category"]!=="Professional Innovator" || compData["category"]!=="Young Innovator"){
                             compData["bill_status"] = 'true'
                         }
 
