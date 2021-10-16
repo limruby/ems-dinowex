@@ -1505,6 +1505,22 @@ h3 {
 /*End of competitor booth*/
 
 /*Start of sponsor hall*/
+.btn-rakyat{
+  width:250px;
+  height: 60px;
+  font-size:30px !important;
+  text-shadow: none !important;
+  color: white !important;
+  background-color: #0066b2 !important;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding-left: 0;
+  left:0%;
+  text-align: end;
+  border-color: white;
+  border-left-width: 0.2em;
+  border-left-style: solid;
+}
+
 .sponsorhall-main-container {
   padding: 5%;
   min-height: 420px;
@@ -1569,6 +1585,9 @@ h3 {
 
 
 /*start of event lobby*/
+.event-heading{
+  top:50px !important
+}
 .img-container {
   display: inline-block;
   position: relative;
@@ -1751,8 +1770,8 @@ h3 {
   width: 0; /* change background color acc to bg color */ 
   border-left-width: 0.2em;
   border-left-style: solid;
-  border-left-color: transparent;
-  left: 21%;
+  border-left-color: #43ba7a;
+  left: 33%;
 }
 .speakers{
   position: absolute;
