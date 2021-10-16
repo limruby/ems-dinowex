@@ -42,7 +42,7 @@ function Order() {
                     },
                     {
                         Header: 'Certificate Quantity',
-                        accessor: 'physicalCertQuantity',
+                        accessor: 'certQuantity',
                     },
                     {
                         Header: 'Total Price (RM)',
