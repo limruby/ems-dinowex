@@ -12,7 +12,7 @@ sudo docker build -t vexs/backend_prod .
 cd ../
 # build insecure web
 rm -r ./backend/public
-npm run build:insecure
+sudo npm run build:insecure
 cp -r build ./backend/public
 rm -r ./build
 
