@@ -17,7 +17,17 @@ function Sponsor_hall() {
       })
   }, [data]);
 
-
+  function linkToSponsorBooth(){
+    var section = [];
+    data.map((sponsor, index) => {
+      if (sponsor.category === "Gold Package" && sponsor.company_logo && sponsor.company_logo[0]) {
+        section.push( 
+            <p><a href={`/sponsor_booth/${sponsor.account_id}`} className="btn btn-rakyat">View Booth</a></p>
+        );
+      }
+    });
+    return section;
+  }
   function displayGoldSponsor() {
     var section = [];
     data.map((sponsor, index) => {
@@ -130,6 +140,7 @@ function Sponsor_hall() {
         <div className="row">
           <div className="intro-heading col-xl-12">
             MAIN SPONSOR
+            {linkToSponsorBooth()}
           </div>
         </div>
       </div>
