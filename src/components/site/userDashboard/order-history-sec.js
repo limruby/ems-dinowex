@@ -16,17 +16,25 @@ function Order() {
             })
 
     }, [account_id]);
-    function displayName(input) {      
-        if(input[0]){ 
+    function displayName(input) {
+        if (input[0]) {
             return input[0].name;
-        }    
-      }
-      function imageBuffer(input) {   
-        if(input[0]){ 
-            const imageBuffer = Buffer.from(input[0].source.data);     
-            return imageBuffer;            
-        }  
-      }
+        }
+    }
+    function displayClass(input) {
+        if (input[0]) {
+            return "";
+        }
+        else {
+            return "d-none"
+        }
+    }
+    function imageBuffer(input) {
+        if (input[0]) {
+            const imageBuffer = Buffer.from(input[0].source.data);
+            return imageBuffer;
+        }
+    }
     const columns = React.useMemo(
         () => [
             {
@@ -59,7 +67,13 @@ function Order() {
                     {
                         Header: 'Receipt',
                         accessor: 'receipt',
-                        Cell: ({row, value}) => (<a download={displayName(value)} href={imageBuffer(value)} title="Download">Download</a>  )
+                        Cell: ({ row, value }) => (
+                            <a
+                                className={displayClass(value)}
+                                download={displayName(value)}
+                                href={imageBuffer(value)}
+                                title="Download">Download</a>
+                        )
                     },
                 ],
             },
