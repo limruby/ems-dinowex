@@ -116,7 +116,7 @@ function Sponsor_booth() {
       var media = [];
       const slides = Array.from(Array(data.poster.length).keys());
       for (var i = 0; i < data.poster.length; i++) {
-        // const imageFormat = data.poster[i].name.substring(data.poster[i].name.lastIndexOf('.') + 1);
+        const imageFormat = data.poster[i].name.substring(data.poster[i].name.lastIndexOf('.') + 1);
         const imageBuffer = Buffer.from(data.poster[i].source.data);
         media.push(imageBuffer);
         // if (imageFormat === "pdf") {
@@ -144,19 +144,17 @@ function Sponsor_booth() {
     var section = []
     if (data.video) {
       if (data.video.length !== 0) {
-        for(var i =0; i< data.video.length; i++){
-        const url = data.video[i].source.substring(data.video[i].source.lastIndexOf('/') + 9);
+        const url = data.video[0].source.substring(data.video[0].source.lastIndexOf('/') + 9);
         section.push(
           <iframe
             className="video_iframe"
-            height="500"
+            height="600"
             src={`https://www.youtube.com/embed/${url}`}
             title={data.video[0].name}
             allowfullscreen="true"
             webkitallowfullscreen="true"
             mozallowfullscreen="true"></iframe>
         );
-        }
       }
     }
     return section;

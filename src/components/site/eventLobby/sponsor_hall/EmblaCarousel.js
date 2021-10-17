@@ -100,6 +100,7 @@ const EmblaCarousel = ({ slides, media }) => {
             <div className="embla__slide" key={index}>
               <div className="embla__slide__inner">             
                 <img className="embla__slide__img" height="auto" width="50%" src={mediaByIndex(index)} alt=""/> 
+                <br></br><br></br>
         {/* <div className="sponsor_title">Poster {index+1} </div> */}
               </div>
             </div>
