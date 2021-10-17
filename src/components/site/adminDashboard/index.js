@@ -115,7 +115,7 @@ function AdminDashboard() {
 									<Card>
 										<Card.Body>
 											<div className="sec-container">
-												<h2>Medal & Bookchapter Order</h2>
+												<h2>Medal & Certificate Order</h2>
 												<Order />
 											</div>
 										</Card.Body>

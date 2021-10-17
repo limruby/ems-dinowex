@@ -1,6 +1,5 @@
 /* eslint-disable array-callback-return */
 import React, { useState, useEffect } from "react";
-import { Link } from 'react-router-dom';
 import "./../../../../assets/css/agency.min.css";
 import axiosInstance from '../../../../utils/axiosConfig';
 import logo from "../../../../assets/img/bankrakyat-logo.png";
@@ -20,116 +19,127 @@ function Sponsor_hall() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  function linkToSponsorBooth() {
+  const linkToSponsorBooth = () => {
+    console.log("Link to Sponsor booth const works")
       data.map((sponsor, index) => {
+        console.log(sponsor.account_id)
+        if (sponsor.category === "Gold Package" && sponsor.company_logo && sponsor.company_logo[0]) {
+          window.location.href = `/sponsor_booth/${sponsor.account_id}`;
+        }
+      })
+  }
+  function visitBooth () {
+    console.log("Visit booth function works")
+      data.map((sponsor, index) => {
+        console.log(sponsor.account_id)
         if (sponsor.category === "Gold Package" && sponsor.company_logo && sponsor.company_logo[0]) {
           window.location.href = `/sponsor_booth/${sponsor.account_id}`;
         }
       })
   }
 
-  function displayGoldSponsor() {
-    var section = [];
-    data.map((sponsor, index) => {
-      if (sponsor.category === "Gold Package" && sponsor.company_logo && sponsor.company_logo[0]) {
-        const imageFormat = sponsor.company_logo[0].name.substring(sponsor.company_logo[0].name.lastIndexOf('.') + 1);
-        if (imageFormat === "pdf") {
-          for (var i = 0; i < sponsor.company_logo.length; i++) {
-            const imageBuffer = Buffer.from(sponsor.poster[0].source.data);
-            section.push(
-              <div className="col-md-12">
-                <Link to={`/sponsor_booth/${sponsor.account_id}`}>
-                  <embed className="display-poster" src={`${imageBuffer}#toolbar=0&navpanes=0&scrollbar=0`} width="100%" height="auto" />
-                </Link>
-              </div>
-            );
-          }
-        }
-        else {
-          for (var i = 0; i < sponsor.company_logo.length; i++) {
-            const imageBuffer = Buffer.from(sponsor.company_logo[0].source.data);
-            section.push(
-              <div className="col-md-12">
-                <Link to={`/sponsor_booth/${sponsor.account_id}`}>
-                  <img width="60%" height="auto" src={imageBuffer} alt={sponsor.company_logo[0].name} />
-                </Link>
-              </div>
-            );
-          }
-        }
-      }
-    }
-    );
-    return section;
-  }
-  function displaySilverSponsor() {
-    var section = [];
-    data.map((sponsor, index) => {
-      if (sponsor.category === "Silver Package" && sponsor.company_logo && sponsor.company_logo[0]) {
-        const imageFormat = sponsor.company_logo[0].name.substring(sponsor.company_logo[0].name.lastIndexOf('.') + 1);
-        if (imageFormat === "pdf") {
-          for (var i = 0; i < sponsor.company_logo.length; i++) {
-            const imageBuffer = Buffer.from(sponsor.poster[0].source.data);
-            section.push(
-              <div className="col-md-4">
-                <Link to={`/sponsor_booth/${sponsor.account_id}`}>
-                  <embed className="display-poster" src={`${imageBuffer}#toolbar=0&navpanes=0&scrollbar=0`} width="100%" height="auto" />
-                </Link>
-              </div>
-            );
-          }
-        }
-        else {
-          for (var i = 0; i < sponsor.company_logo.length; i++) {
-            const imageBuffer = Buffer.from(sponsor.company_logo[0].source.data);
-            section.push(
-              <div className="col-md-4">
-                <Link to={`/sponsor_booth/${sponsor.account_id}`}>
-                  <img width="100%" height="auto" src={imageBuffer} alt={sponsor.company_logo[0].name} />
-                </Link>
-              </div>
-            );
-          }
-        }
-      }
-    }
-    );
-    return section;
-  }
-  function displayBronzeSponsor() {
-    var section = [];
-    data.map((sponsor, index) => {
-      if (sponsor.category === "Bronze Package" && sponsor.company_logo && sponsor.company_logo[0]) {
-        const imageFormat = sponsor.company_logo[0].name.substring(sponsor.company_logo[0].name.lastIndexOf('.') + 1);
-        if (imageFormat === "pdf") {
-          for (var i = 0; i < sponsor.company_logo.length; i++) {
-            const imageBuffer = Buffer.from(sponsor.poster[0].source.data);
-            section.push(
-              <div className="col-md-2">
-                <Link to={`/sponsor_booth/${sponsor.account_id}`}>
-                  <embed className="display-poster" src={`${imageBuffer}#toolbar=0&navpanes=0&scrollbar=0`} width="100%" height="auto" />
-                </Link>
-              </div>
-            );
-          }
-        }
-        else {
-          for (var i = 0; i < sponsor.company_logo.length; i++) {
-            const imageBuffer = Buffer.from(sponsor.company_logo[0].source.data);
-            section.push(
-              <div className="col-md-2">
-                <Link to={`/sponsor_booth/${sponsor.account_id}`}>
-                  <img width="100%" height="auto" src={imageBuffer} alt={sponsor.company_logo[0].name} />
-                </Link>
-              </div>
-            );
-          }
-        }
-      }
-    }
-    );
-    return section;
-  }
+  // function displayGoldSponsor() {
+  //   var section = [];
+  //   data.map((sponsor, index) => {
+  //     if (sponsor.category === "Gold Package" && sponsor.company_logo && sponsor.company_logo[0]) {
+  //       const imageFormat = sponsor.company_logo[0].name.substring(sponsor.company_logo[0].name.lastIndexOf('.') + 1);
+  //       if (imageFormat === "pdf") {
+  //         for (var i = 0; i < sponsor.company_logo.length; i++) {
+  //           const imageBuffer = Buffer.from(sponsor.poster[0].source.data);
+  //           section.push(
+  //             <div className="col-md-12">
+  //               <Link to={`/sponsor_booth/${sponsor.account_id}`}>
+  //                 <embed className="display-poster" src={`${imageBuffer}#toolbar=0&navpanes=0&scrollbar=0`} width="100%" height="auto" />
+  //               </Link>
+  //             </div>
+  //           );
+  //         }
+  //       }
+  //       else {
+  //         for (var i = 0; i < sponsor.company_logo.length; i++) {
+  //           const imageBuffer = Buffer.from(sponsor.company_logo[0].source.data);
+  //           section.push(
+  //             <div className="col-md-12">
+  //               <Link to={`/sponsor_booth/${sponsor.account_id}`}>
+  //                 <img width="60%" height="auto" src={imageBuffer} alt={sponsor.company_logo[0].name} />
+  //               </Link>
+  //             </div>
+  //           );
+  //         }
+  //       }
+  //     }
+  //   }
+  //   );
+  //   return section;
+  // }
+  // function displaySilverSponsor() {
+  //   var section = [];
+  //   data.map((sponsor, index) => {
+  //     if (sponsor.category === "Silver Package" && sponsor.company_logo && sponsor.company_logo[0]) {
+  //       const imageFormat = sponsor.company_logo[0].name.substring(sponsor.company_logo[0].name.lastIndexOf('.') + 1);
+  //       if (imageFormat === "pdf") {
+  //         for (var i = 0; i < sponsor.company_logo.length; i++) {
+  //           const imageBuffer = Buffer.from(sponsor.poster[0].source.data);
+  //           section.push(
+  //             <div className="col-md-4">
+  //               <Link to={`/sponsor_booth/${sponsor.account_id}`}>
+  //                 <embed className="display-poster" src={`${imageBuffer}#toolbar=0&navpanes=0&scrollbar=0`} width="100%" height="auto" />
+  //               </Link>
+  //             </div>
+  //           );
+  //         }
+  //       }
+  //       else {
+  //         for (var i = 0; i < sponsor.company_logo.length; i++) {
+  //           const imageBuffer = Buffer.from(sponsor.company_logo[0].source.data);
+  //           section.push(
+  //             <div className="col-md-4">
+  //               <Link to={`/sponsor_booth/${sponsor.account_id}`}>
+  //                 <img width="100%" height="auto" src={imageBuffer} alt={sponsor.company_logo[0].name} />
+  //               </Link>
+  //             </div>
+  //           );
+  //         }
+  //       }
+  //     }
+  //   }
+  //   );
+  //   return section;
+  // }
+  // function displayBronzeSponsor() {
+  //   var section = [];
+  //   data.map((sponsor, index) => {
+  //     if (sponsor.category === "Bronze Package" && sponsor.company_logo && sponsor.company_logo[0]) {
+  //       const imageFormat = sponsor.company_logo[0].name.substring(sponsor.company_logo[0].name.lastIndexOf('.') + 1);
+  //       if (imageFormat === "pdf") {
+  //         for (var i = 0; i < sponsor.company_logo.length; i++) {
+  //           const imageBuffer = Buffer.from(sponsor.poster[0].source.data);
+  //           section.push(
+  //             <div className="col-md-2">
+  //               <Link to={`/sponsor_booth/${sponsor.account_id}`}>
+  //                 <embed className="display-poster" src={`${imageBuffer}#toolbar=0&navpanes=0&scrollbar=0`} width="100%" height="auto" />
+  //               </Link>
+  //             </div>
+  //           );
+  //         }
+  //       }
+  //       else {
+  //         for (var i = 0; i < sponsor.company_logo.length; i++) {
+  //           const imageBuffer = Buffer.from(sponsor.company_logo[0].source.data);
+  //           section.push(
+  //             <div className="col-md-2">
+  //               <Link to={`/sponsor_booth/${sponsor.account_id}`}>
+  //                 <img width="100%" height="auto" src={imageBuffer} alt={sponsor.company_logo[0].name} />
+  //               </Link>
+  //             </div>
+  //           );
+  //         }
+  //       }
+  //     }
+  //   }
+  //   );
+  //   return section;
+  // }
 
   return (
     <header className="sponsor-masthead">
@@ -142,6 +152,10 @@ function Sponsor_hall() {
             MAIN SPONSOR
             <br></br>
             <button onClick={() => { linkToSponsorBooth() }} className="btn btn-rakyat">View Booth</button>
+            <button onClick={() => { visitBooth() }} className="btn btn-rakyat">View Booth</button>
+            <a onClick = {()=>{linkToSponsorBooth()}} className="btn btn-rakyat">View Booth</a>
+            <a onClick = {()=>{visitBooth()}} className="btn btn-rakyat">View Booth</a>
+          
           </div>
         </div>
       </div>

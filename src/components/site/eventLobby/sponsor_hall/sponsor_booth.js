@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axiosInstance from '../../../../utils/axiosConfig';
 import { useLocation } from "react-router-dom";
 import { BsPeopleCircle } from "react-icons/bs";
+import EmblaCarousel from './EmblaCarousel';
 
 function Sponsor_booth() {
   const [data, setData] = useState([]);
@@ -10,7 +11,8 @@ function Sponsor_booth() {
   const location = useLocation();
   const thePath = location.pathname;
   const user_id = thePath.substring(thePath.lastIndexOf('/') + 1);
-  const string = '"' + user_id + '"'
+  const string = '"' + user_id + '"';
+  
   useEffect(() => {
     axiosInstance.get("/api/sponsors/read", { params: { account_id: string } })
       .then(function (response) {
@@ -111,21 +113,30 @@ function Sponsor_booth() {
   function displayPoster() {
     var section = [];
     if (data.poster && data.poster.length > 0) {
+      var media = [];
+      const slides = Array.from(Array(data.poster.length).keys());
       for (var i = 0; i < data.poster.length; i++) {
         const imageFormat = data.poster[i].name.substring(data.poster[i].name.lastIndexOf('.') + 1);
-        if (imageFormat === "pdf") {
-          const imageBuffer = Buffer.from(data.poster[i].source.data);
-          section.push(
-            <embed className="display-poster" src={`${imageBuffer}#toolbar=0&navpanes=0&scrollbar=0`} width="100%" height="auto" />
-          );
-        }
-        else {
-          const imageBuffer = Buffer.from(data.poster[i].source.data);
-          section.push(
-            <img src={imageBuffer} alt={data.poster[i].name} />
-          );
-        }
+        const imageBuffer = Buffer.from(data.poster[i].source.data);
+        media.push(imageBuffer);
+        // if (imageFormat === "pdf") {
+        //   const imageBuffer = Buffer.from(data.poster[i].source.data);
+        //   // section.push(
+        //   //   <EmblaCarousel slides={slides} />
+        //   //   // <embed className="display-poster" src={`${imageBuffer}#toolbar=0&navpanes=0&scrollbar=0`} width="100%" height="auto" />
+        //   // );
+        // }
+        // else {
+        //   const imageBuffer = Buffer.from(data.poster[i].source.data);
+        //   // section.push(
+        //   //   <EmblaCarousel slides={slides} />
+        //   //   // <img src={imageBuffer} alt={data.poster[i].name} />
+        //   // );
+        // }
       }
+      section.push(
+        <EmblaCarousel slides={slides} media={media} />
+      )
     }
     return section;
   }
@@ -133,8 +144,7 @@ function Sponsor_booth() {
     var section = []
     if (data.video) {
       if (data.video.length !== 0) {
-        for(var i =0; i< data.video.length; i++){
-        const url = data.video[i].source.substring(data.video[i].source.lastIndexOf('/') + 9);
+        const url = data.video[0].source.substring(data.video[0].source.lastIndexOf('/') + 9);
         section.push(
           <iframe
             className="video_iframe"
@@ -145,7 +155,6 @@ function Sponsor_booth() {
             webkitallowfullscreen="true"
             mozallowfullscreen="true"></iframe>
         );
-        }
       }
     }
     return section;
@@ -273,7 +282,7 @@ function Sponsor_booth() {
       </div>
 
       <div className="row" style={{ padding: "0px 10px" }}>
-        <div className="display-poster col-xl-6">
+        <div className="col-xl-6">
           {displayPoster()}
         </div>
 

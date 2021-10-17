@@ -242,8 +242,8 @@ function UserDashboard() {  ////////////////////get login user info (REPLACE THI
                   <Card>
                     <Card.Body>
                       <div className="sec-container">
-                        <Link to='/user_dashboard/edit_content'>
-                          <a className="edit" href=""><FaEdit /> Edit</a>
+                        <Link to='/user_dashboard/edit_content' className="edit">
+                          <FaEdit /> Edit
                         </Link>
                         <h2> Competition Material</h2>
                         <CompetitionMaterial user={user} />
@@ -254,8 +254,8 @@ function UserDashboard() {  ////////////////////get login user info (REPLACE THI
                   <Card>
                     <Card.Body>
                       <div className="sec-container">
-                        <Link to='/user_dashboard/edit_abstract'>
-                          <a className="edit" href=""><FaEdit /> Edit</a>
+                        <Link to='/user_dashboard/edit_abstract' className="edit">
+                          <FaEdit /> Edit
                         </Link>
                         <h2> Abstract </h2>
                         <Abstract user={user} />
@@ -264,8 +264,8 @@ function UserDashboard() {  ////////////////////get login user info (REPLACE THI
                   </Card>                    <p />                    <Card>
                     <Card.Body>
                       <div className="sec-container">
-                        <Link to='/user_dashboard/edit_book_chapter'>
-                          <a className="edit" href=""><FaEdit /> Edit</a>
+                        <Link to='/user_dashboard/edit_book_chapter' className="edit">
+                          <FaEdit /> Edit
                         </Link>
                         <h2> BookChapter </h2>
                         <BookChapter user={user} />
@@ -286,8 +286,8 @@ function UserDashboard() {  ////////////////////get login user info (REPLACE THI
                 </Tab.Pane>                  <Tab.Pane eventKey="Research-Team">                    <Card>
                   <Card.Body>
                     <div className="sec-container">
-                      <Link to='/user_dashboard/edit_researchTeam'>
-                        <a className="edit" href=""><FaEdit /> Edit</a>
+                      <Link to='/user_dashboard/edit_researchTeam' className="edit">
+                        <FaEdit /> Edit
                       </Link>
                       <h2> Research Team</h2>
                       <ResearchTeam user={user} />
@@ -328,8 +328,8 @@ function UserDashboard() {  ////////////////////get login user info (REPLACE THI
                   <Card>
                     <Card.Body>
                       <div className="sec-container">
-                        <Link to='/user_dashboard/evaluation_form'>
-                          <a className="edit" href=""><FaEdit /> Edit</a>
+                        <Link to='/user_dashboard/evaluation_form' className="edit">
+                          <FaEdit /> Edit
                         </Link>
                         <h2> Evaluation Form</h2>
                         <EvaluationForm />
