@@ -64,15 +64,6 @@ function Sponsor_booth() {
         })
     }
   }
-  // function displayPdf(imageBuffer) {
-  //   var w = window.open('about:blank');
-  //   setTimeout(function () {
-  //     w.document.body.appendChild(w.document.createElement('iframe'))
-  //       .src = imageBuffer;
-  //     w.document.getElementsByTagName("iframe")[0].style.width = '100%';
-  //     w.document.getElementsByTagName("iframe")[0].style.height = '100%';
-  //   }, 0);
-  // }
   function displayTitle() {
     if (data.company_name !== undefined) {
       var section = [];
@@ -97,7 +88,7 @@ function Sponsor_booth() {
         }
       }
       else {
-        for (var i = 0; i < data.company_logo.length; i++) {
+        for (var j = 0; j < data.company_logo.length; j++) {
           const imageBuffer = Buffer.from(data.company_logo[0].source.data);
           section.push(
             <div style={{ marginTop: "5%" }}>
@@ -116,23 +107,8 @@ function Sponsor_booth() {
       var media = [];
       const slides = Array.from(Array(data.poster.length).keys());
       for (var i = 0; i < data.poster.length; i++) {
-        const imageFormat = data.poster[i].name.substring(data.poster[i].name.lastIndexOf('.') + 1);
         const imageBuffer = Buffer.from(data.poster[i].source.data);
         media.push(imageBuffer);
-        // if (imageFormat === "pdf") {
-        //   const imageBuffer = Buffer.from(data.poster[i].source.data);
-        //   // section.push(
-        //   //   <EmblaCarousel slides={slides} />
-        //   //   // <embed className="display-poster" src={`${imageBuffer}#toolbar=0&navpanes=0&scrollbar=0`} width="100%" height="auto" />
-        //   // );
-        // }
-        // else {
-        //   const imageBuffer = Buffer.from(data.poster[i].source.data);
-        //   // section.push(
-        //   //   <EmblaCarousel slides={slides} />
-        //   //   // <img src={imageBuffer} alt={data.poster[i].name} />
-        //   // );
-        // }
       }
       section.push(
         <EmblaCarousel slides={slides} media={media} />

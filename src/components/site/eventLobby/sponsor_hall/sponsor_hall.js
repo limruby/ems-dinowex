@@ -28,15 +28,15 @@ function Sponsor_hall() {
         }
       })
   }
-  function visitBooth () {
-    console.log("Visit booth function works")
-      data.map((sponsor, index) => {
-        console.log(sponsor.account_id)
-        if (sponsor.category === "Gold Package" && sponsor.company_logo && sponsor.company_logo[0]) {
-          window.location.href = `/sponsor_booth/${sponsor.account_id}`;
-        }
-      })
-  }
+  // function visitBooth () {
+  //   console.log("Visit booth function works")
+  //     data.map((sponsor, index) => {
+  //       console.log(sponsor.account_id)
+  //       if (sponsor.category === "Gold Package" && sponsor.company_logo && sponsor.company_logo[0]) {
+  //         window.location.href = `/sponsor_booth/${sponsor.account_id}`;
+  //       }
+  //     })
+  // }
 
   // function displayGoldSponsor() {
   //   var section = [];
@@ -152,9 +152,9 @@ function Sponsor_hall() {
             MAIN SPONSOR
             <br></br>
             <button onClick={() => { linkToSponsorBooth() }} className="btn btn-rakyat">View Booth</button>
-            <button onClick={() => { visitBooth() }} className="btn btn-rakyat">View Booth</button>
+            {/* <button onClick={() => { visitBooth() }} className="btn btn-rakyat">View Booth</button>
             <a onClick = {()=>{linkToSponsorBooth()}} className="btn btn-rakyat">View Booth</a>
-            <a onClick = {()=>{visitBooth()}} className="btn btn-rakyat">View Booth</a>
+            <a onClick = {()=>{visitBooth()}} className="btn btn-rakyat">View Booth</a> */}
           
           </div>
         </div>
