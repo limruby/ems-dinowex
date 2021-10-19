@@ -73,7 +73,7 @@ function Competition_booth() {
       var section = [];
       for (var i = 0; i < data.abstract.length; i++) {
         section.push(
-          <div>{data.abstract[0].title}</div>
+          <h1>{data.abstract[0].title}</h1>
         );
       }
       return section;

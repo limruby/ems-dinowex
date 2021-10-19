@@ -14,7 +14,7 @@ function LandingPage() {
           <div className="intro-text">
             <div className="intro-lead-in">
             </div>
-            <div className="intro-heading ">
+            <div className="home-intro-heading">
               DInoWex2021
             </div>
             <div className="intro-subheading ">
