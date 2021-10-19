@@ -18,14 +18,8 @@ function Sponsor_hall() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const linkToSponsorBooth = () => {
-    console.log("Link to Sponsor booth const works")
-    data.map((sponsor, index) => {
-      console.log(sponsor.account_id)
-      if (sponsor.category === "VIP Package") {
-        window.location.href = `/sponsor_booth/${sponsor.account_id}`;
-      }
-    })
+  function linkToSponsorBooth() {
+    window.location.href = `/sponsor_booth/${data.account_id}`;
   }
   // function displayGoldSponsor() {
   //   var section = [];
