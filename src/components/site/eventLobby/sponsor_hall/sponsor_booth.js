@@ -6,6 +6,7 @@ import EmblaCarousel from './EmblaCarousel';
 
 function Sponsor_booth() {
   const [data, setData] = useState([]);
+  const [account, setAccount] = useState([]);
   const [forum, setForum] = useState([])
   const [comment, setComment] = useState("");
   const location = useLocation();
@@ -14,6 +15,12 @@ function Sponsor_booth() {
   const string = '"' + user_id + '"';
   
   useEffect(() => {
+    axiosInstance.get("/api/accounts/read", { params: { account_id: string } })
+      .then(function (response) {
+        setAccount(response.data.data);
+      }).catch(function (error) {
+        console.log(error);
+      })
     axiosInstance.get("/api/sponsors/read", { params: { account_id: string } })
       .then(function (response) {
         setData(response.data.data);
@@ -22,7 +29,6 @@ function Sponsor_booth() {
       })
     axiosInstance.get("/api/forum/read", { params: { booth_id: string } })
       .then(function (response) {
-        console.log(response.data.data)
         setForum(response.data.data);
       }).catch(function (error) {
         console.log(error);
@@ -295,6 +301,7 @@ function Sponsor_booth() {
             </div>
             <div className="contact-us">
               <p><b>Tel: </b>{data.company_contact}</p>
+              <p><b>Email: </b>{account.email}</p>
             </div>
           </div>
         </div>

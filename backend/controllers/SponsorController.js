@@ -51,8 +51,6 @@ const create = (req, res, next)=>{
   .catch(err => res.status(400).json('Error: ' + err));
 };
 
-
-
 const read = (req, res, next)=>{
   var account_id = JSON.parse(req.query.account_id);
   Sponsor.findOne({account_id: ObjectId(account_id)}, (err, sponsors) => {
@@ -63,6 +61,20 @@ const read = (req, res, next)=>{
       return res
       .status(404)
       .json({ success: false, error: req.query.account_id })
+    }
+    return res.status(200).json({ success: true, data: sponsors })
+  }).catch(err => console.log(err))
+};
+
+const readVIP = (req, res, next)=>{
+  Sponsor.findOne({category: "VIP Package"}, (err, sponsors) => {
+    if (err) {
+      return res.status(400).json({ success: false, error: err })
+    }
+    if (!sponsors) {
+      return res
+      .status(404)
+      .json({ success: false })
     }
     return res.status(200).json({ success: true, data: sponsors })
   }).catch(err => console.log(err))
@@ -216,5 +228,5 @@ const pay = (req, res, next) => {
     }
   }
 
-  module.exports = {create, read, readAll, update, updatePayment, pay}
+  module.exports = {create, read, readVIP, readAll, update, updatePayment, pay}
 

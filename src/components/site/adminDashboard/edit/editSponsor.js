@@ -78,6 +78,7 @@ return(
                     <select className="form-control" id="category" required
                     onChange={inputChange('category')} value={data.category} >
                         <option value="">Please select</option>
+                        <option value="VIP Package">VIP Package (Bypass Billplz)</option>
                         <option value="Gold Package">Gold Package</option>
                         <option value="Silver Package">Silver Package</option>
                         <option value="Bronze Package">Bronze Package</option>

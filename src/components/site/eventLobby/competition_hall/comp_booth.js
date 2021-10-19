@@ -8,18 +8,26 @@ import { BsPeopleCircle } from "react-icons/bs";
 
 function Competition_booth() {
   const [data, setData] = useState([]);
+  const [account, setAccount] = useState([]);
   const [forum, setForum] = useState([])
   const [comment, setComment] = useState("");
   const location = useLocation();
   const thePath = location.pathname;
   const user_id = thePath.substring(thePath.lastIndexOf('/') + 1);
   const string = '"' + user_id + '"'
-  
+
   document.addEventListener('contextmenu', event => event.preventDefault());
   useEffect(() => {
     axiosInstance.get("/api/competitors/read", { params: { account_id: string } })
       .then(function (response) {
         setData(response.data.data);
+      }).catch(function (error) {
+        console.log(error);
+      })
+    axiosInstance.get("/api/accounts/read", { params: { account_id: string } })
+      .then(function (response) {
+        setAccount(response.data.data);
+        console.log()
       }).catch(function (error) {
         console.log(error);
       })
@@ -73,7 +81,7 @@ function Competition_booth() {
       var section = [];
       for (var i = 0; i < data.abstract.length; i++) {
         section.push(
-          <div>{data.abstract[0].title}</div>
+          <h1>{data.abstract[0].title}</h1>
         );
       }
       return section;
@@ -123,14 +131,14 @@ function Competition_booth() {
         const url = data.video[0].source.substring(data.video[0].source.lastIndexOf('/') + 9);
         for (var i = 0; i < data.video.length; i++) {
           section.push(
-            <iframe 
-            className="video_iframe" 
-            height="400" 
-            src={`https://www.youtube.com/embed/${url}`} 
-            title={data.video[0].name} 
-            allowfullscreen="true" 
-            webkitallowfullscreen="true" 
-            mozallowfullscreen="true"></iframe>
+            <iframe
+              className="video_iframe"
+              height="400"
+              src={`https://www.youtube.com/embed/${url}`}
+              title={data.video[0].name}
+              allowfullscreen="true"
+              webkitallowfullscreen="true"
+              mozallowfullscreen="true"></iframe>
           );
         }
       }
@@ -158,8 +166,8 @@ function Competition_booth() {
       for (var i = 0; i < data.achievements.length; i++) {
         const imageBuffer = Buffer.from(data.achievements[i].source.data);
         section.push(
-          <div className="awards-name">            
-            <a style={{cursor:'pointer'}} onClick={() => {displayPdf(imageBuffer) }}>{data.achievements[i].name}</a>
+          <div className="awards-name">
+            <a style={{ cursor: 'pointer' }} onClick={() => { displayPdf(imageBuffer) }}>{data.achievements[i].name}</a>
           </div>
         );
       }
@@ -179,7 +187,7 @@ function Competition_booth() {
         const imageBuffer = Buffer.from(data.grants[i].source.data);
         section.push(
           <div className="awards-name">
-            <a style={{cursor:'pointer'}} onClick={() => {displayPdf(imageBuffer) }}>{data.grants[i].name}</a>
+            <a style={{ cursor: 'pointer' }} onClick={() => { displayPdf(imageBuffer) }}>{data.grants[i].name}</a>
           </div>
         );
       }
@@ -193,13 +201,13 @@ function Competition_booth() {
     return section;
   }
 
-  function displayPdf(imageBuffer){
-     var w = window.open('about:blank');
-    setTimeout(function(){
-        w.document.body.appendChild(w.document.createElement('iframe'))
-            .src = imageBuffer;
-            w.document.getElementsByTagName("iframe")[0].style.width = '100%';
-        w.document.getElementsByTagName("iframe")[0].style.height = '100%';
+  function displayPdf(imageBuffer) {
+    var w = window.open('about:blank');
+    setTimeout(function () {
+      w.document.body.appendChild(w.document.createElement('iframe'))
+        .src = imageBuffer;
+      w.document.getElementsByTagName("iframe")[0].style.width = '100%';
+      w.document.getElementsByTagName("iframe")[0].style.height = '100%';
     }, 0);
   }
 
@@ -313,7 +321,7 @@ function Competition_booth() {
           </div>
         </div>
       </div>
-      <div className="row" style={{ padding: "0px 10px", height:"100%" }}>
+      <div className="row" style={{ padding: "0px 10px", height: "100%" }}>
         <div className="col-xl-6" style={{ padding: "0%", backgroundColor: "#7e7ebc" }}>
           <div className="display-content">
             <div className="title">
@@ -340,7 +348,7 @@ function Competition_booth() {
             <div className="members-name">
               <p><b>{data.name}</b></p>
               <p>{data.affiliation}</p>
-              <p>{localStorage.getItem("email")}</p>
+              <p>{account.email}</p>
             </div>
             {displayMembers()}
 
