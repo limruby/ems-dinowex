@@ -9,8 +9,7 @@ function Sponsor_hall() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    // If there is multiple sponsors
-    axiosInstance.get("/api/sponsors/readAll")
+    axiosInstance.get("/api/sponsors/readVIP")
       .then(function (response) {
         setData(response.data.data);
       }).catch(function (error) {
@@ -21,23 +20,13 @@ function Sponsor_hall() {
 
   const linkToSponsorBooth = () => {
     console.log("Link to Sponsor booth const works")
-      data.map((sponsor, index) => {
-        console.log(sponsor.account_id)
-        if (sponsor.category === "Gold Package" && sponsor.company_logo && sponsor.company_logo[0]) {
-          window.location.href = `/sponsor_booth/${sponsor.account_id}`;
-        }
-      })
+    data.map((sponsor, index) => {
+      console.log(sponsor.account_id)
+      if (sponsor.category === "VIP Package") {
+        window.location.href = `/sponsor_booth/${sponsor.account_id}`;
+      }
+    })
   }
-  // function visitBooth () {
-  //   console.log("Visit booth function works")
-  //     data.map((sponsor, index) => {
-  //       console.log(sponsor.account_id)
-  //       if (sponsor.category === "Gold Package" && sponsor.company_logo && sponsor.company_logo[0]) {
-  //         window.location.href = `/sponsor_booth/${sponsor.account_id}`;
-  //       }
-  //     })
-  // }
-
   // function displayGoldSponsor() {
   //   var section = [];
   //   data.map((sponsor, index) => {
@@ -152,10 +141,6 @@ function Sponsor_hall() {
             MAIN SPONSOR
             <br></br>
             <button onClick={() => { linkToSponsorBooth() }} className="btn btn-rakyat">View Booth</button>
-            {/* <button onClick={() => { visitBooth() }} className="btn btn-rakyat">View Booth</button>
-            <a onClick = {()=>{linkToSponsorBooth()}} className="btn btn-rakyat">View Booth</a>
-            <a onClick = {()=>{visitBooth()}} className="btn btn-rakyat">View Booth</a> */}
-          
           </div>
         </div>
       </div>
@@ -185,10 +170,8 @@ function Sponsor_hall() {
             <p>VISION</p>
             <h4>Enhancing Economic Well-Being Of Our Members, Customers And Nation.</h4>
           </div>
-
         </div>
       </div>
-
     </header>
   );
 }

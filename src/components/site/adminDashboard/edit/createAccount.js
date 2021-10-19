@@ -165,6 +165,7 @@ function CreateAccount() {
                     <select className="form-control" id="category" required
                         onChange={inputChange('category')} value={data.category} >
                         <option value="">Please select</option>
+                        <option value="VIP Package">VIP Package (Bypass Billplz) </option>
                         <option value="Gold Package">Gold Package</option>
                         <option value="Silver Package">Silver Package</option>
                         <option value="Bronze Package">Bronze Package</option>
@@ -203,6 +204,11 @@ function CreateAccount() {
                     else if (data.role === "Sponsor") {
                         sponsorData["category"] = data.category;
                         sponsorData["account_id"] = response.data._id
+
+                        if(sponsorData["category"]==="VIP Package"){
+                            sponsorData["bill_status"] = 'true'
+                        }
+
                         axiosInstance.post("/api/sponsors/create", sponsorData)
                             .then(function (response) {
                                 window.location.href = '/admin_dashboard';
