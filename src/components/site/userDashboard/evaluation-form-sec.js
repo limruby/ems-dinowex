@@ -40,7 +40,7 @@ function Evaluation_Form() {
       )
     }
     else if(link.length >= 1) {
-      if(link[0].evaluation_form =="" && link[0].poster_form ==""){        
+      if(link[0].evaluation_form ==="" && link[0].poster_form ===""){        
           section.push(
           <p>Evaluation Form Coming Soon</p>
           )                  

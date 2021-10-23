@@ -1,6 +1,6 @@
+/* eslint-disable no-unused-vars */
 import React, { Component } from 'react'
 import axiosInstance from '../../../../utils/axiosConfig.js';
-
 export class Confirm extends Component {
     continue = async (e) => {
         e.preventDefault();
@@ -22,7 +22,6 @@ export class Confirm extends Component {
                 category
                 }
         } = this.props;
-
         var data = {
             role:"Sponsor",
             email: email,
@@ -40,7 +39,6 @@ export class Confirm extends Component {
             company_website: company_website,
             category: category
         };
-        var account_id="";
         var url=""
         if (data.category === "Bronze Package"){
              url = `${process.env.REACT_APP_BILLPLZ_BRONZE}`
@@ -76,12 +74,8 @@ export class Confirm extends Component {
         e.preventDefault();
         this.props.prevStep();
     };
-
     render() {
         const { values, inputChange } = this.props;        
-
-
-
         var full_address = 
             values.address_1 + "," +
             values.address_2 + "," +
@@ -89,8 +83,6 @@ export class Confirm extends Component {
             values.city + "," +
             values.state+ "," +
             values.country
-
-
         return (
             <section className="section-container">
             <div className="form-container">
@@ -105,7 +97,6 @@ export class Confirm extends Component {
                     <li className="list-group-item">Company Website: {values.company_website}</li>
                     <li className="list-group-item">Selected Category: {values.category}</li>
                 </ul>
-
                 <br /><br />
                 <div className="row">
                     <div className="col-6">
@@ -115,11 +106,9 @@ export class Confirm extends Component {
                         <button className="btn btn-primary" onClick={this.continue}>Confirm</button>
                     </div>
                 </div>
-
             </div>
             </section>
         )
     }
 }
-
 export default Confirm

@@ -1,15 +1,13 @@
+/* eslint-disable array-callback-return */
 import React from 'react';
 import parse from 'html-react-parser';
 import '../../userDashboard/preview-sec.css';
 import '../../../../assets/css/agency.min.css'
-import { useLocation, Link } from 'react-router-dom'
-
+import { useLocation } from 'react-router-dom'
 import PdfDownloader from '../../../PdfDownloader';
-
 function FullReport() {
     let fromReport = useLocation();
     let data = fromReport.state.data;
-
     function displayTitle() {
         if (data.abstract !== undefined) {
             var section = [];
@@ -25,8 +23,6 @@ function FullReport() {
             return section;
         }
     }
-
-
     function displayAuthor() {
         var section = [];
         var string = data.name;
@@ -44,8 +40,6 @@ function FullReport() {
         );
         return section;
     }
-
-
     function displayAffiliation() {
         var section = [];
         var string = data.affiliation;
@@ -63,12 +57,9 @@ function FullReport() {
         );
         return section;
     }
-
-
     function displayAbstractContent() {
         if (data.abstract !== undefined) {
             var section = [];
-
             for (var i = 0; i < data.abstract.length; i++) {
                 section.push(
                     <div id="body_content">
@@ -82,8 +73,6 @@ function FullReport() {
             return section;
         }
     }
-
-
     function displayKeywords() {
         var section = [];
         var string = '';
@@ -104,8 +93,6 @@ function FullReport() {
         );
         return section;
     }
-
-
     function displayIntroduction() {
         var section = [];
         if (data.bookChapter != null) {
@@ -121,8 +108,6 @@ function FullReport() {
         }
         return section;
     }
-
-
     function displayContent() {
         var section = [];
         if (data.bookChapter != null) {
@@ -138,8 +123,6 @@ function FullReport() {
         }
         return section;
     }
-
-
     function displayConclusion() {
         var section = [];
         if (data.bookChapter != null) {
@@ -155,12 +138,9 @@ function FullReport() {
         }
         return section;
     }
-
-
     function displayReference() {
         var section = [];
         if (data.bookChapter != null) {
-
             if (data.bookChapter[0] != null) {
                 if (data.bookChapter[0]['references'] !== undefined) {
                     section.push(
@@ -180,10 +160,8 @@ function FullReport() {
         }
         return section;
     }
-
-
     return (
-        <div className ="edit-form-container" style={{marginTop:"2%", marginBottom:"2%"}}>
+        <div className="edit-form-container" style={{ marginTop: "2%", marginBottom: "2%" }}>
             <div className="page" id="downloadPdf">
                 <div className="preview-section">
                     {displayTitle()}
@@ -201,5 +179,4 @@ function FullReport() {
         </div>
     );
 }
-
 export default FullReport;

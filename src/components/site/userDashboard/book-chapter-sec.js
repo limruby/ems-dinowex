@@ -1,11 +1,9 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import parse from 'html-react-parser';
-
 const Content = ({user}) =>  {
-
   function displayIntroduction(){
     var section = [];
-
     if(user.bookChapter!=null){
       for (var i=0; i<user.bookChapter.length; i++){
         section.push(
@@ -20,8 +18,6 @@ const Content = ({user}) =>  {
   }
   function displayContent(){
     var section = [];
-
-
     if(user.bookChapter!=null){
       for (var i=0; i<user.bookChapter.length; i++){
         section.push(
@@ -34,11 +30,8 @@ const Content = ({user}) =>  {
     return section;
     
   }
-
-
   function displayConclusion(){
     var section = [];
-
     if(user.bookChapter!=null){
       for (var i=0; i<user.bookChapter.length; i++){
         section.push(
@@ -51,14 +44,11 @@ const Content = ({user}) =>  {
     return section;
     
   }
-
-
   function displayReference(){
     var section = [];
     if(user.bookChapter!=null){
-
       if(user.bookChapter[0]!=null){
-        if(user.bookChapter[0]['references']!=undefined){
+        if(user.bookChapter[0]['references']!==undefined){
           section.push(
             <div>
               <ul> 
@@ -76,13 +66,9 @@ const Content = ({user}) =>  {
       }
       return section;
     }
-
     return (       
       <div>
       </div>
     );
-
   }
-
-
   export default Content;

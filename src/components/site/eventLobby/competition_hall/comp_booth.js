@@ -114,7 +114,7 @@ function Competition_booth() {
         }
       }
       else {
-        for (var i = 0; i < data.poster.length; i++) {
+        for (var j = 0; j < data.poster.length; j++) {
           const imageBuffer = Buffer.from(data.poster[0].source.data);
           section.push(
             <img src={imageBuffer} alt={data.poster[0].name} />

@@ -1,11 +1,9 @@
+/* eslint-disable array-callback-return */
 import React from 'react';
 import parse from 'html-react-parser';
 import './preview-sec.css';
-
 import PdfDownloader from '../../PdfDownloader'; 
-
 const PdfPreview = ({user, account}) =>  {
-
     function displayTitle(){
         if(user.abstract!==undefined){
             var section = [];
@@ -21,8 +19,6 @@ const PdfPreview = ({user, account}) =>  {
             return section;
         }
     }
-
-
     function displayAuthor(){
         var section = [];
         var string = user.name;
@@ -40,8 +36,6 @@ const PdfPreview = ({user, account}) =>  {
         );
         return section;
     }
-
-
     function displayAffiliation(){
         var section = [];
         var string = user.affiliation;
@@ -59,12 +53,9 @@ const PdfPreview = ({user, account}) =>  {
         );
         return section;
     }
-
-
     function displayAbstractContent(){
         if(user.abstract!==undefined){
             var section = [];
-
             for (var i=0; i<user.abstract.length; i++){
                 section.push(
                     <div id="body_content">
@@ -78,8 +69,6 @@ const PdfPreview = ({user, account}) =>  {
             return section;
         }
     }
-
-
     function displayKeywords(){
         var section = [];
         var string ='';
@@ -100,8 +89,6 @@ const PdfPreview = ({user, account}) =>  {
         );
         return section;
     }
-
-
     function displayIntroduction(){
         var section = [];
         if(user.bookChapter!=null){
@@ -117,8 +104,6 @@ const PdfPreview = ({user, account}) =>  {
         }
         return section;
     }
-
-
     function displayContent(){
         var section = [];
         if(user.bookChapter!=null){
@@ -134,7 +119,6 @@ const PdfPreview = ({user, account}) =>  {
         }
         return section;
     }
-
     
     function displayConclusion(){
         var section = [];
@@ -151,12 +135,9 @@ const PdfPreview = ({user, account}) =>  {
         }
         return section; 
     }
-
-
     function displayReference(){
         var section = [];
         if(user.bookChapter!=null){
-
             if(user.bookChapter[0]!=null){
                 if(user.bookChapter[0]['references']!==undefined){
                     section.push(
@@ -176,8 +157,6 @@ const PdfPreview = ({user, account}) =>  {
         }
         return section;
     }
-
-
     return (       
         <div>
           <div className="page" id="downloadPdf">
@@ -198,5 +177,4 @@ const PdfPreview = ({user, account}) =>  {
   );
  
 }
-
 export default PdfPreview;

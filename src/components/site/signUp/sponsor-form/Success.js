@@ -1,13 +1,11 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
-
 export class Success extends Component {
     render() {
         return (
             <div>
 			<h3><strong>Account Created Successfully!</strong></h3>
                 <br></br>
-
                 <h3><strong>Account Created Successfully!</strong></h3>
 				<br></br>
 				<Link to="/sign_in">
@@ -17,5 +15,4 @@ export class Success extends Component {
         )
     }
 }
-
 export default Success

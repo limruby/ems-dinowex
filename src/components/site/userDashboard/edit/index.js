@@ -13,14 +13,12 @@ import EditPromoContent from './editPromoContent.js';
 import EditCompetitionMaterial from './editCompetitionMaterial.js';
 import EditAbstract from './editAbstract.js';
 import EditBookChapter from './editBookChapter.js';
-
 function FormNavigator() {
 	////////////////////get login user role /////////////////////
 	const [user, setUser] = useState([]);
 	const [account, setAccount] = useState([]);
 	const account_id = localStorage.getItem('user_id');
 	const role = localStorage.getItem('role');
-
 	useEffect(() => {
 		axiosInstance.get("/api/accounts/read", { params: { account_id: account_id } })
 		.then(function (response) {
@@ -66,7 +64,6 @@ function FormNavigator() {
 	const location = useLocation();
 	const thePath = location.pathname;
 	const lastPath = thePath.substring(thePath.lastIndexOf('/') + 1);
-
 	if (lastPath === 'edit_account') {
 		return (
 			<section className="section-container">
@@ -92,7 +89,6 @@ function FormNavigator() {
 			case 'edit_content':
 				return (
 					<section className="section-container">
-
 						<EditPromoContent data={user} setData={setUser} />
 					</section>
 				)
@@ -132,7 +128,6 @@ function FormNavigator() {
 			case 'edit_researchTeam':
 				return (
 					<section className="section-container">
-
 						<EditResearchTeam data={user} setData={setUser} />
 					</section>
 				)

@@ -1,20 +1,15 @@
 import React, { Component } from 'react'
-
 export class Profiles extends Component {
     continue = e => {
         e.preventDefault();
         this.props.nextStep();
     };
-
     back = e => {
         e.preventDefault();
         this.props.prevStep();
     };
-
     render() {
         const { values, inputChange } = this.props
-
-
         const handleForm=(e)=>{
         e.preventDefault();
         // perform all neccassary validations
@@ -37,7 +32,6 @@ export class Profiles extends Component {
                 this.continue(e);
             }
         }
-
         return (
             <div className="form-container" style={{marginTop:"5%", marginBottom:"5%"}}>
                 <form onSubmit={handleForm}>
@@ -69,7 +63,6 @@ export class Profiles extends Component {
                     onChange={inputChange('company_contact')} value={values.company_contact} 
                     />
                 </div>
-
                 <div className="form-group">
                         <label htmlFor="address_1"><span>*</span>Address Line 1</label>
                         <input className="form-control" type="text" id="address"
@@ -117,7 +110,6 @@ export class Profiles extends Component {
                             <option value="Terengganu">Terengganu</option>
                         </select>
                     </div>
-
                      <div className="form-group">
                         <label htmlFor="country"><span>*</span>Country</label>
                         <select className="form-control" id="country" required onChange={inputChange('country')} value={values.country}>
@@ -369,7 +361,6 @@ export class Profiles extends Component {
                            <option value="Zambia">Zambia</option>
                            <option value="Zimbabwe">Zimbabwe</option>
                         </select>
-
                 </div>
                 
                 <div className="form-group">
@@ -379,9 +370,7 @@ export class Profiles extends Component {
                     onChange={inputChange('company_website')} value={values.company_website} 
                     />
                 </div>
-
                 <br />
-
                 <div className="row">
                     <div className="col-6">
                         <button className="btn btn-danger" onClick={this.back}>Back</button>
@@ -395,5 +384,4 @@ export class Profiles extends Component {
         )
     }
 }
-
 export default Profiles

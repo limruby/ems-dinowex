@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import { useTable, useFilters, useSortBy, useGlobalFilter, usePagination, } from "react-table";
 

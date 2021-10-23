@@ -1,7 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import axiosInstance from '../../../../utils/axiosConfig.js';
-
 function EditAccount({data, setData}) {
     localStorage.setItem("activeKeys", "Account-Profiles");
     const inputChange = input => e => {
@@ -10,7 +9,6 @@ function EditAccount({data, setData}) {
             [input]: e.target.value
         });
     };
-
     const handleForm=(e)=>{
         e.preventDefault();
     // perform all neccassary validations
@@ -28,9 +26,7 @@ function EditAccount({data, setData}) {
             
         }
     }
-
 /////////////////////////////////////////////////////////////
-
     return(
         <>
             <form onSubmit={handleForm}>
@@ -45,7 +41,6 @@ function EditAccount({data, setData}) {
                 </div>
                  
                 <br />
-
                
                 <div className="btn-group">
                     <Link to="/user_dashboard">
@@ -56,9 +51,6 @@ function EditAccount({data, setData}) {
             </div>
             </form>
          </>
-
         )
-
 }
-
 export default EditAccount;

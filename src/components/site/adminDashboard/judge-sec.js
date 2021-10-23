@@ -6,6 +6,7 @@ import axiosInstance from '../../../utils/axiosConfig';
 
 function Judge() {
   const [data, setData] = useState([]);
+  // eslint-disable-next-line no-unused-vars
   const [link, setLink] = useState([])
   const headers = [
     { label: 'Title', key: 'title' },

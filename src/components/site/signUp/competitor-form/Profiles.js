@@ -1,42 +1,36 @@
 import React, { Component } from 'react'
-
 export class Profiles extends Component {
     continue = e => {
         e.preventDefault();
         this.props.nextStep();
     };
-
     back = e => {
         e.preventDefault();
         this.props.prevStep();
     };
-
     render() {
         const { values, inputChange } = this.props
-
-
         const handleForm=(e)=>{
             e.preventDefault();
         // perform all neccassary validations
-        if (values.name == "" ||
-            values.affiliation == "" ||
-            values.ic_passport_selection == "" ||
-            values.ic_passport_number == null ||
-            values.phone_no == null ||
-            values.gender == "" ||
-            values.address_1 == "" ||
-            values.address_2 == "" ||
-            values.postcode == null ||
-            values.city == "" ||
-            values.state == "" ||
-            values.country == ""){
+        if (values.name === "" ||
+            values.affiliation === "" ||
+            values.ic_passport_selection === "" ||
+            values.ic_passport_number === null ||
+            values.phone_no === null ||
+            values.gender === "" ||
+            values.address_1 === "" ||
+            values.address_2 === "" ||
+            values.postcode === null ||
+            values.city === "" ||
+            values.state === "" ||
+            values.country === ""){
             alert("Form not fill");
         }
         else{
             this.continue(e);
         }
     }
-
     function displayInput(){
         var section=[];
         if(values.ic_passport_selection==="NRIC"){
@@ -66,7 +60,6 @@ export class Profiles extends Component {
         }
         return section;
     }
-
         return (
             <div className="form-container" style={{marginTop:"2%", marginBottom:"2%"}}>
                 <form onSubmit={handleForm}>
@@ -78,7 +71,6 @@ export class Profiles extends Component {
                     placeholder='Full Name (as per IC / Passport)' required                    
                     onChange={inputChange('name')} value={values.name} />
                 </div>
-
                 <div className="form-group">
                     <label htmlFor="gender_id"><span>*</span>Gender</label>
                     <select className="form-control" id="gender_id" required
@@ -88,7 +80,6 @@ export class Profiles extends Component {
                         <option value="FEMALE">Female</option>
                     </select>
                 </div>
-
                 <div className="form-group">
                     <label htmlFor="affiliation"><span>*</span>Affiliation</label>
                     <input className="form-control" type='text'name='affiliation' id="affiliation"
@@ -416,10 +407,7 @@ export class Profiles extends Component {
                         </select>
                     </div>
                 
-
                 <br />
-
-
             <div className="row">
                 <div className="col-6">
                     <button className="btn btn-danger" onClick={this.back}>Back</button>
@@ -433,5 +421,4 @@ export class Profiles extends Component {
     )
     }
 }
-
 export default Profiles

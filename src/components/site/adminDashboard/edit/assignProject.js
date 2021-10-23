@@ -1,3 +1,4 @@
+/* eslint-disable no-loop-func */
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import axiosInstance from '../../../../utils/axiosConfig.js';
@@ -56,6 +57,7 @@ function AssignProject() {
     function displayCompetitors() {
         var section = [];
         var listCompetitors = [];
+        // eslint-disable-next-line array-callback-return
         competitor.map((competitor) =>{
 
         if(competitor.abstract[0]){
@@ -93,7 +95,7 @@ function AssignProject() {
         // perform all neccassary validations
         var tempComp;
         for (var j = 0; j < competitor.length; j++) {
-            if (competitor[j]._id == comp.competitor_id) {
+            if (competitor[j]._id === comp.competitor_id) {
                 tempComp = competitor[j]
             }else{
                 console.log("Please fix me!");
