@@ -64,7 +64,7 @@ const update = (req, res, next)=>{
   if(req.body.poster_form){
     updateLink['poster_form'] = req.body.poster_form;
   }
-  if(req.body.lobby){
+  if(req.body.lobby != null){ 
     updateLink['lobby'] = req.body.lobby;
   }
   
