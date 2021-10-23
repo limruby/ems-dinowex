@@ -13,7 +13,7 @@ function Links() {
         var result = response.data.data
         delete result.lobby;
         setData(result);
-        setChecked(response.data.data.lobby);
+        setChecked(response.data.data[0].lobby);
       }).catch(function (error) {
         console.log(error);
       })
@@ -27,11 +27,12 @@ function Links() {
     e.preventDefault();
     // perform all neccassary validations
     var postData = {
+      _id: data[0]._id,
       lobby : checked
     }
     axiosInstance.post("/api/formLink/update", postData)
       .then(function (response) {
-        // window.location.href = '/admin_dashboard';
+        window.location.href = '/admin_dashboard';
       }).catch(function (error) {
         console.log(error)
       })
