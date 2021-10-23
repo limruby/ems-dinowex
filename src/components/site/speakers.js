@@ -21,6 +21,7 @@ function Speakers_page() {
   }, []);
   function displaySpeaker() {
     var section = [];
+    // eslint-disable-next-line array-callback-return
     data.map((speakers, index) => {
       if (speakers) {
         section.push(
@@ -29,8 +30,8 @@ function Speakers_page() {
             <div className="speakers-name">{speakers.title} {speakers.name}</div>
             <div className="speakers-organization">{speakers.affiliation}</div>
             <hr style={{ backgroundColor: '#ffff', height: 1, borderColor: '#ffff', width: "20%", }} />
-            <div className="speakers-speech-title">Enhancing Quality of Life through Technology</div>
-            <div className="speakers-speech-time">2:15PM</div>
+            <div className="speakers-speech-title">{speakers.speech_title}</div>
+            <div className="speakers-speech-time">{speakers.speech_time}</div>
             <p></p>
           </div>
         )

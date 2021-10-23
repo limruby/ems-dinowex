@@ -7,19 +7,20 @@ import { FaTrashAlt } from 'react-icons/fa';
 function EditSpeaker() {
     localStorage.setItem("activeKeys", "Speaker");
     const [data, setData] = useState({
-        title:'',
+        title: '',
         name: '',
         affiliation: '',
-        email:'',
+        email: '',
         phone_no: '',
-        country : '',
-        address_1 : '',
-        address_2 : '',
-        postcode : '',
-        city : '',
+        country: '',
+        address_1: '',
+        address_2: '',
+        postcode: '',
+        city: '',
         state: '',
         speech_title: '',
-        speech_time:''
+        speech_time: '',
+        category: ''
     });
     const location = useLocation();
     const thePath = location.pathname;
@@ -34,7 +35,7 @@ function EditSpeaker() {
                 console.log(error);
             })
     }, [string])
-    
+
     const inputChange = input => e => {
         setData({
             ...data,
@@ -111,9 +112,10 @@ function EditSpeaker() {
             data.postcode === "" ||
             data.city === "" ||
             data.state === "" ||
-            data.phone_no === ""||
-            data.speech_title === ""||
-            data.speech_time === "") {
+            data.phone_no === "" ||
+            data.speech_title === "" ||
+            data.speech_time === "" ||
+            data.category === "") {
             alert("Form not fill");
         }
         else {
@@ -133,7 +135,8 @@ function EditSpeaker() {
                 phone_no: data.phone_no,
                 photo: data.photo,
                 speech_title: data.speech_title,
-                speech_time: data.speech_time
+                speech_time: data.speech_time,
+                category: data.category,
             }
             axiosInstance.post("/api/speaker/update", postData)
                 .then(function (response) {
@@ -194,7 +197,15 @@ function EditSpeaker() {
                             onChange={inputChange('affiliation')} value={data.affiliation}
                         />
                     </div>
-
+                    <div className="form-group">
+                        <label htmlFor="category"><span>*</span>Category </label>
+                        <select className="form-control" id="category" required
+                            onChange={inputChange('category')} value={data.category} >
+                            <option value="">Please select</option>
+                            <option value="Keynote Speaker">Keynote Speaker</option>
+                            <option value="Invited Speaker">Invited Speaker</option>
+                        </select>
+                    </div>
                     <div className="form-group">
                         <label htmlFor="address_1"><span>*</span>Address Line 1</label>
                         <input className="form-control" type="text" id="address"

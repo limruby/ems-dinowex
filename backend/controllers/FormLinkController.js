@@ -6,11 +6,13 @@ const create = (req, res, next)=>{
   const evaluation_form = req.body.evaluation_form;
   const youtube_form = req.body.youtube_form;
   const poster_form = req.body.poster_form;
+  const lobby = req.body.lobby;
 
   const newLink = new Link({
     evaluation_form,
     youtube_form,
-    poster_form
+    poster_form,
+    lobby
   });
 
   newLink.save()
@@ -61,6 +63,9 @@ const update = (req, res, next)=>{
   }
   if(req.body.poster_form){
     updateLink['poster_form'] = req.body.poster_form;
+  }
+  if(req.body.lobby){
+    updateLink['lobby'] = req.body.lobby;
   }
   
   Link.findByIdAndUpdate(req.body._id, updateLink, (err, link) => {

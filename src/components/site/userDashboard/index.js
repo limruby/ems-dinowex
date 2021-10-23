@@ -328,9 +328,6 @@ function UserDashboard() {  ////////////////////get login user info (REPLACE THI
                   <Card>
                     <Card.Body>
                       <div className="sec-container">
-                        <Link to='/user_dashboard/evaluation_form' className="edit">
-                          <FaEdit /> Edit
-                        </Link>
                         <h2> Evaluation Form</h2>
                         <EvaluationForm />
                       </div>
