@@ -13,6 +13,7 @@ table td {
   border-bottom: 1px solid #ededed;
   border-right: 1px solid #ededed;
   position: relative;
+  word-break: break-all;
 }
 table th:last-child,
 table td:last-child {

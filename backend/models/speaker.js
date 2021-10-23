@@ -1,4 +1,3 @@
-const { Binary } = require('mongodb');
 const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
@@ -35,6 +34,10 @@ const speakerSchema = new Schema({
     type: String,
     required: false
   },
+  category: {
+    type: String,
+    required: true
+  }, 
   phone_no:{
     type:String,
     required:true

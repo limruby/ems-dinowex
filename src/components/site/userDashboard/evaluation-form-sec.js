@@ -40,7 +40,7 @@ function Evaluation_Form() {
       )
     }
     else if(link.length >= 1) {
-      if(link[0].evaluation_form =="" && link[0].poster_form ==""){        
+      if(link[0].evaluation_form ==="" && link[0].poster_form ===""){        
           section.push(
           <p>Evaluation Form Coming Soon</p>
           )                  
@@ -49,14 +49,14 @@ function Evaluation_Form() {
         if(link[0].evaluation_form){
           if(link[0].evaluation_form!==""){          
             section.push(
-              <li style={{listStyle:"none"}}><a href={link[0].evaluation_form}> Evaluation Form</a></li>     
+              <li style={{listStyle:"none"}}><a href={link[0].evaluation_form} target="_blank" rel="noreferrer"> Evaluation Form</a></li>     
             )
           }
         }
         if(link[0].poster_form){
           if(link[0].poster_form!==""){         
             section.push(
-              <li style={{listStyle:"none"}}><a href={link[0].poster_form}> Ideation Poster Competition</a></li>        
+              <li style={{listStyle:"none"}}><a href={link[0].poster_form} target="_blank" rel="noreferrer" > Ideation Poster Competition</a></li>        
             )
           }
         }
@@ -79,7 +79,7 @@ function Evaluation_Form() {
             Header: 'Booth',
             accessor: 'competitor_acc_id',
             Cell: ({ row, value }) => (
-            <Link className="btn btn-success" to={`/competition_booth/${value}`}>
+            <Link className="btn btn-success" to={`/competition_booth/${value}`} target="_blank" rel="noreferrer">
             Visit
             </Link>
             )

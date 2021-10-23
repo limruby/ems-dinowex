@@ -5,8 +5,16 @@ import { CSVLink } from 'react-csv';
 import axiosInstance from '../../../utils/axiosConfig';
 
 function Competitor() {
-
   const [data, setData] = useState([]);
+  useEffect(() => {
+    axiosInstance.get("/api/competitors/readAll")
+      .then(function (response) {
+        setData(response.data.data);
+      }).catch(function (error) {
+        console.log(error);
+      })
+  }, []);
+
   const headers = [
     {label:'Full Name', key: 'name'},
     {label:'Gender', key: 'gender'},
@@ -25,19 +33,10 @@ function Competitor() {
   const csvReport = {
     filename: 'Dinowex_Competitor_List.csv',
     headers: headers,
-    data: data
+    data: data 
   }
-    
-  useEffect(() => {
-    axiosInstance.get("/api/competitors/readAll")
-      .then(function (response) {
-        setData(response.data.data);
-      }).catch(function (error) {
-        console.log(error);
-      })
-  }, []);
 
-
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const columns = React.useMemo(
     () => [
     {
@@ -103,7 +102,8 @@ function Competitor() {
     return (
       <div className="App">  
         <Table columns={columns} data={data} />
-        <CSVLink {...csvReport}>
+        <CSVLink {...csvReport} separator={"|"}>
+        
       <button className="btn btn-success" >Export to CSV</button></CSVLink>  
       </div>
     );

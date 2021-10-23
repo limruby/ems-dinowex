@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axiosInstance from '../../../../utils/axiosConfig.js';
-
 function EditPassword({data, setData}) {
-
     const [user, setState] = useState({
         _id: '',
         newPassword: '',
         confirmPassword:''
     });
-
     const inputChange = input => e => {
         setState({
             ...user,
@@ -17,8 +14,6 @@ function EditPassword({data, setData}) {
             [input]: e.target.value
         });
     };
-
-
     const handleForm=(e)=>{
         e.preventDefault();
         // perform all neccassary validations
@@ -38,15 +33,12 @@ function EditPassword({data, setData}) {
             })
         }
     }
-
 /////////////////////////////////////////////////////////////
-
      return(
         <>
             <form onSubmit={handleForm}>
                 <div className="edit-form-container">
                     <h1 className="mb-5">Edit Password</h1>
-
                     <div className="form-group">
                         <label htmlFor="password">New Password <span>(Min 8 characters)</span> </label>
                         <input className="form-control" type='password' name='password' id="password"
@@ -54,19 +46,14 @@ function EditPassword({data, setData}) {
                             minLength="8"
                             onChange={inputChange('newPassword')} value={user.newPassword} />
                     </div>
-
                     <div className="form-group">
                         <label htmlFor="confirmPassword">Confirm New Password </label>
                         <input className="form-control" type='password' name='confirmPassword' id="confirmPassword"
                             placeholder='password' required
                             minLength="8"
                             onChange={inputChange('confirmPassword')} value={user.confirmPassword} />
-
                     </div>
-
-
                     <br />
-
                     <div className="btn-group">
                         <Link to="/user_dashboard">
                             <button className="btn btn-danger back-btn">Back</button>
@@ -78,7 +65,5 @@ function EditPassword({data, setData}) {
          </>
  
         );
-
 }
-
 export default EditPassword;

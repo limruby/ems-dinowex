@@ -805,7 +805,7 @@ ul.social-buttons li a:hover {
   justify-content: center;
   list-style: none;
   text-align: center;
-  justify-content: end;
+  justify-content: flex-end;
   padding-top: 4%;
 
 }
@@ -1244,6 +1244,46 @@ h3 {
     rgb(140 140 140 / 50%) 0px 4px 0px, #787878 0px 0px 0px,
     rgb(0 0 0 / 50%) 0px 5px 10px;
 }
+/* Create a custom checkbox */
+/* Show the checkmark when checked */
+#eventlink p{
+  color: red;
+  font-size: large;
+}
+.toggle{
+  display: inline-block;
+}
+input[type=checkbox] {
+  position: relative;
+  cursor: pointer;
+  margin:10px;
+}
+input[type=checkbox]:before {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 30px;
+  top: 0;
+  left: 0;
+  border: 2px solid #555555;
+  border-radius: 3px;
+  background-color: white;
+}
+input[type=checkbox]:checked:after {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 20px;
+  border: solid red;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  position: absolute;
+  top: 2px;
+  left: 10px;
+}
+/*End*/
 
 /*Start of sponsor booth*/
 .center{
@@ -1402,7 +1442,7 @@ h3 {
 }
 .video_iframe{
   width: fit-content !important;
-  min-width:fill-available;
+  min-width:stretch;
   padding: 10px 40px;
 }
 .display-members{
@@ -1414,7 +1454,7 @@ h3 {
 .members-name{
   text-align: left;
   font-size: 20px;
-  padding-top: 2%;
+  
   padding-left: 10%;
 }
 .display-awards{
@@ -1427,7 +1467,7 @@ h3 {
   text-shadow: none !important;
   text-align: left;
   padding-left: 15%;
-  font-size: 50px;
+  font-size: 25px;
   font-weight: bold;
 }
 .awards-name:hover{

@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Table from './Table.js';
 import axiosInstance from '../../../utils/axiosConfig';
-
 function Order() {
-
     const [data, setData] = useState([]);
     const account_id = localStorage.getItem('user_id');
-
     useEffect(() => {
         axiosInstance.get("/api/cart/userReadCart", { params: { account_id: account_id } })
             .then(function (response) {
@@ -14,7 +11,6 @@ function Order() {
             }).catch(function (error) {
                 console.log(error);
             })
-
     }, [account_id]);
     function displayName(input) {
         if (input[0]) {

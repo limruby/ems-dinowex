@@ -1,10 +1,8 @@
+/* eslint-disable no-unused-vars */
 const AbstractContent = ({user}) =>  {
-
   function displayTitle(){
-
     if(user.abstract!==undefined){
       var section = [];
-
       for (var i=0; i<user.abstract.length; i++){
         section.push(
           <p>
@@ -15,11 +13,9 @@ const AbstractContent = ({user}) =>  {
       return section;
     }
   }
-
   
   function displayContent(){
     var section = [];
-
     if(user.abstract!=null){
       for (var i=0; i<user.abstract.length; i++){
         section.push(
@@ -32,13 +28,11 @@ const AbstractContent = ({user}) =>  {
     return section;
     
   }
-
   function displayKeywords(){
     var section = [];
     if(user.abstract!=null){
-
       if(user.abstract[0]!=null){
-        if(user.abstract[0]['keywords']!=undefined){
+        if(user.abstract[0]['keywords']!==undefined){
           section.push(
             <div>
               <ul> 
@@ -56,15 +50,9 @@ const AbstractContent = ({user}) =>  {
       }
       return section;
     }
-
     return (       
       <div>
       </div>
     );
-
   }
-
-
-
-
   export default AbstractContent;

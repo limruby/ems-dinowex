@@ -11,7 +11,10 @@ const formLinkSchema = new Schema({
   poster_form:{
     type: String,
   },
-
+  lobby:{
+    type: Boolean,
+    default: false
+  }
  
 }, {
   timestamps: true,

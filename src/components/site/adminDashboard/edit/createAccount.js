@@ -32,8 +32,9 @@ function CreateAccount() {
         city: 'default',
         state: 'default',
         country: 'Malaysia',
-        speech_title:'default',
-        speech_time:'default'
+        speech_title: 'default',
+        speech_time: 'default',
+        category: 'default'
     }
     var compData = {
         account_id: '',
@@ -71,7 +72,7 @@ function CreateAccount() {
     var visitorData = {
         account_id: '',
         name: 'default',
-        gender : 'male',
+        gender: 'male',
         nric_passport_selection: 'NRIC',
         nric_passport_no: 123456789,
         contact: '0123456789',
@@ -139,6 +140,9 @@ function CreateAccount() {
                 'category': ""
             });
         }
+        if (e.target.value === "Young Ideation" || e.target.value === "Junior Ideation" || e.target.value === "International Innovator") {
+            alert('ALERT: Please make sure this user has made the payment!')
+        }
     };
 
     function displayCategory() {
@@ -150,9 +154,9 @@ function CreateAccount() {
                     <select className="form-control" id="category" required
                         onChange={inputChange('category')} value={data.category} >
                         <option value="">Please select</option>
-                        <option value="Professional Innovator">Professional Innovator</option>                        
+                        <option value="Professional Innovator">Professional Innovator</option>
                         <option value="Young Innovator">Young Innovator</option>
-                        <option value="Young Ideation">Young Ideation</option>                       
+                        <option value="Young Ideation">Young Ideation</option>
                         <option value="Junior Ideation">Junior Ideation</option>
                         <option value="International Innovator">International Innovator</option>
                     </select>
@@ -169,6 +173,19 @@ function CreateAccount() {
                         <option value="Gold Package">Gold Package</option>
                         <option value="Silver Package">Silver Package</option>
                         <option value="Bronze Package">Bronze Package</option>
+                    </select>
+                </div>
+            )
+        }
+        else if (data.role === "Speaker") {
+            section.push(
+                <div className="form-group">
+                    <label htmlFor="category"><span>*</span>Subcategory </label>
+                    <select className="form-control" id="category" required
+                        onChange={inputChange('category')} value={data.category} >
+                        <option value="">Please select</option>
+                        <option value="Keynote Speaker">Keynote Speaker</option>
+                        <option value="Invited Speaker">Invited Speaker</option>
                     </select>
                 </div>
             )
@@ -190,7 +207,7 @@ function CreateAccount() {
                         compData["category"] = data.category;
                         compData["account_id"] = response.data._id
 
-                        if(compData["category"]!=="Professional Innovator" || compData["category"]!=="Young Innovator"){
+                        if (compData["category"] !== "Professional Innovator" || compData["category"] !== "Young Innovator") {
                             compData["bill_status"] = 'true'
                         }
 
@@ -205,7 +222,7 @@ function CreateAccount() {
                         sponsorData["category"] = data.category;
                         sponsorData["account_id"] = response.data._id
 
-                        if(sponsorData["category"]==="VIP Package"){
+                        if (sponsorData["category"] === "VIP Package") {
                             sponsorData["bill_status"] = 'true'
                         }
 
@@ -227,6 +244,7 @@ function CreateAccount() {
                     }
                     else if (data.role === "Speaker") {
                         speakerData["account_id"] = response.data._id
+                        speakerData["category"] = data.category;
                         axiosInstance.post("/api/speaker/create", speakerData)
                             .then(function (response) {
                                 window.location.href = '/admin_dashboard';

@@ -1,8 +1,8 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axiosInstance from '../../../../utils/axiosConfig.js';
 import { FaTrashAlt } from 'react-icons/fa';
-
 function EditTeam({ data, setData }) {
   localStorage.setItem("activeKeys", "Research-Team");
   /////////////////////get login user (REPLACE THIS) ////////////////
@@ -12,7 +12,6 @@ function EditTeam({ data, setData }) {
     tempEmail: ""
   });
   const showUpload = (e) => {
-
     e.preventDefault();
     if (tempData.tempName !== "" && tempData.tempAff !== "" && tempData.tempEmail !== "") {
       data.members.push({ 'name': tempData.tempName, 'affiliation': tempData.tempAff, 'email': tempData.tempEmail })
@@ -22,7 +21,6 @@ function EditTeam({ data, setData }) {
       tempData.tempName = "";
       tempData.tempAff = "";
       tempData.tempEmail = "";
-
       setTemp({
         ...tempData,
       });
@@ -42,7 +40,6 @@ function EditTeam({ data, setData }) {
         alert("Incomplete Form");
       }
     }
-
   }
   var obj = [];
   const deleteFile = (element, index) => e => {
@@ -54,9 +51,7 @@ function EditTeam({ data, setData }) {
       ...data,
     });
   }
-
   const inputChange = (element, index) => e => {
-
     if (element === 'name') {
       tempData.tempName = e.target.value;
     }
@@ -70,7 +65,6 @@ function EditTeam({ data, setData }) {
       ...tempData
     });
   };
-
   const handleForm = (e) => {
     e.preventDefault();
     var postData = {
@@ -84,7 +78,6 @@ function EditTeam({ data, setData }) {
         console.log(error);
       })
   };
-
   ///////display forms//////
   function displayMembers() {
     var section = [];
@@ -110,7 +103,6 @@ function EditTeam({ data, setData }) {
         </div>
       </div>
     );
-
     if (data.members !== undefined) {
       for (var i = 0; i < data.members.length; i++) {
         section.push(

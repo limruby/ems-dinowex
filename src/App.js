@@ -47,6 +47,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 
 
 function App() {
+  // eslint-disable-next-line no-unused-vars
   const [loggedIn, setLoggedIn] = useState(localStorage.getItem("token"));
   return (
     <QueryClientProvider client={queryClient}>

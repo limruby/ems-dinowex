@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import Editor from 'ckeditor5-custom-build/build/ckeditor';
 import { CKEditor } from '@ckeditor/ckeditor5-react'
-
-
 const editorConfiguration = {
     toolbar: {
         items: [
@@ -16,7 +14,6 @@ const editorConfiguration = {
         'blockQuote',
         'insertTable',
         'mediaEmbed',
-
         ]
     },
     language: 'en',
@@ -34,23 +31,17 @@ const editorConfiguration = {
         ]
     }
 };
-
-
 class EditorSec extends Component {
     render() {
-
         var data;
         var initialData;
-
         if(this.props.bookChapter_data==null||this.props.bookChapter_data[0]===undefined||this.props.bookChapter_data[0]['content']==null){
             initialData="";
         }else{
             initialData = this.props.bookChapter_data[0]['content'];
         }
-
         const submit=(e)=>{
             e.preventDefault();
-
             var postData = {
                 _id : this.props.id
                 ,
@@ -67,7 +58,6 @@ class EditorSec extends Component {
                 postData.bookChapter[0]['content'] = data;
             }       
         }
-
         return (
             <div className="EditorSec">                
             <CKEditor
@@ -80,12 +70,10 @@ class EditorSec extends Component {
                     } }
                     onChange={ ( event, editor ) => {
                         data = editor.getData();
-
                         var postData = {
                             _id : this.props.id,
                             bookChapter : this.props.bookChapter_data
                         }
-
                         if(postData.bookChapter==null){                
                             if(postData.bookChapter[0]===undefined){
                                if(postData.bookChapter[0]['content']===null){
@@ -108,5 +96,4 @@ class EditorSec extends Component {
             );
         }
     }
-
 export default EditorSec;

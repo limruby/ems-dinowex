@@ -4,17 +4,13 @@ import { Link } from 'react-router-dom';
 import axiosInstance from '../../../../utils/axiosConfig.js';
 import { FaTrashAlt } from 'react-icons/fa';
 import youtube from '../../../../assets/img/youtube.PNG'
-
 function EditCompMaterial({ data, setData }) {
-
   localStorage.setItem("activeKeys", "Competition-Material");
-
   const [tempData, setTemp] = useState({
     tempPoster: [],
     tempVidName: "",
     tempVidPath: ""
   });
-
   ///////display forms//////
   //poster form
   function displayPosterForm() {
@@ -27,24 +23,19 @@ function EditCompMaterial({ data, setData }) {
       );
     }
     else {
-
-
       section.push(
         <div>
           <p>{data.poster[0].name}
             <button className="deleteBtn" type="button" onClick={deleteFile('poster', 0)}> <FaTrashAlt /></button>
           </p>
-
         </div>
       )
     }
     return section;
   }
-
   //achievement form max 3
   function displayAchievementForm() {
     var section = [];
-
     if (data.achievements != null) {
       for (var i = 0; i < data.achievements.length; i++) {
         section.push(
@@ -62,11 +53,9 @@ function EditCompMaterial({ data, setData }) {
     }
     return section;
   }
-
   // publication form max 3
   function displayPublicationForm() {
     var section = [];
-
     if (data.publications != null) {
       for (var i = 0; i < data.publications.length; i++) {
         section.push(
@@ -84,11 +73,9 @@ function EditCompMaterial({ data, setData }) {
     }
     return section;
   }
-
   //grant form
   function displayGrantForm() {
     var section = [];
-
     if (data.grants != null) {
       for (var i = 0; i < data.grants.length; i++) {
         section.push(
@@ -106,7 +93,6 @@ function EditCompMaterial({ data, setData }) {
     }
     return section;
   }
-
   //video form 1 only
   function displayVideoForm() {
     var section = [];
@@ -118,7 +104,6 @@ function EditCompMaterial({ data, setData }) {
             <input type="text" className="form-control" name="videoName" id="videoName"
               onChange={inputChange('vidName', 0)} value={tempData.tempVidName} />
           </div>
-
           <div className="form-group">
             <label htmlFor="videoPath">Video URL </label>
             <input type="text" className="form-control" name="videoPath" id="videoPath"
@@ -138,7 +123,6 @@ function EditCompMaterial({ data, setData }) {
     }
     return section;
   }
-
   //////action performed//////
   var obj = [];
   const deleteFile = (element, index) => e => {
@@ -180,7 +164,6 @@ function EditCompMaterial({ data, setData }) {
         // Onload of file read the file content
         fileReader.onload = function (fileLoadedEvent) {
           file = fileLoadedEvent.target.result;
-
           if (element === 'poster') {
             data.poster.push({ 'name': fileName, 'source': fileReader.result })
             setData({
@@ -205,7 +188,6 @@ function EditCompMaterial({ data, setData }) {
               ...data
             })
           }
-
         };
         // Convert data to base64
         var baseFile = fileReader.readAsDataURL(fileToLoad);
@@ -227,8 +209,6 @@ function EditCompMaterial({ data, setData }) {
       ...data,
     })
   };
-
-
   const handleForm = (e) => {
     e.preventDefault();
     // perform all neccassary validations
@@ -245,13 +225,10 @@ function EditCompMaterial({ data, setData }) {
     }
     if (tempData.tempVidName !== "" && tempData.tempVidPath !== "") {
       data.video.push({ 'name': tempData.tempVidName, 'source': tempData.tempVidPath })
-
     }
     setData({
       ...data,
     })
-
-
     var postData = {
       _id: data._id,
       poster: data.poster,
@@ -260,45 +237,32 @@ function EditCompMaterial({ data, setData }) {
       grants: data.grants,
       video: data.video,
     }
-
     axiosInstance.post("/api/competitors/update", postData)
       .then(function (response) {
         window.location.href = '/user_dashboard';
       }).catch(function (error) {
         console.log(error);
       })
-
-
   };
-
   return (
     <>
       <form onSubmit={handleForm}>
         <div className="edit-form-container" style={{ marginTop: "5%", marginBottom: "5%" }}>
           <h1 className="mb-5">Edit Competition Material</h1>
-
           <h5>Poster<i className="caution"> (*Max 1) Limited to file size: 1MB </i></h5>
-
           {displayPosterForm()}
-
           <hr />
-
           <h5>Achievements<i className="caution"> (*Max 3) Limited to file size: 1MB </i></h5>
-
           <div className="form-group">
             {displayAchievementForm()}
           </div>
-
           <hr />
-
           <h5>Publications<i className="caution"> (*Max 3) Limited to file size: 1MB </i></h5>
-
           <div className="form-group">
             {displayPublicationForm()}
           </div>
           <hr />
           <h5>Grants<i className="caution"> (*Max 3) Limited to file size: 1MB </i></h5>
-
           <div className="form-group">
             {displayGrantForm()}
           </div>
