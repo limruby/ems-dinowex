@@ -314,7 +314,7 @@ function Competition_booth() {
   return (
     <header className="masthead comp-background">
       <br></br>
-      <FaArrowCircleLeft className="back-arrow" onClick={() => history.goBack()} size={40} />
+      <FaArrowCircleLeft className="back-arrow" onClick={() => history.goBack()} size={50} />
       <div className="section-container">
         <div className="intro-text">
           <div className="intro-lead-in">

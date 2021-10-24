@@ -72,11 +72,12 @@ function Links() {
             Insert & Edit Links
           </button></Link>
       </div>
-      <Table columns={columns} data={data} />
+      <Table columns={columns} data={data}/>
       <hr />
       <form onSubmit={handleForm} className="toggle">
         <h2>Event Lobby Visibility <FaEye /></h2>
-        <p>Please tick and submit the checkbox to <b>DISPLAY EVENT LOBBY</b> and <b>HIDE REGISTRATION</b> in <b>PUBLIC</b>.</p>
+        <p>Please <b>TICK</b> and submit the checkbox to <b>DISPLAY EVENT LOBBY</b> and <b>HIDE REGISTRATION</b> in <b>PUBLIC</b>.</p>
+        <p>Please <b>UNTICK</b> and submit the checkbox to <b>HIDE EVENT LOBBY</b> and <b>DISPLAY REGISTRATION</b> from <b>PUBLIC</b>.</p>
         <input
           type="checkbox"
           onChange={handleCheckBox}

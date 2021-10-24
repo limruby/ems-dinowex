@@ -1353,6 +1353,10 @@ input[type=checkbox]:checked:after {
   text-align: left !important;
   float: left !important;
   margin-left: 2%;
+  cursor: pointer;
+}
+.back-arrow:hover{
+  background-color: #a0a0a0;
 }
 
 .booth-name {

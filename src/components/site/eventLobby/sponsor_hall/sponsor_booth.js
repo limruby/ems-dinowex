@@ -256,7 +256,7 @@ function Sponsor_booth() {
   return (
     <header className="masthead comp-background">
       <br></br>
-      <FaArrowCircleLeft className="back-arrow" onClick={() => history.goBack()} size={40} />
+      <FaArrowCircleLeft className="back-arrow" onClick={() => history.goBack()} size={60} />
       <div className="container">
         <div className="intro-text">
           <div className="row">
