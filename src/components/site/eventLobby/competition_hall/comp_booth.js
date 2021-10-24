@@ -5,6 +5,8 @@ import "./../../../../assets/css/agency.min.css";
 import "./../../../../assets/css/bootstrap.min.css";
 import axiosInstance from '../../../../utils/axiosConfig';
 import { BsPeopleCircle } from "react-icons/bs";
+import { useHistory } from "react-router-dom";
+import { FaArrowCircleLeft } from 'react-icons/fa';
 
 function Competition_booth() {
   const [data, setData] = useState([]);
@@ -15,6 +17,8 @@ function Competition_booth() {
   const thePath = location.pathname;
   const user_id = thePath.substring(thePath.lastIndexOf('/') + 1);
   const string = '"' + user_id + '"'
+  let history = useHistory();
+  
 
   document.addEventListener('contextmenu', event => event.preventDefault());
   useEffect(() => {
@@ -309,6 +313,8 @@ function Competition_booth() {
   }
   return (
     <header className="masthead comp-background">
+      <br></br>
+      <FaArrowCircleLeft className="back-arrow" onClick={() => history.goBack()} size={40} />
       <div className="section-container">
         <div className="intro-text">
           <div className="intro-lead-in">

@@ -3,6 +3,8 @@ import axiosInstance from '../../../../utils/axiosConfig';
 import { useLocation } from "react-router-dom";
 import { BsPeopleCircle } from "react-icons/bs";
 import EmblaCarousel from './EmblaCarousel';
+import { useHistory } from "react-router-dom";
+import { FaArrowCircleLeft } from 'react-icons/fa';
 
 function Sponsor_booth() {
   const [data, setData] = useState([]);
@@ -13,6 +15,7 @@ function Sponsor_booth() {
   const thePath = location.pathname;
   const user_id = thePath.substring(thePath.lastIndexOf('/') + 1);
   const string = '"' + user_id + '"';
+  let history = useHistory();
   
   useEffect(() => {
     axiosInstance.get("/api/accounts/read", { params: { account_id: string } })
@@ -252,6 +255,8 @@ function Sponsor_booth() {
   }
   return (
     <header className="masthead comp-background">
+      <br></br>
+      <FaArrowCircleLeft className="back-arrow" onClick={() => history.goBack()} size={40} />
       <div className="container">
         <div className="intro-text">
           <div className="row">
