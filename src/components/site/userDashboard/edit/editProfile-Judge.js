@@ -1,8 +1,8 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import axiosInstance from '../../../../utils/axiosConfig.js';
 import { FaTrashAlt } from 'react-icons/fa';
-
 function EditProfile({ data, setData }) {
     localStorage.setItem("activeKeys", "Account-Profiles");
     const inputChange = input => e => {
@@ -42,11 +42,9 @@ function EditProfile({ data, setData }) {
             let obj = data.poster;
             obj.splice(index, 1);
         }
-
         setData({
             ...data,
         });
-
     }
     ///////Display photo//////
     function displayPhoto() {
@@ -59,18 +57,14 @@ function EditProfile({ data, setData }) {
             );
         }
         else {
-
             const imageBuffer = Buffer.from(data.poster[0].source.data);
-
             section.push(
                 <div>
                     <img src={imageBuffer} alt={data.poster[0].name} width="150" height="150" responsive />
-
                     <p>
                         {data.poster[0].name}
                         <button className="deleteBtn " type="button" onClick={deleteFile('poster', 0)}><FaTrashAlt /></button>
                     </p>
-
                 </div>
             )
         }
@@ -109,7 +103,6 @@ function EditProfile({ data, setData }) {
                 phone_no: data.phone_no,
                 poster: data.poster
             }
-
             axiosInstance.post("/api/judge/update", postData)
                 .then(function (response) {
                     window.location.href = '/user_dashboard';
@@ -121,10 +114,8 @@ function EditProfile({ data, setData }) {
     /////////////////////////////////////////////////////////////
     return (
         <>
-
             <form onSubmit={handleForm}>
                 <div className="edit-form-container" style={{ marginTop: "5%", marginBottom: "5%" }}>
-
                     <h1 className="mb-5">Edit Profile Info</h1>
                     <div className="form-group">
                         <label htmlFor="title"><span>*</span>Title</label>
@@ -157,7 +148,6 @@ function EditProfile({ data, setData }) {
                             placeholder='Contact Number' required
                             onChange={inputChange('phone_no')} value={data.phone_no} />
                     </div>
-
                     <div className="form-group">
                         <label htmlFor="email"><span>*</span>Email</label>
                         <input type="text" className="form-control" name="email" id="email"
@@ -171,7 +161,6 @@ function EditProfile({ data, setData }) {
                             onChange={inputChange('affiliation')} value={data.affiliation}
                         />
                     </div>
-
                     <div className="form-group">
                         <label htmlFor="address_1"><span>*</span>Address Line 1</label>
                         <input className="form-control" type="text" id="address"
@@ -225,10 +214,7 @@ function EditProfile({ data, setData }) {
                             onChange={inputChange('country')} value={data.country} placeholder="country" required
                         />
                     </div>
-
-
                     <br />
-
                     <div className="btn-group">
                         <Link to="/user_dashboard">
                             <button className="btn btn-danger back-btn">Back</button>
@@ -238,9 +224,6 @@ function EditProfile({ data, setData }) {
                 </div>
             </form>
         </>
-
     )
-
 }
-
 export default EditProfile;

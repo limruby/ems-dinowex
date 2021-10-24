@@ -1,10 +1,7 @@
 import React from 'react';
-import PdfDownloader from './../../PdfDownloader';
-
 const Members = ({user}) =>  {
   function displayMembers(){
     var section = [];
-
     if(user.members!=null){
       for (var i=0; i<user.members.length; i++){
         section.push(
@@ -18,7 +15,6 @@ const Members = ({user}) =>  {
     }
     return section;  
   }
-
   return (       
     <div>
       <div>
@@ -28,8 +24,4 @@ const Members = ({user}) =>  {
   );
  
 }
-
-
-
-
 export default Members;

@@ -1,22 +1,15 @@
 import React, { Component } from 'react'
-
 export class Profiles extends Component {
     continue = e => {
         e.preventDefault();
         this.props.nextStep();
     };
-
     back = e => {
         e.preventDefault();
         this.props.prevStep();
     };
-
-
-
     render() {
         const { values, inputChange } = this.props;
-
-
         const handleForm=(e)=>{
         e.preventDefault();
         // perform all neccassary validations
@@ -27,9 +20,6 @@ export class Profiles extends Component {
                 this.continue(e);
             }
         }
-
-
-
         return (
             <section className="section-container">
             <div className="form-container">
@@ -45,9 +35,7 @@ export class Profiles extends Component {
                         <option value="Bronze Package">Bronze Package</option>
                     </select>
                 </div>
-
                <br />
-
                 <div className="row">
                     <div className="col-6">
                         <button className="btn btn-danger" onClick={this.back}>Back</button>
@@ -61,5 +49,4 @@ export class Profiles extends Component {
         )
     }
 }
-
 export default Profiles

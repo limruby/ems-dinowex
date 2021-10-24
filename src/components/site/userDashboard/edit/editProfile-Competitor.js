@@ -1,7 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import axiosInstance from '../../../../utils/axiosConfig.js';
-
 function EditProfile({data, setData}) {
     localStorage.setItem("activeKeys", "Account-Profiles");
 const inputChange = input => e => {
@@ -10,7 +9,6 @@ const inputChange = input => e => {
         [input]: e.target.value
     });
 };
-
 const handleForm=(e)=>{
     e.preventDefault();
     // perform all neccassary validations
@@ -43,7 +41,6 @@ const handleForm=(e)=>{
                 state: data.state,
                 phone_no: data.phone_no
             }
-
             axiosInstance.post("/api/competitors/update", postData)
             .then(function(response) {
                  window.location.href = '/user_dashboard';
@@ -84,12 +81,9 @@ const handleForm=(e)=>{
 /////////////////////////////////////////////////////////////
     return(
         <>
-
         <form onSubmit={handleForm}>
         <div className="edit-form-container" style={{marginTop:"5%", marginBottom:"5%"}}>
-
                 <h1 className="mb-5">Edit Profile Info</h1>
-
                 <div className="form-group">
                     <label htmlFor="name"><span>*</span>Full Name (as per IC / Passport)</label>
                     <input type="text" className="form-control" name="name" id="name"
@@ -174,9 +168,7 @@ const handleForm=(e)=>{
                             <option value="FEMALE">Female</option>
                         </select>
                     </div>
-
                 <br />
-
                 <div className="btn-group">
                     <Link to="/user_dashboard">
                         <button className="btn btn-danger back-btn">Back</button>
@@ -186,9 +178,6 @@ const handleForm=(e)=>{
             </div>
             </form>
         </>
-
         )
-
 }
-
 export default EditProfile;

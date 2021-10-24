@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import "../../../assets/css/agency.min.css";
 import './eventLobby.css';
 import dinowex from "../../../assets/img/Dinowex.png";
-import iiidentex from "../../../assets/img/IIIDentEx2021 Logo-white-01.webp";
 import eventlobby from "../../../assets/img/event-lobby.png";
 import { Image } from 'react-bootstrap';
 import axiosInstance from '../../../utils/axiosConfig';
@@ -65,44 +64,34 @@ function EventLobby() {
               <div className="col-lg-6 justify-content-center">
                 <Image src={dinowex} height="auto" width="100%" alt="" rounded responsive />
               </div>
-              {/* <div className="col-lg-3 justify-content-center">
-                <Image className="row" src={iiidentex} height="auto" width="100%" alt="" rounded responsive />
-              </div> */}
             </div>
           </div>
         </div>
       </header>
       <div>
         <div className="img-container">
-        <div className="sponsors-dropdown sponsors-hall">
-          SPONSORS HALL<span className="sponsors-arrow "></span>
-            <div className="sponsors-dropdown-content"> 
+          <div className="sponsors-dropdown sponsors-hall">
+            SPONSORS HALL<span className="sponsors-arrow "></span>
+            <div className="sponsors-dropdown-content">
 
-                <div className="sponsors-sub-dropdown">
-                  <a href="/sponsor_hall">DINOWEX</a><span className="sponsors-dropdown-arrow"></span>
-                </div>
-
-                {/* <div>
-                  <a href="/iiidentex_uitm/sponsor_hall">IIIDENTEX</a><span className="sponsors-dropdown-arrow"></span> 
-                </div>             */}
+              <div className="sponsors-sub-dropdown">
+                <a href="/sponsor_hall">DINOWEX</a><span className="sponsors-dropdown-arrow"></span>
+              </div>
             </div>
-        </div>
-            <div className="speakers-dropdown speakers">
+          </div>
+          <div className="speakers-dropdown speakers">
             <span className="speakers-arrow"></span>SPEAKERS
             <div className="speakers-dropdown-content">
-                {/* <span className="speakers-dropdown-arrow"></span>DINOWEX */}
-                <a href="/speakers"><span className="speakers-dropdown-arrow"></span>DINOWEX</a>
+              <a href="/speakers"><span className="speakers-dropdown-arrow"></span>DINOWEX</a>
             </div>
-            </div>
-            <div className="competitors-dropdown competitors-hall">
-                COMPETITORS HALL<span className="competitors-arrow"></span>
-                <div className="competitors-dropdown-content">            
-                <a href="/competition_hall">DINOWEX</a><span className="competitors-dropdown-arrow"></span>
-                {/* <a href="/iiidentex_uitm/competition_hall">IIIDENTEX</a><span className="competitors-dropdown-arrow"></span>             */}
-                </div>
-            </div>
-            {displayLink()}          
-            <Image src={eventlobby} height="100%" width="100%" alt="" responsive />
+          </div>
+          <div className="competitors-dropdown competitors-hall">
+            COMPETITORS HALL<span className="competitors-arrow"></span>
+            <div className="competitors-dropdown-content">
+              <a href="/competition_hall">DINOWEX</a><span className="competitors-dropdown-arrow"></span>                </div>
+          </div>
+          {displayLink()}
+          <Image src={eventlobby} height="100%" width="100%" alt="" responsive />
         </div>
       </div>
     </div>

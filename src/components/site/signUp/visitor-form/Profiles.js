@@ -18,17 +18,17 @@ export class Profiles extends Component {
         const handleForm=(e)=>{
             e.preventDefault();
         // perform all neccassary validations
-        if (values.name == "" ||
-            values.ic_passport_selection == "" ||
-            values.ic_passport_number == null ||
-            values.phone_no == null ||
-            values.gender == "" ||
-            values.address_1 == "" ||
-            values.address_2 == "" ||
-            values.postcode == null ||
-            values.city == "" ||
-            values.state == "" ||
-            values.country == ""){
+        if (values.name === "" ||
+            values.ic_passport_selection === "" ||
+            values.ic_passport_number === null ||
+            values.phone_no === null ||
+            values.gender === "" ||
+            values.address_1 === "" ||
+            values.address_2 === "" ||
+            values.postcode === null ||
+            values.city === "" ||
+            values.state === "" ||
+            values.country === ""){
             alert("Form not fill");
         }
         else{

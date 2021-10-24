@@ -1,14 +1,11 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
-import { Link } from 'react-router-dom';
 import "../../../assets/css/agency.min.css";
 import compBooth from "../../../assets/img/competitor_booth.jpeg";
 import sponsorBooth from "../../../assets/img/sponsor_booth.jpeg"
-
 function LandingPage() {
-
   return (
     <div className="LandingPage">
-
       <header className="masthead">
         <div className="container">
           <div className="intro-text">
@@ -23,7 +20,8 @@ function LandingPage() {
           </div>
         </div>
       </header>
-      <section className="page-section" id="competition">
+      <section className="page-section" id="competition"></section>
+      {/* <section className="page-section" id="competition">
         <div className="container">
           <div className="row">
             <div className="col-lg-12 text-center">
@@ -32,29 +30,11 @@ function LandingPage() {
               </h3>
             </div>
           </div>
-          <div className="row text-center" style={{display:"block"}}>
+          <div className="row text-center" style={{ display: "block" }}>
             <img src={compBooth} alt="sample-booth" width="70%" height="auto" />
-            {/* <div className="col-lg-4">
-              <div className="card mb-5 mb-lg-0">
-                <div className="card-body">
-                   <h5 className="card-title text-muted text-uppercase text-center">Junior Inventor/ Innovator</h5> 
-                  <h1 className="card-price text-center">Junior Innovator</h1>
-                  <hr></hr>
-                  <p>Schools students (Age 17 and below) from government and private school including MRSM, Vocational Colleges</p>
-                  <br /><br />
-                  <hr></hr>
-                  <p>Registration Fee : RM180</p>
-                  <hr></hr>
-                  <Link to="/sign_up">
-                    <div className="text-center"><a className="btn btn-primary text-uppercase js-scroll-trigger" href="/sign_up">Register</a></div>
-                  </Link>
-                </div>
-              </div>
-            </div> */}
           </div>
         </div>
       </section>
-
       <section className="bg-light page-section" id="sponsorship">
         <div className="container">
           <div className="row">
@@ -62,14 +42,13 @@ function LandingPage() {
               <h2 className="section-heading text-uppercase">Sponsor Booth</h2>
               <h3 className="section-subheading text-muted">
               </h3>
-
             </div>
           </div>
-          <div className="row text-center" style={{display:"block"}}>
+          <div className="row text-center" style={{ display: "block" }}>
             <img src={sponsorBooth} alt="sample-booth" width="70%" height="auto" />
           </div>
         </div>
-      </section>
+      </section> */}
       {/* <section className="page-section" id="contact">
         <div className="container">
           <div className="row">
@@ -151,5 +130,4 @@ function LandingPage() {
     </div>
   );
 }
-
 export default LandingPage;

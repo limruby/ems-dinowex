@@ -1,15 +1,12 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaTrashAlt } from 'react-icons/fa';
 import Editor from './editor';
-
 import axiosInstance from '../../../../utils/axiosConfig.js';
-
 function EditBookChapter({ data, setData }) {
 	localStorage.setItem("activeKeys", "Abstract");
-
 	const inputChange = input => e => {
-
 		if(input==='introduction'){
 			if(!data.bookChapter[0]){
 				data.bookChapter.push({'introduction': e.target.value})			}
@@ -38,7 +35,6 @@ function EditBookChapter({ data, setData }) {
 		//display Reference
 		function displayReferences(){
 			var section = [];
-
 			if(data.bookChapter!==undefined&&data.bookChapter[0]!==undefined&&data.bookChapter[0]['references']!==undefined){
 				section.push(
 					<div>
@@ -53,13 +49,11 @@ function EditBookChapter({ data, setData }) {
 					</div>
 				);
 			}
-
 			return section;
 		}
 	//display empty Reference field
 	function displayReferencesForm(){
 		var section = [];
-
 		section.push(
 			<div>
 				<div className="form-group">
@@ -74,24 +68,19 @@ function EditBookChapter({ data, setData }) {
 		);
 			return section;
 		}
-
-
 		const [tempState, setTempt] = useState({
 			reference:""
 		});
-
 		const tempInput = input => e => {
 			setTempt({
 				...tempState,
 				reference: e.target.value
 			});
 		};
-
 	//////// add reference ////////////
 	const addReference = () => e => {
 		if (!data.bookChapter[0]) {
 			data.abstract.push({ 'references': [] })
-
 		}
 		else if (data.bookChapter[0] && !data.bookChapter[0]['references']) {
 			data.bookChapter[0]['references'] = [];
@@ -100,7 +89,6 @@ function EditBookChapter({ data, setData }) {
 		
 		setData({
 			...data,
-
 		});		
 	    //clear tempStateReference
 	    setTempt({
@@ -108,17 +96,13 @@ function EditBookChapter({ data, setData }) {
 	    	reference: ""
 	    });
 	}
-
 	//////// remove reference ////////////
 	const deleteReference = (index) => e => {
-
 		data.bookChapter[0]['references'].splice(index,1);
 		setData({
 			...data,
-
 		});
 	}
-
 	const handleForm=(e)=>{
 		e.preventDefault();
 	// perform all neccassary validations
@@ -136,7 +120,6 @@ function EditBookChapter({ data, setData }) {
 		}
 	}
 	
-
 	axiosInstance.post("/api/competitors/update", postData)
 	.then(function(response) {
 		window.location.href = '/user_dashboard';
@@ -144,8 +127,6 @@ function EditBookChapter({ data, setData }) {
 		console.log(error);
 	})
 }
-
-
 //load data to input field value
 function checkExist(element, index){
 	var value="";
@@ -163,38 +144,31 @@ function checkExist(element, index){
 	}  
 }
 	/////////////////////////////////////////////////////////////
-
 	return (
 		<>
 			<form onSubmit={handleForm}>
 				<div className="edit-form-container" style={{ marginTop: "5%", marginBottom:"5%" }}>
 					<h1 className="mb-5">Edit Book Chapter</h1>
-
 					<div className="form-group">
 						<label htmlFor="introduction">Introduction</label>
 						<textarea className="form-control" id="introduction" cols="30" rows="10"
 							onChange={inputChange('introduction')} value={checkExist('introduction', 0)} />
 					</div>
-
 					<div className="form-group">
 						<label htmlFor="content">Content </label>
 						<Editor id={data._id} bookChapter_data={data.bookChapter} />
 					</div>
-
 					<div className="form-group">
 						<label htmlFor="conclusion">Conclusion </label>
 						<textarea className="form-control" id="conclusion" cols="30" rows="10"
 							onChange={inputChange('conclusion')} value={checkExist('conclusion', 0)} />
 					</div>
-
 					<div className="keyword-box">
 					<label>References</label>
 					{displayReferences()}
 					{displayReferencesForm()}
 					</div>
 					<br />
-
-
 					<div className="btn-group">
 						<Link to="/user_dashboard">
 							<button className="btn btn-danger back-btn">Back</button>
@@ -204,9 +178,6 @@ function checkExist(element, index){
 				</div>
 			</form>
 		</>
-
 	)
-
 }
-
 export default EditBookChapter;

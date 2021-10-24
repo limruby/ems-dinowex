@@ -12,13 +12,11 @@ import Receipt from './receipt-sec'
 import Certificate from './cert-sec.js';
 import Cart from './cart-sec'
 import EvaluationForm from './evaluation-form-sec'
-
 import PdfAbstract from './pdf-abstract-bookChapter';
 import Preview from './preview-sec'; import 'bootstrap/dist/css/bootstrap.min.css';
 import { Tab, Nav, Row, Col, Card } from "react-bootstrap";
 import { FaEdit, FaCertificate, FaBook, FaRegBookmark, FaReceipt, FaMedal } from 'react-icons/fa';
 import { BsPeopleCircle, BsFiles} from "react-icons/bs";
-
 function UserDashboard() {  ////////////////////get login user info (REPLACE THIS)  /////////////////////
   const [user, setUser] = useState([]);
   const [account, setAccount] = useState([]);
@@ -65,8 +63,6 @@ function UserDashboard() {  ////////////////////get login user info (REPLACE THI
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-
   //////////////////////////////////////////////////////////////////////////////////
   function welcome(role) {
     switch (role) {
@@ -75,19 +71,16 @@ function UserDashboard() {  ////////////////////get login user info (REPLACE THI
           <div className="row-username">
             <p>Welcome {user.company_name}</p>
           </div>);
-
       case 'Competitor':
         return (
           <div className="row-username">
             <p>Welcome {user.name}</p>
           </div>);
-
       case 'Judge':
         return (
           <div className="row-username">
             <p>Welcome {user.name}</p>
           </div>);
-
       default:
         return (
           <div className="row-username">
@@ -95,7 +88,6 @@ function UserDashboard() {  ////////////////////get login user info (REPLACE THI
           </div>);
     }
   }
-
   function TabTitles(role) {
     switch (role) {
       case 'Sponsor':
@@ -178,14 +170,10 @@ function UserDashboard() {  ////////////////////get login user info (REPLACE THI
   else {
     activeKeys = "Account-Profiles"
   }
-
   return (
     <>
-
       {welcome(account.role)}
-
       <div className="wrapper">
-
         <Tab.Container id="left-tabs-example" defaultActiveKey={activeKeys}>
           <Row>
             <Col sm={3} className="sidebar-wrapper">
@@ -328,9 +316,6 @@ function UserDashboard() {  ////////////////////get login user info (REPLACE THI
                   <Card>
                     <Card.Body>
                       <div className="sec-container">
-                        <Link to='/user_dashboard/evaluation_form' className="edit">
-                          <FaEdit /> Edit
-                        </Link>
                         <h2> Evaluation Form</h2>
                         <EvaluationForm />
                       </div>
