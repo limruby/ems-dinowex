@@ -67,7 +67,7 @@ const read = (req, res, next)=>{
 };
 
 const readVIP = (req, res, next)=>{
-  Sponsor.findOne({category: "VIP Package"}, (err, sponsors) => {
+  Sponsor.findOne({category: "VIP Package"}, {account_id: 1}, (err, sponsors) => {
     if (err) {
       return res.status(400).json({ success: false, error: err })
     }
