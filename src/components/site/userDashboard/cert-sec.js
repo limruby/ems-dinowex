@@ -1,10 +1,7 @@
 const Certificate = ({ user, role }) => {
-
-
   function display() {
     var section = [];
     if (user.certificate) {
-
       for (var i = 0; i < user.certificate.length; i++) {
         const imageBuffer = Buffer.from(user.certificate[0].source.data);
         section.push(
@@ -14,7 +11,9 @@ const Certificate = ({ user, role }) => {
         );
       }
     } else {
-      console.log("no data");
+      section.push(
+       <p>Coming soon</p>
+      );
     }
     return section;
   }
@@ -22,8 +21,6 @@ const Certificate = ({ user, role }) => {
     <div className="empty-container">
       {display()}
     </div>
-
   );
 }
-
 export default Certificate;

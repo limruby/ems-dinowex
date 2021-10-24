@@ -31,7 +31,6 @@ function Cart({ data, setData, user }) {
             setCertQuantitySubtotal(0)
             total = 0
             setPrice(total)
-            console.log("Empty")
         }
     }, [certQuantity, data.first_purchase, medalQuantity, price]);
 

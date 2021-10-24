@@ -5,7 +5,6 @@ import { BsPeopleCircle } from "react-icons/bs";
 import EmblaCarousel from './EmblaCarousel';
 import { useHistory } from "react-router-dom";
 import { FaArrowCircleLeft } from 'react-icons/fa';
-
 function Sponsor_booth() {
   const [data, setData] = useState([]);
   const [account, setAccount] = useState([]);
@@ -37,14 +36,11 @@ function Sponsor_booth() {
         console.log(error);
       })
   }, [string])
-
   const inputChange = e => {
     setComment(e.target.value)
   };
-
   const handleForm = (e) => {
     var defaultName;
-
     if (!localStorage.getItem("user_id")) {
       if (localStorage.getItem("temp_name")) {
         defaultName = localStorage.getItem("temp_name");
@@ -54,7 +50,6 @@ function Sponsor_booth() {
         localStorage.setItem("temp_name", defaultName);
       }
     }
-
     var postData = {
       booth_id: string,
       account_id: localStorage.getItem("user_id"),
@@ -109,7 +104,6 @@ function Sponsor_booth() {
     }
     return section;
   }
-
   function displayPoster() {
     var section = [];
     if (data.poster && data.poster.length > 0) {
@@ -267,19 +261,16 @@ function Sponsor_booth() {
           </div>
         </div>
       </div>
-
       <div className="row" style={{ padding: "0px 10px" }}>
-        <div className="col-xl-6">
+        <div className="col-xl-6" style={{backgroundColor: "#f7b13e"}}>
           {displayPoster()}
         </div>
-
-        <div className="display-video col-xl-6">
+        <div className="col-xl-6" style={{backgroundColor:"#7e7ebc"}}>
           {displayVideo()}
         </div>
       </div>
-
       <div className="row" style={{ padding: "0px 10px" }}>
-        <div className="display col-xl-6">
+        <div className="display col-xl-6" style={{backgroundColor: "#f7b13e"}}>
           <div className="display-profile">
             <div className="title">
               <b>COMPANY PROFILE</b>
@@ -291,7 +282,6 @@ function Sponsor_booth() {
               <p><b>Website: </b>{data.company_website}</p>
             </div>
           </div>
-
           <div className="display-promotional-content">
             <div className="title">
               <b>PROMOTIONAL CONTENT</b>
@@ -310,7 +300,6 @@ function Sponsor_booth() {
             </div>
           </div>
         </div>
-
         <div className="display col-xl-6">
           <div className="forum-title">
             <b>FORUM CHAT</b>
@@ -324,8 +313,6 @@ function Sponsor_booth() {
         </div>
       </div>
     </header>
-
   );
 }
-
 export default Sponsor_booth;

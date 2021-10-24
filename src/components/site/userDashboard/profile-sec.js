@@ -2,25 +2,20 @@ const Profiles = ({ user, role }) => {
   function display() {
     var section = [];
     if (user.company_logo) {
-
       for (var i = 0; i < user.company_logo.length; i++) {
         const imageBuffer = Buffer.from(user.company_logo[0].source.data);
         section.push(
           <li>
             <img src={imageBuffer} alt={user.company_logo[0].name} />
-
           </li>
         );
       }
-    } else {
-      console.log("no data");
-    }
+    } 
     return section;
   }
   function displayJudge() {
     var section = [];
     if (user.poster) {
-
       for (var i = 0; i < user.poster.length; i++) {
         const imageBuffer = Buffer.from(user.poster[0].source.data);
         section.push(
@@ -34,7 +29,6 @@ const Profiles = ({ user, role }) => {
   }
   if (role === 'Competitor') {
     return (
-
       <div>
         <ul>
           <li>
@@ -144,10 +138,7 @@ const Profiles = ({ user, role }) => {
       <div className="empty-container">
         <p>Error display</p>
       </div>
-
     );
   }
-
 }
-
 export default Profiles;

@@ -11,14 +11,12 @@ import { IconContext } from 'react-icons/lib';
 import { isAuth, isAdmin } from '../../../utils/isAuth'
 import axiosInstance from '../../../utils/axiosConfig';
 require('dotenv').config();
-
 const Navigationbar = props => {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
   const [lobby, setLobby] = useState([]);
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
-
   const showButton = () => {
     if (window.innerWidth <= 960) {
       setButton(false)
@@ -26,10 +24,8 @@ const Navigationbar = props => {
       setButton(true)
     }
   }
-
   useEffect(() => {
     showButton();
-
     axiosInstance.get("/api/formLink/read")
       .then(function (response) {
         setLobby(response.data.data[0].lobby);
@@ -37,7 +33,6 @@ const Navigationbar = props => {
         console.log(error);
       })
   }, []);
-
   const history = useHistory();
   const [show, setShow] = useState(false);
   const showDropdown = (e) => {
@@ -68,7 +63,6 @@ const Navigationbar = props => {
       }
     return section;
   }
-
   const displayRegistration = () => {
     var section = [];
     if (!lobby) {
@@ -80,13 +74,7 @@ const Navigationbar = props => {
     }
     return section;
   }
-
-
-
-
   window.addEventListener('resize', showButton);
-
-
   if (isAdmin() === true) {
     return (
       <IconContext.Provider value={{ color: '#000' }}>
