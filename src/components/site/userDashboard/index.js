@@ -117,7 +117,7 @@ function UserDashboard() {  ////////////////////get login user info (REPLACE THI
               <Nav.Link eventKey="Competition-Material"><BsFiles size={20} /> Competition Material</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="Abstract"><FaBook size={20} /> Abstract & Bookchapter</Nav.Link>
+              <Nav.Link eventKey="Abstract"><FaBook size={20} /> Abstract & Extended Abstract</Nav.Link>
             </Nav.Item>
             <Nav.Item>
               <Nav.Link eventKey="Research-Team"><FaRegBookmark size={20} /> Research Team</Nav.Link>
@@ -255,7 +255,7 @@ function UserDashboard() {  ////////////////////get login user info (REPLACE THI
                         <Link to='/user_dashboard/edit_book_chapter' className="edit">
                           <FaEdit /> Edit
                         </Link>
-                        <h2> BookChapter </h2>
+                        <h2> Extended Abstract </h2>
                         <BookChapter user={user} />
                       </div>
                     </Card.Body>

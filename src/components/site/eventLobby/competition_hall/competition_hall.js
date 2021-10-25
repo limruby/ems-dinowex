@@ -51,7 +51,7 @@ function Competition_hall() {
     return section;
   }
   return (
-    <header className="masthead">
+    <header className="hall-masthead">
       <div className="intro-text">
         <div className="intro-lead-in">
           <br></br>

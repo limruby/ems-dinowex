@@ -4,13 +4,17 @@ import axiosInstance from '../../../utils/axiosConfig';
 function Order() {
     const [data, setData] = useState([]);
     const account_id = localStorage.getItem('user_id');
+    const role = localStorage.getItem('role');
     useEffect(() => {
-        axiosInstance.get("/api/cart/userReadCart", { params: { account_id: account_id } })
-            .then(function (response) {
-                setData(response.data.data);
-            }).catch(function (error) {
-                console.log(error);
-            })
+        if (role === "Competitor") {
+            axiosInstance.get("/api/cart/userReadCart", { params: { account_id: account_id } })
+                .then(function (response) {
+                    setData(response.data.data);
+                }).catch(function (error) {
+                    console.log(error);
+                })
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [account_id]);
     function displayName(input) {
         if (input[0]) {

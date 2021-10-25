@@ -5,7 +5,8 @@ import "./../../../../assets/css/agency.min.css";
 import "./../../../../assets/css/bootstrap.min.css";
 import axiosInstance from '../../../../utils/axiosConfig';
 import { BsPeopleCircle } from "react-icons/bs";
-
+import { useHistory } from "react-router-dom";
+import { FaArrowCircleLeft } from 'react-icons/fa';
 function Competition_booth() {
   const [data, setData] = useState([]);
   const [account, setAccount] = useState([]);
@@ -15,7 +16,8 @@ function Competition_booth() {
   const thePath = location.pathname;
   const user_id = thePath.substring(thePath.lastIndexOf('/') + 1);
   const string = '"' + user_id + '"'
-
+  let history = useHistory();
+  
   document.addEventListener('contextmenu', event => event.preventDefault());
   useEffect(() => {
     axiosInstance.get("/api/competitors/read", { params: { account_id: string } })
@@ -27,7 +29,6 @@ function Competition_booth() {
     axiosInstance.get("/api/accounts/read", { params: { account_id: string } })
       .then(function (response) {
         setAccount(response.data.data);
-        console.log()
       }).catch(function (error) {
         console.log(error);
       })
@@ -38,14 +39,11 @@ function Competition_booth() {
         console.log(error);
       })
   }, [string])
-
   const inputChange = e => {
     setComment(e.target.value)
   };
-
   const handleForm = (e) => {
     var defaultName;
-
     if (!localStorage.getItem("user_id")) {
       if (localStorage.getItem("temp_name")) {
         defaultName = localStorage.getItem("temp_name");
@@ -55,7 +53,6 @@ function Competition_booth() {
         localStorage.setItem("temp_name", defaultName);
       }
     }
-
     var postData = {
       booth_id: string,
       account_id: localStorage.getItem("user_id"),
@@ -68,9 +65,8 @@ function Competition_booth() {
     if (comment !== null) {
       axiosInstance.post("/api/forum/create", postData)
         .then(function (response) {
-          //  window.location.href = '/competition_booth/:id';
+         
           location.reload(true);
-
         }).catch(function (error) {
           console.log(error);
         })
@@ -89,7 +85,6 @@ function Competition_booth() {
   }
   function displayContent() {
     var section = [];
-
     if (data.abstract != null) {
       for (var i = 0; i < data.abstract.length; i++) {
         section.push(
@@ -136,7 +131,7 @@ function Competition_booth() {
               height="400"
               src={`https://www.youtube.com/embed/${url}`}
               title={data.video[0].name}
-              allowfullscreen="true"
+              allowFullScreen={true}
               webkitallowfullscreen="true"
               mozallowfullscreen="true"></iframe>
           );
@@ -200,7 +195,6 @@ function Competition_booth() {
     }
     return section;
   }
-
   function displayPdf(imageBuffer) {
     var w = window.open('about:blank');
     setTimeout(function () {
@@ -210,7 +204,6 @@ function Competition_booth() {
       w.document.getElementsByTagName("iframe")[0].style.height = '100%';
     }, 0);
   }
-
   function displayForumForm() {
     var section = []
     section.push(
@@ -237,7 +230,6 @@ function Competition_booth() {
   function displayForum() {
     var section = []
     for (var i = 0; i < forum.length; i++) {
-
       if (forum[i].role === "n/a") {
         section.push(
           <div>
@@ -309,6 +301,8 @@ function Competition_booth() {
   }
   return (
     <header className="masthead comp-background">
+      <br></br>
+      <FaArrowCircleLeft className="back-arrow" onClick={() => history.goBack()} size={50} />
       <div className="section-container">
         <div className="intro-text">
           <div className="intro-lead-in">
@@ -351,7 +345,6 @@ function Competition_booth() {
               <p>{account.email}</p>
             </div>
             {displayMembers()}
-
           </div>
           <div className="display-awards">
             <div className="title">
@@ -366,7 +359,6 @@ function Competition_booth() {
             {displayGrants()}
           </div>
         </div>
-
         <div className="col-xl-6" style={{ padding: "0%", backgroundColor: "#43ba7a" }}>
           <div className="display-poster">
             {displayPoster()}

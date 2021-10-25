@@ -249,7 +249,7 @@ function EditCompMaterial({ data, setData }) {
       <form onSubmit={handleForm}>
         <div className="edit-form-container" style={{ marginTop: "5%", marginBottom: "5%" }}>
           <h1 className="mb-5">Edit Competition Material</h1>
-          <h5>Poster<i className="caution"> (*Max 1) Limited to file size: 1MB </i></h5>
+          <h5>Poster<i className="caution"> (*Max 1 .png and .jpg ONLY) Limited to file size: 1MB </i></h5>
           {displayPosterForm()}
           <hr />
           <h5>Achievements<i className="caution"> (*Max 3) Limited to file size: 1MB </i></h5>

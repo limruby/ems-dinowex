@@ -4,11 +4,8 @@ import SponsorshipSection from '../../site/signUp/sponsor-form';
 import VisitorSection from '../../site/signUp/visitor-form';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
-
 const SectionChange = () =>  {
-
   const [value,setValue]=useState('Select');
-
   const handleSelect=(e)=>{
     console.log(e);
     setValue(e);
@@ -56,9 +53,6 @@ const SectionChange = () =>  {
         </div>
         
         );
-
     }
-
   }
-
   export default SectionChange;

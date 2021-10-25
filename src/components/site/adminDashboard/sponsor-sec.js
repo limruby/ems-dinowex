@@ -60,7 +60,7 @@ function Sponsor(){
             accessor: 'company_name',
           },
           {
-            Header: 'Company PIC',
+            Header: 'PIC',
             accessor: 'company_pic_name',
           },
           {

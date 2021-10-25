@@ -11,14 +11,12 @@ import { IconContext } from 'react-icons/lib';
 import { isAuth, isAdmin } from '../../../utils/isAuth'
 import axiosInstance from '../../../utils/axiosConfig';
 require('dotenv').config();
-
 const Navigationbar = props => {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
   const [lobby, setLobby] = useState([]);
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
-
   const showButton = () => {
     if (window.innerWidth <= 960) {
       setButton(false)
@@ -26,10 +24,8 @@ const Navigationbar = props => {
       setButton(true)
     }
   }
-
   useEffect(() => {
     showButton();
-
     axiosInstance.get("/api/formLink/read")
       .then(function (response) {
         setLobby(response.data.data[0].lobby);
@@ -37,7 +33,6 @@ const Navigationbar = props => {
         console.log(error);
       })
   }, []);
-
   const history = useHistory();
   const [show, setShow] = useState(false);
   const showDropdown = (e) => {
@@ -55,7 +50,7 @@ const Navigationbar = props => {
     var section = [];
     if (lobby) {
       section.push(
-        <li className="nav-item">
+        <li className="nav-item" key="nav-item-0">
           <NavDropdown className="btn" title="Event Lobby" onToggle={() => { window.location.href = '/eventLobby' }}
             show={show}
             onMouseEnter={showDropdown}
@@ -68,25 +63,18 @@ const Navigationbar = props => {
       }
     return section;
   }
-
   const displayRegistration = () => {
     var section = [];
     if (!lobby) {
       section.push(
-        <li className="nav-item">
+        <li className="nav-item" key="nav-item-0">
         <Link className="btn" to='/sign_up'>Registration</Link>
         </li>
         )
     }
     return section;
   }
-
-
-
-
   window.addEventListener('resize', showButton);
-
-
   if (isAdmin() === true) {
     return (
       <IconContext.Provider value={{ color: '#000' }}>
@@ -101,10 +89,10 @@ const Navigationbar = props => {
               {click ? <FaTimes /> : <FaBars />}
             </div>
             <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-              <li className="nav-item">
+              <li className="nav-item" key="nav-item-0">
                 <Link className="btn" to='/'>Home</Link>
               </li>
-              <li className="nav-item">
+              <li className="nav-item" key="nav-item-1">
                 <NavDropdown className="btn" title="Event Lobby" onToggle={() => { window.location.href = '/eventLobby' }}
                   show={show}
                   onMouseEnter={showDropdown}
@@ -113,10 +101,10 @@ const Navigationbar = props => {
                   <NavDropdown.Item href="/competition_hall">Competition Hall</NavDropdown.Item>
                 </NavDropdown>
               </li>
-              <li className="nav-item">
+              <li className="nav-item" key="nav-item-2">
                 <Link className="btn" to='/admin_dashboard'>AdminDashboard</Link>
               </li>
-              <li className="nav-item">
+              <li className="nav-item" key="nav-item-3">
                 <Link className="btn" to='' onClick={logout}>Log Out</Link>
               </li>
             </ul>
@@ -138,14 +126,14 @@ const Navigationbar = props => {
               {click ? <FaTimes /> : <FaBars />}
             </div>
             <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-              <li className="nav-item">
+              <li className="nav-item" key="nav-item-0">
                 <Link className="btn" to='/'>Home</Link>
               </li>
               {displayLobby()}
-              <li className="nav-item">
+              <li className="nav-item" key="nav-item-1">
                 <Link className="btn" to='/user_dashboard'>UserDashboard</Link>
               </li>
-              <li className="nav-item">
+              <li className="nav-item" key="nav-item-2">
                 <Link className="btn" to='' onClick={logout}>Log Out</Link>
               </li>
             </ul>
@@ -167,12 +155,12 @@ const Navigationbar = props => {
               {click ? <FaTimes /> : <FaBars />}
             </div>
             <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-              <li className="nav-item">
+              <li className="nav-item" key="nav-item-0">
                 <Link className="btn" to="/">Home</Link>
               </li>
               {displayLobby()}
               {displayRegistration()}
-              <li className="nav-item">
+              <li className="nav-item" key="nav-item-1">
                 <Link className="btn" to='/sign_in'>Sign In</Link>
               </li>
             </ul>

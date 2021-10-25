@@ -3,11 +3,14 @@ import React from 'react';
 import parse from 'html-react-parser';
 import '../../userDashboard/preview-sec.css';
 import '../../../../assets/css/agency.min.css'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useHistory } from 'react-router-dom'
+import { FaArrowCircleLeft } from 'react-icons/fa';
 import PdfDownloader from '../../../PdfDownloader';
+
 function FullReport() {
     let fromReport = useLocation();
     let data = fromReport.state.data;
+    let history = useHistory();
     function displayTitle() {
         if (data.abstract !== undefined) {
             var section = [];
@@ -161,6 +164,9 @@ function FullReport() {
         return section;
     }
     return (
+        <div>
+            <FaArrowCircleLeft className="back-arrow" onClick={() => history.goBack()} size={50} color="white"/>
+
         <div className="edit-form-container" style={{ marginTop: "2%", marginBottom: "2%" }}>
             <div className="page" id="downloadPdf">
                 <div className="preview-section">
@@ -176,6 +182,7 @@ function FullReport() {
                 </div>
             </div>
             <PdfDownloader rootElementId="downloadPdf" downloadFileName={data.abstract[0].title} />
+        </div>
         </div>
     );
 }

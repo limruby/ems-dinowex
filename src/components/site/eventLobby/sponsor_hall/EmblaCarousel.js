@@ -53,7 +53,7 @@ const EmblaCarousel = ({ slides, media }) => {
   }, [play]);
 
   return (
-    <div className="embla" style={{backgroundColor: "#f7b13e"}}>
+    <div className="embla">
       <div className="embla__viewport" ref={viewportRef}>
         <div className="embla__container" >
           {slides.map((index) => (

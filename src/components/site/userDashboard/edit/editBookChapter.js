@@ -148,7 +148,7 @@ function checkExist(element, index){
 		<>
 			<form onSubmit={handleForm}>
 				<div className="edit-form-container" style={{ marginTop: "5%", marginBottom:"5%" }}>
-					<h1 className="mb-5">Edit Book Chapter</h1>
+					<h1 className="mb-5">Edit Extended Abstract</h1>
 					<div className="form-group">
 						<label htmlFor="introduction">Introduction</label>
 						<textarea className="form-control" id="introduction" cols="30" rows="10"

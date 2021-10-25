@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../../../assets/css/agency.min.css";
-import './eventLobby.css';
+// import './eventLobby.css';
 import dinowex from "../../../assets/img/Dinowex.png";
 import eventlobby from "../../../assets/img/event-lobby.png";
 import { Image } from 'react-bootstrap';

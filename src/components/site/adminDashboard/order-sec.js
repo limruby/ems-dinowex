@@ -39,7 +39,7 @@ function Order(){
             accessor: 'name',
           },
           {
-            Header: 'Medal Quantity',
+            Header: 'Medal (Qty)',
             accessor: 'medalQuantity',
           },
           // {
@@ -47,7 +47,7 @@ function Order(){
           //   accessor: 'bookQuantity',
           // },
           {
-            Header: 'Certificate Quantity',
+            Header: 'Certificate (Qty)',
             accessor: 'certQuantity',
           },
           {
