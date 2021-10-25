@@ -2,7 +2,6 @@ import React,{useState} from 'react';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import {isAuth, isAdmin} from './utils/isAuth'
-
 import Landing from './components/site/landingPage';
 import SignIn from './components/site/login/login';
 import SignUp from './components/site/signUp'
@@ -22,12 +21,8 @@ import AdminDashboard from './components/site/adminDashboard';
 import AdminEditDetails from './components/site/adminDashboard/edit';
 import PageNotFound from './components/PageNotFound.js';
 import speakers from './components/site/speakers.js'
-
-
 import { QueryClient, QueryClientProvider } from 'react-query'
-
 const queryClient = new QueryClient()
-
 const AdminRoute = ({ component: Component, ...rest }) => (
   <Route {...rest} render={(props) => (
       isAdmin()
@@ -35,17 +30,13 @@ const AdminRoute = ({ component: Component, ...rest }) => (
         :  <Redirect to='/page_not_found/' />
     )} />
 )
-
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route {...rest} render={(props) => (
-
     isAuth() === false
           ? <Redirect to='/sign_in' />
           : <Component {...props} />
   )} />
 )
-
-
 function App() {
   // eslint-disable-next-line no-unused-vars
   const [loggedIn, setLoggedIn] = useState(localStorage.getItem("token"));
@@ -58,7 +49,6 @@ function App() {
         <Route exact path='/' component={Landing}/>
         <Route exact path='/sign_in'  component={SignIn}/>
         <Route exact path='/sign_up'  component={SignUp}/>  
-
         <PrivateRoute exact path='/user_dashboard'  component={UserDashboard}/>  
         <PrivateRoute exact path='/user_dashboard/edit_account' component={EditUserDetails}/>
         <PrivateRoute exact path='/user_dashboard/edit_password' component={EditUserDetails}/>
@@ -67,7 +57,6 @@ function App() {
         <PrivateRoute exact path='/user_dashboard/edit_researchTeam' component={EditUserDetails}/>
         <PrivateRoute exact path='/user_dashboard/edit_abstract' component={EditUserDetails}/>
         <PrivateRoute exact path='/user_dashboard/edit_book_chapter' component={EditUserDetails}/>
-
         <AdminRoute exact path='/admin_dashboard'  component={AdminDashboard}/>
         <AdminRoute exact path='/admin_dashboard/edit_account'  component={AdminEditDetails}/>
         <AdminRoute exact path='/admin_dashboard/:id/assign_project_title'  component={AdminEditDetails}/>
@@ -83,7 +72,6 @@ function App() {
         <AdminRoute exact path='/admin_dashboard/:id/upload_receipt_sponsor'  component={AdminEditDetails}/>
         <AdminRoute exact path='/admin_dashboard/:id/upload_receipt_visitor'  component={AdminEditDetails}/>
         <AdminRoute exact path='/admin_dashboard/:id/edit_order_status'  component={AdminEditDetails}/>
-
         <Route exact path='/eventLobby'  component={eventLobby}/>  
         <Route exact path='/sponsor_hall'  component={sponsor_hall}/> 
         <Route exact path='/sponsor_booth/:id'  component={sponsor_booth}/> 
@@ -99,10 +87,8 @@ function App() {
      
 	  <Footer/>
       
-
     </Router>
     </QueryClientProvider>
   );
 }
-
 export default App;

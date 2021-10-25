@@ -50,7 +50,7 @@ const Navigationbar = props => {
     var section = [];
     if (lobby) {
       section.push(
-        <li className="nav-item">
+        <li className="nav-item" key="nav-item-0">
           <NavDropdown className="btn" title="Event Lobby" onToggle={() => { window.location.href = '/eventLobby' }}
             show={show}
             onMouseEnter={showDropdown}
@@ -67,7 +67,7 @@ const Navigationbar = props => {
     var section = [];
     if (!lobby) {
       section.push(
-        <li className="nav-item">
+        <li className="nav-item" key="nav-item-0">
         <Link className="btn" to='/sign_up'>Registration</Link>
         </li>
         )
@@ -89,10 +89,10 @@ const Navigationbar = props => {
               {click ? <FaTimes /> : <FaBars />}
             </div>
             <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-              <li className="nav-item">
+              <li className="nav-item" key="nav-item-0">
                 <Link className="btn" to='/'>Home</Link>
               </li>
-              <li className="nav-item">
+              <li className="nav-item" key="nav-item-1">
                 <NavDropdown className="btn" title="Event Lobby" onToggle={() => { window.location.href = '/eventLobby' }}
                   show={show}
                   onMouseEnter={showDropdown}
@@ -101,10 +101,10 @@ const Navigationbar = props => {
                   <NavDropdown.Item href="/competition_hall">Competition Hall</NavDropdown.Item>
                 </NavDropdown>
               </li>
-              <li className="nav-item">
+              <li className="nav-item" key="nav-item-2">
                 <Link className="btn" to='/admin_dashboard'>AdminDashboard</Link>
               </li>
-              <li className="nav-item">
+              <li className="nav-item" key="nav-item-3">
                 <Link className="btn" to='' onClick={logout}>Log Out</Link>
               </li>
             </ul>
@@ -126,14 +126,14 @@ const Navigationbar = props => {
               {click ? <FaTimes /> : <FaBars />}
             </div>
             <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-              <li className="nav-item">
+              <li className="nav-item" key="nav-item-0">
                 <Link className="btn" to='/'>Home</Link>
               </li>
               {displayLobby()}
-              <li className="nav-item">
+              <li className="nav-item" key="nav-item-1">
                 <Link className="btn" to='/user_dashboard'>UserDashboard</Link>
               </li>
-              <li className="nav-item">
+              <li className="nav-item" key="nav-item-2">
                 <Link className="btn" to='' onClick={logout}>Log Out</Link>
               </li>
             </ul>
@@ -155,12 +155,12 @@ const Navigationbar = props => {
               {click ? <FaTimes /> : <FaBars />}
             </div>
             <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-              <li className="nav-item">
+              <li className="nav-item" key="nav-item-0">
                 <Link className="btn" to="/">Home</Link>
               </li>
               {displayLobby()}
               {displayRegistration()}
-              <li className="nav-item">
+              <li className="nav-item" key="nav-item-1">
                 <Link className="btn" to='/sign_in'>Sign In</Link>
               </li>
             </ul>
