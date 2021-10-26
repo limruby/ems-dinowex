@@ -27,6 +27,7 @@ function EditProfile({data, setData}) {
           data.postcode=== null ||
           data.city=== "" ||
           data.state=== "" ||
+          data.country=== "" ||
           data.company_website=== "" ||
           data.company_logo=== "" ||
           data.company_pic_ic=== null ){
@@ -46,7 +47,8 @@ function EditProfile({data, setData}) {
              city: data.city,
              state: data.state,
              company_website : data.company_website,
-             company_logo : data.company_logo
+             company_logo : data.company_logo,
+             country : data.country
          }
 
          axiosInstance.post("/api/sponsors/update", postData)
@@ -206,6 +208,13 @@ function displayLogo(){
                         <option value="Selangor">Selangor</option>
                         <option value="Terengganu">Terengganu</option>
                   </select>
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="country"><span>*</span>Country</label>
+                  <input className="form-control" type="text" id="country"
+                      onChange={inputChange('country')} value={data.country} placeholder="country" required
+                  />
                 </div>
  
                 <div className="form-group">

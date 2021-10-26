@@ -148,7 +148,7 @@ function Sponsor_hall() {
       <div className="row">
         <div className="col-xl-6" style={{ backgroundColor: "#7e7ebc" }}>
           <div className="sponsor-details">
-            <p>The Biggest Islamic Coopetative Bank In Malaysia</p>
+            <p>The Biggest Islamic Cooperative Bank In Malaysia</p>
             <p>Consumer Banking, Commercial Financing, Savings And Investments And Financial Planning Products</p>
             <p>147 Branches, More Than 990 Automated Teller Machines (ATMs) And Cash Deposit Machines (CDM), And 183 Ar-Rahnu X'Change Nationwide</p>
           </div>
@@ -157,7 +157,7 @@ function Sponsor_hall() {
         <div className="col-xl-6" style={{ backgroundColor: "#43ba7a" }}>
           <div className="sponsor-details">
             <p>MISSION</p>
-            <h4>Malaysia's No. 1 Progressive Islamic Coopetative Bank.</h4>
+            <h4>Malaysia's No. 1 Progressive Islamic Cooperative Bank.</h4>
           </div>
 
           <div className="sponsor-details">
