@@ -56,7 +56,7 @@ function EditPromoContent({ data, setData }) {
     }
     if (data.poster == null || data.poster.length < 5) {
       section.push(
-        <input type="file" onChange={inputChange('poster')} enable />
+        <input type="file" onChange={inputChange('poster')} enable accept="image/png, image/jpeg"/>
       )
     }
     return section;

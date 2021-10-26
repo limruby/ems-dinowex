@@ -18,7 +18,7 @@ function EditCompMaterial({ data, setData }) {
     if (data.poster == null || data.poster[0] == null) {
       section.push(
         <div className="form-group">
-          <input type="file" onChange={inputChange('poster', 0)} />
+          <input type="file" onChange={inputChange('poster', 0)} accept="image/png, image/jpeg" />
         </div>
       );
     }
@@ -48,7 +48,7 @@ function EditCompMaterial({ data, setData }) {
     }
     if (data.achievements == null || data.achievements.length < 3) {
       section.push(
-        <input type="file" onChange={inputChange('achievement')} enable />
+        <input type="file" onChange={inputChange('achievement')} enable accept="image/png, image/jpeg, application/pdf"/>
       )
     }
     return section;
@@ -68,7 +68,7 @@ function EditCompMaterial({ data, setData }) {
     }
     if (data.publications == null || data.publications.length < 3) {
       section.push(
-        <input type="file" onChange={inputChange('publication')} enable />
+        <input type="file" onChange={inputChange('publication')} enable accept="image/png, image/jpeg, application/pdf"/>
       );
     }
     return section;
@@ -88,7 +88,7 @@ function EditCompMaterial({ data, setData }) {
     }
     if (data.grants == null || data.grants[0] == null || data.grants.length < 3) {
       section.push(
-        <input type="file" onChange={inputChange('grant')} enable />
+        <input type="file" onChange={inputChange('grant')} enable accept="image/png, image/jpeg, application/pdf"/>
       )
     }
     return section;

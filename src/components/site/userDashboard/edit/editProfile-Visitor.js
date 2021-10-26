@@ -35,7 +35,7 @@ function EditProfile({ data, setData }) {
       var postData = {
         _id: data._id,
         name: data.name,
-        gender : data.gender,
+        gender: data.gender,
         contact: data.contact,
         nric_passport_selection: data.nric_passport_selection,
         nric_passport_no: data.nric_passport_no,
@@ -43,7 +43,7 @@ function EditProfile({ data, setData }) {
         address_2: data.address_2,
         postcode: data.postcode,
         city: data.city,
-        state: data.state       
+        state: data.state
       }
 
       axiosInstance.post("/api/visitors/update", postData)
@@ -54,67 +54,73 @@ function EditProfile({ data, setData }) {
         })
     }
   }
-  function displayInput(){
-    var section=[];
-    if(data.nric_passport_selection==="NRIC"){
-        section.push( <input
-                    className="form-control"
-                    type='text'
-                    name='nric_passport_no'
-                    id="nric_passport_no"
-                    placeholder='NRIC (Without dash) '
-                    required
-                    pattern="[0-9]{12}"
-                    onChange={
-                        inputChange('nric_passport_no')}
-                    value={data.nric_passport_no} />)
+  function displayInput() {
+    var section = [];
+    if (data.nric_passport_selection === "NRIC") {
+      section.push(<input
+        className="form-control"
+        type='text'
+        name='nric_passport_no'
+        id="nric_passport_no"
+        placeholder='NRIC (Without dash) '
+        required
+        pattern="[0-9]{12}"
+        onChange={
+          inputChange('nric_passport_no')}
+        value={data.nric_passport_no} />)
     }
-    else if(data.nric_passport_selection==="PASSPORT NUMBER"){
-        section.push( <input
-                    className="form-control"
-                    type='text'
-                    name='nric_passport_no'
-                    id="nric_passport_no"
-                    placeholder='Passport Number '
-                    required
-                    onChange={
-                        inputChange('nric_passport_no')}
-                    value={data.nric_passport_no} />)
+    else if (data.nric_passport_selection === "PASSPORT NUMBER") {
+      section.push(<input
+        className="form-control"
+        type='text'
+        name='nric_passport_no'
+        id="nric_passport_no"
+        placeholder='Passport Number '
+        required
+        onChange={
+          inputChange('nric_passport_no')}
+        value={data.nric_passport_no} />)
     }
     return section;
-}
+  }
   /////////////////////////////////////////////////////////////
   return (
     <>
       <form onSubmit={handleForm} action="/uploadfile" enctype="multipart/form-data" method="POST">
-      <div className="edit-form-container" style={{marginTop:"5%", marginBottom:"5%"}}>
+        <div className="edit-form-container" style={{ marginTop: "5%", marginBottom: "5%" }}>
           <h1 className="mb-5">Edit Profile Info</h1>
           <div className="form-group">
-              <label htmlFor="name"><span>*</span> Full Name (as per IC) </label>
-              <input type="text" className="form-control" name="name" id="name"
-                  placeholder='Full Name (as per IC / Passport)' required
-                  onChange={inputChange('name')} value={data.name} />
+            <label htmlFor="name"><span>*</span> Full Name (as per IC) </label>
+            <input type="text" className="form-control" name="name" id="name"
+              placeholder='Full Name (as per IC / Passport)' required
+              onChange={inputChange('name')} value={data.name} />
           </div>
           <div className="form-group">
-              <label htmlFor="gender_id"><span>*</span>Gender</label>
-              <select className="form-control" id="gender_id" required
-                  onChange={inputChange('gender')} value={data.gender} >
-                  <option value="">Please select</option>
-                  <option value="MALE">Male</option>
-                  <option value="FEMALE">Female</option>
-              </select>
+            <label htmlFor="gender_id"><span>*</span>Gender</label>
+            <select className="form-control" id="gender_id" required
+              onChange={inputChange('gender')} value={data.gender} >
+              <option value="">Please select</option>
+              <option value="MALE">Male</option>
+              <option value="FEMALE">Female</option>
+            </select>
           </div>
           <div className="form-group">
-              <label htmlFor="ic_passport_selection"><span>NRIC/ Passport Selection: </span>{data.nric_passport_selection}</label>
-              <br />
-              {displayInput()}     
+            <label htmlFor="nric_passport_selection"><span>*</span>NRIC / Passport Number</label>
+            <select className="form-control" id="nric_passport_selection" required
+              onChange={inputChange('nric_passport_selection')} value={data.nric_passport_selection} >
+              <option value="">Please select</option>
+              <option value="NRIC">NRIC</option>
+              <option value="PASSPORT NUMBER">Passport Number</option>
+            </select>
+            <br />
+            {displayInput()}
           </div>
           <div className="form-group">
-              <label htmlFor="contact"><span>*</span>Contact Number</label>
-              <input className="form-control" type='text' name='contact' id="contact"
-                  placeholder='Phone Number (Without dash)' required pattern='[0-9]{10,20}'
-                  onChange={inputChange('contact')} value={data.contact}
-              />
+            <label htmlFor="contact"><span>*</span>Contact Number</label>
+            <input className="form-control" type='text' name='contact' id="contact"
+              placeholder='Phone Number (Without dash)' required pattern='[0-9]{10,20}'
+              onChange={inputChange('contact')} value={data.contact}
+            />
           </div>
           <div className="form-group">
             <label htmlFor="address_1"><span>*</span>Address Line 1</label>

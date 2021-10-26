@@ -2,18 +2,18 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import "../../../assets/css/agency.min.css";
 import axiosInstance from '../../../utils/axiosConfig.js';
-// import Loader from './../../site/Loader';
+import Loader from './../../site/Loader';
 function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    // const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(false)
     const submit = (e) => {
         e.preventDefault();
         const data = {
             email: email,
             password: password
         }
-        // setLoading(true);
+        setLoading(true);
         axiosInstance.post('/api/accounts/login', data)
             .then(res => {
                 localStorage.clear();
@@ -32,7 +32,7 @@ function Login() {
                                 if (response.data.data.bill_status === "true") {
                                     localStorage.setItem('token', res.data.token);
                                     localStorage.setItem('user_id', JSON.stringify(res.data.result._id));
-                                    // setLoading(false);
+                                    setLoading(false);
                                     window.location.href = '/user_dashboard';
                                 }
                                 else {
@@ -61,14 +61,14 @@ function Login() {
                                 if (response.data.data.bill_status === "true") {
                                     localStorage.setItem('token', res.data.token);
                                     localStorage.setItem('user_id', JSON.stringify(res.data.result._id));
-                                    // setLoading(false);
+                                    setLoading(false);
                                     window.location.href = '/user_dashboard';
                                 }
                                 else if (response.data.data.email === "demo@sponsor.com") {
                                     console.log(response.data.data.email)
                                     localStorage.setItem('token', res.data.token);
                                     localStorage.setItem('user_id', JSON.stringify(res.data.result._id));
-                                    // setLoading(false);
+                                    setLoading(false);
                                     window.location.href = '/user_dashboard';
                                 }
                                 else {
@@ -95,7 +95,7 @@ function Login() {
                                 localStorage.setItem('name', response.data.data.title + " " + response.data.data.name);
                                 localStorage.setItem('token', res.data.token);
                                 localStorage.setItem('user_id', JSON.stringify(res.data.result._id));
-                                // setLoading(false);
+                                setLoading(false);
                                 window.location.href = '/user_dashboard';
                             })
                     }
@@ -107,7 +107,7 @@ function Login() {
                                 if (response.data.data.bill_status === "true") {
                                     localStorage.setItem('token', res.data.token);
                                     localStorage.setItem('user_id', JSON.stringify(res.data.result._id));
-                                    // setLoading(false);
+                                    setLoading(false);
                                     window.location.href = '/user_dashboard';
                                 }
                                 else {
@@ -127,7 +127,7 @@ function Login() {
     return (
         <>
             <section className="section-container">
-                {/* {loading ? <Loader /> : null} */}
+                {loading ? <Loader /> : null}
                 <div className="login-form-container">
                     <h3>Login</h3>
                     <form onSubmit={submit}>

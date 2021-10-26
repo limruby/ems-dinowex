@@ -30,7 +30,7 @@ function UploadReceipt() {
             section.push(
                 <div className="form-group" style={{ paddingBottom: "5%" }}>
                     <h1 className="mb-5">Upload Receipt<span>*</span></h1>
-                    <input type="file" onChange={uploadReceiptHandler('receipt', 0)} />
+                    <input type="file" onChange={uploadReceiptHandler('receipt', 0)} accept="image/png, image/jpeg, application/pdf"/>
                 </div>
             );
         }
@@ -51,7 +51,7 @@ function UploadReceipt() {
             section.push(
                 <div className="form-group" style={{ paddingBottom: "5%" }}>
                     <h1 className="mb-5">Upload Certificate<span>*</span></h1>
-                    <input type="file" onChange={uploadCertHandler('certificate', 0)} />
+                    <input type="file" onChange={uploadCertHandler('certificate', 0)} accept="image/png, image/jpeg, application/pdf"/>
                 </div>
             );
         }
@@ -60,7 +60,7 @@ function UploadReceipt() {
                 <div className="member-box">
                     <h1 className="mb-5">Certificate</h1>
                     <p>{data.certificate[0].name}</p>
-                    <button className="deleteBtn" type="button" onClick={deleteFile('certificate', 0)}> <FaTrashAlt /></button>
+                    <button className="deleteBtn" type="button" onClick={deleteFile('certificate', 0)} > <FaTrashAlt /></button>
                 </div>
             )
         }
