@@ -3,29 +3,31 @@ import { Link } from 'react-router-dom';
 import axiosInstance from '../../../../utils/axiosConfig.js';
 function EditProfile({ data, setData }) {
     localStorage.setItem("activeKeys", "Account-Profiles");
-    const inputChange = input => e => {
-        setData({
-            ...data,
-            [input]: e.target.value
-        });
-    };
-    const handleForm = (e) => {
-        e.preventDefault();
-        // perform all neccassary validations
-        if (data.name === "" ||
-            data.affiliation === "" ||
-            data.nric_passport_selection === "" ||
-            data.nric_passport_no === "" ||
-            data.address_1 === "" ||
-            data.address_2 === "" ||
-            data.postcode === "" ||
-            data.city === "" ||
-            data.state === "" ||
-            data.gender === "" ||
-            data.phone_no === "") {
-            alert("Form not fill");
-        }
-        else {
+    
+const inputChange = input => e => {
+    setData({
+        ...data,
+        [input]: e.target.value
+    });
+};
+const handleForm=(e)=>{
+    e.preventDefault();
+    // perform all neccassary validations
+    if (data.name === "" ||
+        data.affiliation === "" ||
+        data.nric_passport_selection === "" ||
+        data.nric_passport_no === "" ||
+        data.address_1 === "" ||
+        data.address_2 === "" ||
+        data.postcode === "" ||
+        data.city === "" ||
+        data.state === "" ||
+        data.gender === "" ||
+        data.phone_no === ""||
+        data.country === ""){
+        alert("Form not fill");
+    }
+    else{
             ///////update to db /////////////
             var postData = {
                 _id: data._id,
@@ -39,7 +41,8 @@ function EditProfile({ data, setData }) {
                 postcode: data.postcode,
                 city: data.city,
                 state: data.state,
-                phone_no: data.phone_no
+                phone_no: data.phone_no,
+                country: data.country
             }
             axiosInstance.post("/api/competitors/update", postData)
                 .then(function (response) {
@@ -49,20 +52,21 @@ function EditProfile({ data, setData }) {
                 })
         }
     }
-    function displayInput() {
-        var section = [];
-        if (data.nric_passport_selection === "NRIC") {
-            section.push(<input
-                className="form-control"
-                type='text'
-                name='nric_passport_no'
-                id="nric_passport_no"
-                placeholder='NRIC (Without dash) '
-                required
-                pattern="[0-9]{12}"
-                onChange={
-                    inputChange('nric_passport_no')}
-                value={data.nric_passport_no} />)
+
+    function displayInput(){
+        var section=[];
+        if(data.nric_passport_selection==="NRIC"){
+            section.push( <input
+                        className="form-control"
+                        type='text'
+                        name='nric_passport_no'
+                        id="nric_passport_no"
+                        placeholder='NRIC (Without dash) '
+                        required
+                        pattern="[0-9]{12}"
+                        onChange={
+                            inputChange('nric_passport_no')}
+                        value={data.nric_passport_no} />)
         }
         else if (data.nric_passport_selection === "PASSPORT NUMBER") {
             section.push(<input
@@ -162,8 +166,10 @@ function EditProfile({ data, setData }) {
                         </select>
                     </div>
                     <div className="form-group">
-                        <label htmlFor="country"><span>Country: </span>{data.country}</label>
-                        <br />
+                        <label htmlFor="country"><span>*</span>Country</label>
+                        <input className="form-control" type="text" id="country"
+                            onChange={inputChange('country')} value={data.country} placeholder="country" required
+                        />
                     </div>
                     <div className="form-group">
                         <label htmlFor="gender_id"><span>*</span>Gender</label>
