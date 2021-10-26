@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import axiosInstance from '../../../../utils/axiosConfig.js';
 function EditProfile({data, setData}) {
     localStorage.setItem("activeKeys", "Account-Profiles");
+    
 const inputChange = input => e => {
     setData({
         ...data,
@@ -22,7 +23,8 @@ const handleForm=(e)=>{
         data.city === "" ||
         data.state === "" ||
         data.gender === "" ||
-        data.phone_no === ""){
+        data.phone_no === ""||
+        data.country === ""){
         alert("Form not fill");
     }
     else{
@@ -39,7 +41,8 @@ const handleForm=(e)=>{
                 postcode: data.postcode,
                 city: data.city,
                 state: data.state,
-                phone_no: data.phone_no
+                phone_no: data.phone_no,
+                country: data.country
             }
             axiosInstance.post("/api/competitors/update", postData)
             .then(function(response) {
@@ -49,6 +52,7 @@ const handleForm=(e)=>{
             })
         }
     }
+
     function displayInput(){
         var section=[];
         if(data.nric_passport_selection==="NRIC"){
@@ -156,8 +160,10 @@ const handleForm=(e)=>{
                         </select>
                     </div>
                     <div className="form-group">
-                        <label htmlFor="country"><span>Country: </span>{data.country}</label>
-                        <br />    
+                        <label htmlFor="country"><span>*</span>Country</label>
+                        <input className="form-control" type="text" id="country"
+                            onChange={inputChange('country')} value={data.country} placeholder="country" required
+                        />
                     </div>
                     <div className="form-group">
                         <label htmlFor="gender_id"><span>*</span>Gender</label>
