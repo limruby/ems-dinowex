@@ -3,9 +3,11 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import axiosInstance from '../../../../utils/axiosConfig.js';
 import { FaTrashAlt } from 'react-icons/fa';
+import Loader from './../../../site/Loader';
 
 function AssignProject() {
     localStorage.setItem("activeKeys", "Judge")
+    const [loading, setLoading] = useState(false)
     const [pair, setPair] = useState([])
     const [comp, setComp] = useState([])
     const [judge, setJudge] = useState([])
@@ -92,6 +94,7 @@ function AssignProject() {
         return section;
     }
     const handleForm = (e) => {
+        setLoading(true);
         // perform all neccassary validations
         var tempComp;
         for (var j = 0; j < competitor.length; j++) {
@@ -111,6 +114,7 @@ function AssignProject() {
         }
         axiosInstance.post("/api/evaluation/create", postData)
             .then(function (response) {
+                setLoading(false);
             }).catch(function (error) {
                 console.log(error)
             })
@@ -118,6 +122,7 @@ function AssignProject() {
 
     return (
         <div className="edit-form-container">
+            {loading ? <Loader /> : null}
             <form onSubmit={handleForm}>
                 <h1>Judge: {judge.title} {judge.name}</h1>
                 {displayCompetitors()}

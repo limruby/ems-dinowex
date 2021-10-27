@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axiosInstance from '../../../../utils/axiosConfig.js';
+import Loader from './../../../site/Loader';
 
 function CreateAccount() {
     localStorage.setItem("activeKeys", "Account")
-
+    const [loading, setLoading] = useState(false)
     var judgeData = {
         account_id: '',
         title: 'default',
@@ -194,6 +195,7 @@ function CreateAccount() {
     }
     const handleForm = (e) => {
         e.preventDefault();
+        setLoading(true);
         // perform all neccassary validations
         if (data.password === null || data.email === null || data.role === null) {
             alert("Form Incomplete!");
@@ -213,6 +215,7 @@ function CreateAccount() {
 
                         axiosInstance.post("/api/competitors/create", compData)
                             .then(function (response) {
+                                setLoading(false);
                                 window.location.href = '/admin_dashboard';
                             }).catch(function (error) {
                                 console.log(error)
@@ -228,6 +231,7 @@ function CreateAccount() {
 
                         axiosInstance.post("/api/sponsors/create", sponsorData)
                             .then(function (response) {
+                                setLoading(false);
                                 window.location.href = '/admin_dashboard';
                             }).catch(function (error) {
                                 console.log(error)
@@ -237,6 +241,7 @@ function CreateAccount() {
                         judgeData["account_id"] = response.data._id
                         axiosInstance.post("/api/judge/create", judgeData)
                             .then(function (response) {
+                                setLoading(false);
                                 window.location.href = '/admin_dashboard';
                             }).catch(function (error) {
                                 console.log(error)
@@ -247,6 +252,7 @@ function CreateAccount() {
                         speakerData["category"] = data.category;
                         axiosInstance.post("/api/speaker/create", speakerData)
                             .then(function (response) {
+                                setLoading(false);
                                 window.location.href = '/admin_dashboard';
                             }).catch(function (error) {
                                 console.log(error)
@@ -256,6 +262,7 @@ function CreateAccount() {
                         visitorData["account_id"] = response.data._id
                         axiosInstance.post("/api/visitors/create", visitorData)
                             .then(function (response) {
+                                setLoading(false);
                                 window.location.href = '/admin_dashboard';
                             }).catch(function (error) {
                                 console.log(error)
@@ -270,6 +277,7 @@ function CreateAccount() {
 
     return (
         <div className="edit-form-container">
+            {loading ? <Loader /> : null}
             <form onSubmit={handleForm}>
                 <h1 className="mb-5">Account Setup</h1>
                 <div className="form-group">

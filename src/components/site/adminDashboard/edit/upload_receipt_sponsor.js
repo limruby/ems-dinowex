@@ -3,9 +3,11 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import axiosInstance from '../../../../utils/axiosConfig.js';
 import { FaTrashAlt } from 'react-icons/fa';
+import Loader from './../../../site/Loader';
 
 function UploadReceipt() {
     localStorage.setItem("activeKeys", "Sponsor")
+    const [loading, setLoading] = useState(false)
     const [data, setData] = useState({
         receipt: [],
         certificate: []
@@ -135,6 +137,7 @@ function UploadReceipt() {
     }
     const handleForm = (e) => {
         e.preventDefault();
+        setLoading(true);
         ///////update to db /////////////   
         var postData = {
             _id: data._id,
@@ -143,6 +146,7 @@ function UploadReceipt() {
         }
         axiosInstance.post("/api/sponsors/update", postData)
             .then(function (response) {
+                setLoading(false);
                 window.location.href = '/admin_dashboard';
             }).catch(function (error) {
                 console.log(error);
@@ -151,6 +155,7 @@ function UploadReceipt() {
     return (
         <>
             <form onSubmit={handleForm}>
+            {loading ? <Loader /> : null}
                 <div className="edit-form-container" style={{ marginTop: "5%", marginBottom: "5%" }}>
                     {displayReceiptForm()}
                     {displayCertForm()}

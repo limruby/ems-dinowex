@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import axiosInstance from '../../../../utils/axiosConfig.js';
+import Loader from './../../../site/Loader';
 
 function EditJudge() {
     localStorage.setItem("activeKeys", "Judge");
+    const [loading, setLoading] = useState(false)
     const [data, setData] = useState({
         title:'',
         name: '',
@@ -39,9 +41,9 @@ function EditJudge() {
         });
     };
 
-    const handleForm = (e) => {
-        console.log(data);
+    const handleForm = (e) => {   
         e.preventDefault();
+        setLoading(true);
         // perform all neccassary validations
         if (data.name === "" ||
             data.affiliation === "" ||
@@ -76,6 +78,7 @@ function EditJudge() {
 
             axiosInstance.post("/api/judge/update", postData)
                 .then(function (response) {
+                    setLoading(false);
                     window.location.href = '/admin_dashboard';
                 }).catch(function (error) {
                     console.log(error);
@@ -87,6 +90,7 @@ function EditJudge() {
         <>
 
             <form onSubmit={handleForm}>
+            {loading ? <Loader /> : null}
                 <div className="edit-form-container" style={{ marginTop: "5%", marginBottom: "5%" }}>
 
                     <h1 className="mb-5">Edit Profile Info</h1>
