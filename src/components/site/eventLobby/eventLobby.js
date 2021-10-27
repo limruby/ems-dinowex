@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "../../../assets/css/agency.min.css";
-// import './eventLobby.css';
 import dinowex from "../../../assets/img/Dinowex.png";
 import eventlobby from "../../../assets/img/event-lobby.png";
 import { Image } from 'react-bootstrap';
@@ -22,7 +21,7 @@ function EventLobby() {
       section.push(
         <div className="youtube-dropdown youtube-event">
           <span className="youtube-event-arrow"></span>YOUTUBE - EVENT
-          <div className="youtube-dropdown-content">
+          <div className="youtube-dropdown-content" style={{color:"#D3D3D3"}}>
             <span className="youtube-dropdown-arrow"></span>DINOWEX
           </div>
         </div>
@@ -32,7 +31,7 @@ function EventLobby() {
         section.push(
           <div className="youtube-dropdown youtube-event">
             <span className="youtube-event-arrow"></span>YOUTUBE - EVENT
-            <div className="youtube-dropdown-content">
+            <div className="youtube-dropdown-content" style={{color:"#D3D3D3"}}>
               <span className="youtube-dropdown-arrow"></span>DINOWEX
             </div>
           </div>
@@ -42,7 +41,8 @@ function EventLobby() {
           <div className="youtube-dropdown youtube-event">
             <span className="youtube-event-arrow"></span>YOUTUBE - EVENT
             <div className="youtube-dropdown-content">
-              <a href={data[0].youtube_form}><span className="youtube-dropdown-arrow"></span>DINOWEX</a>
+              {/* <a href={data[0].youtube_form}><span className="youtube-dropdown-arrow"></span>DINOWEX</a> */}
+              <a href='/live_event'><span className="youtube-dropdown-arrow"></span>DINOWEX</a>
             </div>
           </div>
         )
