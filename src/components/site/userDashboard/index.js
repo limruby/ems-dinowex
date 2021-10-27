@@ -17,12 +17,15 @@ import Preview from './preview-sec'; import 'bootstrap/dist/css/bootstrap.min.cs
 import { Tab, Nav, Row, Col, Card } from "react-bootstrap";
 import { FaEdit, FaCertificate, FaBook, FaRegBookmark, FaReceipt, FaMedal } from 'react-icons/fa';
 import { BsPeopleCircle, BsFiles} from "react-icons/bs";
+import Loader from './../../site/Loader';
 function UserDashboard() {  ////////////////////get login user info (REPLACE THIS)  /////////////////////
   const [user, setUser] = useState([]);
   const [account, setAccount] = useState([]);
   const role = localStorage.getItem('role');
   const account_id = localStorage.getItem('user_id');
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
+    setLoading(true);
     axiosInstance.get("/api/accounts/read", { params: { account_id: account_id } })
       .then(function (response) {
         setAccount(response.data.data);
@@ -32,7 +35,8 @@ function UserDashboard() {  ////////////////////get login user info (REPLACE THI
     if (role === "Competitor") {
       axiosInstance.get("/api/competitors/read", { params: { account_id: account_id } })
         .then(function (response) {
-          setUser(response.data.data);
+          setUser(response.data.data);          
+          setLoading(false);
         }).catch(function (error) {
           console.log(error);
         });
@@ -41,6 +45,7 @@ function UserDashboard() {  ////////////////////get login user info (REPLACE THI
       axiosInstance.get("/api/sponsors/read", { params: { account_id: account_id } })
         .then(function (response) {
           setUser(response.data.data);
+          setLoading(false);
         }).catch(function (error) {
           console.log(error);
         });
@@ -49,6 +54,7 @@ function UserDashboard() {  ////////////////////get login user info (REPLACE THI
       axiosInstance.get("/api/visitors/read", { params: { account_id: account_id } })
         .then(function (response) {
           setUser(response.data.data);
+          setLoading(false);
         }).catch(function (error) {
           console.log(error);
         })
@@ -57,7 +63,8 @@ function UserDashboard() {  ////////////////////get login user info (REPLACE THI
       axiosInstance.get("/api/judge/read", { params: { account_id: account_id } })
         .then(function (response) {
           setUser(response.data.data);
-        }).catch(function (error) {
+          setLoading(false);
+        }).catch(function (error)   {
           console.log(error);
         });
     }
@@ -172,6 +179,7 @@ function UserDashboard() {  ////////////////////get login user info (REPLACE THI
   }
   return (
     <>
+      {loading ? <Loader /> : null}
       {welcome(account.role)}
       <div className="wrapper">
         <Tab.Container id="left-tabs-example" defaultActiveKey={activeKeys}>

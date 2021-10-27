@@ -7,7 +7,9 @@ import axiosInstance from '../../../../utils/axiosConfig';
 import { BsPeopleCircle } from "react-icons/bs";
 import { useHistory } from "react-router-dom";
 import { FaArrowCircleLeft } from 'react-icons/fa';
+import Loader from './../../../site/Loader';
 function Competition_booth() {
+  const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
   const [account, setAccount] = useState([]);
   const [forum, setForum] = useState([])
@@ -20,9 +22,11 @@ function Competition_booth() {
   
   document.addEventListener('contextmenu', event => event.preventDefault());
   useEffect(() => {
+    setLoading(true);
     axiosInstance.get("/api/competitors/read", { params: { account_id: string } })
       .then(function (response) {
-        setData(response.data.data);
+        setData(response.data.data);        
+        setLoading(false);
       }).catch(function (error) {
         console.log(error);
       })
@@ -300,7 +304,8 @@ function Competition_booth() {
     return section;
   }
   return (
-    <header className="masthead comp-background">
+    <header className="masthead comp-background">    
+      {loading ? <Loader /> : null}
       <br></br>
       <FaArrowCircleLeft className="back-arrow" onClick={() => history.goBack()} size={50} />
       <div className="section-container">

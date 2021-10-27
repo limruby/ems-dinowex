@@ -1,10 +1,20 @@
 /* eslint-disable no-unused-vars */
 import React, { Component } from 'react';
 import axiosInstance from '../../../../utils/axiosConfig.js';
+import Loader from './../../../site/Loader';
 require('dotenv').config();
 export class Confirm extends Component {
+    
+    constructor(props) {
+        super(props);
+        this.state = {
+          loading: false
+        };
+      }
+
     continue = async (e) => {
         e.preventDefault();
+        this.setState({loading:true})
         const {
             values: {
                 email,
@@ -65,6 +75,7 @@ export class Confirm extends Component {
                             //save user_ID to localstorage
                             localStorage.setItem('competitor_id', JSON.stringify(res.data._id));
                             window.open(url, "_self")
+                            this.setState({loading:false})
                             this.props.nextStep();
                         });
                 }
@@ -88,6 +99,7 @@ export class Confirm extends Component {
             values.country
         return (
             <section className="section-container" style={{ marginBottom: "5%" }}>
+                {this.state.loading ? <Loader /> : null}
                 <div className="form-container" >
                     <h1>Confirmation</h1>
                     <ul class="list-group">

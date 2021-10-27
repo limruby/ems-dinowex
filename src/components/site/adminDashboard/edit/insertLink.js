@@ -3,15 +3,17 @@ import { Link } from 'react-router-dom';
 import axiosInstance from '../../../../utils/axiosConfig.js';
 import { FaTrashAlt } from 'react-icons/fa';
 import Dialog from '../../Dialog.js';
+import Loader from './../../../site/Loader';
+
 function InsertLink() {
     localStorage.setItem("activeKeys", "Link")
+    const [loading, setLoading] = useState(false)
     const [data, setData] = useState({
         evaluation_form: '',
         youtube_form: '',
         poster_form: ''
     })
     const [link, setLink] = useState([])
-    const [open, setOpen] = React.useState(false)
     useEffect(() => {
         axiosInstance.get("/api/formLink/read")
             .then(function (response) {
@@ -185,6 +187,7 @@ function InsertLink() {
     }
     const handleForm = (e) => {
         e.preventDefault();
+        setLoading(true);
         // perform all neccassary validations
         ///////update to db /////////////           
         var postData = {
@@ -195,6 +198,7 @@ function InsertLink() {
         if (link.length === 0) {
             axiosInstance.post("/api/formLink/create", postData)
                 .then(function (response) {
+                    setLoading(false);
                     window.location.href = '/admin_dashboard';
                 }).catch(function (error) {
                     console.log(error);
@@ -209,6 +213,7 @@ function InsertLink() {
             }
             axiosInstance.post("/api/formLink/update", postData)
                 .then(function (response) {
+                    setLoading(false);
                     window.location.href = '/admin_dashboard';
                 }).catch(function (error) {
                     console.log(error);
@@ -217,7 +222,8 @@ function InsertLink() {
     }
     return (
         <>
-            <form onSubmit={handleForm}>
+            <form onSubmit={handleForm}>        
+                {loading ? <Loader /> : null}
                 <div className="edit-form-container" style={{ marginTop: "5%", marginBottom: "5%" }}>
                     <h1 className="mb-5">Insert Link</h1>
                     {displayLink()}

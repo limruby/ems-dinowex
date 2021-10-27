@@ -4,7 +4,10 @@ import { Link } from 'react-router-dom';
 import { FaTrashAlt } from 'react-icons/fa';
 import Editor from './editor';
 import axiosInstance from '../../../../utils/axiosConfig.js';
-function EditBookChapter({ data, setData }) {
+import Loader from './../../../site/Loader';
+
+function EditBookChapter({ data, setData }) {    
+	const [loading, setLoading] = useState(false);
 	localStorage.setItem("activeKeys", "Abstract");
 	const inputChange = input => e => {
 		if(input==='introduction'){
@@ -105,6 +108,7 @@ function EditBookChapter({ data, setData }) {
 	}
 	const handleForm=(e)=>{
 		e.preventDefault();
+		setLoading(true);
 	// perform all neccassary validations
 	var postData = {
 		_id : data._id,                
@@ -122,6 +126,7 @@ function EditBookChapter({ data, setData }) {
 	
 	axiosInstance.post("/api/competitors/update", postData)
 	.then(function(response) {
+		setLoading(false);
 		window.location.href = '/user_dashboard';
 	}).catch(function(error) {
 		console.log(error);
@@ -146,6 +151,7 @@ function checkExist(element, index){
 	/////////////////////////////////////////////////////////////
 	return (
 		<>
+			{loading ? <Loader /> : null}
 			<form onSubmit={handleForm}>
 				<div className="edit-form-container" style={{ marginTop: "5%", marginBottom:"5%" }}>
 					<h1 className="mb-5">Edit Extended Abstract</h1>

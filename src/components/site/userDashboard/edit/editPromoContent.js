@@ -4,8 +4,10 @@ import { Link } from 'react-router-dom';
 import axiosInstance from '../../../../utils/axiosConfig.js';
 import { FaTrashAlt } from 'react-icons/fa';
 import youtube from '../../../../assets/img/youtube.PNG'
+import Loader from './../../../site/Loader';
 
 function EditPromoContent({ data, setData }) {
+  const [loading, setLoading] = useState(false);
   localStorage.setItem("activeKeys", "Promo-Content")
   const showUpload = (e) => {
     e.preventDefault();
@@ -164,6 +166,7 @@ function EditPromoContent({ data, setData }) {
 
   const handleForm = (e) => {
     e.preventDefault();
+    setLoading(true);
 
     var postData = {
       _id: data._id,
@@ -172,7 +175,8 @@ function EditPromoContent({ data, setData }) {
     }
 
     axiosInstance.post("/api/sponsors/update", postData)
-      .then(function (response) {
+      .then(function (response) {        
+        setLoading(false);
         window.location.href = '/user_dashboard';
       }).catch(function (error) {
         console.log(error);
@@ -182,7 +186,7 @@ function EditPromoContent({ data, setData }) {
 
   return (
     <>
-
+      {loading ? <Loader /> : null}
       <form onSubmit={handleForm}>
         <div className="edit-form-container">
           <h1 className="mb-5">Edit Promotional content</h1>

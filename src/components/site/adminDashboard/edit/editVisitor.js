@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import axiosInstance from '../../../../utils/axiosConfig.js';
+import Loader from './../../../site/Loader';
 
 function EditProfile() {
     localStorage.setItem("activeKeys", "Visitor")
+    const [loading, setLoading] = useState(false)
     const [data, setData] = useState({
         name: '',
         nric_passport_selection: '',
@@ -33,6 +35,7 @@ function EditProfile() {
     };
     const handleForm = (e) => {
         e.preventDefault();
+        setLoading(true);
         // perform all neccassary validations
         if (
             data.name === "" ||
@@ -53,6 +56,7 @@ function EditProfile() {
             }
             axiosInstance.post("/api/visitors/update", postData)
                 .then(function (response) {
+                    setLoading(false);
                     window.location.href = '/admin_dashboard';
                 }).catch(function (error) {
                     console.log(error);
@@ -63,6 +67,7 @@ function EditProfile() {
     return (
         <>
             <form onSubmit={handleForm}>
+            {loading ? <Loader /> : null}
                 <div className="edit-form-container" style={{ marginTop: "5%", marginBottom: "5%" }}>
                     <h1 className="mb-5">Edit Profile Info</h1>
                     <div className="form-group">

@@ -3,15 +3,19 @@ import "./../../../../assets/css/agency.min.css";
 import booth from "./../../../../assets/img/booth.PNG"
 import { Link } from 'react-router-dom';
 import axiosInstance from '../../../../utils/axiosConfig';
+import Loader from './../../../site/Loader';
 
 function Competition_hall() {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     axiosInstance.get("/api/competitors/readAll")
       .then(function (response) {
         console.log(response.data.data[0].abstract[0].title);
         setData(response.data.data);
+        setLoading(false);
       }).catch(function (error) {
         console.log(error);
       })
@@ -52,6 +56,7 @@ function Competition_hall() {
   }
   return (
     <header className="hall-masthead">
+      {loading ? <Loader /> : null}
       <div className="intro-text">
         <div className="intro-lead-in">
           <br></br>

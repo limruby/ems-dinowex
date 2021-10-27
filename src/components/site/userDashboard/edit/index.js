@@ -13,13 +13,16 @@ import EditPromoContent from './editPromoContent.js';
 import EditCompetitionMaterial from './editCompetitionMaterial.js';
 import EditAbstract from './editAbstract.js';
 import EditBookChapter from './editBookChapter.js';
+import Loader from './../../../site/Loader';
 function FormNavigator() {
 	////////////////////get login user role /////////////////////
 	const [user, setUser] = useState([]);
 	const [account, setAccount] = useState([]);
 	const account_id = localStorage.getItem('user_id');
 	const role = localStorage.getItem('role');
+	const [loading, setLoading] = useState(false);
 	useEffect(() => {
+		setLoading(true);
 		axiosInstance.get("/api/accounts/read", { params: { account_id: account_id } })
 		.then(function (response) {
 			setAccount(response.data.data);
@@ -30,6 +33,7 @@ function FormNavigator() {
 			axiosInstance.get("/api/sponsors/read", { params: { account_id: account_id } })
 			.then(function (response) {
 				setUser(response.data.data);
+				setLoading(false);
 			}).catch(function (error) {
 				console.log(error);
 			});
@@ -37,7 +41,8 @@ function FormNavigator() {
 		else if(role ==="Competitor"){
 		axiosInstance.get("/api/competitors/read", { params: { account_id: account_id } })
 			.then(function (response) {
-				setUser(response.data.data);
+				setUser(response.data.data);				
+				setLoading(false);
 			}).catch(function (error) {
 				console.log(error);
 			});
@@ -45,7 +50,8 @@ function FormNavigator() {
 		else if(role ==="Visitors"){
 		axiosInstance.get("/api/visitors/read", { params: { account_id: account_id } })
 			.then(function (response) {
-				setUser(response.data.data);
+				setUser(response.data.data);				
+				setLoading(false);
 			}).catch(function (error) {
 				console.log(error);
 			});
@@ -53,7 +59,8 @@ function FormNavigator() {
 		else if(role ==="Judge"){
 		axiosInstance.get("/api/judge/read", { params: { account_id: account_id } })
 			.then(function (response) {
-				setUser(response.data.data);
+				setUser(response.data.data);				
+				setLoading(false);
 			}).catch(function (error) {
 				console.log(error);
 			});
@@ -67,6 +74,7 @@ function FormNavigator() {
 	if (lastPath === 'edit_account') {
 		return (
 			<section className="section-container">
+				{loading ? <Loader /> : null}
 				<EditAccount data={account} setData={setAccount} />
 			</section>
 		)
@@ -74,6 +82,7 @@ function FormNavigator() {
 	else if (lastPath === 'edit_password') {
 		return (
 			<section className="section-container">
+				{loading ? <Loader /> : null}
 				<EditPassword data={account} setData={setAccount} />
 			</section>
 		)
@@ -83,12 +92,14 @@ function FormNavigator() {
 			case 'edit_profile':
 				return (
 					<div className="form-main-container">
+						{loading ? <Loader /> : null}
 						<EditProfileSponsor data={user} setData={setUser} />
 					</div>
 				)
 			case 'edit_content':
 				return (
 					<section className="section-container">
+						{loading ? <Loader /> : null}
 						<EditPromoContent data={user} setData={setUser} />
 					</section>
 				)
@@ -100,6 +111,7 @@ function FormNavigator() {
 			case 'edit_profile':
 				return (
 					<div className="form-main-container">
+						{loading ? <Loader /> : null}
 						<EditProfileJudge data={user} setData={setUser} />
 					</div>
 				)
@@ -111,6 +123,7 @@ function FormNavigator() {
 			case 'edit_profile':
 				return (
 					<div className="form-main-container">
+						{loading ? <Loader /> : null}
 						<EditProfileVisitor data={user} setData={setUser} />
 					</div>
 				)
@@ -122,30 +135,35 @@ function FormNavigator() {
 			case 'edit_profile':
 				return (
 					<div className="form-main-container">
+						{loading ? <Loader /> : null}
 						<EditProfileCompetitor data={user} setData={setUser} />
 					</div>
 				)
 			case 'edit_researchTeam':
 				return (
 					<section className="section-container">
+						{loading ? <Loader /> : null}
 						<EditResearchTeam data={user} setData={setUser} />
 					</section>
 				)
 			case 'edit_content':
 				return (
 					<div className="form-main-container">
+						{loading ? <Loader /> : null}
 						<EditCompetitionMaterial data={user} setData={setUser} />
 					</div>
 				)
 			case 'edit_abstract':
 				return (
 					<div className="form-main-container">
+						{loading ? <Loader /> : null}
 						<EditAbstract data={user} setData={setUser} />
 					</div>
 				)
 			case 'edit_book_chapter':
 				return (
 					<div className="form-main-container">
+						{loading ? <Loader /> : null}
 						<EditBookChapter data={user} setData={setUser} />
 					</div>
 				)

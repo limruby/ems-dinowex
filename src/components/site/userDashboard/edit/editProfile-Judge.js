@@ -1,9 +1,11 @@
 /* eslint-disable no-unused-vars */
-import React from 'react';
+import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 import axiosInstance from '../../../../utils/axiosConfig.js';
 import { FaTrashAlt } from 'react-icons/fa';
+import Loader from './../../../site/Loader';
 function EditProfile({ data, setData }) {
+    const [loading, setLoading] = useState(false);
     localStorage.setItem("activeKeys", "Account-Profiles");
     const inputChange = input => e => {
         setData({
@@ -72,6 +74,7 @@ function EditProfile({ data, setData }) {
     }
     const handleForm = (e) => {
         e.preventDefault();
+        setLoading(true);
         // perform all neccassary validations
         if (data.name === "" ||
             data.affiliation === "" ||
@@ -105,6 +108,7 @@ function EditProfile({ data, setData }) {
             }
             axiosInstance.post("/api/judge/update", postData)
                 .then(function (response) {
+                    setLoading(false);
                     window.location.href = '/user_dashboard';
                 }).catch(function (error) {
                     console.log(error);
@@ -114,6 +118,7 @@ function EditProfile({ data, setData }) {
     /////////////////////////////////////////////////////////////
     return (
         <>
+            {loading ? <Loader /> : null}
             <form onSubmit={handleForm}>
                 <div className="edit-form-container" style={{ marginTop: "5%", marginBottom: "5%" }}>
                     <h1 className="mb-5">Edit Profile Info</h1>
