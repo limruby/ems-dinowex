@@ -1,10 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import {Link, useLocation} from 'react-router-dom';
 import axiosInstance from '../../../../utils/axiosConfig.js';
+import Loader from './../../../site/Loader';
 
 
 function EditProfile() {
     localStorage.setItem("activeKeys", "Sponsor")
+    const [loading, setLoading] = useState(false)
     const [data, setData] = useState({
         company_name:'',
         company_pic_name:'',
@@ -34,6 +36,7 @@ const inputChange = input => e => {
 
 const handleForm=(e)=>{
     e.preventDefault();
+    setLoading(true);
     // perform all neccassary validations
     if (data.company_name === ""||data.company_pic_name ===""||data.company_contact ===""||data.category===""||data.amount===""
         ){
@@ -52,6 +55,7 @@ else{
 
              axiosInstance.post("/api/sponsors/update", postData)
              .then(function(response) {
+                setLoading(false);
                  window.location.href = '/admin_dashboard';
              }).catch(function(error) {
                  console.log(error);
@@ -63,6 +67,7 @@ else{
 return(
         <>
         <form onSubmit={handleForm} action="/uploadfile" enctype="multipart/form-data" method="POST">
+        {loading ? <Loader /> : null}
         <div className="edit-form-container" style={{marginTop:"5%", marginBottom:"5%"}}>
                 <h1 className="mb-5">Edit Profile Info</h1>
  

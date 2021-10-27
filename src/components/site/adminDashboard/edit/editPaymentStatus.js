@@ -3,9 +3,11 @@ import React, { useEffect,  useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import axiosInstance from '../../../../utils/axiosConfig.js';
 import { FaTrashAlt } from 'react-icons/fa';
+import Loader from './../../../site/Loader';
 
 function EditPaymentStatus() {
     localStorage.setItem("activeKeys", "Order")
+    const [loading, setLoading] = useState(false)
     const [data, setData] = useState({}); 
     const location = useLocation();
     const thePath = location.pathname;
@@ -81,6 +83,7 @@ function EditPaymentStatus() {
     }
     const handleForm=(e)=>{
         e.preventDefault();  
+        setLoading(true);
         var postData = {
             _id : cart_id,
             bill_status: data.bill_status,
@@ -89,6 +92,7 @@ function EditPaymentStatus() {
         }
             axiosInstance.post("/api/cart/updateCart", postData)
             .then(function(response) {
+                setLoading(false);
               window.location.href = '/admin_dashboard';
             }).catch(function(error) {
               console.log(error);
@@ -97,6 +101,7 @@ function EditPaymentStatus() {
     return (
         <>
             <form onSubmit={handleForm}>
+            {loading ? <Loader /> : null}
                 <div className="edit-form-container">
                 <div className="form-group">
                     <label htmlFor="bill_status"><span>*</span>Payment Verify</label>

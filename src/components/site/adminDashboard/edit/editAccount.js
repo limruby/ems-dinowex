@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import axiosInstance from '../../../../utils/axiosConfig.js';
+import Loader from './../../../site/Loader';
 
 function EditAccount({data, setData}) {
     localStorage.setItem("activeKeys", "Account")
+    const [loading, setLoading] = useState(false)
     const inputChange = input => e => {
         setData({
             ...data,
@@ -13,6 +15,7 @@ function EditAccount({data, setData}) {
 
     const handleForm=(e)=>{
         e.preventDefault();
+        setLoading(true);
     // perform all neccassary validations
        if (data.email === ""){
             alert("Form not fill");
@@ -21,6 +24,7 @@ function EditAccount({data, setData}) {
             ///////update to db /////////////
             axiosInstance.post("/api/accounts/update", data)
             .then(function(response) {
+                setLoading(false);
               window.location.href = '/user_dashboard';
             }).catch(function(error) {
               console.log(error);
@@ -35,6 +39,7 @@ function EditAccount({data, setData}) {
         <>
             <form onSubmit={handleForm}>
             <div className="edit-form-container">
+            {loading ? <Loader /> : null}
                 <h1 className="mb-5">Edit Account Info</h1>
                 <div className="form-group">
                     <label htmlFor="email">Email Address </label>

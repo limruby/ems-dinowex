@@ -3,9 +3,11 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import axiosInstance from '../../../../utils/axiosConfig.js';
 import { FaTrashAlt } from 'react-icons/fa';
+import Loader from './../../../site/Loader';
 
 function EditSpeaker() {
     localStorage.setItem("activeKeys", "Speaker");
+    const [loading, setLoading] = useState(false)
     const [data, setData] = useState({
         title: '',
         name: '',
@@ -100,6 +102,7 @@ function EditSpeaker() {
     }
     const handleForm = (e) => {
         console.log(data);
+        setLoading(true);
         e.preventDefault();
         // perform all neccassary validations
         if (data.name === "" ||
@@ -140,6 +143,7 @@ function EditSpeaker() {
             }
             axiosInstance.post("/api/speaker/update", postData)
                 .then(function (response) {
+                    setLoading(false);
                     window.location.href = '/admin_dashboard';
                 }).catch(function (error) {
                     console.log(error);
@@ -150,6 +154,7 @@ function EditSpeaker() {
     return (
         <>
             <form onSubmit={handleForm}>
+            {loading ? <Loader /> : null}
                 <div className="edit-form-container" style={{ marginTop: "5%", marginBottom: "5%" }}>
                     <h1 className="mb-5">Edit Profile Info</h1>
                     <div className="form-group">
