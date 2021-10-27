@@ -1,7 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 import axiosInstance from '../../../../utils/axiosConfig.js';
+import Loader from './../../../site/Loader';
 function EditProfile({ data, setData }) {
+    const [loading, setLoading] = useState(false);
     localStorage.setItem("activeKeys", "Account-Profiles");
     
 const inputChange = input => e => {
@@ -12,6 +14,7 @@ const inputChange = input => e => {
 };
 const handleForm=(e)=>{
     e.preventDefault();
+    setLoading(true);
     // perform all neccassary validations
     if (data.name === "" ||
         data.affiliation === "" ||
@@ -46,6 +49,7 @@ const handleForm=(e)=>{
             }
             axiosInstance.post("/api/competitors/update", postData)
                 .then(function (response) {
+                    setLoading(false);
                     window.location.href = '/user_dashboard';
                 }).catch(function (error) {
                     console.log(error);
@@ -85,6 +89,7 @@ const handleForm=(e)=>{
     /////////////////////////////////////////////////////////////
     return (
         <>
+            {loading ? <Loader /> : null}
             <form onSubmit={handleForm}>
                 <div className="edit-form-container" style={{ marginTop: "5%", marginBottom: "5%" }}>
                     <h1 className="mb-5">Edit Profile Info</h1>

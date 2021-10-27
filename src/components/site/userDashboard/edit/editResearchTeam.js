@@ -3,9 +3,11 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axiosInstance from '../../../../utils/axiosConfig.js';
 import { FaTrashAlt } from 'react-icons/fa';
+import Loader from './../../../site/Loader';
 function EditTeam({ data, setData }) {
   localStorage.setItem("activeKeys", "Research-Team");
   /////////////////////get login user (REPLACE THIS) ////////////////
+  const [loading, setLoading] = useState(false);
   const [tempData, setTemp] = useState({
     tempName: "",
     tempAff: "",
@@ -67,12 +69,14 @@ function EditTeam({ data, setData }) {
   };
   const handleForm = (e) => {
     e.preventDefault();
+    setLoading(true);
     var postData = {
       _id: data._id,
       members: data.members
     }
     axiosInstance.post("/api/competitors/update", postData)
       .then(function (response) {
+        setLoading(false);
         window.location.href = '/user_dashboard';
       }).catch(function (error) {
         console.log(error);
@@ -121,6 +125,7 @@ function EditTeam({ data, setData }) {
   /////////////////////////////////////////////////////////////
   return (
     <>
+      {loading ? <Loader /> : null}
       <form onSubmit={handleForm}>
         <div className="edit-form-container">
           <h5>Team Members</h5>

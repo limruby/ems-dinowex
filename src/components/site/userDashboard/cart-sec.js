@@ -1,13 +1,15 @@
 import { useState, useEffect } from "react";
 import axiosInstance from '../../../../src/utils/axiosConfig.js';
 import OrderHistory from './order-history-sec.js'
+import Loader from './../../site/Loader';
 
 function Cart({ data, setData, user }) {
     const [medalQuantity, setMedal] = useState(0)
     const [certQuantity, setCertQuantity] = useState(0)
     const [medalSubtotal, setMedalSubtotal] = useState(0)
     const [certSubtotal, setCertQuantitySubtotal] = useState(0)
-    const [price, setPrice] = useState(0)
+    const [price, setPrice] = useState(0);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         if (medalQuantity > 0 || certQuantity > 0) {
@@ -36,6 +38,7 @@ function Cart({ data, setData, user }) {
 
     const handleForm = (e) => {
         e.preventDefault();
+        setLoading(true);
         var postData = {
             account_id: user._id,
             medalQuantity: medalQuantity,
@@ -61,7 +64,8 @@ function Cart({ data, setData, user }) {
                             })
                     }
                     alert("Order confirmed, please wait for the billing invoice.")
-                    localStorage.setItem("activeKeys", "Cart")
+                    localStorage.setItem("activeKeys", "Cart");                    
+                    setLoading(false);
                     window.location.href = '/user_dashboard';
                 }).catch(function (error) {
                     console.log(error);
@@ -72,6 +76,7 @@ function Cart({ data, setData, user }) {
     }
     return (
         <div>
+            {loading ? <Loader /> : null}
             <div className="order-btn">
                 <table>
                     <thead>

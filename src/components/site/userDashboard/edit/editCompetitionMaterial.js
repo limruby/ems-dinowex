@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom';
 import axiosInstance from '../../../../utils/axiosConfig.js';
 import { FaTrashAlt } from 'react-icons/fa';
 import youtube from '../../../../assets/img/youtube.PNG'
+import Loader from './../../../site/Loader';
 function EditCompMaterial({ data, setData }) {
+  const [loading, setLoading] = useState(false);
   localStorage.setItem("activeKeys", "Competition-Material");
   const [tempData, setTemp] = useState({
     tempPoster: [],
@@ -211,6 +213,7 @@ function EditCompMaterial({ data, setData }) {
   };
   const handleForm = (e) => {
     e.preventDefault();
+    setLoading(true);
     // perform all neccassary validations
     // video: if name !null, path must !null
     if (tempData.tempVidName !== "") {
@@ -239,6 +242,7 @@ function EditCompMaterial({ data, setData }) {
     }
     axiosInstance.post("/api/competitors/update", postData)
       .then(function (response) {
+        setLoading(false);
         window.location.href = '/user_dashboard';
       }).catch(function (error) {
         console.log(error);
@@ -246,6 +250,7 @@ function EditCompMaterial({ data, setData }) {
   };
   return (
     <>
+      {loading ? <Loader /> : null}
       <form onSubmit={handleForm}>
         <div className="edit-form-container" style={{ marginTop: "5%", marginBottom: "5%" }}>
           <h1 className="mb-5">Edit Competition Material</h1>

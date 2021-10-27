@@ -1,11 +1,12 @@
 /* eslint-disable no-unused-vars */
-import React from 'react';
+import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import axiosInstance from '../../../../utils/axiosConfig.js';
 import { FaTrashAlt } from 'react-icons/fa';
-
+import Loader from './../../../site/Loader';
 
 function EditProfile({data, setData}) {
+    const [loading, setLoading] = useState(false);
     localStorage.setItem("activeKeys", "Account-Profiles");
 
     const inputChange = input => e => {
@@ -17,6 +18,7 @@ function EditProfile({data, setData}) {
 
     const handleForm=(e)=>{
         e.preventDefault();
+        setLoading(true);
     // perform all neccassary validations
     if (
           data.company_name=== "" ||
@@ -52,7 +54,8 @@ function EditProfile({data, setData}) {
          }
 
          axiosInstance.post("/api/sponsors/update", postData)
-         .then(function(response) {
+         .then(function(response) {             
+            setLoading(false);
              window.location.href = '/user_dashboard';
          }).catch(function(error) {
              console.log(error);
@@ -128,7 +131,7 @@ function displayLogo(){
 /////////////////////////////////////////////////////////////
     return(
         <>
-
+        {loading ? <Loader /> : null}
         <form onSubmit={handleForm} action="/uploadfile" enctype="multipart/form-data" method="POST">
         <div className="edit-form-container" style={{marginTop:"5%", marginBottom:"5%"}}>
 
