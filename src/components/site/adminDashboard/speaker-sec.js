@@ -3,9 +3,11 @@ import Table from './Table.js';
 import { Link } from 'react-router-dom';
 import { CSVLink } from 'react-csv';
 import axiosInstance from '../../../utils/axiosConfig';
+import Loader from './../../site/Loader';
 
 function Speaker() {
     const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(false);
     const headers = [
         { label: 'Title', key: 'title' },
         { label: 'Full Name', key: 'name' },
@@ -26,9 +28,11 @@ function Speaker() {
         data: data
     } 
     useEffect(() => {
+        setLoading(true);
         axiosInstance.get("/api/speaker/readAll")
             .then(function (response) {
                 setData(response.data.data);
+                setLoading(false);
             }).catch(function (error) {
                 console.log(error);
             })
@@ -66,6 +70,7 @@ function Speaker() {
     )
     return (
         <div className="App" id="competitor">
+            {loading ? <Loader /> : null}
             <Table columns={columns} data={data} />
             <CSVLink {...csvReport}>
                 <button className="btn btn-success" >Export to CSV</button></CSVLink>

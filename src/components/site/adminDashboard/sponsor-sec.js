@@ -3,10 +3,12 @@ import Table from './Table.js';
 import {Link} from 'react-router-dom';
 import { CSVLink } from 'react-csv';
 import axiosInstance from '../../../utils/axiosConfig';
+import Loader from './../../site/Loader';
 
 function Sponsor(){
 
   const [data, setData]=useState([]);
+  const [loading, setLoading] = useState(false);
   const headers = [
     {label:'Company Name', key: 'Company Name'},
     {label:'Company PIC Name', key: 'company_pic_name'},
@@ -30,11 +32,12 @@ function Sponsor(){
   }
   
   useEffect(() => {
-    
-    
+   
+    setLoading(true);       
     axiosInstance.get("/api/sponsors/readAll")
     .then(function(response) {
       setData(response.data.data);
+      setLoading(false);
     }).catch(function(error) {
       console.log(error);
     })
@@ -111,6 +114,7 @@ function Sponsor(){
 
   return (
     <div className="App">  
+      {loading ? <Loader /> : null}
       <Table columns={columns} data={data} />
       <CSVLink {...csvReport}>
       <button className="btn btn-success" >Export to CSV</button></CSVLink>  

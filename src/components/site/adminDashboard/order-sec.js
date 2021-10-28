@@ -2,13 +2,17 @@ import React, { useState, useEffect } from "react";
 import Table from './Table.js';
 import {Link} from 'react-router-dom';
 import axiosInstance from '../../../utils/axiosConfig';
+import Loader from './../../site/Loader';
 
 function Order(){
   const [data, setData]=useState([]);
+  const [loading, setLoading] = useState(false);
   useEffect(() => { 
+    setLoading(true);
     axiosInstance.get("/api/cart/readCart")
     .then(function(response) {
       setData(response.data.data);
+      setLoading(false);
     }).catch(function(error) {
       console.log(error);
     })
@@ -16,9 +20,11 @@ function Order(){
   }, []);
   function deleteOrder(cart_id) {
 
+    setLoading(true);
     axiosInstance.get("/api/cart/deleteOrder",  { params: { _id: cart_id } })
     .then(function (response) {
       localStorage.setItem("activeKeys", "Order")
+      setLoading(false);
        window.location.reload();
     }).catch(function (error) {
       console.log(error);
@@ -94,6 +100,7 @@ function Order(){
 
   return (
     <div className="App">    
+      {loading ? <Loader /> : null}
       <Table columns={columns} data={data} />
     </div>
   );

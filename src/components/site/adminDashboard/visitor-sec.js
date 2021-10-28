@@ -3,14 +3,18 @@ import Table from './Table.js';
 import { Link } from 'react-router-dom';
 import { CSVLink } from 'react-csv';
 import axiosInstance from '../../../utils/axiosConfig';
+import Loader from './../../site/Loader';
 
 function Visitor() {
     const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
+        setLoading(true);
         axiosInstance.get("/api/visitors/readAll")
             .then(function (response) {
                 setData(response.data.data);
+                setLoading(false);
             }).catch(function (error) {
                 console.log(error);
             })

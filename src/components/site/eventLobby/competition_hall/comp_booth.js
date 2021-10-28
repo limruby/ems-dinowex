@@ -48,6 +48,7 @@ function Competition_booth() {
   };
   const handleForm = (e) => {
     var defaultName;
+    setLoading(true);
     if (!localStorage.getItem("user_id")) {
       if (localStorage.getItem("temp_name")) {
         defaultName = localStorage.getItem("temp_name");
@@ -68,8 +69,8 @@ function Competition_booth() {
     }
     if (comment !== null) {
       axiosInstance.post("/api/forum/create", postData)
-        .then(function (response) {
-         
+        .then(function (response) {         
+          setLoading(false);          
           location.reload(true);
         }).catch(function (error) {
           console.log(error);
