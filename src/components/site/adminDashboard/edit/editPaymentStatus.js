@@ -15,9 +15,11 @@ function EditPaymentStatus() {
     const string = '"'+ cart_id +'"'
 
     useEffect(() => {
+        setLoading(true);
         axiosInstance.get("/api/cart/readOrder", { params: { _id:string} })
             .then(function (response) {
                 setData(response.data.data[0]);
+                setLoading(false);
             }).catch(function (error) {
                 console.log(error);
             })

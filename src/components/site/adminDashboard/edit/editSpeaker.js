@@ -7,7 +7,7 @@ import Loader from './../../../site/Loader';
 
 function EditSpeaker() {
     localStorage.setItem("activeKeys", "Speaker");
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(false);
     const [data, setData] = useState({
         title: '',
         name: '',
@@ -30,9 +30,11 @@ function EditSpeaker() {
     const string = '"' + user_id + '"'
 
     useEffect(() => {
+        setLoading(true);
         axiosInstance.get("/api/speaker/read", { params: { account_id: string } })
             .then(function (response) {
                 setData(response.data.data);
+                setLoading(false);
             }).catch(function (error) {
                 console.log(error);
             })

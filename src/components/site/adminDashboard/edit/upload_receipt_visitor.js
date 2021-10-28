@@ -18,9 +18,11 @@ function UploadReceipt() {
     const user_id = thePath.substring(thePath.indexOf('/', 2) + 1, thePath.lastIndexOf('/'));
     const string = '"' + user_id + '"'
     useEffect(() => {
+        setLoading(true);
         axiosInstance.get("/api/visitors/read", { params: { account_id: string } })
             .then(function (response) {
                 setData(response.data.data);
+                setLoading(false);
             }).catch(function (error) {
                 console.log(error);
             })

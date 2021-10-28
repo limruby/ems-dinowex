@@ -119,6 +119,7 @@ function Login() {
                     }
                 }
                 else {
+                    setLoading(false);
                     alert("Email or password not match.")
                 }
             }

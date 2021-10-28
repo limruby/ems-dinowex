@@ -19,21 +19,25 @@ function AssignProject() {
     const string = '"' + user_id + '"'
 
     useEffect(() => {
+        setLoading(true);
         axiosInstance.get("/api/competitors/readAll")
             .then(function (response) {
                 setCompetitor(response.data.data);
+                setLoading(false);
             }).catch(function (error) {
                 console.log(error);
             })
         axiosInstance.get("/api/judge/read", { params: { account_id: string } })
             .then(function (response) {
                 setJudge(response.data.data);
+                setLoading(false);
             }).catch(function (error) {
                 console.log(error);
             })
         axiosInstance.get("/api/evaluation/read", { params: { judge_id: judge._id } })
             .then(function (response) {
-                setPair(response.data.data)
+                setPair(response.data.data);
+                setLoading(false);
             }).catch(function (error) {
                 console.log(error);
             })
@@ -43,7 +47,9 @@ function AssignProject() {
     function deletePair(_id) {
         axiosInstance.get("/api/evaluation/deletePair",  { params: { _id: _id } })
         .then(function (response) {
+            setLoading(true);
             window.location.reload();
+            setLoading(false);
         }).catch(function (error) {
           console.log(error);
         })

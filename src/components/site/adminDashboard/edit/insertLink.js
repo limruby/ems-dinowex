@@ -15,9 +15,11 @@ function InsertLink() {
     })
     const [link, setLink] = useState([])
     useEffect(() => {
+        setLoading(true);
         axiosInstance.get("/api/formLink/read")
             .then(function (response) {
                 setLink(response.data.data);
+                setLoading(false);
             }).catch(function (error) {
                 console.log(error);
             })

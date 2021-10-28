@@ -3,9 +3,11 @@ import Table from './Table.js';
 import { Link } from 'react-router-dom';
 import { CSVLink } from 'react-csv';
 import axiosInstance from '../../../utils/axiosConfig';
+import Loader from './../../site/Loader';
 
 function Judge() {
   const [data, setData] = useState([]);
+const [loading, setLoading] = useState(false);
   // eslint-disable-next-line no-unused-vars
   const [link, setLink] = useState([])
   const headers = [
@@ -26,9 +28,11 @@ function Judge() {
     data: data
   }
   useEffect(() => {
+    setLoading(true);
     axiosInstance.get("/api/judge/readAll")
       .then(function (response) {
         setData(response.data.data);
+        setLoading(false);
       }).catch(function (error) {
         console.log(error);
       })
@@ -107,6 +111,7 @@ function Judge() {
   )
   return (
     <div className="App" id="competitor">
+      {loading ? <Loader /> : null}
       <Table columns={columns} data={data} />
       <CSVLink {...csvReport}>
         <button className="btn btn-success" >Export to CSV</button></CSVLink>
