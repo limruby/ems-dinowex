@@ -4,7 +4,6 @@ import { Link, useLocation } from 'react-router-dom';
 import axiosInstance from '../../../../utils/axiosConfig.js';
 import { FaTrashAlt } from 'react-icons/fa';
 import Loader from './../../../site/Loader';
-
 function UploadReceipt() {
     localStorage.setItem("activeKeys", "Competitor")
     const [loading, setLoading] = useState(false)
@@ -12,7 +11,6 @@ function UploadReceipt() {
         receipt: [],
         certificate: []
     });
-
     const location = useLocation();
     const thePath = location.pathname;
     const user_id = thePath.substring(thePath.indexOf('/', 2) + 1, thePath.lastIndexOf('/'));
@@ -25,14 +23,14 @@ function UploadReceipt() {
                 console.log(error);
             })
     }, [string])
-
     function displayReceiptForm() {
         var section = [];
         if (data.receipt == null || data.receipt[0] == null) {
             section.push(
                 <div className="form-group" style={{ paddingBottom: "5%" }}>
                     <h1 className="mb-5">Upload Receipt<span>*</span></h1>
-                    <input type="file" onChange={uploadReceiptHandler('receipt', 0)} accept="image/png, image/jpeg, application/pdf"/>
+                    <span>*Limit to file size 1MB</span><br></br>
+                    <input type="file" onChange={uploadReceiptHandler('receipt', 0)} accept="image/png, image/jpeg, application/pdf" />
                 </div>
             );
         }
@@ -53,7 +51,8 @@ function UploadReceipt() {
             section.push(
                 <div className="form-group" style={{ paddingBottom: "5%" }}>
                     <h1 className="mb-5">Upload Certificate<span>*</span></h1>
-                    <input type="file" onChange={uploadCertHandler('certificate', 0)} accept="image/png, image/jpeg, application/pdf"/>
+                    <span>*Limit to file size 1MB</span><br></br>
+                    <input type="file" onChange={uploadCertHandler('certificate', 0)} accept="image/png, image/jpeg, application/pdf" />
                 </div>
             );
         }
@@ -71,20 +70,19 @@ function UploadReceipt() {
     //////action performed//////
     var obj = [];
     const deleteFile = (element, index) => e => {
-        if((window.confirm('Are you sure you wish to delete this item?'))){
-        if (element === 'receipt') {
-            let obj = data.receipt;
-            obj.splice(index, 1);
+        if ((window.confirm('Are you sure you wish to delete this item?'))) {
+            if (element === 'receipt') {
+                let obj = data.receipt;
+                obj.splice(index, 1);
+            }
+            else if (element === 'certificate') {
+                let obj = data.certificate;
+                obj.splice(index, 1);
+            }
+            setData({
+                ...data,
+            });
         }
-        else if (element === 'certificate') {
-            let obj = data.certificate;
-            obj.splice(index, 1);
-        }
-        setData({
-            ...data,
-
-        });
-    }
     }
     const uploadReceiptHandler = (element, index) => e => {
         let selectedFile = e.target.files;
@@ -100,12 +98,20 @@ function UploadReceipt() {
             // Onload of file read the file content
             fileReader.onload = function (fileLoadedEvent) {
                 file = fileLoadedEvent.target.result;
-                // Print data in console
-                // data.receipt[0]['name'] = fileName;
-                // data.receipt[0]['source'] = fileReader.result;
-                data.receipt = {
-                    'name': fileName,
-                    'source': fileReader.result
+                var stringLength = file.length;
+                var result = parseFloat(4 * Math.ceil(stringLength / 3))
+                //Limit File Size
+                if (result > 1048576) {
+                    alert("File size must under 1MiB!");
+                    data.receipt = {
+                        'name': null,
+                        'source': 0
+                    }
+                } else {
+                    data.receipt = {
+                        'name': fileName,
+                        'source': fileReader.result
+                    }
                 }
             };
             // Convert data to base64
@@ -126,17 +132,25 @@ function UploadReceipt() {
             // Onload of file read the file content
             fileReader.onload = function (fileLoadedEvent) {
                 file = fileLoadedEvent.target.result;
-                data.certificate = {
-                    'name': fileName,
-                    'source': fileReader.result
-                }
-            };
-            // Convert data to base64
-            var baseFile = fileReader.readAsDataURL(fileToLoad);
+                var stringLength = file.length;
+                var result = parseFloat(4 * Math.ceil(stringLength / 3))
+                //Limit File Size
+                if (result > 1048576) {
+                    alert("File size must under 1MiB!");
+                    file = null;
+                } else {
+                    data.certificate = {
+                        'name': fileName,
+                        'source': fileReader.result
+                    }
+                };
+                // Convert data to base64
+                var baseFile = fileReader.readAsDataURL(fileToLoad);
+            }
         }
     }
     const handleForm = (e) => {
-        e.preventDefault();  
+        e.preventDefault();
         setLoading(true);
         ///////update to db /////////////   
         var postData = {
@@ -155,7 +169,7 @@ function UploadReceipt() {
     return (
         <>
             <form onSubmit={handleForm}>
-            {loading ? <Loader /> : null}
+                {loading ? <Loader /> : null}
                 <div className="edit-form-container" style={{ marginTop: "5%", marginBottom: "5%" }}>
                     {displayReceiptForm()}
                     {displayCertForm()}
