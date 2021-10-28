@@ -92,6 +92,7 @@ export class Profiles extends Component {
                         <select className="form-control" id="state" required
                             onChange={inputChange('state')} value={values.state} >
                             <option value="">Please select</option>
+                            <option value="International">International</option>
                             <option value="Johor">Johor</option>
                             <option value="Kedah">Kedah</option>
                             <option value="Kelantan">Kelantan</option>
