@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import {Link, useLocation} from 'react-router-dom';
 import axiosInstance from '../../../../utils/axiosConfig.js';
 import Loader from './../../../site/Loader';
-
 function EditProfile() {
     localStorage.setItem("activeKeys", "Competitor")
     const [loading, setLoading] = useState(false)
@@ -16,7 +15,6 @@ function EditProfile() {
         category:'',
         first_purchase:'',
     });
-
     const location = useLocation();
     const thePath = location.pathname;
     const user_id = thePath.substring(thePath.indexOf('/', 2) + 1, thePath.lastIndexOf('/'));
@@ -30,7 +28,35 @@ function EditProfile() {
           console.log(error); })
     }, [string])
        
-          
+    function displayInput(){
+        var section=[];
+        if(data.nric_passport_selection==="NRIC"){
+            section.push( <input
+                        className="form-control"
+                        type='text'
+                        name='nric_passport_no'
+                        id="nric_passport_no"
+                        placeholder='NRIC (Without dash) '
+                        required
+                        pattern="[0-9]{12}"
+                        onChange={
+                            inputChange('nric_passport_no')}
+                        value={data.nric_passport_no} />)
+        }
+        else if (data.nric_passport_selection === "PASSPORT NUMBER") {
+            section.push(<input
+                className="form-control"
+                type='text'
+                name='nric_passport_no'
+                id="nric_passport_no"
+                placeholder='Passport Number '
+                required
+                onChange={
+                    inputChange('nric_passport_no')}
+                value={data.nric_passport_no} />)
+        }
+        return section;
+    }
     
     const inputChange = input => e => {
         setData({
@@ -38,7 +64,6 @@ function EditProfile() {
             [input]: e.target.value
         });
     };
-
     const handleForm=(e)=>{
         e.preventDefault();
         setLoading(true);
@@ -63,8 +88,6 @@ function EditProfile() {
                 category: data.category,  
                 first_purchase: data.first_purchase             
             }
-
-
             axiosInstance.post("/api/competitors/update", postData)
             .then(function(response) {
                 setLoading(false);
@@ -75,14 +98,12 @@ function EditProfile() {
         }
     }
 /////////////////////////////////////////////////////////////
-
     return(
         <>
         <form onSubmit={handleForm}>
         {loading ? <Loader /> : null}
         <div className="edit-form-container" style={{marginTop:"5%", marginBottom:"5%"}}>
                 <h1 className="mb-5">Edit Profile Info</h1>
-
                 <div className="form-group">
                     <label htmlFor="name"><span>*</span>Full Name (as per IC / Passport)</label>
                     <input type="text" className="form-control" name="name" id="name"
@@ -117,9 +138,7 @@ function EditProfile() {
                         <option value="PASSPORT NUMBER">Passport Number</option>
                     </select>
                     <br/>
-                    <input className="form-control" type='text'name='nric_passport_no' id="nric_passport_no"
-                    placeholder='NRIC / Passport Number' required
-                    onChange={inputChange('nric_passport_no')} value={data.nric_passport_no} />
+                    {displayInput()}
                 </div>
                 {/* <div className="form-group">
                         <label htmlFor="first_purchase"><span>*</span>Bookchapter First Purchase<span> True:RM150, False:RM70</span></label>
@@ -130,9 +149,7 @@ function EditProfile() {
                             <option value="false">False</option>
                         </select>
                     </div>         */}
-
                 <br />
-
                 <div className="btn-group">
                     <Link to="/admin_dashboard">
                         <button className="btn btn-danger back-btn">Back</button>
@@ -141,11 +158,7 @@ function EditProfile() {
                 </div>
             </div>
             </form>
-
          </>
-
         )
-
 }
-
 export default EditProfile;

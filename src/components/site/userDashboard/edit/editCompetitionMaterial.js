@@ -50,7 +50,7 @@ function EditCompMaterial({ data, setData }) {
     }
     if (data.achievements == null || data.achievements.length < 3) {
       section.push(
-        <input type="file" onChange={inputChange('achievement')} enable accept="image/png, image/jpeg, application/pdf"/>
+        <input type="file" onChange={inputChange('achievement')} enable accept="image/png, image/jpeg, application/pdf" />
       )
     }
     return section;
@@ -70,7 +70,7 @@ function EditCompMaterial({ data, setData }) {
     }
     if (data.publications == null || data.publications.length < 3) {
       section.push(
-        <input type="file" onChange={inputChange('publication')} enable accept="image/png, image/jpeg, application/pdf"/>
+        <input type="file" onChange={inputChange('publication')} enable accept="image/png, image/jpeg, application/pdf" />
       );
     }
     return section;
@@ -90,7 +90,7 @@ function EditCompMaterial({ data, setData }) {
     }
     if (data.grants == null || data.grants[0] == null || data.grants.length < 3) {
       section.push(
-        <input type="file" onChange={inputChange('grant')} enable accept="image/png, image/jpeg, application/pdf"/>
+        <input type="file" onChange={inputChange('grant')} enable accept="image/png, image/jpeg, application/pdf" />
       )
     }
     return section;
@@ -166,29 +166,37 @@ function EditCompMaterial({ data, setData }) {
         // Onload of file read the file content
         fileReader.onload = function (fileLoadedEvent) {
           file = fileLoadedEvent.target.result;
-          if (element === 'poster') {
-            data.poster.push({ 'name': fileName, 'source': fileReader.result })
-            setData({
-              ...data
-            })
-          }
-          else if (element === 'achievement') {
-            data.achievements.push({ 'name': fileName, 'source': fileReader.result });
-            setData({
-              ...data
-            })
-          }
-          else if (element === 'publication') {
-            data.publications.push({ 'name': fileName, 'source': fileReader.result });
-            setData({
-              ...data
-            })
-          }
-          else if (element === 'grant') {
-            data.grants.push({ 'name': fileName, 'source': fileReader.result });
-            setData({
-              ...data
-            })
+          var stringLength = file.length;
+          var result = parseFloat(4 * Math.ceil(stringLength / 3))
+          //Limit File Size
+          if (result > 1048576) {
+            alert("File size must under 1MiB!");
+            return;
+          } else {
+            if (element === 'poster') {
+              data.poster.push({ 'name': fileName, 'source': fileReader.result })
+              setData({
+                ...data
+              })
+            }
+            else if (element === 'achievement') {
+              data.achievements.push({ 'name': fileName, 'source': fileReader.result });
+              setData({
+                ...data
+              })
+            }
+            else if (element === 'publication') {
+              data.publications.push({ 'name': fileName, 'source': fileReader.result });
+              setData({
+                ...data
+              })
+            }
+            else if (element === 'grant') {
+              data.grants.push({ 'name': fileName, 'source': fileReader.result });
+              setData({
+                ...data
+              })
+            }
           }
         };
         // Convert data to base64

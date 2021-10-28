@@ -30,7 +30,7 @@ function UploadReceipt() {
                 <div className="form-group" style={{ paddingBottom: "5%" }}>
                     <h1 className="mb-5">Upload Receipt<span>*</span></h1>
                     <span>*Limit to file size 1MB</span><br></br>
-                    <input type="file" onChange={uploadReceiptHandler('receipt', 0)} accept="image/png, image/jpeg, application/pdf" />
+                    <input type="file" id="file" onChange={uploadReceiptHandler('receipt', 0)} accept="image/png, image/jpeg, application/pdf" />
                 </div>
             );
         }
@@ -103,10 +103,7 @@ function UploadReceipt() {
                 //Limit File Size
                 if (result > 1048576) {
                     alert("File size must under 1MiB!");
-                    data.receipt = {
-                        'name': null,
-                        'source': 0
-                    }
+                    return;
                 } else {
                     data.receipt = {
                         'name': fileName,
@@ -137,16 +134,16 @@ function UploadReceipt() {
                 //Limit File Size
                 if (result > 1048576) {
                     alert("File size must under 1MiB!");
-                    file = null;
+                    return;
                 } else {
                     data.certificate = {
                         'name': fileName,
                         'source': fileReader.result
                     }
-                };
-                // Convert data to base64
-                var baseFile = fileReader.readAsDataURL(fileToLoad);
-            }
+                }
+            };
+            // Convert data to base64
+            var baseFile = fileReader.readAsDataURL(fileToLoad);
         }
     }
     const handleForm = (e) => {

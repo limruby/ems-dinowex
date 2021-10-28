@@ -52,7 +52,7 @@ function Sponsor(){
             accessor: 'category',
           },
           {
-            Header: 'Sponsor Amount (RM)',
+            Header: 'Amount (RM)',
             accessor: 'amount',
           },
           {

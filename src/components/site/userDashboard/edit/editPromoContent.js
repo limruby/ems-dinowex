@@ -53,7 +53,7 @@ function EditPromoContent({ data, setData }) {
     }
     if (data.poster == null || data.poster.length < 5) {
       section.push(
-        <input type="file" onChange={inputChange('poster')} enable accept="image/png, image/jpeg"/>
+        <input type="file" onChange={inputChange('poster')} enable accept="image/png, image/jpeg" />
       )
     }
     return section;
@@ -121,10 +121,18 @@ function EditPromoContent({ data, setData }) {
         // Onload of file read the file content
         fileReader.onload = function (fileLoadedEvent) {
           file = fileLoadedEvent.target.result;
-          data.poster.push({ 'name': fileName, 'source': fileReader.result })
-          setData({
-            ...data
-          })
+          var stringLength = file.length;
+          var result = parseFloat(4 * Math.ceil(stringLength / 3))
+          //Limit File Size
+          if (result > 1048576) {
+            alert("File size must under 1MiB!");
+            return;
+          } else {
+            data.poster.push({ 'name': fileName, 'source': fileReader.result })
+            setData({
+              ...data
+            })
+          }
         };
         // Convert data to base64
         var baseFile = fileReader.readAsDataURL(fileToLoad);
@@ -152,7 +160,7 @@ function EditPromoContent({ data, setData }) {
       video: data.video
     }
     axiosInstance.post("/api/sponsors/update", postData)
-      .then(function (response) {        
+      .then(function (response) {
         setLoading(false);
         window.location.href = '/user_dashboard';
       }).catch(function (error) {
