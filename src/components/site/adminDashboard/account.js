@@ -2,14 +2,18 @@ import React, { useState, useEffect } from "react";
 import Table from './Table.js';
 import axiosInstance from '../../../utils/axiosConfig';
 import { Link } from 'react-router-dom';
+import Loader from './../../site/Loader';
 
 function Account() {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     axiosInstance.get("/api/accounts/readAll")
       .then(function (response) {
         setData(response.data.data);
+        setLoading(false);
       }).catch(function (error) {
         console.log(error);
       })
@@ -66,6 +70,7 @@ function Account() {
   )
   return (
     <div className="App">
+    {loading ? <Loader /> : null}
       <Link to='/admin_dashboard/create_profile'>
         <button className="btn btn-danger" style={{ marginBottom: "2%" }}>
           Create New Account

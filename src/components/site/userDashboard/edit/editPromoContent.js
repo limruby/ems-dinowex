@@ -4,8 +4,9 @@ import { Link } from 'react-router-dom';
 import axiosInstance from '../../../../utils/axiosConfig.js';
 import { FaTrashAlt } from 'react-icons/fa';
 import youtube from '../../../../assets/img/youtube.PNG'
-
+import Loader from './../../../site/Loader';
 function EditPromoContent({ data, setData }) {
+  const [loading, setLoading] = useState(false);
   localStorage.setItem("activeKeys", "Promo-Content")
   const showUpload = (e) => {
     e.preventDefault();
@@ -17,7 +18,6 @@ function EditPromoContent({ data, setData }) {
         })
         tempData.tempVidName = "";
         tempData.tempVidPath = "";
-
         setTemp({
           ...tempData,
         });
@@ -32,18 +32,15 @@ function EditPromoContent({ data, setData }) {
         alert("Incomplete Form");
       }
     }
-
   }
   const [tempData, setTemp] = useState({
     tempVidName: "",
     tempVidPath: ""
   });
-
   ///////display forms//////
   //poster form
   function displayPosterForm() {
     var section = [];
-
     if (data.poster != null) {
       for (var i = 0; i < data.poster.length; i++) {
         section.push(
@@ -56,16 +53,14 @@ function EditPromoContent({ data, setData }) {
     }
     if (data.poster == null || data.poster.length < 5) {
       section.push(
-        <input type="file" onChange={inputChange('poster')} enable />
+        <input type="file" onChange={inputChange('poster')} enable accept="image/png, image/jpeg" />
       )
     }
     return section;
   }
-
   //display list of video URLs
   function displayVideoForm() {
     var section = [];
-
     if (data.video != null) {
       for (var i = 0; i < data.video.length; i++) {
         section.push(
@@ -73,13 +68,10 @@ function EditPromoContent({ data, setData }) {
             {data.video[i].name}
             <button className="deleteBtn" type="button" onClick={deleteFile('video', i)}> <FaTrashAlt /></button>
           </p>
-
-
         );
       }
     }
     if (data.video == null || data.video[0] == null || data.video.length < 5) {
-
       section.push(
         <div>
           <div className="form-group">
@@ -87,7 +79,6 @@ function EditPromoContent({ data, setData }) {
             <input type="text" className="form-control" name="videoName" id="videoName"
               onChange={inputChange('vidName', 0)} value={tempData.tempVidName} />
           </div>
-
           <div className="form-group">
             <label htmlFor="videoPath">Video URL </label>
             <input type="text" className="form-control" name="videoPath" id="videoPath"
@@ -98,12 +89,9 @@ function EditPromoContent({ data, setData }) {
           </div>
         </div>
       )
-
     }
     return section;
   }
-
-
   //////action performed//////
   var obj = [];
   const deleteFile = (element, index) => e => {
@@ -117,11 +105,8 @@ function EditPromoContent({ data, setData }) {
     }
     setData({
       ...data,
-
     });
   }
-
-
   const inputChange = (element, index) => e => {
     let selectedFile = e.target.files;
     let file = null;
@@ -136,17 +121,23 @@ function EditPromoContent({ data, setData }) {
         // Onload of file read the file content
         fileReader.onload = function (fileLoadedEvent) {
           file = fileLoadedEvent.target.result;
-          data.poster.push({ 'name': fileName, 'source': fileReader.result })
-          setData({
-            ...data
-          })
-
+          var stringLength = file.length;
+          var result = parseFloat(4 * Math.ceil(stringLength / 3))
+          //Limit File Size
+          if (result > 1048576) {
+            alert("File size must under 1MiB!");
+            return;
+          } else {
+            data.poster.push({ 'name': fileName, 'source': fileReader.result })
+            setData({
+              ...data
+            })
+          }
         };
         // Convert data to base64
         var baseFile = fileReader.readAsDataURL(fileToLoad);
       }
     }
-
     if (element === 'vidName') {
       tempData.tempVidName = e.target.value;
     }
@@ -160,58 +151,47 @@ function EditPromoContent({ data, setData }) {
       ...data,
     })
   };
-
-
   const handleForm = (e) => {
     e.preventDefault();
-
+    setLoading(true);
     var postData = {
       _id: data._id,
       poster: data.poster,
       video: data.video
     }
-
     axiosInstance.post("/api/sponsors/update", postData)
       .then(function (response) {
+        setLoading(false);
         window.location.href = '/user_dashboard';
       }).catch(function (error) {
         console.log(error);
       })
-
   };
-
   return (
     <>
-
+      {loading ? <Loader /> : null}
       <form onSubmit={handleForm}>
         <div className="edit-form-container">
           <h1 className="mb-5">Edit Promotional content</h1>
-
           <h5>Poster<i className="caution"> (*Max 5 .png and .jpg ONLY) File size limited to 1MB</i></h5>
           {displayPosterForm()}
-
           <hr />
-
           <h5>Video<i className="caution"> (*Max 5) Format:"https://www.youtube.com/watch?v=XXXXXXXXXXX"</i></h5>
           <i className="caution">Only the first video will be embedded, the remaining will be in list form. </i>
           <br></br>
           <img src={youtube} height="auto" width="100%" alt="Correct URL from Youtube" />
           <br></br><br></br>
           {displayVideoForm()}
-
           <br />
-
           <div className="btn-group">
             <Link to="/user_dashboard">
               <button className="btn btn-danger back-btn">Back</button>
             </Link>
             <input className="btn btn-primary" type="submit" value="Update" />
           </div>
-
         </div>
       </form>
     </>
   )
 }
-
 export default EditPromoContent;

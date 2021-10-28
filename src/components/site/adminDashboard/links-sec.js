@@ -3,18 +3,21 @@ import Table from './Table.js';
 import { Link } from 'react-router-dom';
 import axiosInstance from '../../../utils/axiosConfig';
 import { FaEye } from "react-icons/fa";
+import Loader from './../../site/Loader';
 
 function Links() {
   const [data, setData] = useState([]);
   const [checked, setChecked] = useState();
-
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
+    setLoading(true);
     axiosInstance.get("/api/formLink/read")
       .then(function (response) {
         var result = response.data.data
         delete result.lobby;
         setData(result);
         setChecked(response.data.data[0].lobby);
+        setLoading(false);
       }).catch(function (error) {
         console.log(error);
       })
@@ -28,13 +31,16 @@ function Links() {
     e.preventDefault();
     const answer = window.confirm("Are you sure?");
     if (answer) {
+      setLoading(true);
        // perform all neccassary validations
     var postData = {
       _id: data[0]._id,
       lobby: checked
     }
+    localStorage.setItem("activeKeys", "Link")
     axiosInstance.post("/api/formLink/update", postData)
       .then(function (response) {
+        setLoading(false);
         window.location.href = '/admin_dashboard';
       }).catch(function (error) {
         console.log(error)
@@ -66,6 +72,7 @@ function Links() {
   )
   return (
     <div className="App" id="eventlink">
+      {loading ? <Loader /> : null}
       <div className="member-box">
         <Link to='/admin_dashboard/insert_evaluation_form_link'>
           <button className="btn btn-success" >

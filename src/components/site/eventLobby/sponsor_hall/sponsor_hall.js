@@ -4,14 +4,18 @@ import "./../../../../assets/css/agency.min.css";
 import axiosInstance from '../../../../utils/axiosConfig';
 import logo from "../../../../assets/img/bankrakyat-logo.png";
 import { Image } from 'react-bootstrap';
+import Loader from './../../../site/Loader';
 
 function Sponsor_hall() {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     axiosInstance.get("/api/sponsors/readVIP")
       .then(function (response) {
         setData(response.data.data);
+        setLoading(false);
       }).catch(function (error) {
         console.log(error);
       })
@@ -126,6 +130,7 @@ function Sponsor_hall() {
 
   return (
     <header className="sponsor-masthead">
+      {loading ? <Loader /> : null}
       <div className="intro-text">
         <div className="intro-lead-in">
           <br></br>
@@ -148,7 +153,7 @@ function Sponsor_hall() {
       <div className="row">
         <div className="col-xl-6" style={{ backgroundColor: "#7e7ebc" }}>
           <div className="sponsor-details">
-            <p>The Biggest Islamic Coopetative Bank In Malaysia</p>
+            <p>The Biggest Islamic Cooperative Bank In Malaysia</p>
             <p>Consumer Banking, Commercial Financing, Savings And Investments And Financial Planning Products</p>
             <p>147 Branches, More Than 990 Automated Teller Machines (ATMs) And Cash Deposit Machines (CDM), And 183 Ar-Rahnu X'Change Nationwide</p>
           </div>
@@ -157,7 +162,7 @@ function Sponsor_hall() {
         <div className="col-xl-6" style={{ backgroundColor: "#43ba7a" }}>
           <div className="sponsor-details">
             <p>MISSION</p>
-            <h4>Malaysia's No. 1 Progressive Islamic Coopetative Bank.</h4>
+            <h4>Malaysia's No. 1 Progressive Islamic Cooperative Bank.</h4>
           </div>
 
           <div className="sponsor-details">

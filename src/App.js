@@ -10,6 +10,7 @@ import Payment_Fail from './components/site/payment_fail.js'
 import UserDashboard from './components/site/userDashboard';
 import EditUserDetails from './components/site/userDashboard/edit';
 import eventLobby from './components/site/eventLobby/eventLobby';
+import liveEvent from './components/site/eventLobby/liveEvent';
 import sponsor_hall from './components/site/eventLobby/sponsor_hall/sponsor_hall';
 import sponsor_booth from './components/site/eventLobby/sponsor_hall/sponsor_booth';
 import competition_hall from './components/site/eventLobby/competition_hall/competition_hall';
@@ -72,7 +73,8 @@ function App() {
         <AdminRoute exact path='/admin_dashboard/:id/upload_receipt_sponsor'  component={AdminEditDetails}/>
         <AdminRoute exact path='/admin_dashboard/:id/upload_receipt_visitor'  component={AdminEditDetails}/>
         <AdminRoute exact path='/admin_dashboard/:id/edit_order_status'  component={AdminEditDetails}/>
-        <Route exact path='/eventLobby'  component={eventLobby}/>  
+        <Route exact path='/eventLobby'  component={eventLobby}/> 
+        <Route exact path='/live_event'  component={liveEvent}/>   
         <Route exact path='/sponsor_hall'  component={sponsor_hall}/> 
         <Route exact path='/sponsor_booth/:id'  component={sponsor_booth}/> 
         <Route exact path='/competition_hall'  component={competition_hall}/>

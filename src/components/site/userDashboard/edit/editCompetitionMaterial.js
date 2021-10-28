@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom';
 import axiosInstance from '../../../../utils/axiosConfig.js';
 import { FaTrashAlt } from 'react-icons/fa';
 import youtube from '../../../../assets/img/youtube.PNG'
+import Loader from './../../../site/Loader';
 function EditCompMaterial({ data, setData }) {
+  const [loading, setLoading] = useState(false);
   localStorage.setItem("activeKeys", "Competition-Material");
   const [tempData, setTemp] = useState({
     tempPoster: [],
@@ -18,7 +20,7 @@ function EditCompMaterial({ data, setData }) {
     if (data.poster == null || data.poster[0] == null) {
       section.push(
         <div className="form-group">
-          <input type="file" onChange={inputChange('poster', 0)} />
+          <input type="file" onChange={inputChange('poster', 0)} accept="image/png, image/jpeg" />
         </div>
       );
     }
@@ -48,7 +50,7 @@ function EditCompMaterial({ data, setData }) {
     }
     if (data.achievements == null || data.achievements.length < 3) {
       section.push(
-        <input type="file" onChange={inputChange('achievement')} enable />
+        <input type="file" onChange={inputChange('achievement')} enable accept="image/png, image/jpeg, application/pdf" />
       )
     }
     return section;
@@ -68,7 +70,7 @@ function EditCompMaterial({ data, setData }) {
     }
     if (data.publications == null || data.publications.length < 3) {
       section.push(
-        <input type="file" onChange={inputChange('publication')} enable />
+        <input type="file" onChange={inputChange('publication')} enable accept="image/png, image/jpeg, application/pdf" />
       );
     }
     return section;
@@ -88,7 +90,7 @@ function EditCompMaterial({ data, setData }) {
     }
     if (data.grants == null || data.grants[0] == null || data.grants.length < 3) {
       section.push(
-        <input type="file" onChange={inputChange('grant')} enable />
+        <input type="file" onChange={inputChange('grant')} enable accept="image/png, image/jpeg, application/pdf" />
       )
     }
     return section;
@@ -164,29 +166,37 @@ function EditCompMaterial({ data, setData }) {
         // Onload of file read the file content
         fileReader.onload = function (fileLoadedEvent) {
           file = fileLoadedEvent.target.result;
-          if (element === 'poster') {
-            data.poster.push({ 'name': fileName, 'source': fileReader.result })
-            setData({
-              ...data
-            })
-          }
-          else if (element === 'achievement') {
-            data.achievements.push({ 'name': fileName, 'source': fileReader.result });
-            setData({
-              ...data
-            })
-          }
-          else if (element === 'publication') {
-            data.publications.push({ 'name': fileName, 'source': fileReader.result });
-            setData({
-              ...data
-            })
-          }
-          else if (element === 'grant') {
-            data.grants.push({ 'name': fileName, 'source': fileReader.result });
-            setData({
-              ...data
-            })
+          var stringLength = file.length;
+          var result = parseFloat(4 * Math.ceil(stringLength / 3))
+          //Limit File Size
+          if (result > 1048576) {
+            alert("File size must under 1MiB!");
+            return;
+          } else {
+            if (element === 'poster') {
+              data.poster.push({ 'name': fileName, 'source': fileReader.result })
+              setData({
+                ...data
+              })
+            }
+            else if (element === 'achievement') {
+              data.achievements.push({ 'name': fileName, 'source': fileReader.result });
+              setData({
+                ...data
+              })
+            }
+            else if (element === 'publication') {
+              data.publications.push({ 'name': fileName, 'source': fileReader.result });
+              setData({
+                ...data
+              })
+            }
+            else if (element === 'grant') {
+              data.grants.push({ 'name': fileName, 'source': fileReader.result });
+              setData({
+                ...data
+              })
+            }
           }
         };
         // Convert data to base64
@@ -211,6 +221,7 @@ function EditCompMaterial({ data, setData }) {
   };
   const handleForm = (e) => {
     e.preventDefault();
+    setLoading(true);
     // perform all neccassary validations
     // video: if name !null, path must !null
     if (tempData.tempVidName !== "") {
@@ -239,6 +250,7 @@ function EditCompMaterial({ data, setData }) {
     }
     axiosInstance.post("/api/competitors/update", postData)
       .then(function (response) {
+        setLoading(false);
         window.location.href = '/user_dashboard';
       }).catch(function (error) {
         console.log(error);
@@ -246,6 +258,7 @@ function EditCompMaterial({ data, setData }) {
   };
   return (
     <>
+      {loading ? <Loader /> : null}
       <form onSubmit={handleForm}>
         <div className="edit-form-container" style={{ marginTop: "5%", marginBottom: "5%" }}>
           <h1 className="mb-5">Edit Competition Material</h1>

@@ -1,10 +1,12 @@
 import React, {useState} from 'react';
 import {Link, useLocation} from 'react-router-dom';
 import axiosInstance from '../../../../utils/axiosConfig.js';
+import Loader from './../../../site/Loader';
 
 function EditPassword() {
     localStorage.setItem("activeKeys", "Account")
 /////////////////////get login user (REPLACE THIS) ////////////////
+const [loading, setLoading] = useState(false)
 const [user, setState] = useState({
     _id: '',
     newPassword: '',
@@ -25,6 +27,7 @@ const inputChange = input => e => {
 
 const handleForm=(e)=>{
     e.preventDefault();
+    setLoading(true);
     // perform all neccassary validations
     if (user.newPassword !== user.confirmPassword) {
         alert("Password don't match");  
@@ -36,6 +39,7 @@ const handleForm=(e)=>{
             ///////update to db /////////////
             axiosInstance.post("/api/accounts/update", user)
             .then(function(response) {
+                setLoading(false);
                 window.location.href = '/admin_dashboard';
             }).catch(function(error) {
                 console.log(error);
@@ -48,6 +52,7 @@ const handleForm=(e)=>{
     return(
         <>
             <form onSubmit={handleForm}>
+            {loading ? <Loader /> : null}
             <div className="edit-form-container">
                 <h1 className="mb-5">Edit Password</h1>
                 <div className="form-group">

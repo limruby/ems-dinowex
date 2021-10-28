@@ -5,7 +5,9 @@ import { BsPeopleCircle } from "react-icons/bs";
 import EmblaCarousel from './EmblaCarousel';
 import { useHistory } from "react-router-dom";
 import { FaArrowCircleLeft } from 'react-icons/fa';
+import Loader from './../../../site/Loader';
 function Sponsor_booth() {
+  const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
   const [account, setAccount] = useState([]);
   const [forum, setForum] = useState([])
@@ -17,15 +19,17 @@ function Sponsor_booth() {
   let history = useHistory();
   
   useEffect(() => {
+    setLoading(true);      
     axiosInstance.get("/api/accounts/read", { params: { account_id: string } })
       .then(function (response) {
-        setAccount(response.data.data);
+        setAccount(response.data.data);        
       }).catch(function (error) {
         console.log(error);
       })
     axiosInstance.get("/api/sponsors/read", { params: { account_id: string } })
       .then(function (response) {
         setData(response.data.data);
+        setLoading(false);
       }).catch(function (error) {
         console.log(error);
       })
@@ -41,6 +45,7 @@ function Sponsor_booth() {
   };
   const handleForm = (e) => {
     var defaultName;
+    setLoading(true);
     if (!localStorage.getItem("user_id")) {
       if (localStorage.getItem("temp_name")) {
         defaultName = localStorage.getItem("temp_name");
@@ -62,7 +67,8 @@ function Sponsor_booth() {
     if (comment !== null) {
       axiosInstance.post("/api/forum/create", postData)
         .then(function (response) {
-          location.reload()
+          setLoading(false);
+          location.reload();
         }).catch(function (error) {
           console.log(error);
         })
@@ -249,6 +255,7 @@ function Sponsor_booth() {
   }
   return (
     <header className="masthead comp-background">
+      {loading ? <Loader /> : null}
       <br></br>
       <FaArrowCircleLeft className="back-arrow" onClick={() => history.goBack()} size={60} />
       <div className="container">

@@ -79,10 +79,10 @@ const Navigationbar = props => {
     return (
       <IconContext.Provider value={{ color: '#000' }}>
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-          <Navbar.Brand href="#home">
-            <Link to='/' className="navbar-logo" onClick={closeMobileMenu}>
+          <Navbar.Brand href="/" className="navbar-logo" onClick={closeMobileMenu}>
+            {/* <Link to='/' className="navbar-logo" onClick={closeMobileMenu}> */}
               <img src={logo} height="50px" width="200px" alt="" />
-            </Link>
+            {/* </Link> */}
           </Navbar.Brand>
           <Nav className="ml-auto">
             <div className="menu-icon" onClick={handleClick}>
@@ -117,10 +117,11 @@ const Navigationbar = props => {
     return (
       <IconContext.Provider value={{ color: '#000' }}>
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-          <Navbar.Brand href="#home">
-            <Link to='/' className="navbar-logo" onClick={closeMobileMenu}>
+          <Navbar.Brand href="/" className="navbar-logo" onClick={closeMobileMenu}>
+            {/* <Link to='/' className="navbar-logo" onClick={closeMobileMenu}> */}
               <img src={logo} height="50px" width="200px" alt="" />
-            </Link></Navbar.Brand>
+            {/* </Link> */}
+            </Navbar.Brand>
           <Nav className="ml-auto">
             <div className="menu-icon" onClick={handleClick}>
               {click ? <FaTimes /> : <FaBars />}
@@ -146,7 +147,7 @@ const Navigationbar = props => {
     return (
       <IconContext.Provider value={{ color: '#000' }}>
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-          <Navbar.Brand href="#home">
+          <Navbar.Brand href="/">
             <Link to='/' className="navbar-logo" onClick={closeMobileMenu}>
               <img src={logo} height="50px" width="200px" alt="" />
             </Link></Navbar.Brand>

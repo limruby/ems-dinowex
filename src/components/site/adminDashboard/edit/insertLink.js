@@ -2,32 +2,34 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axiosInstance from '../../../../utils/axiosConfig.js';
 import { FaTrashAlt } from 'react-icons/fa';
+import Dialog from '../../Dialog.js';
+import Loader from './../../../site/Loader';
 
 function InsertLink() {
     localStorage.setItem("activeKeys", "Link")
+    const [loading, setLoading] = useState(false)
     const [data, setData] = useState({
         evaluation_form: '',
         youtube_form: '',
         poster_form: ''
     })
     const [link, setLink] = useState([])
-
     useEffect(() => {
+        setLoading(true);
         axiosInstance.get("/api/formLink/read")
             .then(function (response) {
                 setLink(response.data.data);
+                setLoading(false);
             }).catch(function (error) {
                 console.log(error);
             })
     }, [])
-
     const inputChange = input => e => {
         setData({
             ...data,
             [input]: e.target.value
         });
     };
-    console.log(link)
     //One link only
     function displayLink() {
         var section = []
@@ -41,7 +43,7 @@ function InsertLink() {
                 </div>
             )
         } else { //something existed but this empty
-            if(!link[0].evaluation_form){
+            if (!link[0].evaluation_form) {
                 section.push(
                     <div className="form-group">
                         <label htmlFor="evaluation_form"><span>*</span>Evalution Form</label>
@@ -71,7 +73,6 @@ function InsertLink() {
         }
         return section
     }
-
     function displayYoutubeLink() {
         var section = []
         if (link.length === 0) { //all blank
@@ -84,7 +85,7 @@ function InsertLink() {
                 </div>
             )
         } else { //something existed but this empty
-            if(!link[0].youtube_form){
+            if (!link[0].youtube_form) {
                 section.push(
                     <div className="form-group">
                         <label htmlFor="youtube_form"><span>*</span>Youtube Live Event</label>
@@ -114,7 +115,6 @@ function InsertLink() {
         }
         return section
     }
-
     function displayPosterLink() {
         var section = []
         if (link.length === 0) { //all blank
@@ -127,7 +127,7 @@ function InsertLink() {
                 </div>
             )
         } else { //something existed but this empty
-            if(!link[0].poster_form){
+            if (!link[0].poster_form) {
                 section.push(
                     <div className="form-group">
                         <label htmlFor="poster_form"><span>*</span>Ideation Poster Competition</label>
@@ -157,9 +157,7 @@ function InsertLink() {
         }
         return section
     }
-
     function removeLink(form) {
-
         if (form === "evaluation_form") {
             var postData = {
                 _id: link[0]._id,
@@ -175,7 +173,7 @@ function InsertLink() {
                 poster_form: link[0].poster_form,
             }
         } else if (form === "poster_form") {
-           postData = {
+            postData = {
                 _id: link[0]._id,
                 evaluation_form: link[0].evaluation_form,
                 youtube_form: link[0].youtube_form,
@@ -189,9 +187,9 @@ function InsertLink() {
                 console.log(error);
             })
     }
-
     const handleForm = (e) => {
         e.preventDefault();
+        setLoading(true);
         // perform all neccassary validations
         ///////update to db /////////////           
         var postData = {
@@ -202,6 +200,7 @@ function InsertLink() {
         if (link.length === 0) {
             axiosInstance.post("/api/formLink/create", postData)
                 .then(function (response) {
+                    setLoading(false);
                     window.location.href = '/admin_dashboard';
                 }).catch(function (error) {
                     console.log(error);
@@ -216,6 +215,7 @@ function InsertLink() {
             }
             axiosInstance.post("/api/formLink/update", postData)
                 .then(function (response) {
+                    setLoading(false);
                     window.location.href = '/admin_dashboard';
                 }).catch(function (error) {
                     console.log(error);
@@ -224,11 +224,14 @@ function InsertLink() {
     }
     return (
         <>
-            <form onSubmit={handleForm}>
+            <form onSubmit={handleForm}>        
+                {loading ? <Loader /> : null}
                 <div className="edit-form-container" style={{ marginTop: "5%", marginBottom: "5%" }}>
                     <h1 className="mb-5">Insert Link</h1>
                     {displayLink()}
                     {displayYoutubeLink()}
+                    <Dialog/>
+                    <br></br>
                     {displayPosterLink()}
                     <div className="btn-group">
                         <Link to="/admin_dashboard">
@@ -241,5 +244,4 @@ function InsertLink() {
         </>
     )
 }
-
 export default InsertLink;
