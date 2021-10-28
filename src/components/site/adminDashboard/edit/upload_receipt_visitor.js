@@ -31,6 +31,7 @@ function UploadReceipt() {
             section.push(
                 <div className="form-group" style={{ paddingBottom: "5%" }}>
                     <h1 className="mb-5">Upload Receipt<span>*</span></h1>
+                    <span>*Limit to file size 1MB</span><br></br>
                     <input type="file" onChange={uploadReceiptHandler('receipt', 0)} accept="image/png, image/jpeg, application/pdf" />
                 </div>
             );
@@ -52,6 +53,7 @@ function UploadReceipt() {
             section.push(
                 <div className="form-group" style={{ paddingBottom: "5%" }}>
                     <h1 className="mb-5">Upload Certificate<span>*</span></h1>
+                    <span>*Limit to file size 1MB</span><br></br>
                     <input type="file" onChange={uploadCertHandler('certificate', 0)} accept="image/png, image/jpeg, application/pdf" />
                 </div>
             );

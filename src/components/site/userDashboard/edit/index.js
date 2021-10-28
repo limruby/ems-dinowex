@@ -47,7 +47,7 @@ function FormNavigator() {
 				console.log(error);
 			});
 		}
-		else if(role ==="Visitors"){
+		else if(role ==="Visitor"){
 		axiosInstance.get("/api/visitors/read", { params: { account_id: account_id } })
 			.then(function (response) {
 				setUser(response.data.data);				
