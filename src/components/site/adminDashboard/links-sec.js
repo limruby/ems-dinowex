@@ -9,7 +9,6 @@ function Links() {
   const [data, setData] = useState([]);
   const [checked, setChecked] = useState();
   const [loading, setLoading] = useState(false);
-
   useEffect(() => {
     setLoading(true);
     axiosInstance.get("/api/formLink/read")
@@ -30,14 +29,15 @@ function Links() {
 
   const handleForm = (e) => {
     e.preventDefault();
-    setLoading(true);
     const answer = window.confirm("Are you sure?");
     if (answer) {
+      setLoading(true);
        // perform all neccassary validations
     var postData = {
       _id: data[0]._id,
       lobby: checked
     }
+    localStorage.setItem("activeKeys", "Link")
     axiosInstance.post("/api/formLink/update", postData)
       .then(function (response) {
         setLoading(false);
