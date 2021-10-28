@@ -77,11 +77,18 @@ function EditProfile({data, setData}) {
                 // Onload of file read the file content
                 fileReader.onload = function(fileLoadedEvent) {
                     file = fileLoadedEvent.target.result;
-                  
+                    var stringLength = file.length;
+                    var result = parseFloat(4 * Math.ceil(stringLength / 3))
+                    //Limit File Size
+                    if (result > 1048576) {
+                      alert("File size must under 1MiB!");
+                      return;
+                    } else {
                   data.company_logo={
                       'name':fileName,
                       'source':fileReader.result
-                  }                  
+                  }      
+                }            
               };
             // Convert data to base64
             var baseFile = fileReader.readAsDataURL(fileToLoad);
@@ -108,7 +115,7 @@ function displayLogo(){
     if(data.company_logo==null||data.company_logo[0]==null){
         section.push(
             <div className="form-group">                
-                <input type="file" onChange={uploadLogoHandler('company_logo', 0)} />
+                <input type="file" onChange={uploadLogoHandler('company_logo', 0)} accept="image/png, image/jpeg"/>
             </div>
             );
         }

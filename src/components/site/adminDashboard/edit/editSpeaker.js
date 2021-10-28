@@ -83,7 +83,7 @@ function EditSpeaker() {
         if (data.photo == null || data.photo[0] == null) {
             section.push(
                 <div className="form-group">
-                    <input type="file" onChange={uploadPhotoHandler('photo', 0)} />
+                    <input type="file" onChange={uploadPhotoHandler('photo', 0)} accept="image/png, image/jpeg"/>
                 </div>
             );
         }

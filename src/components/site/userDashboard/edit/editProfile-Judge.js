@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axiosInstance from '../../../../utils/axiosConfig.js';
 import { FaTrashAlt } from 'react-icons/fa';
@@ -28,9 +28,17 @@ function EditProfile({ data, setData }) {
                 // Onload of file read the file content
                 fileReader.onload = function (fileLoadedEvent) {
                     file = fileLoadedEvent.target.result;
-                    data.poster = {
-                        'name': fileName,
-                        'source': fileReader.result
+                    var stringLength = file.length;
+                    var result = parseFloat(4 * Math.ceil(stringLength / 3))
+                    //Limit File Size
+                    if (result > 1048576) {
+                        alert("File size must under 1MiB!");
+                        return;
+                    } else {
+                        data.poster = {
+                            'name': fileName,
+                            'source': fileReader.result
+                        }
                     }
                 };
                 // Convert data to base64
@@ -54,7 +62,7 @@ function EditProfile({ data, setData }) {
         if (data.poster == null || data.poster[0] == null) {
             section.push(
                 <div className="form-group">
-                    <input type="file" onChange={uploadPhotoHandler('poster', 0)} />
+                    <input type="file" onChange={uploadPhotoHandler('poster', 0)} accept="image/png, image/jpeg" />
                 </div>
             );
         }
