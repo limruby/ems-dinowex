@@ -28,8 +28,8 @@ function Sponsor_booth() {
       })
     axiosInstance.get("/api/sponsors/read", { params: { account_id: string } })
       .then(function (response) {
-        setData(response.data.data);
         setLoading(false);
+        setData(response.data.data);
       }).catch(function (error) {
         console.log(error);
       })
@@ -286,7 +286,7 @@ function Sponsor_booth() {
               <p><b>Company Name: </b>{data.company_name}</p>
               <p><b>Company Address:</b> <br></br>{data.address_1 + " " + data.postcode + " " + data.city + ", " + data.state + ", " + data.country}</p>
               <p><b>Person In Charge: </b>{data.company_pic_name}</p>
-              <p><b>Website: </b>{data.company_website}</p>
+              <p><b>Website: </b><a href={data.company_website}>{data.company_website}</a></p>
             </div>
           </div>
           <div className="display-promotional-content">
