@@ -221,10 +221,10 @@ const pay = (req, res, next) => {
       localStorage.setItem('bill_id',params['billplz[id]'])
       localStorage.setItem('bill_paid_at',params['billplz[paid_at]'])
       localStorage.setItem('bill_status', params['billplz[paid]'])
-      res.redirect('https://vexs.fsktm.um.edu.my/payment_success');
+      res.redirect('https://vexsdev.fsktm.um.edu.my/payment_success');
     }
     else{
-      res.redirect('https://vexs.fsktm.um.edu.my/payment_fail')
+      res.redirect('https://vexsdev.fsktm.um.edu.my/payment_fail')
     }
   }
 
