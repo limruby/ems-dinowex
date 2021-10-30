@@ -1,4 +1,5 @@
 # Deployment
+Connect ssh to 103.18.2.220
 The project is located at `~/vexs/ems-dinowex`
 
 ### Build and Deploy
@@ -27,5 +28,7 @@ When migrate, the targeted server need to have:
 Clone this repo, checkout to `staging` branch
 
 Copy `./backend/mongo-volume`. Then, paste it to `{repo_dir}/backend/mongo-volume` 
+
+Copy `./env`, paste it to `{repo_dir}/.env` and Copy `./backend/env`, paste it to `{repo_dir}/backend/.env` 
 
 Run `sudo ./_build_deploy_prod.sh`
