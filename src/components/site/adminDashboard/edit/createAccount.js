@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axiosInstance from '../../../../utils/axiosConfig.js';
 import Loader from './../../../site/Loader';
-
 function CreateAccount() {
     localStorage.setItem("activeKeys", "Account")
     const [loading, setLoading] = useState(false)
@@ -52,7 +51,7 @@ function CreateAccount() {
         city: 'default',
         state: 'default',
         country: 'default',
-        bill_status: 'false',
+        bill_status: 'false'
     }
     var sponsorData = {
         account_id: '',
@@ -128,7 +127,6 @@ function CreateAccount() {
             bill_status: 'true'
         }
     }
-
     const inputChange = input => e => {
         setData({
             ...data,
@@ -145,7 +143,6 @@ function CreateAccount() {
             alert('ALERT: Please make sure this user has made the payment!')
         }
     };
-
     function displayCategory() {
         var section = []
         if (data.role === "Competitor") {
@@ -200,7 +197,6 @@ function CreateAccount() {
         if (data.password === null || data.email === null || data.role === null) {
             alert("Form Incomplete!");
         }
-
         else {
             ///////update to db /////////////
             axiosInstance.post("/api/accounts/signUp", data)
@@ -208,11 +204,15 @@ function CreateAccount() {
                     if (data.role === "Competitor") {
                         compData["category"] = data.category;
                         compData["account_id"] = response.data._id
-
-                        if (compData["category"] !== "Professional Innovator" || compData["category"] !== "Young Innovator") {
+                        if (compData["category"] === "Young Ideation") {
                             compData["bill_status"] = 'true'
                         }
-
+                        else if (compData["category"] === "Junior Ideation") {
+                            compData["bill_status"] = 'true'
+                        }
+                        else if (compData["category"] === "International Innovator") {
+                            compData["bill_status"] = 'true'
+                        }
                         axiosInstance.post("/api/competitors/create", compData)
                             .then(function (response) {
                                 setLoading(false);
@@ -224,11 +224,9 @@ function CreateAccount() {
                     else if (data.role === "Sponsor") {
                         sponsorData["category"] = data.category;
                         sponsorData["account_id"] = response.data._id
-
                         if (sponsorData["category"] === "VIP Package") {
                             sponsorData["bill_status"] = 'true'
                         }
-
                         axiosInstance.post("/api/sponsors/create", sponsorData)
                             .then(function (response) {
                                 setLoading(false);
@@ -274,7 +272,6 @@ function CreateAccount() {
         }
     }
     /////////////////////////////////////////////////////////////
-
     return (
         <div className="edit-form-container">
             {loading ? <Loader /> : null}
@@ -287,7 +284,6 @@ function CreateAccount() {
                         onChange={inputChange('email')} value={data.email}
                     />
                 </div>
-
                 <div className="form-group">
                     <label htmlFor="password"><span>*</span>Password (min 8 character)</label>
                     <input className="form-control" type='password' name='password' id="password"
