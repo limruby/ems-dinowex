@@ -4,10 +4,8 @@ var ObjectId = require('mongodb').ObjectId;
 const qs = require('querystring');
 const CryptoJS = require('crypto-js');
 require('dotenv').config();
-
 var LocalStorage = require('node-localstorage').LocalStorage,
   localStorage = new LocalStorage('./scratch');
-
 const create = (req, res, next) => {
   const account_id = req.body.account_id;
   const category = req.body.category;
@@ -27,7 +25,6 @@ const create = (req, res, next) => {
   const certificate = req.body.certificate;
   const bill_status = req.body.bill_status;
   const first_purchase = "true";
-
   const newCompetitor = new Competitor({
     account_id,
     category,
@@ -48,13 +45,10 @@ const create = (req, res, next) => {
     bill_status,
     first_purchase
   });
-
   newCompetitor.save()
     .then(() => res.json(newCompetitor))
     .catch(err => res.status(400).json('Error: ' + err));
 };
-
-
 const read = (req, res, next) => {
   var account_id = JSON.parse(req.query.account_id);
   Competitor.findOne({ account_id: ObjectId(account_id) }, (err, competitors) => {
@@ -69,47 +63,35 @@ const read = (req, res, next) => {
     return res.status(200).json({ success: true, data: competitors })
   }).catch(err => console.log(err))
 };
-
-
-
 const update = (req, res, next) => {
-
   var updateCompetitor = {};
   if (req.body.name) {
     updateCompetitor['name'] = req.body.name;
   }
-
   if (req.body.affiliation) {
     updateCompetitor['affiliation'] = req.body.affiliation;
   }
-
   if (req.body.nric_passport_selection) {
     updateCompetitor['nric_passport_selection'] = req.body.nric_passport_selection;
   }
-
   if (req.body.nric_passport_no) {
     updateCompetitor['nric_passport_no'] = req.body.nric_passport_no;
   }
-
   if (req.body.gender) {
     updateCompetitor['gender'] = req.body.gender;
   }
   if (req.body.phone_no) {
     updateCompetitor['phone_no'] = req.body.phone_no;
   }
-
   if (req.body.address_1) {
     updateCompetitor['address_1'] = req.body.address_1;
   }
-
   if (req.body.address_2) {
     updateCompetitor['address_2'] = req.body.address_2;
   }
-
   if (req.body.postcode) {
     updateCompetitor['postcode'] = req.body.postcode;
   }
-
   if (req.body.city) {
     updateCompetitor['city'] = req.body.city;
   }
@@ -119,14 +101,12 @@ const update = (req, res, next) => {
   if (req.body.country) {
     updateCompetitor['country'] = req.body.country;
   }
-
   if (req.body.members) {
     updateCompetitor['members'] = req.body.members;
   }
   if (req.body.poster) {
     updateCompetitor['poster'] = req.body.poster;
   }
-
   if (req.body.achievements) {
     updateCompetitor['achievements'] = req.body.achievements;
   }
@@ -157,9 +137,6 @@ const update = (req, res, next) => {
   if (req.body.first_purchase) {
     updateCompetitor['first_purchase'] = req.body.first_purchase;
   }
-
-
-
   Competitor.findByIdAndUpdate(req.body._id, updateCompetitor, (err, competitors) => {
     if (err) {
       return res.status(400).json({ success: false, error: err, data: req.body })
@@ -169,7 +146,6 @@ const update = (req, res, next) => {
     }
   }).catch(err => console.log(err))
 };
-
 const readAll = (req, res, next) => {
   Competitor.find({}, {
     poster: 0,
@@ -195,7 +171,6 @@ const updatePayment = (req, res, next) => {
   updateCompetitor['bill_id'] = localStorage.getItem('bill_id')
   updateCompetitor['bill_paid_at'] = localStorage.getItem('bill_paid_at')
   updateCompetitor['bill_status'] = localStorage.getItem('bill_status')
-
   Competitor.findByIdAndUpdate(req.body.competitor_id, updateCompetitor, (err, competitors) => {
     if (err) {
       return res.status(400).json({ success: false, error: err, data: req.body })
@@ -205,7 +180,6 @@ const updatePayment = (req, res, next) => {
     }
   }).catch(err => console.log(err))
 }
-
 const pay = (req, res, next) => {
   // extract POST data from billplz
   var url = req.protocol + '://' + req.get('host') + req.originalUrl;
@@ -237,5 +211,4 @@ const pay = (req, res, next) => {
     res.redirect('https://vexsdev.fsktm.um.edu.my/payment_fail')
   }
 }
-
 module.exports = { create, read, update, readAll, pay, updatePayment }
