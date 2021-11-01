@@ -4,16 +4,16 @@ To assist  organizations to reach global audiences by hosting online conferences
 
 # Features:
 
-#### Virtual Event Registration
+### Virtual Event Registration
 
-### Competitor, Sponsor and Visitor
+#### Competitor, Sponsor and Visitor
 - Users are able to register, make payment and select their category.
 - Users are able to manage their dashboard.
 - Users are able to upload their competition materials/ promotional contents. (Competitor & Sponsor)
 - Users are able to place order for medal and physical certificate. (Competitor)
 - Users are able to view the uploaded receipt and certificate by admin.
 
-### Judge
+#### Judge
 - Users are able to manage their dashboard.
 - Users are able to check the evaluation form.
 - Users are able to navigate to the assigned competitor's booth.
@@ -29,7 +29,7 @@ To assist  organizations to reach global audiences by hosting online conferences
 - Enable demos or  pre-recorded video promo
 - Google map (contact us)
 
-### Virtual Event Lobby
+#### Virtual Event Lobby
 - Speaker page
 - Competition Hall
 - Sponsor Hall
