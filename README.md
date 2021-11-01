@@ -17,6 +17,12 @@ To assist  organizations to reach global audiences by hosting online conferences
 - Users are able to manage their dashboard.
 - Users are able to check the evaluation form.
 - Users are able to navigate to the assigned competitor's booth.
+- 
+### Virtual Event Lobby
+- Speaker page
+- Competition Hall
+- Sponsor Hall
+- Live event page
 
 #### Interactive Virtual Sessions (Virtual room)
 - Concurrent sessions, rooms and speakers
@@ -28,12 +34,6 @@ To assist  organizations to reach global audiences by hosting online conferences
 - Custom exhibitor profile with downloadable content
 - Enable demos or  pre-recorded video promo
 - Google map (contact us)
-
-#### Virtual Event Lobby
-- Speaker page
-- Competition Hall
-- Sponsor Hall
-- Live event page
 
 #### Extensive Admin Dashboard
 - Overview for all the accounts and user's basic info
