@@ -6,6 +6,7 @@ import Landing from './components/site/landingPage';
 import SignIn from './components/site/login/login';
 import SignUp from './components/site/signUp'
 import Payment_Success from './components/site/payment_success.js'
+import Pending from './components/site/pending'
 import Payment_Fail from './components/site/payment_fail.js'
 import UserDashboard from './components/site/userDashboard';
 import EditUserDetails from './components/site/userDashboard/edit';
@@ -83,6 +84,7 @@ function App() {
         <Route exact path='/report'  component={report}/>
         <Route exact path='/payment_success'  component={Payment_Success}/>
         <Route exact path='/payment_fail'  component={Payment_Fail}/>
+        <Route exact path='/pending'  component={Pending}/>
         <Route component={PageNotFound} />
         
       </Switch>

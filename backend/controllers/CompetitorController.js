@@ -192,9 +192,9 @@ const updatePayment = (req, res, next) => {
   console.log(req.body.competitor_id)
   var competitor_id = req.body.competitor_id
   var updateCompetitor = {}
-  updateCompetitor['bill_id'] = localStorage.getItem('bill_id')
-  updateCompetitor['bill_paid_at'] = localStorage.getItem('bill_paid_at')
-  updateCompetitor['bill_status'] = localStorage.getItem('bill_status')
+  // updateCompetitor['bill_id'] = localStorage.getItem('bill_id')
+  // updateCompetitor['bill_paid_at'] = localStorage.getItem('bill_paid_at')
+  updateCompetitor['bill_status'] = 'pending'
 
   Competitor.findByIdAndUpdate(req.body.competitor_id, updateCompetitor, (err, competitors) => {
     if (err) {
@@ -212,9 +212,8 @@ const pay = (req, res, next) => {
   var res_string = url.split('?');
   var queryString = res_string[1];
   const params = qs.parse(queryString)
-  //  console.log(params)
   const secret = process.env.BILLPLZ_SECRET
-  const return_url = process.env.REACT_APP_RETURN_URL
+  // const return_url = process.env.REACT_APP_RETURN_URL
   // do a validation
   const billplzId = "billplzid" + params['billplz[id]'];
   const billplzPaidAt = "billplzpaid_at" + params['billplz[paid_at]'];
@@ -231,7 +230,7 @@ const pay = (req, res, next) => {
     localStorage.setItem('bill_id', params['billplz[id]'])
     localStorage.setItem('bill_paid_at', params['billplz[paid_at]'])
     localStorage.setItem('bill_status', params['billplz[paid]'])
-    res.redirect('https://vexs.fsktm.um.edu.my/payment_success');
+    res.redirect('http://localhost:5000/payment_success');
   }
   else {
     res.redirect('https://vexs.fsktm.um.edu.my/payment_fail')

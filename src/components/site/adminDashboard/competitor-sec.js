@@ -64,10 +64,10 @@ function Competitor() {
           //   Header: 'Bookchapter First Purchase',
           //   accessor: 'first_purchase'
           // },
-          {
-            Header: 'Bill ID',
-            accessor: 'bill_id'
-          },          
+          // {
+          //   Header: 'Bill ID',
+          //   accessor: 'bill_id'
+          // },          
           {
             Header: 'Edit',
             Cell: data => (
