@@ -160,7 +160,12 @@ const update = (req, res, next)=>{
   if(req.body.certificate){
     updateSponsor['certificate'] = req.body.certificate;
   }
-
+  if (req.body.bill_status) {
+    updateSponsor['bill_status'] = req.body.bill_status;
+  }
+  if (req.body.bill_id) {
+    updateSponsor['bill_id'] = req.body.bill_id;
+  }
   Sponsor.findByIdAndUpdate(req.body._id, updateSponsor, (err, sponsors) => {
     if (err) {
       return res.status(400).json({ success: false, error: err, data:req.body })
