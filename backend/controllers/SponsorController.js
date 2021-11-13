@@ -5,9 +5,7 @@ const CryptoJS = require('crypto-js');
 require('dotenv').config();
 var LocalStorage = require('node-localstorage').LocalStorage,
 localStorage = new LocalStorage('./scratch');
-
 const create = (req, res, next)=>{
-
   const account_id = req.body.account_id;
   const category = req.body.category;
   const company_name = req.body.company_name;
@@ -25,7 +23,6 @@ const create = (req, res, next)=>{
   const receipt = req.body.receipt;
   const certificate = req.body.certificate;
   const bill_status = req.body.bill_status;
-
   const newSponsor = new Sponsor({
     account_id, 
     category,
@@ -45,12 +42,10 @@ const create = (req, res, next)=>{
     country,
     bill_status,
   });
-
   newSponsor.save()
   .then(() => res.json(newSponsor))
   .catch(err => res.status(400).json('Error: ' + err));
 };
-
 const read = (req, res, next)=>{
   var account_id = JSON.parse(req.query.account_id);
   Sponsor.findOne({account_id: ObjectId(account_id)}, (err, sponsors) => {
@@ -65,7 +60,6 @@ const read = (req, res, next)=>{
     return res.status(200).json({ success: true, data: sponsors })
   }).catch(err => console.log(err))
 };
-
 const readVIP = (req, res, next)=>{
   Sponsor.findOne({category: "VIP Package"}, {account_id: 1}, (err, sponsors) => {
     if (err) {
@@ -79,7 +73,6 @@ const readVIP = (req, res, next)=>{
     return res.status(200).json({ success: true, data: sponsors })
   }).catch(err => console.log(err))
 };
-
 const readAll = (req, res, next)=>{ 
   Sponsor.find({}, {
     poster: 0,
@@ -95,13 +88,8 @@ const readAll = (req, res, next)=>{
     return res.status(200).json({ success: true, data: sponsors })
   }).catch(err => console.log(err))
 };
-
-
-
 const update = (req, res, next)=>{
-
   var updateSponsor = {};
-
   if(req.body.company_name){
     updateSponsor['company_name'] = req.body.company_name;
   }
@@ -117,15 +105,12 @@ const update = (req, res, next)=>{
   if(req.body.address_1){
     updateSponsor['address_1'] = req.body.address_1;
   }
-
   if(req.body.address_2){
     updateSponsor['address_2'] = req.body.address_2;
   }
-
   if(req.body.postcode){
     updateSponsor['postcode'] = req.body.postcode;
   }
-
   if(req.body.city){
     updateSponsor['city'] = req.body.city;
   }
@@ -144,7 +129,6 @@ const update = (req, res, next)=>{
   if(req.body.poster){
     updateSponsor['poster'] = req.body.poster;
   }
-
   if(req.body.video){
     updateSponsor['video'] = req.body.video;
   }    
@@ -166,6 +150,7 @@ const update = (req, res, next)=>{
   if (req.body.bill_id) {
     updateSponsor['bill_id'] = req.body.bill_id;
   }
+
   Sponsor.findByIdAndUpdate(req.body._id, updateSponsor, (err, sponsors) => {
     if (err) {
       return res.status(400).json({ success: false, error: err, data:req.body })
@@ -175,9 +160,6 @@ const update = (req, res, next)=>{
     }
   }).catch(err => console.log(err))
 };
-
-
-
 const updatePayment = (req, res, next) => {
   console.log(req.body.sponsor_id)
   var sponsor_id = req.body.sponsor_id
@@ -185,10 +167,7 @@ const updatePayment = (req, res, next) => {
   updateSponsor['bill_id'] = localStorage.getItem('bill_id')
   updateSponsor['bill_paid_at'] = localStorage.getItem('bill_paid_at')
   updateSponsor['bill_status'] = localStorage.getItem('bill_status')
-
   Sponsor.findByIdAndUpdate(req.body.sponsor_id, updateSponsor, (err, sponsors) => {
-
-
     if (err) {
       return res.status(400).json({ success: false, error: err, data:req.body })
     }
@@ -196,11 +175,7 @@ const updatePayment = (req, res, next) => {
       return res.status(200).json({ success: true, data: req.body })
     }
   }).catch(err => console.log(err))
-
 }
-
-
-
 const pay = (req, res, next) => {
        // extract POST data from billplz
        var url = req.protocol + '://' + req.get('host') + req.originalUrl;
@@ -226,12 +201,10 @@ const pay = (req, res, next) => {
       localStorage.setItem('bill_id',params['billplz[id]'])
       localStorage.setItem('bill_paid_at',params['billplz[paid_at]'])
       localStorage.setItem('bill_status', params['billplz[paid]'])
-      res.redirect('https://vexs.fsktm.um.edu.my/payment_success');
+      res.redirect('https://vexsdev.fsktm.um.edu.my/payment_success');
     }
     else{
-      res.redirect('https://vexs.fsktm.um.edu.my/payment_fail')
+      res.redirect('https://vexsdev.fsktm.um.edu.my/payment_fail')
     }
   }
-
   module.exports = {create, read, readVIP, readAll, update, updatePayment, pay}
-

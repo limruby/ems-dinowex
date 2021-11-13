@@ -10,14 +10,14 @@ COPY package-lock.json ./
 # RUN npm ci --silent
 RUN apk update && apk upgrade && apk add --no-cache bash git
 RUN npm install
-RUN npm install react-scripts -g --silent
+RUN npm install react-scripts@3.4.1 -g --silent
 COPY . ./
 RUN npm run build
 
 # production environment
 FROM nginx:stable-alpine
 COPY --from=build /app/build /usr/share/nginx/html
-EXPOSE 80
+EXPOSE 
 CMD ["nginx", "-g", "daemon off;"]
 
 # production environment

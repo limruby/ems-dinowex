@@ -6,50 +6,65 @@ services:
     restart: always
     networks:
       - server
-    # ports:
-    #   - 27017:27017 # unsecure port, might not be needed as secure port 2096 is accessible
+    ports:
+      - 10117:27017 # local access
     environment:
-      MONGO_INITDB_ROOT_USERNAME: user
-      MONGO_INITDB_ROOT_PASSWORD: pass
+      MONGO_INITDB_ROOT_USERNAME: ${DB_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${DB_PASSWORD}
     volumes:
       - ./mongo-volume:/data/db
       - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo-js:ro
-    # labels:
-    #   - traefik.enable=true
-    #   - traefik.backend=mongodb
-    #   - traefik.tcp.routers.mongodb.rule=HostSNI(`url.for.db.domain`)
-    #   - traefik.docker.network=server
-    #   - traefik.tcp.routers.mongodb.entrypoints=mongo #mongo
-    #   - traefik.tcp.routers.mongodb.service=mongodb
-    #   - traefik.tcp.services.mongodb.loadbalancer.server.port=27017
     container_name: mongodb_prod
   
-  backend_prod:
+  vexs_backend_prod:
     # build: .
     depends_on:
       - mongodb_prod
-    image: vexsdev/backend
+    image: vexs/backend_prod
     restart: always
     environment:
-        ATLAS_URI: mongodb://user:pass@mongodb_prod:27017/db?authSource=admin&readPreference=primary
-        JSONWTK: h98asblj23hfjka
+        ATLAS_URI: mongodb://${DB_USERNAME}:${DB_PASSWORD}@mongodb_prod:27017/db?authSource=admin&readPreference=primary
+        JSONWTK: ${JSONWTK}
     networks:
       - server
-    # ports:
-    #   - 5000:5000
     labels:
       - traefik.enable=true
       - traefik.docker.network=server
 
       - traefik.http.services.vexs_backend_prod.loadbalancer.server.port=5000
       - traefik.http.routers.vexs_backend_prod.service=vexs_backend_prod
-      - traefik.http.routers.vexs_backend_prod.rule=Host(`vexs.fsktm.um.edu.my`) && PathPrefix(`/api/`)
+      # - traefik.http.routers.vexs_backend_prod.rule=Host(`vexs.fsktm.um.edu.my`) && PathPrefix(`/api/`)
+      - traefik.http.routers.vexs_backend_prod.rule=Host(`vexs.fsktm.um.edu.my`)
       - traefik.http.routers.vexs_backend_prod.entrypoints=https
       - traefik.http.routers.vexs_backend_prod.tls.certresolver=mytlschallenge
-      - traefik.http.routers.vexs_backend_prod-unsecured.service=vexs_backend_prod
-      - traefik.http.routers.vexs_backend_prod-unsecured.rule=Host(`vexs.fsktm.um.edu.my`) && PathPrefix(`/api/`)
-      - traefik.http.routers.vexs_backend_prod-unsecured.entrypoints=http
-    container_name: backend_prod
+      ### Not Secure ###
+      # - traefik.http.routers.vexs_backend_prod-unsecured.service=vexs_backend_prod
+      # - traefik.http.routers.vexs_backend_prod-unsecured.rule=Host(`vexs.fsktm.um.edu.my`) && PathPrefix(`/api/`)
+      # - traefik.http.routers.vexs_backend_prod-unsecured.rule=Host(`vexs.fsktm.um.edu.my`)
+      # - traefik.http.routers.vexs_backend_prod-unsecured.entrypoints=http
+      # - traefik.http.routers.vexs_backend_prod-unsecured.middlewares=redirect@file # uncomment to enable ssl when 443 is ready
+    container_name: vexs_backend_prod
+  
+  vexs_backend_prod_insecure:
+    # build: .
+    depends_on:
+      - mongodb_prod
+    image: vexs/backend_prod_insecure
+    restart: always
+    environment:
+        ATLAS_URI: mongodb://${DB_USERNAME}:${DB_PASSWORD}@mongodb_prod:27017/db?authSource=admin&readPreference=primary
+        JSONWTK: ${JSONWTK}
+    networks:
+      - server
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=server
+
+      - traefik.http.services.vexs_backend_prod_insecure.loadbalancer.server.port=5000
+      - traefik.http.routers.vexs_backend_prod_insecure.service=vexs_backend_prod_insecure
+      - traefik.http.routers.vexs_backend_prod_insecure.rule=Host(`vexs.fsktm.um.edu.my`)
+      - traefik.http.routers.vexs_backend_prod_insecure.entrypoints=http
+    container_name: vexs_backend_prod_insecure
 
 networks:
   server:
