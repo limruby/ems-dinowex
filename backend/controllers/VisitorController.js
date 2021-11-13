@@ -106,6 +106,12 @@ const update = (req, res, next) => {
   if (req.body.certificate) {
     updateVisitor['certificate'] = req.body.certificate;
   }
+  if (req.body.bill_status) {
+    updateVisitor['bill_status'] = req.body.bill_status;
+  }
+  if (req.body.bill_id) {
+    updateVisitor['bill_id'] = req.body.bill_id;
+  }
   Visitor.findByIdAndUpdate(req.body._id, updateVisitor, (err, visitors) => {
     if (err) {
       return res.status(400).json({ success: false, error: err, data: req.body })

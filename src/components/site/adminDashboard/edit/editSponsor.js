@@ -12,6 +12,8 @@ function EditProfile() {
         company_pic_name:'',
         company_contact:'',
         category:'',
+        bill_status: '',
+        bill_id:'',
         amount:'',
     });
     const location = useLocation();
@@ -52,7 +54,9 @@ else{
                  company_pic_name : data.company_pic_name,
                  company_contact : data.company_contact,
                  category: data.category,
-                 amount: data.amount,                 
+                 amount: data.amount, 
+                 bill_status: data.bill_status,
+                 bill_id: data.bill_id,                
              }
 
              axiosInstance.post("/api/sponsors/update", postData)
@@ -111,7 +115,23 @@ return(
                     placeholder='Contact Number' required
                     onChange={inputChange('company_contact')} value={data.company_contact} 
                     />
-                </div>              
+                </div> 
+                <div className="form-group">
+                        <label htmlFor="bill_status">Payment Verify</label>
+                        <select className="form-control" id="bill_status" 
+                            onChange={inputChange('bill_status')} value={data.bill_status} >
+                            <option value="">Please select</option>
+                            <option value="false">Payment Fail</option>
+                            <option value="pending">Pending</option>
+                            <option value="true">Payment Success</option>
+                        </select>
+                    </div>
+                    <div className="form-group">
+                    <label htmlFor="name">Bill ID</label>
+                    <input type="text" className="form-control" name="bill_id" id="bill_id"
+                    placeholder='Bill ID'                     
+                    onChange={inputChange('bill_id')} value={data.bill_id} />
+                </div>             
 
                 <br />
                <div className="btn-group">

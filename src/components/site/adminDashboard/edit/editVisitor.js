@@ -11,6 +11,8 @@ function EditProfile() {
         nric_passport_selection: '',
         nric_passport_no: '',
         contact: '',
+        bill_status: '',
+        bill_id:'',
     });
 
     const location = useLocation();
@@ -54,7 +56,9 @@ function EditProfile() {
                 name: data.name,
                 contact: data.contact,
                 nric_passport_selection: data.nric_passport_selection,
-                nric_passport_no: data.nric_passport_no,
+                nric_passport_no: data.nric_passport_no,  
+                bill_status: data.bill_status,
+                bill_id: data.bill_id,
             }
             axiosInstance.post("/api/visitors/update", postData)
                 .then(function (response) {
@@ -87,6 +91,22 @@ function EditProfile() {
                             placeholder='Phone Number (Without dash)' required pattern='[0-9]{10,20}'
                             onChange={inputChange('contact')} value={data.contact}
                         />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="bill_status">Payment Verify</label>
+                        <select className="form-control" id="bill_status" 
+                            onChange={inputChange('bill_status')} value={data.bill_status} >
+                            <option value="">Please select</option>
+                            <option value="false">Payment Fail</option>
+                            <option value="pending">Pending</option>
+                            <option value="true">Payment Success</option>
+                        </select>
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="name">Bill ID</label>
+                        <input type="text" className="form-control" name="bill_id" id="bill_id"
+                        placeholder='Bill ID'                    
+                        onChange={inputChange('bill_id')} value={data.bill_id} />
                     </div>
                     <br />
                     <div className="btn-group">

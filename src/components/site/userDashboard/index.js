@@ -16,7 +16,7 @@ import PdfAbstract from './pdf-abstract-bookChapter';
 import Preview from './preview-sec'; import 'bootstrap/dist/css/bootstrap.min.css';
 import { Tab, Nav, Row, Col, Card } from "react-bootstrap";
 import { FaEdit, FaCertificate, FaBook, FaRegBookmark, FaReceipt, FaMedal } from 'react-icons/fa';
-import { BsPeopleCircle, BsFiles} from "react-icons/bs";
+import { BsPeople, BsFiles} from "react-icons/bs";
 import Loader from './../../site/Loader';
 function UserDashboard() {  ////////////////////get login user info (REPLACE THIS)  /////////////////////
   const [user, setUser] = useState([]);
@@ -101,7 +101,7 @@ function UserDashboard() {  ////////////////////get login user info (REPLACE THI
         return (
           <Nav variant="pills" className="flex-column">
             <Nav.Item>
-              <Nav.Link eventKey="Account-Profiles"><BsPeopleCircle size={20} /> Company Profiles</Nav.Link>
+              <Nav.Link eventKey="Account-Profiles"><BsPeople size={20} /> Company Profiles</Nav.Link>
             </Nav.Item>
             <Nav.Item>
               <Nav.Link eventKey="Promo-Content"><BsFiles size={20} /> Promotional Content</Nav.Link>
@@ -118,7 +118,7 @@ function UserDashboard() {  ////////////////////get login user info (REPLACE THI
         return (
           <Nav variant="pills" className="flex-column">
             <Nav.Item>
-              <Nav.Link eventKey="Account-Profiles"><BsPeopleCircle size={20} /> Profiles</Nav.Link>
+              <Nav.Link eventKey="Account-Profiles"><BsPeople size={20} /> Profiles</Nav.Link>
             </Nav.Item>
             <Nav.Item>
               <Nav.Link eventKey="Competition-Material"><BsFiles size={20} /> Competition Material</Nav.Link>
@@ -144,7 +144,7 @@ function UserDashboard() {  ////////////////////get login user info (REPLACE THI
         return (
           <Nav variant="pills" className="flex-column">
             <Nav.Item>
-              <Nav.Link eventKey="Account-Profiles"><BsPeopleCircle size={20} /> Profiles</Nav.Link>
+              <Nav.Link eventKey="Account-Profiles"><BsPeople size={20} /> Profiles</Nav.Link>
             </Nav.Item>
             <Nav.Item>
               <Nav.Link eventKey="Receipt"><FaReceipt size={20} /> Receipt</Nav.Link>
@@ -158,7 +158,7 @@ function UserDashboard() {  ////////////////////get login user info (REPLACE THI
         return (
           <Nav variant="pills" className="flex-column">
             <Nav.Item>
-              <Nav.Link eventKey="Account-Profiles"><BsPeopleCircle size={20} /> Profiles</Nav.Link>
+              <Nav.Link eventKey="Account-Profiles"><BsPeople size={20} /> Profiles</Nav.Link>
             </Nav.Item>
             <Nav.Item>
               <Nav.Link eventKey="Evaluation-Table"><FaBook size={20} /> Evaluation Table</Nav.Link>
