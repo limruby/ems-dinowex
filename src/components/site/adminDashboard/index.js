@@ -1,7 +1,7 @@
 import React from 'react';
 import { Tab, Nav, Row, Col, Card } from "react-bootstrap";
 import { FaCertificate, FaMedal, FaMarker, FaLink, FaMicrophone, FaUser } from 'react-icons/fa';
-import { BsPeopleCircle, BsFiles } from "react-icons/bs";
+import { BsPeopleFill, BsFiles } from "react-icons/bs";
 
 import Account from './account';
 import Competitor from './competitor-sec';
@@ -22,7 +22,7 @@ function AdminDashboard() {
 		return (
 			<Nav variant="pills" className="flex-column">
 				<Nav.Item>
-					<Nav.Link eventKey="Account"><BsPeopleCircle size={20} /> Account </Nav.Link>
+					<Nav.Link eventKey="Account"><BsPeopleFill size={20} /> Account </Nav.Link>
 				</Nav.Item>
 				<Nav.Item>
 					<Nav.Link eventKey="Competitor"><BsFiles size={20} /> Competitor</Nav.Link>

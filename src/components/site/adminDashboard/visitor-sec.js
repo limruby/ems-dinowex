@@ -54,6 +54,10 @@ function Visitor() {
                         accessor: 'contact',
                     },
                     {
+                        Header: 'Payment Status',
+                        accessor: 'bill_status',
+                      },
+                    {
                         Header: 'Bill ID',
                         accessor: 'bill_id'
                     },
@@ -90,6 +94,7 @@ function Visitor() {
     )
     return (
         <div className="App" id="visitor">
+            {loading ? <Loader /> : null}
             <Table columns={columns} data={data} />
             <CSVLink {...csvReport}>
                 <button className="btn btn-success" >Export to CSV</button></CSVLink>

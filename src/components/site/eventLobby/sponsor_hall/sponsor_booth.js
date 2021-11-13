@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axiosInstance from '../../../../utils/axiosConfig';
 import { useLocation } from "react-router-dom";
-import { BsPeopleCircle } from "react-icons/bs";
+import { BsPeople } from "react-icons/bs";
 import EmblaCarousel from './EmblaCarousel';
 import { useHistory } from "react-router-dom";
 import { FaArrowCircleLeft } from 'react-icons/fa';
@@ -188,7 +188,7 @@ function Sponsor_booth() {
         section.push(
           <div>
             <div className="row">
-              <b className="forum-name col-xl-8"><BsPeopleCircle className="forum-avatar"></BsPeopleCircle> {forum[i].name}</b>
+              <b className="forum-name col-xl-8"><BsPeople className="forum-avatar"></BsPeople> {forum[i].name}</b>
               <p className="col-xl-4">{forum[i].comment_date}</p>
             </div>
             <p className="forum-comment">{forum[i].comment}</p>
@@ -199,7 +199,7 @@ function Sponsor_booth() {
         section.push(
           <div style={{ color: 'blue' }}>
             <div className="row">
-              <b className="forum-name col-xl-8"><BsPeopleCircle className="forum-avatar"></BsPeopleCircle> {forum[i].name} ({forum[i].role}) </b>
+              <b className="forum-name col-xl-8"><BsPeople className="forum-avatar"></BsPeople> {forum[i].name} ({forum[i].role}) </b>
               <p className="col-xl-4">{forum[i].comment_date}</p>
             </div>
             <p className="forum-comment">{forum[i].comment}</p>
@@ -210,7 +210,7 @@ function Sponsor_booth() {
         section.push(
           <div style={{ color: '#7e7ebc' }}>
             <div className="row">
-              <b className="forum-name col-xl-8"><BsPeopleCircle className="forum-avatar"></BsPeopleCircle> {forum[i].name} ({forum[i].role}) </b>
+              <b className="forum-name col-xl-8"><BsPeople className="forum-avatar"></BsPeople> {forum[i].name} ({forum[i].role}) </b>
               <p className="col-xl-4">{forum[i].comment_date}</p>
             </div>
             <p className="forum-comment">{forum[i].comment}</p>
@@ -221,7 +221,7 @@ function Sponsor_booth() {
         section.push(
           <div style={{ color: 'black' }}>
             <div className="row">
-              <b className="forum-name col-xl-8"><BsPeopleCircle className="forum-avatar"></BsPeopleCircle> {forum[i].role}</b>
+              <b className="forum-name col-xl-8"><BsPeople className="forum-avatar"></BsPeople> {forum[i].role}</b>
               <p className="col-xl-4">{forum[i].comment_date}</p>
             </div>
             <p className="forum-comment">{forum[i].comment}</p>
@@ -232,7 +232,7 @@ function Sponsor_booth() {
         section.push(
           <div style={{ color: 'red' }}>
             <div className="row">
-              <b className="forum-name col-xl-8"><BsPeopleCircle className="forum-avatar"></BsPeopleCircle> {forum[i].name} (Booth Owner) </b>
+              <b className="forum-name col-xl-8"><BsPeople className="forum-avatar"></BsPeople> {forum[i].name} (Booth Owner) </b>
               <p className="col-xl-4">{forum[i].comment_date}</p>
             </div>
             <p className="forum-comment">{forum[i].comment}</p>
@@ -243,7 +243,7 @@ function Sponsor_booth() {
         section.push(
           <div style={{ color: '#f7b13e' }}>
             <div className="row">
-              <b className="forum-name col-xl-8"><BsPeopleCircle className="forum-avatar"></BsPeopleCircle> {forum[i].name} ({forum[i].role}) </b>
+              <b className="forum-name col-xl-8"><BsPeople className="forum-avatar"></BsPeople> {forum[i].name} ({forum[i].role}) </b>
               <p className="col-xl-4">{forum[i].comment_date}</p>
             </div>
             <p className="forum-comment">{forum[i].comment}</p>

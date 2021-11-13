@@ -13,13 +13,15 @@ function EditProfile() {
         address:'',
         gender:'',
         category:'',
+        bill_status: '',
+        bill_id:'',
         first_purchase:'',
     });
     const location = useLocation();
     const thePath = location.pathname;
     const user_id = thePath.substring(thePath.indexOf('/', 2) + 1, thePath.lastIndexOf('/'));
     const string = '"'+ user_id +'"'
-    
+ 
     useEffect(() => {
         setLoading(true);
         axiosInstance.get("/api/competitors/read", {params:{account_id:string}})
@@ -29,7 +31,7 @@ function EditProfile() {
         }).catch(function(error) {
           console.log(error); })
     }, [string])
-       
+ 
     function displayInput(){
         var section=[];
         if(data.nric_passport_selection==="NRIC"){
@@ -59,7 +61,7 @@ function EditProfile() {
         }
         return section;
     }
-    
+ 
     const inputChange = input => e => {
         setData({
             ...data,
@@ -88,6 +90,8 @@ function EditProfile() {
                 address : data.address,
                 gender : data.gender,
                 category: data.category,  
+                bill_status: data.bill_status,
+                bill_id: data.bill_id,
                 first_purchase: data.first_purchase             
             }
             axiosInstance.post("/api/competitors/update", postData)
@@ -141,6 +145,22 @@ function EditProfile() {
                     </select>
                     <br/>
                     {displayInput()}
+                </div>
+                <div className="form-group">
+                        <label htmlFor="bill_status">Payment Verify</label>
+                        <select className="form-control" id="bill_status" 
+                            onChange={inputChange('bill_status')} value={data.bill_status} >
+                            <option value="">Please select</option>
+                            <option value="false">Payment Fail</option>
+                            <option value="pending">Pending</option>
+                            <option value="true">Payment Success</option>
+                        </select>
+                    </div>
+                    <div className="form-group">
+                    <label htmlFor="name">Bill ID</label>
+                    <input type="text" className="form-control" name="bill_id" id="bill_id"
+                    placeholder='Bill ID'                     
+                    onChange={inputChange('bill_id')} value={data.bill_id} />
                 </div>
                 {/* <div className="form-group">
                         <label htmlFor="first_purchase"><span>*</span>Bookchapter First Purchase<span> True:RM150, False:RM70</span></label>
