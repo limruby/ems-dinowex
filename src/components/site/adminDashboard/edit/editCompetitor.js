@@ -13,8 +13,6 @@ function EditProfile() {
         address:'',
         gender:'',
         category:'',
-        bill_status: '',
-        bill_id:'',
         first_purchase:'',
     });
     const location = useLocation();
@@ -90,8 +88,6 @@ function EditProfile() {
                 address : data.address,
                 gender : data.gender,
                 category: data.category,  
-                bill_status: data.bill_status,
-                bill_id: data.bill_id,
                 first_purchase: data.first_purchase             
             }
             axiosInstance.post("/api/competitors/update", postData)
@@ -145,22 +141,6 @@ function EditProfile() {
                     </select>
                     <br/>
                     {displayInput()}
-                </div>
-                <div className="form-group">
-                        <label htmlFor="bill_status"><span>*</span>Payment Verify</label>
-                        <select className="form-control" id="bill_status" required
-                            onChange={inputChange('bill_status')} value={data.bill_status} >
-                            <option value="">Please select</option>
-                            <option value="fail">Payment Fail</option>
-                            <option value="pending">Pending</option>
-                            <option value="success">Payment Success</option>
-                        </select>
-                    </div>
-                    <div className="form-group">
-                    <label htmlFor="name"><span>*</span>Bill ID</label>
-                    <input type="text" className="form-control" name="bill_id" id="bill_id"
-                    placeholder='Bill ID' required                    
-                    onChange={inputChange('bill_id')} value={data.bill_id} />
                 </div>
                 {/* <div className="form-group">
                         <label htmlFor="first_purchase"><span>*</span>Bookchapter First Purchase<span> True:RM150, False:RM70</span></label>

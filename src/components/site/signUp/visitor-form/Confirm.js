@@ -3,13 +3,16 @@ import React, { Component } from 'react';
 import axiosInstance from '../../../../utils/axiosConfig.js';
 import Loader from './../../../site/Loader';
 require('dotenv').config();
+
 export class Confirm extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
           loading: false
         };
       }
+
     continue = async (e) => {
         e.preventDefault();
         this.setState({loading:true})
@@ -32,6 +35,7 @@ export class Confirm extends Component {
                 state,
                 country,}
             } = this.props;
+
             var data = {
                 role:"Visitor",
                 email: email,
@@ -51,14 +55,18 @@ export class Confirm extends Component {
             var url=`${process.env.REACT_APP_BILLPLZ_VISITOR}`
             
             var account_id="";
+
             axiosInstance.post('/api/accounts/signUp', data)
             .then(res=> {
+
+
                 if(res.data._id){
                     this.account_id = res.data._id;
                     data["account_id"] = this.account_id;
                     axiosInstance.post('/api/visitors/create', data)
                     .then(res=>{
                     //save user_ID to localstorage
+
                     localStorage.setItem('visitor_id', JSON.stringify(res.data._id));                     
                     window.open(url,"_self")
                     this.setState({loading:false})
@@ -68,14 +76,22 @@ export class Confirm extends Component {
                 else{
                     alert('Email existed')
                 }
+
             });
+
+
         };
+
         back = e => {
             e.preventDefault();
             this.props.prevStep();
         };
+
     render() {
         const { values, inputChange } = this.props;        
+
+
+
         var full_address = 
             values.address_1 + "," +
             values.address_2 + "," +
@@ -83,11 +99,13 @@ export class Confirm extends Component {
             values.city + "," +
             values.state+ "," +
             values.country
+
         return (
             <section className="section-container" style={{marginBottom:"5%"}}>
                 {this.state.loading ? <Loader /> : null}
             <div className="form-container" >
                 <h1>Confirmation</h1>
+
                 <ul class="list-group">
                     <li class="list-group-item">Name: {values.name}</li>
                     <li class="list-group-item">Email: {values.email}</li>
@@ -96,7 +114,10 @@ export class Confirm extends Component {
                     <li class="list-group-item">Address:{full_address} </li>
                     <li class="list-group-item">Gender: {values.gender}</li>                    
                 </ul>
+
+
                 <br /><br />
+
                 <div className="row">
                     <div className="col-6">
                         <button className="btn btn-danger" onClick={this.back}>Back</button>
@@ -110,4 +131,5 @@ export class Confirm extends Component {
         )
     }
 }
+
 export default Confirm

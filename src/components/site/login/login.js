@@ -25,23 +25,17 @@ function Login() {
                         window.location.href = '/admin_dashboard';
                     }
                     else if (res.data.result.role === "Competitor") {
-                       
                         var account_id = JSON.stringify(res.data.result._id)
                         axiosInstance.get("/api/competitors/read", { params: { account_id: account_id } })
                             .then(function (response) {
                                 localStorage.setItem('name', response.data.data.name);
-                               
                                 if (response.data.data.bill_status === "true") {
                                     localStorage.setItem('token', res.data.token);
                                     localStorage.setItem('user_id', JSON.stringify(res.data.result._id));
                                     setLoading(false);
                                     window.location.href = '/user_dashboard';
                                 }
-                                else if (response.data.data.bill_status === "pending") {
-                                    window.location.href = '/pending';
-                                }
                                 else {
-                                    console.log(res.data.data.bill_status)
                                     localStorage.setItem("competitor_id", JSON.stringify(response.data.data._id));
                                     var url = ""
                                     if (response.data.data.category === "Professional Innovator") {
