@@ -156,6 +156,12 @@ const update = (req, res, next) => {
   }
   if (req.body.first_purchase) {
     updateCompetitor['first_purchase'] = req.body.first_purchase;
+  } 
+  if (req.body.bill_status) {
+    updateCompetitor['bill_status'] = req.body.bill_status;
+  }
+  if (req.body.bill_id) {
+    updateCompetitor['bill_id'] = req.body.bill_id;
   }
 
 
