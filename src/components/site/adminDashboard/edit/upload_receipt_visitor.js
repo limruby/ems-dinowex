@@ -104,7 +104,7 @@ function UploadReceipt() {
                 var stringLength = file.length;
                 var result = parseFloat(4 * Math.ceil(stringLength / 3))
                 //Limit File Size
-                if (result > 1048576) {
+                if (result > 1853532) {
                     alert("File size must under 1MiB!");
                     return;
                 } else {
@@ -136,7 +136,7 @@ function UploadReceipt() {
                 var stringLength = file.length;
                 var result = parseFloat(4 * Math.ceil(stringLength / 3))
                 //Limit File Size
-                if (result > 1048576) {
+                if (result > 1853532) {
                     alert("File size must under 1MiB!");
                     return;
                 } else {
